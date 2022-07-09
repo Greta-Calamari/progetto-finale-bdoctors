@@ -13,8 +13,8 @@ class DoctorController extends Controller
         "name" => "required|string|max:50",
         "surname" => "required|string|max:50",
         "address" => "required|string",
-        "photo" => "required|mimes:jpeg,bmp,png,svg,jpg,webp|max:2048",
-        "curriculum_vitae" => "required|string|mimes:pdf,doc,odt,csv",
+        "photo" => "required|mimes:jpeg,bmp,png,svg,jpg,webp",
+        "curriculum_vitae" => "required|mimes:pdf,doc,odt,csv",
         "cell_number" => "required|string|max:20",
         "services" => "required|text",
     ];
@@ -48,6 +48,7 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->validationRule);
         $data = $request->all();
 
         $newDoctor = new Doctor();
@@ -58,6 +59,8 @@ class DoctorController extends Controller
         $newDoctor->curriculum_vitae = $data['curriculum_vitae'];
         $newDoctor->cell_number = $data['cell_number'];
         $newDoctor->services = $data['services'];
+        $currentUser = Auth::user();
+        $newDoctor->user_id = $currentUser->id;
 
         $newDoctor->save();
 
@@ -101,6 +104,7 @@ class DoctorController extends Controller
      */
     public function update(Request $request, Doctor $doctor)
     {
+        $request->validate($this->validationRule);
         $data = $request->all();
 
         $doctor->update();

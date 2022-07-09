@@ -23,6 +23,7 @@ class DoctorsTableSeeder extends Seeder
             $newDoctor->curriculum_vitae = $doctor['curriculum_vitae'];
             $newDoctor->cell_number = $doctor['cell_number'];
             $newDoctor->services = $doctor['services'];
+            $newDoctor->user_id = $doctor['user_id'];
 
             $newDoctor->save();
 
