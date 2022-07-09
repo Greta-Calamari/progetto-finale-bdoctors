@@ -49551,7 +49551,11 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /home/giulia/Scaricati/Progetto Finale/progetto-finale-bdoctors-1/resources/js/front.js */"./resources/js/front.js");
+=======
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\lezioni-php\progetto-finale\progetto-finale-bdoctors\resources\js\front.js */"./resources/js/front.js");
+>>>>>>> 86b32926f9e6ed53475ac99b902f779a0a072911
 
 
 /***/ })
