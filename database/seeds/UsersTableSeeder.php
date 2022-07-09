@@ -13,8 +13,8 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $users = config('doctors');
-        $newUser = new User();
         foreach($users as $user){
+            $newUser = new User();
             $newUser->name =$user['name'];
             $newUser->email =$user['email'];
             $newUser->password =$user['password'];
