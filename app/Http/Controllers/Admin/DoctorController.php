@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Doctor;
 
 class DoctorController extends Controller
@@ -13,10 +14,10 @@ class DoctorController extends Controller
         "name" => "required|string|max:50",
         "surname" => "required|string|max:50",
         "address" => "required|string",
-        "photo" => "required|mimes:jpeg,bmp,png,svg,jpg,webp",
-        "curriculum_vitae" => "required|mimes:pdf,doc,odt,csv",
+        "photo" => "mimes:jpeg,bmp,png,svg,jpg,webp",
+        "curriculum_vitae" => "mimes:pdf",
         "cell_number" => "required|string|max:20",
-        "services" => "required|text",
+        "services" => "text",
     ];
     /**
      * Display a listing of the resource.
@@ -55,10 +56,20 @@ class DoctorController extends Controller
         $newDoctor->name = $data['name'];
         $newDoctor->surname = $data['surname'];
         $newDoctor->address = $data['address'];
-        $newDoctor->photo = $data['photo'];
+        //upload photo
+        if(isset($data['photo'])){
+            $path_image = Storage::put('uploads', $data['photo']);
+            $newDoctor->photo = $path_image;
+        }
+        //upload curriculum
+        if(isset($data['curriculum_vitae'])){
+            $path_file = Storage::put('uploads', $data['curriculum_vitae']);
+            $newDoctor->photo = $path_file;
+        }
         $newDoctor->curriculum_vitae = $data['curriculum_vitae'];
         $newDoctor->cell_number = $data['cell_number'];
         $newDoctor->services = $data['services'];
+        //id user
         $currentUser = Auth::user();
         $newDoctor->user_id = $currentUser->id;
 

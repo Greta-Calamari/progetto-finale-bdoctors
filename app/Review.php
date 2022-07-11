@@ -8,10 +8,8 @@ class Review extends Model
 {
     protected $guarded = [];
 
-
-
-    public function doctors(){
-        return $this->belongsToMany('App\Doctor');
+    public function doctor(){
+        return $this->belongsTo('App\Doctor');
     }
 }
 
