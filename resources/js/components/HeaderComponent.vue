@@ -74,7 +74,9 @@ export default {
     color: black;
 }
 .img {
-    height: 70px;
     width: 150px;
+}
+.navbar-brand {
+    padding-top: 26px;
 }
 </style>
