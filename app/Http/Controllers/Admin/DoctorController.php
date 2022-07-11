@@ -7,17 +7,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Doctor;
+use App\Specialization;
 
 class DoctorController extends Controller
 {
     protected $validationRule = [
         "name" => "required|string|max:50",
         "surname" => "required|string|max:50",
-        "address" => "required|string",
+        "address" => "required|string|max:255",
         "photo" => "mimes:jpeg,bmp,png,svg,jpg,webp",
         "curriculum_vitae" => "mimes:pdf",
         "cell_number" => "required|string|max:20",
-        "services" => "text",
+        "services" => "max:1500",
     ];
     /**
      * Display a listing of the resource.
@@ -38,7 +39,8 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        return view('admin.doctors.create');
+        $specializations = Specialization::all();
+        return view('admin.doctors.create', compact('specializations'));
     }
 
     /**
@@ -64,17 +66,22 @@ class DoctorController extends Controller
         //upload curriculum
         if(isset($data['curriculum_vitae'])){
             $path_file = Storage::put('uploads', $data['curriculum_vitae']);
-            $newDoctor->photo = $path_file;
+            $newDoctor->curriculum_vitae = $path_file;
         }
-        $newDoctor->curriculum_vitae = $data['curriculum_vitae'];
         $newDoctor->cell_number = $data['cell_number'];
-        $newDoctor->services = $data['services'];
+        if(isset($data['services'])){
+            $newDoctor->services = $data['services'];
+        }
         //id user
         $currentUser = Auth::user();
         $newDoctor->user_id = $currentUser->id;
 
         $newDoctor->save();
 
+        //specializations
+        if(isset($data['specializations'])){
+            $newDoctor->specializations()->sync($data['specializations']);        
+        }
         return redirect()->route('admin.doctors.show', $newDoctor->id);
 
     }
@@ -103,7 +110,8 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-        return view('admin.doctors.edit', compact('doctor'));
+        $specializations = Specialization::all();
+        return view('admin.doctors.edit', compact('doctor'), compact('specializations'));
     }
 
     /**
@@ -118,8 +126,35 @@ class DoctorController extends Controller
         $request->validate($this->validationRule);
         $data = $request->all();
 
-        $doctor->update();
+        $doctor->name = $data['name'];
+        $doctor->surname = $data['surname'];
+        $doctor->address = $data['address'];
+        //upload photo
+        if(isset($data['photo'])){
+            Storage::delete('uploads', $doctor->photo);
+            $path_image = Storage::put('uploads', $data['photo']);
+            $doctor->photo = $path_image;
+        }
+        //upload curriculum
+        if(isset($data['curriculum_vitae'])){
+            Storage::delete('uploads', $doctor->curriculum_vitae);
+            $path_file = Storage::put('uploads', $data['curriculum_vitae']);
+            $doctor->curriculum_vitae = $path_file;
+        }
+        $doctor->cell_number = $data['cell_number'];
 
+        if(isset($data['services'])){
+            $doctor->services = $data['services'];
+        }
+
+        $doctor->save();
+
+        //specializations
+        if(isset($data['specializations'])){
+            $doctor->specializations()->sync($data['specializations']);        
+        }else{
+            $doctor->specializations()->sync([]);        
+        }
         return redirect()->route('admin.doctors.show', $doctor->id);
     }
 
