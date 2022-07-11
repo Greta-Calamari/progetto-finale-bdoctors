@@ -22,4 +22,8 @@ class Doctor extends Model
     }
     
 
+    
+    public function reviews(){
+        return $this->belongsToMany('App\Review');
+    }
 }
