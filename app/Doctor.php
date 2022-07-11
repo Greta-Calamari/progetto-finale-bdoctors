@@ -14,28 +14,20 @@ class Doctor extends Model
         return $this->belongsTo('App\User');
     }
 
-
     public function specializations()
     {
         return $this->belongsToMany('App\Specialization');
-
-    public function user(){
-        return $this->belongsTo('App\User');
     }
 
     public function messages(){
         return $this->hasMany('App\Messages');
     }
 
-
     public function sponsors(){
         return $this->belongsToMany('App\Sponsor');
     }
     
-
-    
     public function reviews(){
-        return $this->belongsToMany('App\Review');
-
+        return $this->hasMany('App\Review');
     }
 }

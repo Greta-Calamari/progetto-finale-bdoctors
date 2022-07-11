@@ -15,7 +15,7 @@ class MessagesTableSeeder extends Seeder
     {
         for($i = 0; $i < 20; $i++){
             $newMessage = new Message();
-            $newMessage->message_id = $faker->numberBetween(1, 10);
+            $newMessage->doctor_id = $faker->numberBetween(1, 10);
             $newMessage->content = $faker->text();
             $newMessage->email = $faker->email();
             $newMessage->name = $faker->name($gender = null);

@@ -11,25 +11,16 @@ class ReviewsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        for($i=0; $i<10; $i++){
+        for($i=0; $i<20; $i++){
         
             $newReview = new Review();
-            $newReview->name= $faker->name($gender,null);
+            $newReview->name= $faker->name($gender = null);
             $newReview->comment= $faker->paragraph(10,true);
             $newReview->votes = $faker->numberBetween(1,5);
             $newReview->doctor_id = $faker->numberBetween(1,10);
-
-
-            // $newReview->slug= Str::of($newReview->name)->slug('-');
-            
             $newReview->save();
-
-            
-            
         }
-        
-
     }
 }
