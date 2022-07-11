@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Doctor extends Model
+class Specialization extends Model
 {
     protected $guarded = [];
 
@@ -13,9 +13,8 @@ class Doctor extends Model
         return $this->belongsTo('App\User');
     }
 
-
-    public function specializations()
+    public function doctors()
     {
-        return $this->belongsToMany('App\Specialization');
+        return $this->belongsToMany('App\Doctor');
     }
 }
