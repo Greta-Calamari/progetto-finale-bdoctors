@@ -18,7 +18,7 @@ class MessagesTableSeeder extends Seeder
             $newMessage->message_id = $faker->numberBetween(1, 10);
             $newMessage->content = $faker->text();
             $newMessage->email = $faker->email();
-            $newMessage->name = $faker->words(3, true);
+            $newMessage->name = $faker->name($gender = null);
             $newMessage->save();
         }
     }
