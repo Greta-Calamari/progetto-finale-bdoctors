@@ -15,7 +15,7 @@ class SpecializationsTableSeeder extends Seeder
         $specializations = config('specializations');
         foreach ($specializations as $specialization) {
             $newSpecialization = new Specialization();
-            $newSpecialization->name = $specialization['specialization'];
+            $newSpecialization->name = $specialization;
             $newSpecialization->save();
         }
     }
