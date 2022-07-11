@@ -33,5 +33,7 @@ export default {
 }
 </script>
 <style lang="scss">
-
+ul{
+    list-style: none;
+}
 </style>
