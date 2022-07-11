@@ -4,6 +4,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Vue = require('vue');
 
 import App from './views/App';
+import VueAgile from 'vue-agile'
+
+Vue.use(VueAgile)
 import router from './router.js';
  const app = new Vue({
 	el: '#root',
