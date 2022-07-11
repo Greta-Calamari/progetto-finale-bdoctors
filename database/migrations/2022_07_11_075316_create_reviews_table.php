@@ -17,7 +17,7 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->foreignId('doctor_id')->constrained()->onDelete('cascade');
             $table->string('name',100);
-            $table->string('comment',255);
+            $table->text('comment');
             $table->tinyInteger('votes');
             // $table->string('slug',130)->unique();
             $table->timestamps();
