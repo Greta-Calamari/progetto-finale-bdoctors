@@ -18,10 +18,10 @@ class CreateDoctorsTable extends Migration
             $table->string('name', 50);
             $table->string('surname', 50);
             $table->string('address');
-            $table->string('photo');
-            $table->string('curriculum_vitae');
+            $table->string('photo')->nullable();
+            $table->string('curriculum_vitae')->nullable();
             $table->string('cell_number', 20);
-            $table->text('services');
+            $table->text('services')->nullable();
             $table->timestamps();
         });
     }
