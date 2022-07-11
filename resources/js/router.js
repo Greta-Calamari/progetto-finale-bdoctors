@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+
 Vue.use(VueRouter);
 
 import HomeComponent from './pages/HomeComponent';
@@ -9,21 +10,21 @@ import CiaoComponent from './pages/CiaoComponent';
 
 
 const router = new VueRouter({
-    mode:'history',
-    routes:[
+    mode: 'history',
+    routes: [
         {
             path: '/',
-            name:'home',
+            name: 'home',
             component: HomeComponent
         },
         {
             path: '/hello',
-            name:'hello',
+            name: 'hello',
             component: HelloComponent
         },
         {
             path: '/ciao',
-            name:'ciao',
+            name: 'ciao',
             component: CiaoComponent
         },
 

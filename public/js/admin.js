@@ -126,9 +126,9 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\classe59\progetto-finale-bdoctors\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\classe59\progetto-finale-bdoctors\resources\sass\admin.scss */"./resources/sass/admin.scss");
-module.exports = __webpack_require__(/*! C:\classe59\progetto-finale-bdoctors\resources\sass\front.scss */"./resources/sass/front.scss");
+__webpack_require__(/*! /home/giulia/Scaricati/Progetto Finale/progetto-finale-bdoctors-1/resources/js/admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! /home/giulia/Scaricati/Progetto Finale/progetto-finale-bdoctors-1/resources/sass/admin.scss */"./resources/sass/admin.scss");
+module.exports = __webpack_require__(/*! /home/giulia/Scaricati/Progetto Finale/progetto-finale-bdoctors-1/resources/sass/front.scss */"./resources/sass/front.scss");
 
 
 /***/ })
