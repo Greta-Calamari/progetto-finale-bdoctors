@@ -11,4 +11,9 @@ class Doctor extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+
+    public function sponsors(){
+        return $this->belongsToMany('App\Sponsor');
+    }
+    
 }
