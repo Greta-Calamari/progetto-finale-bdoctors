@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class UsersTableSeeder extends Seeder
@@ -17,7 +18,7 @@ class UsersTableSeeder extends Seeder
             $newUser = new User();
             $newUser->name =$user['name'];
             $newUser->email =$user['email'];
-            $newUser->password =$user['password'];
+            $newUser->password = Hash::make($user['password']);
             $newUser->save(); 
 
         }
