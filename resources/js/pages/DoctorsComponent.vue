@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>prova Hello</h1>
+        <h1>I nostri Dottori</h1>
     </div>
 </template>
 

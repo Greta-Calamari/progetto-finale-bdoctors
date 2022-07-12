@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import HomeComponent from './pages/HomeComponent';
-import HelloComponent from './pages/HelloComponent';
+import DoctorsComponent from './pages/DoctorsComponent';
 import CiaoComponent from './pages/CiaoComponent';
 
 
@@ -17,9 +17,9 @@ const router = new VueRouter({
             component: HomeComponent
         },
         {
-            path: '/hello',
-            name:'hello',
-            component: HelloComponent
+            path: '/doctors',
+            name:'doctors',
+            component: DoctorsComponent
         },
         {
             path: '/ciao',
