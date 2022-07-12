@@ -129,6 +129,9 @@
                 <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
             </agile>
         </div>
+
+
+        
     
 
         
@@ -354,7 +357,7 @@ h1{
     width: 80%;
     margin: 0 auto;
     position: relative;
-    bottom: 820px;
+    bottom: 700px;
     z-index: 10000;
 }
   
