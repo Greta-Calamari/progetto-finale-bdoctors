@@ -1,7 +1,36 @@
 <template>
     <div>
-        <h1>I nostri Dottori</h1>
+        <h1 class="text-center ">I nostri Dottori</h1>
+
+            <div class="d-flex flex-wrap justify-content-center dist mt-5" v-if="doctors.length > 0">
+                    <div class="card mb-3 dist" style="max-width: 540px;" v-for="(doctor) in doctors" :key="doctor.id">
+                            <div class="row ">
+                                <div class="col">
+                                    <img :src="`/storage/${doctor.image}`" class="w-100" :alt="doctor.name"  v-if=" doctor.image">
+                                    <img src='https://static.vecteezy.com/system/resources/thumbnails/003/528/202/small/stethoscope-icon-medicine-medical-health-doctor-care-hospital-aid-isolated-symbol-for-web-and-mobile-app-free-free-vector.jpg' v-else>
+                                
+                                </div>
+                                <div class="col">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{doctor.name}}</h5>
+                                        <p class="card-text">{{doctor.surname}}</p>
+                                        <a href="#" class="btn btn-outline-primary rounded-0">Visualizza</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+            </div>
+        
+            
+
+
+                    
+
     </div>
+
+    
 </template>
 
 <script>
@@ -13,13 +42,33 @@ export default {
 
         }
     },
-    // created(){
-    //     axios.get('/api/doctors').then((el)=>{
-    //         this.doctors= el.data;
-    //     })
-    // }
+    created(){
+        axios.get('/api/doctors').then((response)=>{
+            this.doctors= response.data;
+        })
+    }
 }
 </script>
 <style lang="scss">
+.dist{
+    gap: 80px;
+}
+
+.btn-outline-primary{
+    border-color: #5f4bb6 !important;
+    color: #86a5d9;;
+    
+}
+.btn-outline-primary:hover{
+    background-color: #5f4bb6 !important;
+    
+}
+
+img{
+    
+}
+
+
+
 
 </style>
