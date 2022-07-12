@@ -18,12 +18,10 @@ class Doctor extends Model
     public function specializations()
     {
         return $this->belongsToMany('App\Specialization');
-
-    public function user(){
-        return $this->belongsTo('App\User');
     }
 
-    public function messages(){
+    public function messages()
+    {
         return $this->hasMany('App\Messages');
     }
 
@@ -31,9 +29,9 @@ class Doctor extends Model
     public function sponsors(){
         return $this->belongsToMany('App\Sponsor');
     }
-    
 
-    
+
+
     public function reviews(){
         return $this->belongsToMany('App\Review');
 

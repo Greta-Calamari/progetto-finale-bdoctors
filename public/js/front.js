@@ -1991,8 +1991,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ProvaComponent',
   data: function data() {
-    return {};
-  }
+    return {
+      doctors: []
+    };
+  } // created(){
+  //     axios.get('/api/doctors').then((el)=>{
+  //         this.doctors= el.data;
+  //     })
+  // }
+
 });
 
 /***/ }),
