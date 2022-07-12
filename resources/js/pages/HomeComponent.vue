@@ -3,45 +3,43 @@
         <div class="bg-first">
         <!-- titolo nella home -->
             
-            <div class="title text-center">
-                <h1>Il sito dove potrai trovare il tuo professionista di fiducia</h1>
-                <div class="waviy">
-                    <span style="--i:1">D</span>
-                    <span style="--i:2">O</span>
-                    <span style="--i:3">T</span>
-                    <span style="--i:4">T</span>
-                    <span style="--i:5">O</span>
-                    <span style="--i:6">R</span>
-                    <span style="--i:7">I</span>
-                    <span style="--i:8">.</span>
-                    <span style="--i:9">I</span>
-                    <span style="--i:10">T</span>
-
-                </div>
-                <h3 class="mt-5"> Provalo</h3>
-                <h3>Prenota online il tuo prossimo medico</h3>
-            </div>
-        <!-- form accanto al titolo -->
-        <div class="container">
-
-                <div class="row justify-content-center">
-                    <div class="col-5">
-                        <form class="form-inline my-2 my-lg-0 auto-center" >
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+                <div class="title text-center">
+                    <h1>Il sito dove potrai trovare il tuo professionista di fiducia</h1>
+                    <div class="waviy">
+                        <span style="--i:1">D</span>
+                        <span style="--i:2">O</span>
+                        <span style="--i:3">T</span>
+                        <span style="--i:4">T</span>
+                        <span style="--i:5">O</span>
+                        <span style="--i:6">R</span>
+                        <span style="--i:7">I</span>
+                        <span style="--i:8">.</span>
+                        <span style="--i:9">I</span>
+                        <span style="--i:10">T</span>
 
                     </div>
-
+                    <h3 class="mt-5 sub"> Provalo</h3>
+                    <h3 class="sub">Prenota online il tuo prossimo medico</h3>
                 </div>
-        </div>
+            <!-- form accanto al titolo -->
+            <div class="container-fluid">
+
+                    <div class="row justify-content-center">
+                        <div class="col-3 col-md-2 col-lg-2">
+                            <form class="form-inline my-2 my-lg-0 auto-center" >
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+
+                        </div>
+
+                    </div>
+              </div>
 
 
 
-        </div>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                    <path fill="#5f4bb6" fill-opacity="1" d="M0,320L60,314.7C120,309,240,299,360,245.3C480,192,600,96,720,85.3C840,75,960,149,1080,192C1200,235,1320,245,1380,250.7L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
-                </svg>
+      </div>
+                <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 500" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,500 C 0,500 0,250 0,250 C 247,217.5 494,185 734,185 C 974,185 1207,217.5 1440,250 C 1440,250 1440,500 1440,500 Z" stroke="none" stroke-width="0" fill="#5f4bb6ff" class="transition-all duration-300 ease-in-out delay-150 path-0" transform="rotate(-180 720 250)"></path></svg>
 
 
 
@@ -49,7 +47,7 @@
 
         <!-- carosello -->
         <div id="app" class="w-carousel ">
-            <agile :initial-slide="3" autoplay :autoplaySpeed="2000" pauseOnHover>
+            <agile :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover>
 
                 <div class="slide container-">
                         <div class="circle-"></div>
@@ -168,6 +166,7 @@ export default {
 
 h1{
     font-size: 50px;
+    font-family: 'Ibarra Real Nova', serif;
 }
 .title{
     padding: 50px;
@@ -180,6 +179,9 @@ h1{
 
     background: -moz-linear-gradient(0deg, hsla(251, 42%, 50%, 1) 40%, hsla(231, 51%, 60%, 1) 100%);
 }
+.sub{
+  font-family: 'Ibarra Real Nova', serif;
+}
 
 
 
@@ -191,7 +193,8 @@ h1{
   border-radius: 10px;
   padding: 30px;
   border: 1px solid $general-light-blue;
-  margin-top:50px ;
+  // margin-top:50px;
+  
 //   margin: 150px auto;
 //   box-shadow: 0 15px 50px 0 rgba(0, 0, 0, 0.5);
  
@@ -286,7 +289,7 @@ h1{
     width: 80%;
     margin: 0 auto;
     position: relative;
-    bottom: 400px;
+    bottom: 650px;
     z-index: 10000;
 }
 
@@ -304,6 +307,7 @@ h1{
   position: relative;
   -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
   font-size: 60px;
+  font-family: 'Ibarra Real Nova', serif;
 }
 .waviy span {
   
