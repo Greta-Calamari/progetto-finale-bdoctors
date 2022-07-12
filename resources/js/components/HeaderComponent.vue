@@ -1,42 +1,58 @@
 <template>
-    <div class="nav-bar">
-        <b-navbar toggleable="lg" type="dark">
-            <b-collapse id="nav-collapse" is-nav>
-                <b-navbar-nav>
+    <div>
+        <div>
+            <b-navbar toggleable="lg" type="dark">
+                <b-navbar-brand href="#">
                     <img
                         class="img"
                         src="../../../public/img/logodottori.png"
                         alt=""
                     />
-                    <b-navbar-brand href="#">Contatti</b-navbar-brand>
-                    <b-navbar-brand href="#">Chi siamo</b-navbar-brand>
-                    <b-navbar-brand href="#">Prestazioni</b-navbar-brand>
-                    <b-navbar-brand href="#">Chiedi al dottore</b-navbar-brand>
-                </b-navbar-nav>
+                </b-navbar-brand>
 
-                <!-- Right aligned nav items -->
-                <b-navbar-nav class="ml-auto">
-                    <b-nav-form>
-                        <b-form-input
-                            size="sm"
-                            class="mr-sm-2"
-                            placeholder="Search"
-                        ></b-form-input>
-                        <b-button size="sm" class="my-2 my-sm-0" type="submit"
-                            >Search</b-button
-                        >
-                    </b-nav-form>
-                    <b-nav-item-dropdown right>
-                        <!-- Using 'button-content' slot -->
-                        <template #button-content>
-                            <em>User</em>
-                        </template>
-                        <b-dropdown-item href="#">Profilo</b-dropdown-item>
-                        <b-dropdown-item href="#">Registrati</b-dropdown-item>
-                    </b-nav-item-dropdown>
-                </b-navbar-nav>
-            </b-collapse>
-        </b-navbar>
+                <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+                <b-collapse id="nav-collapse" is-nav>
+                    <b-navbar-nav>
+                        <b-nav-item href="#">Chi Siamo</b-nav-item>
+                        <b-nav-item href="#">Prestazioni</b-nav-item>
+                        <b-nav-item href="#">Chiedi al dottore</b-nav-item>
+                        <b-nav-item href="#">Contatti</b-nav-item>
+                    </b-navbar-nav>
+
+                    <!-- Right aligned nav items -->
+                    <b-navbar-nav class="ml-auto">
+                        <b-nav-form>
+                            <b-form-input
+                                size="sm"
+                                class="mr-sm-2"
+                                placeholder="Search"
+                            ></b-form-input>
+
+                            <b-button class="btn" pill variant="outline-light"
+                                >Cerca</b-button
+                            >
+                            <!--<b-button
+                                size="sm"
+                                class="my-2 my-sm-0"
+                                type="submit"
+                                >Search</b-button
+                            >-->
+                        </b-nav-form>
+                        <b-nav-item-dropdown right>
+                            <!-- Using 'button-content' slot -->
+                            <template #button-content>
+                                <em>User</em>
+                            </template>
+                            <b-dropdown-item href="#"
+                                >Registrati</b-dropdown-item
+                            >
+                            <b-dropdown-item href="#">Accedi</b-dropdown-item>
+                        </b-nav-item-dropdown>
+                    </b-navbar-nav>
+                </b-collapse>
+            </b-navbar>
+        </div>
     </div>
 </template>
 <script>
@@ -49,7 +65,7 @@ export default {
 </script>
 <style lang="scss">
 @import "../../sass/variables";
-.nav-bar {
+.navbar {
     background: linear-gradient(
         360deg,
         hsla(251, 42%, 50%, 1) 0%,
@@ -69,14 +85,14 @@ export default {
     );
 }
 
-.my-2 {
-    background-color: white;
-    color: black;
-}
 .img {
     width: 150px;
 }
-.navbar-brand {
-    padding-top: 26px;
+.btn {
+    height: 25px;
+    padding-top: 1px;
+}
+.navbar-nav {
+    padding-top: -19px;
 }
 </style>
