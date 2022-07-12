@@ -14,7 +14,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = Doctor::all();
+        $doctors = Doctor::with(['reviews'])->get();
         // var_dump($doctors);
         return response()->json($doctors);
     }

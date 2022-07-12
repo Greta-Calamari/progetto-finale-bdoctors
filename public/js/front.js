@@ -2309,12 +2309,18 @@ var render = function render() {
       staticClass: "card-title"
     }, [_vm._v(_vm._s(doctor.name))]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v(_vm._s(doctor.surname))]), _vm._v(" "), _c("a", {
+    }, [_vm._v(_vm._s(doctor.surname))]), _vm._v(" "), _vm._l(doctor.reviews, function (review) {
+      return _c("div", {
+        key: review.id
+      }, [_c("p", {
+        staticClass: "card-text"
+      }, [_vm._v(_vm._s(review.votes))])]);
+    }), _vm._v(" "), _c("a", {
       staticClass: "btn btn-outline-primary rounded-0",
       attrs: {
         href: "#"
       }
-    }, [_vm._v("Visualizza Dottore")])])])])]);
+    }, [_vm._v("Visualizza Dottore")])], 2)])])]);
   }), 0) : _vm._e()]);
 };
 

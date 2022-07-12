@@ -17,6 +17,11 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{doctor.name}}</h5>
                                         <p class="card-text">{{doctor.surname}}</p>
+                                        <div v-for="review in doctor.reviews" :key="review.id">
+                                            <p class="card-text">{{review.votes}}</p>
+
+                                        </div>
+
                                         <a href="#" class="btn btn-outline-primary rounded-0">Visualizza Dottore</a>
                                         
                                     </div>
@@ -48,7 +53,8 @@ export default {
     created(){
         axios.get('/api/doctors').then((response)=>{
             this.doctors= response.data;
-        })
+        });
+        
     }
 }
 </script>
