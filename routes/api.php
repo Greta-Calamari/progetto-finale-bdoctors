@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/doctors', 'Api\DoctorController@index');
 Route::get('/specializations', 'Api\SpecializationController@index');
+Route::get('/reviews', 'Api\ReviewController@index');
