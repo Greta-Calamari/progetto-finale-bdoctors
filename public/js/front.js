@@ -2077,7 +2077,7 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "container-small row"
   }, [_c("div", {
-    staticClass: "col-3 info"
+    staticClass: "col-sm-6 col-lg-3 col-md-3 info"
   }, [_c("h3", [_vm._v("Informazioni")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("ul", [_c("li", [_c("a", {
     attrs: {
       href: "#"
@@ -2095,7 +2095,7 @@ var staticRenderFns = [function () {
       href: "#"
     }
   }, [_vm._v("Prestazioni")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-3 contacts"
+    staticClass: "col-sm-6 col-lg-3 col-md-3 contacts"
   }, [_c("h3", [_vm._v("Contattaci")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("ul", [_c("li", [_c("a", {
     attrs: {
       href: "#"
@@ -2105,7 +2105,7 @@ var staticRenderFns = [function () {
       href: "#"
     }
   }, [_vm._v("Contatti")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-3 social"
+    staticClass: "col-sm-6 col-lg-3 col-md-3 social"
   }, [_c("h3", [_vm._v("I nostri social")]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
     staticClass: "d-flex flex-column"
   }, [_c("a", {
@@ -2130,7 +2130,7 @@ var staticRenderFns = [function () {
   }, [_c("i", {
     staticClass: "fa-brands fa-twitter"
   }), _vm._v(" Twitter")])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-3 logo d-flex flex-column align-items-start"
+    staticClass: "col-sm-6 col-lg-3 col-md-3 logo d-flex flex-column align-items-center"
   }, [_c("div", {
     staticClass: "d-flex"
   }, [_c("h1", [_vm._v("Logo")])]), _vm._v(" "), _c("p", [_vm._v("Telefono: 3270983358 ")]), _vm._v(" "), _c("p", [_vm._v("Email: dottoriclasse59@yahoo.com")])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", {
@@ -2329,7 +2329,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container-footer {\n  min-height: 20vh;\n  width: 100%;\n  background-color: #202a25;\n  color: #A3A7A5;\n}\n.container-footer .container-small {\n  width: 100%;\n  margin: 0 auto;\n  text-align: center;\n}\n.container-footer .container-small .info {\n  margin-top: 30px;\n}\n.container-footer .container-small .info hr {\n  background-color: #86a5d9;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .info ul {\n  text-align: center;\n  padding: 0;\n  margin-top: 10px;\n}\n.container-footer .container-small .info ul li a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .info ul li a:hover {\n  color: #86a5d9;\n}\n.container-footer .container-small .contacts {\n  margin-top: 30px;\n}\n.container-footer .container-small .contacts hr {\n  background-color: #86a5d9;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .contacts ul {\n  text-align: center;\n  padding: 0;\n  margin-top: 10px;\n}\n.container-footer .container-small .contacts ul li a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .contacts ul li a:hover {\n  color: #86a5d9;\n}\n.container-footer .container-small .social {\n  margin-top: 30px;\n  text-align: center;\n  padding: 0;\n}\n.container-footer .container-small .social hr {\n  background-color: #86a5d9;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .social div {\n  margin-top: 10px;\n}\n.container-footer .container-small .social div a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .social div a:hover {\n  color: #86a5d9;\n}\n.container-footer .container-small .logo {\n  margin-top: 30px;\n  width: 100%;\n}\n.container-footer .container-small .logo div {\n  width: 30%;\n  height: 40%;\n  background-color: rgb(18, 227, 56);\n}\n.container-footer .container-small hr {\n  background-color: #86a5d9;\n  width: 80%;\n  height: 2px;\n  margin: 0 auto;\n}\n.container-footer .container-small .copyright {\n  width: 100%;\n}\n.container-footer .container-small .copyright p {\n  margin-top: 20px;\n}", ""]);
+exports.push([module.i, ".container-footer {\n  width: 100%;\n  background-color: #202a25;\n  color: #A3A7A5;\n}\n.container-footer .container-small {\n  width: 90%;\n  margin: 0 auto;\n  text-align: center;\n}\n.container-footer .container-small .info {\n  margin-top: 30px;\n}\n.container-footer .container-small .info hr {\n  background-color: #86a5d9;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .info ul {\n  text-align: center;\n  padding: 0;\n  margin-top: 10px;\n}\n.container-footer .container-small .info ul li a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .info ul li a:hover {\n  color: #86a5d9;\n}\n.container-footer .container-small .contacts {\n  margin-top: 30px;\n}\n.container-footer .container-small .contacts hr {\n  background-color: #86a5d9;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .contacts ul {\n  text-align: center;\n  padding: 0;\n  margin-top: 10px;\n}\n.container-footer .container-small .contacts ul li a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .contacts ul li a:hover {\n  color: #86a5d9;\n}\n.container-footer .container-small .social {\n  margin-top: 30px;\n  text-align: center;\n  padding: 0;\n}\n.container-footer .container-small .social hr {\n  background-color: #86a5d9;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .social div {\n  margin-top: 10px;\n}\n.container-footer .container-small .social div a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .social div a:hover {\n  color: #86a5d9;\n}\n.container-footer .container-small .logo {\n  margin-top: 30px;\n  width: 100%;\n}\n.container-footer .container-small .logo div {\n  width: 30%;\n  height: 40%;\n  background-color: rgb(18, 227, 56);\n}\n.container-footer .container-small hr {\n  background-color: #86a5d9;\n  width: 80%;\n  height: 2px;\n  margin: 0 auto;\n}\n.container-footer .container-small .copyright {\n  width: 100%;\n}\n.container-footer .container-small .copyright p {\n  margin-top: 20px;\n}", ""]);
 
 // exports
 

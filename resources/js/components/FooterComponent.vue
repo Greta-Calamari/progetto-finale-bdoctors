@@ -2,7 +2,7 @@
     <div class="container-footer">
         <div class="container-small row">
             <!-- Informazioni  -->
-            <div class="col-3 info">
+            <div class="col-sm-6 col-lg-3 col-md-3 info">
                 <h3>Informazioni</h3>
                 <hr>
                 <ul>
@@ -15,7 +15,7 @@
 
             </div>
             <!-- Contattaci -->
-            <div class="col-3 contacts">
+            <div class="col-sm-6 col-lg-3 col-md-3 contacts">
                 <h3>Contattaci</h3>
                 <hr>
                 <ul>
@@ -24,7 +24,7 @@
                 </ul>
             </div>
             <!-- social -->
-            <div class="col-3 social">
+            <div class="col-sm-6  col-lg-3 col-md-3 social">
                 <h3>I nostri social</h3>
                 <hr>
                 <div class="d-flex flex-column">
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <!-- logo  -->
-            <div class="col-3 logo d-flex flex-column align-items-start">
+            <div class="col-sm-6 col-lg-3 col-md-3 logo d-flex flex-column align-items-center">
                 <div class="d-flex ">
                     <h1>Logo</h1>
                 </div>
@@ -58,13 +58,13 @@ export default {
 <style lang="scss">
 @import '../../sass/variables';
 .container-footer{
-    min-height: 20vh;
+
     width: 100%;
     background-color: $general-black;
     color: $general-light-grey;
     .container-small{
 
-        width: 100%;
+        width: 90%;
         margin: 0 auto;
         text-align: center;
         .info{
