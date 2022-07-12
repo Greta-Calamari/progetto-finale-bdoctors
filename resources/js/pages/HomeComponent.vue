@@ -22,7 +22,7 @@
                     <h3 class="sub">Prenota online il tuo prossimo medico</h3>
                 </div>
             <!-- form accanto al titolo -->
-            <div class="container-fluid">
+            <!-- <div class="container-fluid">
 
                     <div class="row justify-content-center">
                         <div class="col-3 col-md-2 col-lg-2">
@@ -34,7 +34,7 @@
                         </div>
 
                     </div>
-              </div>
+              </div> -->
 
 
 
@@ -46,8 +46,8 @@
           
 
         <!-- carosello -->
-        <div id="app" class="w-carousel ">
-            <agile :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover>
+        <div id="app" class="w-carousel" >
+            <agile :options="myOptions" :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst>
 
                 <div class="slide container-">
                         <div class="circle-"></div>
@@ -151,13 +151,31 @@ export default {
     },
     
     
-    data(){
-        return{
+    data () {
+    return {
+        // myOptions: {
+        //     navButtons: false,
             
-            
-
-            }
+        //     responsive: [
+        //         {
+        //             breakpoint: 600,
+        //             settings: {
+        //                 dots: false
+        //             }
+        //         },
+                
+        //         {
+        //             breakpoint: 900,
+        //             settings: {
+        //                 navButtons: true,
+        //                 dots: true,
+        //                 infinite: false
+        //             }
+        //         }
+        //     ]
+        // }
     }
+}
 }
 </script>
 <style lang="scss">
@@ -328,4 +346,101 @@ h1{
   }
 }
 
+
+
+// MEDIA QUERY
+@media screen and (max-width: 2631px) {
+  .w-carousel{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    bottom: 820px;
+    z-index: 10000;
+}
+  
+}
+
+@media screen and (max-width: 1900px) {
+  .w-carousel{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    bottom: 500px;
+    z-index: 10000;
+}
+  
+}
+
+@media screen and (max-width: 1600px) {
+  .w-carousel{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    bottom: 500px;
+    z-index: 10000;
+}
+  
+}
+
+@media screen and (max-width: 1300px) {
+  .w-carousel{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    bottom: 400px;
+    z-index: 10000;
+}
+  
+}
+@media screen and (max-width: 1100px) {
+  .w-carousel{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    top: -300px;
+    z-index: 10000;
+}
+  
+}
+@media screen and (max-width: 768px) {
+  .w-carousel{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    top: -200px;
+    z-index: 10000;
+}
+  
+}
+@media screen and (max-width: 375px) {
+  .w-carousel{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    top: -80px;
+    z-index: 10000;
+}
+  
+}
+
+
+@media screen and (max-width: 1200px) {
+  .w-carousel{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    bottom: 400px;
+    z-index: 10000;
+
+}
+.waviy {
+  position: relative;
+  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+  font-size: 40px;
+  font-family: 'Ibarra Real Nova', serif;
+}
+
+}
+
+  
 </style>
