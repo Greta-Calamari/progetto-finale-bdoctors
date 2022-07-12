@@ -11,13 +11,14 @@ class SponsorTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
-        for($i = 0; $i < 20; $i++){
+        $sponsor = config('sponsor');
+        foreach($sponsor as $item){
             $newSponsor = new Sponsor();
-            $newSponsor->name = $faker->words(5, true);
-            $newSponsor->price = rand(10, 100);
-
+            $newSponsor->name = $item['name'];
+            $newSponsor->price = $item['price'];
+            $newSponsor->duration_in_hours = $item['duration_in_hours'];
             $newSponsor->save();
         }
     }

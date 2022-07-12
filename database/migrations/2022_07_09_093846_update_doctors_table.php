@@ -14,7 +14,7 @@ class UpdateDoctorsTable extends Migration
     public function up()
     {
         Schema::table('doctors', function (Blueprint $table) {
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 

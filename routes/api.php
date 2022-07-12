@@ -18,4 +18,10 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+
 Route::get('/messages','Api\MessageController@index');
+
+Route::get('/doctors', 'Api\DoctorController@index');
+Route::get('/specializations', 'Api\SpecializationController@index');
+Route::get('/reviews', 'Api\ReviewController@index');
+
