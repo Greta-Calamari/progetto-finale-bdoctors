@@ -2277,7 +2277,7 @@ var render = function render() {
   return _c("div", [_c("h1", {
     staticClass: "text-center"
   }, [_vm._v("I nostri Dottori")]), _vm._v(" "), _vm.doctors.length > 0 ? _c("div", {
-    staticClass: "d-flex flex-wrap justify-content-center dist mt-5"
+    staticClass: "d-flex flex-wrap justify-content-center dist"
   }, _vm._l(_vm.doctors, function (doctor) {
     return _c("div", {
       key: doctor.id,
@@ -2289,6 +2289,8 @@ var render = function render() {
       staticClass: "row"
     }, [_c("div", {
       staticClass: "col"
+    }, [_c("div", {
+      staticClass: "figure-"
     }, [doctor.image ? _c("img", {
       staticClass: "w-100",
       attrs: {
@@ -2299,7 +2301,7 @@ var render = function render() {
       attrs: {
         src: "https://static.vecteezy.com/system/resources/thumbnails/003/528/202/small/stethoscope-icon-medicine-medical-health-doctor-care-hospital-aid-isolated-symbol-for-web-and-mobile-app-free-free-vector.jpg"
       }
-    })]), _vm._v(" "), _c("div", {
+    })])]), _vm._v(" "), _c("div", {
       staticClass: "col"
     }, [_c("div", {
       staticClass: "card-body"
@@ -2312,7 +2314,7 @@ var render = function render() {
       attrs: {
         href: "#"
       }
-    }, [_vm._v("Visualizza")])])])])]);
+    }, [_vm._v("Visualizza Dottore")])])])])]);
   }), 0) : _vm._e()]);
 };
 
@@ -2575,7 +2577,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".dist {\n  gap: 80px;\n}\n.btn-outline-primary {\n  border-color: #5f4bb6 !important;\n  color: #86a5d9;\n}\n.btn-outline-primary:hover {\n  background-color: #5f4bb6 !important;\n}", ""]);
+exports.push([module.i, ".dist {\n  margin-top: 40px;\n  gap: 80px;\n}\n.btn-outline-primary {\n  border-color: #5f4bb6 !important;\n  color: #86a5d9;\n}\n.btn-outline-primary:hover {\n  background-color: #5f4bb6 !important;\n}\n.figure- {\n  position: relative;\n  bottom: 50px;\n}\n.figure-:hover img {\n  transform: scale3d(1.2, 1.2, 1);\n}\n.figure- img {\n  border: 1px solid #86a5d9;\n  transition: all 0.5s linear;\n  transform: scale3d(1, 1, 1);\n}", ""]);
 
 // exports
 
