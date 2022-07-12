@@ -37346,9 +37346,15 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\Utente\boolean\esercizi-php\progetto-finale-bdoctors\resources\js\admin.js */"./resources/js/admin.js");
 __webpack_require__(/*! C:\Users\Utente\boolean\esercizi-php\progetto-finale-bdoctors\resources\sass\admin.scss */"./resources/sass/admin.scss");
 module.exports = __webpack_require__(/*! C:\Users\Utente\boolean\esercizi-php\progetto-finale-bdoctors\resources\sass\front.scss */"./resources/sass/front.scss");
+=======
+__webpack_require__(/*! /Users/dumitrubudau/Desktop/progetto-finale-bdoctors/resources/js/admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! /Users/dumitrubudau/Desktop/progetto-finale-bdoctors/resources/sass/admin.scss */"./resources/sass/admin.scss");
+module.exports = __webpack_require__(/*! /Users/dumitrubudau/Desktop/progetto-finale-bdoctors/resources/sass/front.scss */"./resources/sass/front.scss");
+>>>>>>> api-dottori
 
 
 /***/ })
