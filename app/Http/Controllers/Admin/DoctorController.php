@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Doctor;
 use App\Specialization;
 
+
 class DoctorController extends Controller
 {
     protected $validationRule = [
