@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <ul class="d-flex m-3">
         <li v-for="(item, index) in menu" :key="index">
             <router-link class="navbar-brand nav-link" :to="{name: item.routeName}">{{item.label}}</router-link>
@@ -36,4 +36,7 @@ export default {
 ul{
     list-style: none;
 }
+
+
+
 </style>

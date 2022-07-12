@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+
+Route::get('/messages','Api\MessageController@index');
+
 Route::get('/doctors', 'Api\DoctorController@index');
 Route::get('/specializations', 'Api\SpecializationController@index');
 Route::get('/reviews', 'Api\ReviewController@index');
+

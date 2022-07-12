@@ -26,6 +26,9 @@ class Doctor extends Model
     public function sponsors(){
         return $this->belongsToMany('App\Sponsor');
     }
+
+    
+
     public function reviews(){
         return $this->hasMany('App\Review');
     }
