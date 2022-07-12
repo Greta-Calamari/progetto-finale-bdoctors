@@ -30,16 +30,13 @@
                                 class="mr-sm-2"
                                 placeholder="Search"
                             ></b-form-input>
-
-                            <b-button class="btn" pill variant="outline-light"
-                                >Cerca</b-button
-                            >
-                            <!--<b-button
+                            <b-button
                                 size="sm"
                                 class="my-2 my-sm-0"
                                 type="submit"
+                                variant="outline-light"
                                 >Search</b-button
-                            >-->
+                            >
                         </b-nav-form>
                         <b-nav-item-dropdown right>
                             <!-- Using 'button-content' slot -->
@@ -89,9 +86,5 @@ export default {
 
 .img {
     width: 150px;
-}
-.btn {
-    height: 25px;
-    padding-top: 1px;
 }
 </style>
