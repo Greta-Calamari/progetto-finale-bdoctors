@@ -38,7 +38,15 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $newReview = new Review();
+        $newReview->name = $data['name'];
+        $newReview->comment = $data['comment'];
+        $newReview->votes = $data['votes'];
+        $newReview->doctor_id = $data['doctor_id'];
+
+        $newReview->save();
+        return response()->json($newReview);
     }
 
     /**

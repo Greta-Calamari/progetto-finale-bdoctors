@@ -19,9 +19,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/messages','Api\MessageController@index');
+
 
 Route::get('/doctors', 'Api\DoctorController@index');
+Route::get('/doctors/{id}', 'Api\DoctorController@show');
 Route::get('/specializations', 'Api\SpecializationController@index');
 Route::get('/reviews', 'Api\ReviewController@index');
+Route::get('/messages','Api\MessageController@index');
 

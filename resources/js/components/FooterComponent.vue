@@ -36,7 +36,7 @@
             <!-- logo  -->
             <div class="col-sm-6 col-lg-3 col-md-3 logo d-flex flex-column align-items-center">
                 <div class="d-flex ">
-                    <h1>Logo</h1>
+                    <a href="#"><img src="/images/logo.png" alt="logo"></a>
                 </div>
                 <p>Telefono: 3270983358 </p>
                 <p>Email: dottoriclasse59@yahoo.com</p>
@@ -142,7 +142,9 @@ export default {
             div{
                 width: 30%;
                 height: 40%;
-                background-color: rgb(18, 227, 56);
+                img{
+                    width: 100%;
+                }
             }
         }
         hr{

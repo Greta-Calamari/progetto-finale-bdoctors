@@ -48,7 +48,8 @@ class DoctorController extends Controller
      */
     public function show($id)
     {
-        //
+        $doctor = Doctor::where("id", $id)->with(["reviews", "messages", "specializations"])->first();
+        return response()->json($doctor);
     }
 
     /**
