@@ -94,7 +94,4 @@ export default {
     height: 25px;
     padding-top: 1px;
 }
-.navbar-nav {
-    padding-top: -19px;
-}
 </style>
