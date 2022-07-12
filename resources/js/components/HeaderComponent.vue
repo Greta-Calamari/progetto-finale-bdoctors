@@ -14,10 +14,12 @@
 
                 <b-collapse id="nav-collapse" is-nav>
                     <b-navbar-nav>
-                        <b-nav-item href="#">Chi Siamo</b-nav-item>
-                        <b-nav-item href="#">Prestazioni</b-nav-item>
-                        <b-nav-item href="#">Chiedi al dottore</b-nav-item>
-                        <b-nav-item href="#">Contatti</b-nav-item>
+                        <b-navbar-brand href="#">Chi Siamo</b-navbar-brand>
+                        <b-navbar-brand href="#">Prestazioni</b-navbar-brand>
+                        <b-navbar-brand href="#"
+                            >Chiedi al Dottore</b-navbar-brand
+                        >
+                        <b-navbar-brand href="#">Contatti</b-navbar-brand>
                     </b-navbar-nav>
 
                     <!-- Right aligned nav items -->
