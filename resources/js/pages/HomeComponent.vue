@@ -354,7 +354,7 @@ h1{
     width: 80%;
     margin: 0 auto;
     position: relative;
-    bottom: 820px;
+    bottom: 700px;
     z-index: 10000;
 }
   
