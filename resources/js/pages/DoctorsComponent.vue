@@ -2,8 +2,21 @@
     <div>
         <h1 class="text-center ">I nostri Dottori</h1>
 
+        <select name="" id="" v-model="inputText" @change="getSpecialization" >
+            <option value="">All</option>
+            <option :value="specialization.id" v-for="specialization in specializations" :key="specialization.id">{{specialization.name}}</option>
+
+        </select>
+
+        <div class="input-group my-3 d-flex justify-content-end">
+            <input type="text" class="form-control" placeholder="Cerca Dottore" v-model="input"  aria-label="Recipient's username" aria-describedby="button-addon2">
+        </div>
+            
+
+
+
             <div class="d-flex flex-wrap justify-content-center dist " v-if="doctors.length > 0">
-                    <div class="card mb-3 dist" style="max-width: 540px;" v-for="(doctor) in doctors" :key="doctor.id">
+                    <div class="card mb-3 dist" style="max-width: 540px;" v-for="(doctor) in filteredDoctors" :key="doctor.id">
                             <div class="row ">
                                 <div class="col">
                                     <div class="figure-">
@@ -30,6 +43,10 @@
                     </div>
 
             </div>
+            <div v-else>
+                <h3 class="text-center">Non ci sono dottori in questa specializzazione</h3>
+
+            </div>
         
             
 
@@ -47,14 +64,38 @@ export default {
     data(){
         return{
             doctors:[],
+            specializations:[],
+            inputText:'',
+            input:'',
+
 
         }
+    },
+    methods:{
+        getSpecialization(){
+            axios.get('/api/doctors?specialization=' + this.inputText).then((response)=>{
+            this.doctors= response.data;
+
+        });
+
+
+        },
+
     },
     created(){
         axios.get('/api/doctors').then((response)=>{
             this.doctors= response.data;
         });
+        axios.get('/api/specializations').then((response)=>{
+            this.specializations= response.data;
+        });
         
+    },
+    computed:{
+        filteredDoctors(){
+            return this.doctors.filter((doctor)=> doctor.name.toLowerCase().includes(this.input.toLowerCase()))
+        },
+
     }
 }
 </script>

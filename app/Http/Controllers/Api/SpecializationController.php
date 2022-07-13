@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Specialization;
+use App\Doctor;
 class SpecializationController extends Controller
 {
     /**
@@ -15,7 +16,8 @@ class SpecializationController extends Controller
     public function index()
     {
         $specializations = Specialization::all();
-        // var_dump($doctors);
+        
+    
         return response()->json($specializations);
     }
 

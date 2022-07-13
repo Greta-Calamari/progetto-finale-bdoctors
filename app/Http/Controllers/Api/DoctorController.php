@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Doctor;
+use App\Specialization;
+
 class DoctorController extends Controller
 {
     /**
@@ -12,12 +14,23 @@ class DoctorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+    //    dd($request->query('specialization'));
         $doctors = Doctor::with(['reviews'])->get();
-        // var_dump($doctors);
+        if($request->query('specialization')){
+            $doctors = Doctor::join('doctor_specialization', 'doctors.id', '=', 'doctor_specialization.doctor_id')->where('doctor_specialization.specialization_id', $request->query('specialization'))->get();
+
+        } else {
+            $doctors = Doctor::with(['reviews','specializations'])->get();
+
+        }
+
         return response()->json($doctors);
     }
+        
+
+        
 
     /**
      * Show the form for creating a new resource.

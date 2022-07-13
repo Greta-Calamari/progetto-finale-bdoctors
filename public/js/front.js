@@ -1992,15 +1992,39 @@ __webpack_require__.r(__webpack_exports__);
   name: 'ProvaComponent',
   data: function data() {
     return {
-      doctors: []
+      doctors: [],
+      specializations: [],
+      inputText: '',
+      input: ''
     };
   },
+  methods: {
+    getSpecialization: function getSpecialization() {
+      var _this = this;
+
+      axios.get('/api/doctors?specialization=' + this.inputText).then(function (response) {
+        _this.doctors = response.data;
+      });
+    }
+  },
   created: function created() {
-    var _this = this;
+    var _this2 = this;
 
     axios.get('/api/doctors').then(function (response) {
-      _this.doctors = response.data;
+      _this2.doctors = response.data;
     });
+    axios.get('/api/specializations').then(function (response) {
+      _this2.specializations = response.data;
+    });
+  },
+  computed: {
+    filteredDoctors: function filteredDoctors() {
+      var _this3 = this;
+
+      return this.doctors.filter(function (doctor) {
+        return doctor.name.toLowerCase().includes(_this3.input.toLowerCase());
+      });
+    }
   }
 });
 
@@ -2276,9 +2300,67 @@ var render = function render() {
 
   return _c("div", [_c("h1", {
     staticClass: "text-center"
-  }, [_vm._v("I nostri Dottori")]), _vm._v(" "), _vm.doctors.length > 0 ? _c("div", {
+  }, [_vm._v("I nostri Dottori")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.inputText,
+      expression: "inputText"
+    }],
+    attrs: {
+      name: "",
+      id: ""
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.inputText = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      }, _vm.getSpecialization]
+    }
+  }, [_c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("All")]), _vm._v(" "), _vm._l(_vm.specializations, function (specialization) {
+    return _c("option", {
+      key: specialization.id,
+      domProps: {
+        value: specialization.id
+      }
+    }, [_vm._v(_vm._s(specialization.name))]);
+  })], 2), _vm._v(" "), _c("div", {
+    staticClass: "input-group my-3 d-flex justify-content-end"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.input,
+      expression: "input"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "Cerca Dottore",
+      "aria-label": "Recipient's username",
+      "aria-describedby": "button-addon2"
+    },
+    domProps: {
+      value: _vm.input
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.input = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _vm.doctors.length > 0 ? _c("div", {
     staticClass: "d-flex flex-wrap justify-content-center dist"
-  }, _vm._l(_vm.doctors, function (doctor) {
+  }, _vm._l(_vm.filteredDoctors, function (doctor) {
     return _c("div", {
       key: doctor.id,
       staticClass: "card mb-3 dist",
@@ -2321,7 +2403,9 @@ var render = function render() {
         href: "#"
       }
     }, [_vm._v("Visualizza Dottore")])], 2)])])]);
-  }), 0) : _vm._e()]);
+  }), 0) : _c("div", [_c("h3", {
+    staticClass: "text-center"
+  }, [_vm._v("Non ci sono dottori in questa specializzazione")])])]);
 };
 
 var staticRenderFns = [];
