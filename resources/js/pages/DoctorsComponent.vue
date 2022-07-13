@@ -47,15 +47,8 @@ export default {
     data(){
         return{
             doctors:[],
-            categories:[],
 
         }
-    },
-    methods:{
-        getDoctors(){
-            a
-        }
-
     },
     created(){
         axios.get('/api/doctors').then((response)=>{
