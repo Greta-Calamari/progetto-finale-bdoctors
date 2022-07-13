@@ -21,15 +21,20 @@
         </ul>
 
         <ul>
-            
+            <h3>Review</h3>
             @foreach ($doctor->reviews as $review)
-                <li>{{$review->name}}</li>
+                <li>Nome: {{$review->name}}</li>
+                <li>Commento: {{$review->comment}}</li>
+                <li>Voto: {{$review->votes}}</li>
             @endforeach
         </ul>
 
         <ul>
+            <h3>Messages</h3>
             @foreach ($doctor->messages as $message)
-                <li>{{$message->name}}</li>
+                <li>Nome: {{$message->name}}</li>
+                <li>Email: {{$message->email}}</li>
+                <li>Content: {{$message->content}}</li>
             @endforeach
         </ul>
         

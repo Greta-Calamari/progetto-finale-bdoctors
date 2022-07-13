@@ -19536,3 +19536,43 @@ readers do not read off random characters that represent icons */
 .fa-zhihu:before {
   content: "\F63F";
 }
+
+#home .list-group-item.active {
+  background-color: #5f4bb6;
+  border-color: #5f4bb6;
+}
+#home .tab-pane img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#home .tab-pane .cs_btn {
+  background-color: #5f4bb6;
+  border-color: #5f4bb6;
+  color: white;
+}
+#home .tab-pane .cs_btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
+}
+#home .tab-pane ul {
+  list-style: none;
+  padding-left: 0;
+}
+#home .tab-pane ul li {
+  padding: 0.5rem;
+  background-color: rgba(134, 165, 217, 0.3);
+}
+#home .tab-pane ul li div {
+  border-bottom: 1px solid #5f4bb6;
+}
+#home .tab-pane ul li div h5 {
+  color: #5f4bb6;
+  text-align: center;
+}
+#home .tab-pane ul li div h6 {
+  text-align: center;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
