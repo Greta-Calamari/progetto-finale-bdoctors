@@ -49,6 +49,9 @@ class DoctorController extends Controller
     public function show($id)
     {
         $doctor = Doctor::where("id", $id)->with(["reviews", "messages", "specializations"])->first();
+        if(empty($doctor)){
+            return response()->json(['error'=>'doctor not found'], 404);
+        }
         return response()->json($doctor);
     }
 

@@ -7,6 +7,7 @@ import HomeComponent from './pages/HomeComponent';
 import HelloComponent from './pages/HelloComponent';
 import CiaoComponent from './pages/CiaoComponent';
 import DoctorComponent from './pages/DoctorComponent';
+import NotFoundComponent from './pages/NotFoundComponent';
 
 
 const router = new VueRouter({
@@ -28,10 +29,15 @@ const router = new VueRouter({
             component: CiaoComponent
         },
         {
-            path: '/doctors/:id', //(2 ore per capire che al posto delle {id} va :id) deep hate!!! fuck laravel!!!!!
+            path: '/doctors/:id',
             name:'doctor',
             component: DoctorComponent
 
+        },
+        {
+            path: '*',
+            name:'page-404',
+            component: NotFoundComponent
         },
 
 
