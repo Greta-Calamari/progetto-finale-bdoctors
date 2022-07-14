@@ -8,14 +8,20 @@
             <!-- commenti  -->
             <!-- aggiungi commenti  -->
             <div>
+                <div v-if="errors.length">
+                    <b>Si sono verificati degli errori:</b>
+                    <ul>
+                        <li v-for="error in errors" :key="error">{{ error }}</li>
+                    </ul>
+                </div>
                 <form @submit.prevent="addComment()">
-                    <label for="username">Inserisci il nome</label>
+                    <label for="name">Inserisci il nome</label>
                     <input v-model="formData.name" type="text" />
-                    <label for="content">Inserisci il contenuto</label>
+                    <label for="comment">Inserisci il contenuto</label>
                     <input v-model="formData.comment" type="text" />
                     <label for="votes" class="form-label">Votes</label>
                     <input type="number" v-model="formData.votes"    name="votes" min="1" max="5">
-                    <button type="submit">Invia</button>
+                    <button type="submit" v-on:click="upNota">Invia</button>
                 </form>
             </div>
           <!-- mostra commenti  -->
@@ -28,6 +34,12 @@
         </div>
         <!-- invia messaggio al dottore  -->
         <div>
+            <div v-if="errorsMes.length">
+                    <b>Si sono verificati degli errori:</b>
+                    <ul>
+                        <li v-for="errore in errorsMes" :key="errore">{{ errore }}</li>
+                    </ul>
+                </div>
             <h1>Invia messaggio al dottore </h1>
             <form @submit.prevent="sendMes()">
                 <label for="username">Inserisci il nome</label>
@@ -36,7 +48,7 @@
                     <input v-model="formMes.content" type="text" />
                     <label for="email">Inserisci la tua email</label>
                     <input v-model="formMes.email" type="text" />
-                    <button type="submit">Invia</button>
+                    <button type="submit" v-on:click="errorMes">Invia</button>
             </form>
 
         </div>
@@ -60,9 +72,12 @@ export default {
                 name: "",
                 doctor_id: "",
             },
+            errors: [],
+            errorsMes: [],
         }
     },
     methods: {
+
         addComment() {
             axios
             .post("/api/reviews", this.formData)
@@ -90,6 +105,57 @@ export default {
                  console.log(error);
             });
         },
+        upNota: function (event) {
+                if (this.formData.name && this.formData.comment && this.formData.votes) {
+                    this.errors = [];
+                }
+
+                this.errors = [];
+                if (!this.formData.name) {
+                    this.errors.push('Nome obbligatorio');
+                }
+                if (this.formData.name.length > 50) {
+                    this.errors.push('Nome troppo lungo');
+                }
+                if (!this.formData.comment) {
+                    this.errors.push('Commento obbligatorio');
+                }
+                // if (this.formData.comment.length > 255) {
+                //     this.errors.push('Commento troppo lungo');
+                // }
+                if (!this.formData.votes) {
+                    this.errors.push('Voto obbligatorio');
+                }
+            },
+            errorMes: function (event) {
+                if (this.formMes.name && this.formMes.content && this.formMes.email) {
+                    this.errorsMes = [];
+                }
+
+                this.errorsMes = [];
+                if (!this.formMes.name) {
+                    this.errorsMes.push('nome obbligatorio');
+                }
+                if (this.formMes.name.length > 50) {
+                    this.errorsMes.push('nome troppo lungo');
+                }
+
+
+                if (!this.formMes.content) {
+                    this.errorsMes.push('Messagio obbligatorio');
+                }
+                // if (this.formData.content.length > 255) {
+                //     this.errors.push('Messagio troppo lungo');
+                // }
+                if (!this.formMes.email) {
+                    this.errorsMes.push('Email obbligatoria');
+                }
+                // if (this.formMes.email.filter('@') === false ) {
+                //     this.errorsMes.push('@');
+                // }
+
+                console.log(this.errorsMes)
+            },
     },
 
      mounted () {

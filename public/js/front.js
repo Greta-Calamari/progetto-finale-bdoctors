@@ -2004,7 +2004,9 @@ __webpack_require__.r(__webpack_exports__);
         email: "",
         name: "",
         doctor_id: ""
-      }
+      },
+      errors: [],
+      errorsMes: []
     };
   },
   methods: {
@@ -2026,6 +2028,63 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    upNota: function upNota(event) {
+      if (this.formData.name && this.formData.comment && this.formData.votes) {
+        this.errors = [];
+      }
+
+      this.errors = [];
+
+      if (!this.formData.name) {
+        this.errors.push('Nome obbligatorio');
+      }
+
+      if (this.formData.name.length > 50) {
+        this.errors.push('Nome troppo lungo');
+      }
+
+      if (!this.formData.comment) {
+        this.errors.push('Commento obbligatorio');
+      } // if (this.formData.comment.length > 255) {
+      //     this.errors.push('Commento troppo lungo');
+      // }
+
+
+      if (!this.formData.votes) {
+        this.errors.push('Voto obbligatorio');
+      }
+    },
+    errorMes: function errorMes(event) {
+      if (this.formMes.name && this.formMes.content && this.formMes.email) {
+        this.errorsMes = [];
+      }
+
+      this.errorsMes = [];
+
+      if (!this.formMes.name) {
+        this.errorsMes.push('nome obbligatorio');
+      }
+
+      if (this.formMes.name.length > 50) {
+        this.errorsMes.push('nome troppo lungo');
+      }
+
+      if (!this.formMes.content) {
+        this.errorsMes.push('Messagio obbligatorio');
+      } // if (this.formData.content.length > 255) {
+      //     this.errors.push('Messagio troppo lungo');
+      // }
+
+
+      if (!this.formMes.email) {
+        this.errorsMes.push('Email obbligatoria');
+      } // if (this.formMes.email.filter('@') === false ) {
+      //     this.errorsMes.push('@');
+      // }
+
+
+      console.log(this.errorsMes);
     }
   },
   mounted: function mounted() {
@@ -2359,7 +2418,11 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("section", [_vm.doctor ? _c("div", [_c("h3", [_vm._v("Nome dottore: " + _vm._s(_vm.doctor.name))]), _vm._v(" "), _c("h3", [_vm._v("Cognome:" + _vm._s(_vm.doctor.surname))]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", [_c("form", {
+  return _c("section", [_vm.doctor ? _c("div", [_c("h3", [_vm._v("Nome dottore: " + _vm._s(_vm.doctor.name))]), _vm._v(" "), _c("h3", [_vm._v("Cognome:" + _vm._s(_vm.doctor.surname))]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("div", [_vm.errors.length ? _c("div", [_c("b", [_vm._v("Si sono verificati degli errori:")]), _vm._v(" "), _c("ul", _vm._l(_vm.errors, function (error) {
+    return _c("li", {
+      key: error
+    }, [_vm._v(_vm._s(error))]);
+  }), 0)]) : _vm._e(), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -2368,7 +2431,7 @@ var render = function render() {
     }
   }, [_c("label", {
     attrs: {
-      "for": "username"
+      "for": "name"
     }
   }, [_vm._v("Inserisci il nome")]), _vm._v(" "), _c("input", {
     directives: [{
@@ -2392,7 +2455,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("label", {
     attrs: {
-      "for": "content"
+      "for": "comment"
     }
   }, [_vm._v("Inserisci il contenuto")]), _vm._v(" "), _c("input", {
     directives: [{
@@ -2445,12 +2508,19 @@ var render = function render() {
   }), _vm._v(" "), _c("button", {
     attrs: {
       type: "submit"
+    },
+    on: {
+      click: _vm.upNota
     }
   }, [_vm._v("Invia")])])]), _vm._v(" "), _vm.doctor.reviews.length > 0 ? _c("div", [_c("h3", [_vm._v("Commenti:")]), _vm._v(" "), _vm._l(_vm.doctor.reviews, function (mes) {
     return _c("div", {
       key: mes.id
     }, [_c("h5", [_vm._v(_vm._s(mes.comment))])]);
-  })], 2) : _vm._e()]) : _vm._e(), _vm._v(" "), _c("div", [_c("h1", [_vm._v("Invia messaggio al dottore ")]), _vm._v(" "), _c("form", {
+  })], 2) : _vm._e()]) : _vm._e(), _vm._v(" "), _c("div", [_vm.errorsMes.length ? _c("div", [_c("b", [_vm._v("Si sono verificati degli errori:")]), _vm._v(" "), _c("ul", _vm._l(_vm.errorsMes, function (errore) {
+    return _c("li", {
+      key: errore
+    }, [_vm._v(_vm._s(errore))]);
+  }), 0)]) : _vm._e(), _vm._v(" "), _c("h1", [_vm._v("Invia messaggio al dottore ")]), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -2532,6 +2602,9 @@ var render = function render() {
   }), _vm._v(" "), _c("button", {
     attrs: {
       type: "submit"
+    },
+    on: {
+      click: _vm.errorMes
     }
   }, [_vm._v("Invia")])])])]);
 };

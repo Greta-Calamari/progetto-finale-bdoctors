@@ -80,7 +80,7 @@ class DoctorController extends Controller
 
         //specializations
         if(isset($data['specializations'])){
-            $newDoctor->specializations()->sync($data['specializations']);        
+            $newDoctor->specializations()->sync($data['specializations']);
         }
         return redirect()->route('admin.doctors.show', $newDoctor->id);
 
@@ -151,9 +151,9 @@ class DoctorController extends Controller
 
         //specializations
         if(isset($data['specializations'])){
-            $doctor->specializations()->sync($data['specializations']);        
+            $doctor->specializations()->sync($data['specializations']);
         }else{
-            $doctor->specializations()->sync([]);        
+            $doctor->specializations()->sync([]);
         }
         return redirect()->route('admin.doctors.show', $doctor->id);
     }

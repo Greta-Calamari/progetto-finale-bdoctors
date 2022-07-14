@@ -5,9 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Message;
+use App\Mail\MessageMail;
+use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
 {
+    protected $validationMes= [
+        "name" => "required|string|max:50",
+        "content" => "required|string|max:255",
+        "email" => "required|email",
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +44,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->validationMes);
         $data = $request->all();
         $newMessage = new Message();
         $newMessage->content = $data['content'];
