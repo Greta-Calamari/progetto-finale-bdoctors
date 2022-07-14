@@ -1994,7 +1994,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       doctors: [],
       specializations: [],
+      votes: [],
       inputText: '',
+      inputTextReviews: '',
       input: ''
     };
   },
@@ -2005,25 +2007,32 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/api/doctors?specialization=' + this.inputText).then(function (response) {
         _this.doctors = response.data;
       });
-    }
-  },
-  created: function created() {
-    var _this2 = this;
+    },
+    getReviews: function getReviews() {
+      var _this2 = this;
 
-    axios.get('/api/doctors').then(function (response) {
-      _this2.doctors = response.data;
-    });
-    axios.get('/api/specializations').then(function (response) {
-      _this2.specializations = response.data;
-    });
-  },
-  computed: {
-    filteredDoctors: function filteredDoctors() {
+      axios.get('/api/doctors/reviews' + this.inputTextReviews).then(function (response) {
+        _this2.doctors = response.data;
+      });
+    },
+    created: function created() {
       var _this3 = this;
 
-      return this.doctors.filter(function (doctor) {
-        return doctor.name.toLowerCase().includes(_this3.input.toLowerCase());
+      axios.get('/api/doctors').then(function (response) {
+        _this3.doctors = response.data;
       });
+      axios.get('/api/specializations').then(function (response) {
+        _this3.specializations = response.data;
+      });
+    },
+    computed: {
+      filteredDoctors: function filteredDoctors() {
+        var _this4 = this;
+
+        return this.doctors.filter(function (doctor) {
+          return doctor.name.toLowerCase().includes(_this4.input.toLowerCase());
+        });
+      }
     }
   }
 });
@@ -2333,6 +2342,39 @@ var render = function render() {
         value: specialization.id
       }
     }, [_vm._v(_vm._s(specialization.name))]);
+  })], 2), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.inputTextReviews,
+      expression: "inputTextReviews"
+    }],
+    attrs: {
+      name: "",
+      id: ""
+    },
+    on: {
+      change: [function ($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.inputTextReviews = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      }, _vm.getReviews]
+    }
+  }, [_c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("All")]), _vm._v(" "), _vm._l(_vm.reviews, function (review) {
+    return _c("option", {
+      key: review.id,
+      domProps: {
+        value: _vm.reviews.id
+      }
+    }, [_vm._v(_vm._s(review.votes))]);
   })], 2), _vm._v(" "), _c("div", {
     staticClass: "input-group my-3 d-flex justify-content-end"
   }, [_c("input", {

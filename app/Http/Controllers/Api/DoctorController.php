@@ -21,7 +21,7 @@ class DoctorController extends Controller
         if($request->query('specialization')){
             $doctors = Doctor::join('doctor_specialization', 'doctors.id', '=', 'doctor_specialization.doctor_id')->where('doctor_specialization.specialization_id', $request->query('specialization'))->get();
 
-        } else {
+        }else {
             $doctors = Doctor::with(['reviews','specializations'])->get();
 
         }

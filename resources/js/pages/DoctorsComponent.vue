@@ -2,11 +2,24 @@
     <div>
         <h1 class="text-center ">I nostri Dottori</h1>
 
+        <!-- filtro per specializazioni -->
+
         <select name="" id="" v-model="inputText" @change="getSpecialization" >
             <option value="">All</option>
             <option :value="specialization.id" v-for="specialization in specializations" :key="specialization.id">{{specialization.name}}</option>
 
         </select>
+        
+        <!-- filtro per recensioni -->
+
+
+        <select name="" id="" v-model="inputTextReviews" @change="getReviews" >
+            <option value="">All</option>
+            <option :value="reviews.id" v-for="review in reviews" :key="review.id">{{review.votes}}</option>
+            <!-- <option :value="specialization.id" v-for="specialization in specializations" :key="specialization.id">{{specialization.name}}</option> -->
+
+        </select>
+
 
         <div class="input-group my-3 d-flex justify-content-end">
             <input type="text" class="form-control" placeholder="Cerca Dottore" v-model="input"  aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -65,7 +78,9 @@ export default {
         return{
             doctors:[],
             specializations:[],
+            votes:[],
             inputText:'',
+            inputTextReviews:'',
             input:'',
 
 
@@ -80,6 +95,14 @@ export default {
 
 
         },
+        getReviews(){
+            axios.get('/api/doctors/reviews' + this.inputTextReviews).then((response)=>{
+            this.doctors= response.data;
+            
+        });
+
+
+        
 
     },
     created(){
@@ -90,6 +113,7 @@ export default {
             this.specializations= response.data;
         });
         
+        
     },
     computed:{
         filteredDoctors(){
@@ -97,6 +121,7 @@ export default {
         },
 
     }
+  }
 }
 </script>
 <style lang="scss">

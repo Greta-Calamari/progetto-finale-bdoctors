@@ -17,8 +17,8 @@ class SpecializationController extends Controller
     {
         $specializations = Specialization::all();
         
-    
         return response()->json($specializations);
+    
     }
 
     /**
