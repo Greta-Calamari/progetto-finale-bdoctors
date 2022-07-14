@@ -11,20 +11,23 @@ class SponsorController extends Controller
 
     public function index(){
         $sponsors = Sponsor::all();
-        return view('admin.sponsors', compact('sponsors'));
+        return view('admin.sponsors.index', compact('sponsors'));
     }
 
 
-    public function store(Request $request) {
-
-        $data = $request->all();
-
-        $newSponsor = new Sponsor();
-        $newSponsor->name = $data['name'];
-        $newSponsor->price = $data['price'];
-        $newSponsor->duration_in_hours = $data['duration_in_hours'];
-
-        $newSponsor->save();
-        return response()->json($newSponsor);
+    public function store(Sponsor $sponsor) {
+        //dd($request->sponsors);
+        //$data = $request->sponsors;
+        //$sponsor = Sponsor::find(1);
+        //$newSponsor = new Sponsor()
+        //$sponsor->roles()->attach($roleId);
+        $currentUser = Auth::user();
+        $user_id = $currentUser->id;
+        $sponsor->doctors()->attach($user_id, ['']);        
+        // if(isset($request->sponsors)){
+        // }else{
+        //     $sponsor->doctors()->sync([]);        
+        // }
+        
     }
 }

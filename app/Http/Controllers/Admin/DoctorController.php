@@ -86,10 +86,7 @@ class DoctorController extends Controller
         if(isset($data['specializations'])){
             $newDoctor->specializations()->sync($data['specializations']);        
         }
-        // sponsors
-        if(isset($data['sponsors'])){
-            $newDoctor->sponsors()->sync($data['sponsors']);        
-        }
+        
         return redirect()->route('admin.doctors.show', $newDoctor->id);
 
     }
