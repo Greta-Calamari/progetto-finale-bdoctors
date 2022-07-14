@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-{{-- @dd($doctor->messages) --}}
+{{-- @dd($sponsors) --}}
 
 @section('content')
 <div class="container" id="home">
@@ -9,7 +9,8 @@
                 <a class="list-group-item list-group-item-action active" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
                 <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messaggi</a>
                 <a class="list-group-item list-group-item-action" id="list-reviews-list" data-toggle="list" href="#list-reviews" role="tab" aria-controls="reviews">Recensioni</a>
-                <a class="list-group-item list-group-item-action" id="list-statistics-list" data-toggle="list" href="#list-statistics" role="tab" aria-controls="statistics">Statistiche</a>   
+                <a class="list-group-item list-group-item-action" id="list-statistics-list" data-toggle="list" href="#list-statistics" role="tab" aria-controls="statistics">Statistiche</a>
+                <a class="list-group-item list-group-item-action" id="list-sponsors-list" data-toggle="list" href="#list-sponsors" role="tab" aria-controls="sponsors">Sponsorizzazioni</a>   
             </div>
         </div>
         <div class="col-8">
@@ -27,6 +28,7 @@
                         </div>
                         <div>
                             <a class="btn cs_btn" href="{{route('admin.sponsors.index')}}">Aggiungi sponsor</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -46,6 +48,17 @@
                 </div>
                 <div class="tab-pane fade" id="list-reviews" role="tabpanel" aria-labelledby="list-reviews-list">Reviews</div>
                 <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">Statistiche</div>
+                <div class="tab-pane fade" id="list-sponsors" role="tabpanel" aria-labelledby="list-sponsors-list">
+                    <div class="row">
+                        @foreach ($sponsors as $sponsor)
+                        <div class="col-4">
+                            <button class="btn cs_btn">{{$sponsor->name}}</button>
+                        </div>
+                        @endforeach
+                        
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

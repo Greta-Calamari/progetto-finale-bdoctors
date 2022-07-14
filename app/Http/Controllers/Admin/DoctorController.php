@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Doctor;
 use App\Specialization;
+use App\Sponsor;
 
 
 class DoctorController extends Controller
@@ -29,6 +30,7 @@ class DoctorController extends Controller
     public function index()
     {
         $doctors = Doctor::all();
+        
 
         return view('admin.doctors.index', compact('doctors'));
     }
@@ -41,7 +43,8 @@ class DoctorController extends Controller
     public function create()
     {
         $specializations = Specialization::all();
-        return view('admin.doctors.create', compact('specializations'));
+        $sponsors = Sponsor::all();
+        return view('admin.doctors.create', compact('specializations', 'sponsors'));
     }
 
     /**
@@ -82,6 +85,10 @@ class DoctorController extends Controller
         //specializations
         if(isset($data['specializations'])){
             $newDoctor->specializations()->sync($data['specializations']);        
+        }
+        // sponsors
+        if(isset($data['sponsors'])){
+            $newDoctor->sponsors()->sync($data['sponsors']);        
         }
         return redirect()->route('admin.doctors.show', $newDoctor->id);
 
