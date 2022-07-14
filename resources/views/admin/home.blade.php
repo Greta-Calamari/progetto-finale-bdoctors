@@ -26,7 +26,7 @@
                             <a class="btn cs_btn" href="{{route('admin.doctors.edit', $doctor->id)}}">Modifica profilo</a>
                         </div>
                         <div>
-                            <button>Aggiungi sponsorizzazione</button>
+                            <a class="btn cs_btn" href="{{route('admin.sponsors.index')}}">Aggiungi sponsor</a>
                         </div>
                     </div>
                 </div>

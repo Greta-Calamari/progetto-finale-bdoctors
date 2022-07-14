@@ -23,7 +23,8 @@ Route::middleware('auth')
        ->prefix('admin')
        ->group(function(){
               Route::get('/', 'HomeController@index')->name('home');
-              Route::resource('/doctors', 'DoctorController');              
+              Route::resource('/doctors', 'DoctorController');      
+              Route::get('/sponsors', 'SponsorController@index')->name('sponsors');        
 });
 
 Route::get("{any?}",function(){
