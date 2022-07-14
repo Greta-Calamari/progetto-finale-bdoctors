@@ -25,6 +25,9 @@
                             <a class="btn cs_btn" href="{{route('admin.doctors.show', $doctor->id)}}">Vedi profilo completo</a>
                             <a class="btn cs_btn" href="{{route('admin.doctors.edit', $doctor->id)}}">Modifica profilo</a>
                         </div>
+                        <div>
+                            <button>Aggiungi sponsorizzazione</button>
+                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
