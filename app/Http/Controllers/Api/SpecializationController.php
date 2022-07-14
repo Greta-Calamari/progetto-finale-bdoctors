@@ -48,9 +48,13 @@ class SpecializationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
-        //
+        if($request->query('average')){
+            $specialization = Specialization::join('doctors')->where('id', $id)->where('doctors.average_vote',$request->query('average'))->with(['doctors', 'reviews'])->first();
+        }
+        $specialization = Specialization::where('id', $id)->with(['doctors'])->first();
+        return response()->json($specialization);
     }
 
     /**

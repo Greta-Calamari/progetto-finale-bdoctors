@@ -1994,47 +1994,50 @@ __webpack_require__.r(__webpack_exports__);
     return {
       doctors: [],
       specializations: [],
-      votes: [],
+      //votes:[],
       inputText: '',
       inputTextReviews: '',
       input: ''
     };
   },
   methods: {
-    getSpecialization: function getSpecialization() {
+    // getSpecialization(){
+    //     axios.get('/api/doctors?specialization=' + this.inputText).then((response)=>{
+    //     this.doctors= response.data;
+    //     });
+    // },
+    getReviews: function getReviews() {
       var _this = this;
 
-      axios.get('/api/doctors?specialization=' + this.inputText).then(function (response) {
-        _this.doctors = response.data;
+      axios.get('/api/doctors?average=' + this.inputTextReviews).then(function (response) {
+        console.log(response); //avgDoc = Object.values(response.data)
+
+        _this.doctors = Object.values(response.data);
+        console.log(_this.doctors);
+        console.log(_this.doctors.length);
       });
     },
-    getReviews: function getReviews() {
-      var _this2 = this;
-
-      axios.get('/api/doctors/reviews' + this.inputTextReviews).then(function (response) {
-        _this2.doctors = response.data;
-      });
-    },
-    created: function created() {
-      var _this3 = this;
-
-      axios.get('/api/doctors').then(function (response) {
-        _this3.doctors = response.data;
-      });
-      axios.get('/api/specializations').then(function (response) {
-        _this3.specializations = response.data;
-      });
-    },
-    computed: {
-      filteredDoctors: function filteredDoctors() {
-        var _this4 = this;
-
-        return this.doctors.filter(function (doctor) {
-          return doctor.name.toLowerCase().includes(_this4.input.toLowerCase());
-        });
-      }
+    search: function search() {
+      this.getReviews();
     }
-  }
+  },
+  created: function created() {
+    var _this2 = this;
+
+    axios.get('/api/doctors').then(function (response) {
+      _this2.doctors = response.data;
+      console.log(response);
+      console.log(_this2.doctors.length);
+    });
+    axios.get('/api/specializations').then(function (response) {
+      _this2.specializations = response.data;
+    });
+  } // computed:{
+  //     filteredDoctors(){
+  //         return this.doctors.filter((doctor)=> doctor.name.toLowerCase().includes(this.input.toLowerCase()))
+  //     },
+  // }
+
 });
 
 /***/ }),
@@ -2056,26 +2059,49 @@ __webpack_require__.r(__webpack_exports__);
     agile: vue_agile__WEBPACK_IMPORTED_MODULE_0__["VueAgile"]
   },
   data: function data() {
-    return {// myOptions: {
-      //     navButtons: false,
-      //     responsive: [
-      //         {
-      //             breakpoint: 600,
-      //             settings: {
-      //                 dots: false
-      //             }
-      //         },
-      //         {
-      //             breakpoint: 900,
-      //             settings: {
-      //                 navButtons: true,
-      //                 dots: true,
-      //                 infinite: false
-      //             }
-      //         }
-      //     ]
-      // }
+    return {
+      specializations: []
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/api/specializations').then(function (response) {
+      _this.specializations = response.data;
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/SpecializationComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/SpecializationComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'SpecializationComponent',
+  data: function data() {
+    return {
+      specialization: null,
+      inputTextReviews: ''
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    console.log(this.$route.params);
+    var id = this.$route.params.id;
+    axios.get("/api/specializations/".concat(id)).then(function (response) {
+      _this.specialization = response.data;
+      console.log(_this.specialization);
+    })["catch"](function (error) {
+      console.log(error);
+    });
   }
 });
 
@@ -2313,39 +2339,6 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.inputText,
-      expression: "inputText"
-    }],
-    attrs: {
-      name: "",
-      id: ""
-    },
-    on: {
-      change: [function ($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
-          return o.selected;
-        }).map(function (o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val;
-        });
-        _vm.inputText = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
-      }, _vm.getSpecialization]
-    }
-  }, [_c("option", {
-    attrs: {
-      value: ""
-    }
-  }, [_vm._v("All")]), _vm._v(" "), _vm._l(_vm.specializations, function (specialization) {
-    return _c("option", {
-      key: specialization.id,
-      domProps: {
-        value: specialization.id
-      }
-    }, [_vm._v(_vm._s(specialization.name))]);
-  })], 2), _vm._v(" "), _c("select", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
       value: _vm.inputTextReviews,
       expression: "inputTextReviews"
     }],
@@ -2354,7 +2347,7 @@ var render = function render() {
       id: ""
     },
     on: {
-      change: [function ($event) {
+      change: function change($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
           return o.selected;
         }).map(function (o) {
@@ -2362,20 +2355,33 @@ var render = function render() {
           return val;
         });
         _vm.inputTextReviews = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
-      }, _vm.getReviews]
+      }
     }
   }, [_c("option", {
     attrs: {
       value: ""
     }
-  }, [_vm._v("All")]), _vm._v(" "), _vm._l(_vm.reviews, function (review) {
-    return _c("option", {
-      key: review.id,
-      domProps: {
-        value: _vm.reviews.id
-      }
-    }, [_vm._v(_vm._s(review.votes))]);
-  })], 2), _vm._v(" "), _c("div", {
+  }, [_vm._v("All")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "1"
+    }
+  }, [_vm._v("1")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "2"
+    }
+  }, [_vm._v("2")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "3"
+    }
+  }, [_vm._v("3")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "4"
+    }
+  }, [_vm._v("4")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "5"
+    }
+  }, [_vm._v("5")])]), _vm._v(" "), _c("div", {
     staticClass: "input-group my-3 d-flex justify-content-end"
   }, [_c("input", {
     directives: [{
@@ -2400,9 +2406,14 @@ var render = function render() {
         _vm.input = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _vm.doctors.length > 0 ? _c("div", {
+  })]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary",
+    on: {
+      click: _vm.search
+    }
+  }, [_vm._v("Cerca")]), _vm._v(" "), _vm.doctors.length > 0 ? _c("div", {
     staticClass: "d-flex flex-wrap justify-content-center dist"
-  }, _vm._l(_vm.filteredDoctors, function (doctor) {
+  }, _vm._l(_vm.doctors, function (doctor) {
     return _c("div", {
       key: doctor.id,
       staticClass: "card mb-3 dist",
@@ -2433,18 +2444,14 @@ var render = function render() {
       staticClass: "card-title"
     }, [_vm._v(_vm._s(doctor.name))]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v(_vm._s(doctor.surname))]), _vm._v(" "), _vm._l(doctor.reviews, function (review) {
-      return _c("div", {
-        key: review.id
-      }, [_c("p", {
-        staticClass: "card-text"
-      }, [_vm._v(_vm._s(review.votes))])]);
-    }), _vm._v(" "), _c("a", {
+    }, [_vm._v(_vm._s(doctor.surname))]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v(_vm._s(doctor.average_vote))]), _vm._v(" "), _c("a", {
       staticClass: "btn btn-outline-primary rounded-0",
       attrs: {
         href: "#"
       }
-    }, [_vm._v("Visualizza Dottore")])], 2)])])]);
+    }, [_vm._v("Visualizza Dottore")])])])])]);
   }), 0) : _c("div", [_c("h3", {
     staticClass: "text-center"
   }, [_vm._v("Non ci sono dottori in questa specializzazione")])])]);
@@ -2571,7 +2578,20 @@ var render = function render() {
     slot: "nextButton"
   }, [_c("i", {
     staticClass: "fas fa-chevron-right"
-  })])], 2)], 1)]);
+  })])], 2), _vm._v(" "), _c("ul", _vm._l(_vm.specializations, function (specialization) {
+    return _c("li", {
+      key: specialization.id
+    }, [_c("router-link", {
+      attrs: {
+        to: {
+          name: "specialization",
+          params: {
+            id: specialization.id
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(specialization.id))])], 1);
+  }), 0)], 1)]);
 };
 
 var staticRenderFns = [function () {
@@ -2630,6 +2650,121 @@ var staticRenderFns = [function () {
     staticClass: "sub"
   }, [_vm._v("Prenota online il tuo prossimo medico")])])]);
 }];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/SpecializationComponent.vue?vue&type=template&id=23fded8e&":
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/SpecializationComponent.vue?vue&type=template&id=23fded8e& ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("section", [_c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.inputTextReviews,
+      expression: "inputTextReviews"
+    }],
+    attrs: {
+      name: "",
+      id: ""
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.inputTextReviews = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("All")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "1"
+    }
+  }, [_vm._v("1")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "2"
+    }
+  }, [_vm._v("2")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "3"
+    }
+  }, [_vm._v("3")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "4"
+    }
+  }, [_vm._v("4")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "5"
+    }
+  }, [_vm._v("5")])]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary"
+  }, [_vm._v("Cerca")]), _vm._v(" "), _vm.specialization.doctors.length > 0 ? _c("div", {
+    staticClass: "d-flex flex-wrap justify-content-center dist"
+  }, _vm._l(_vm.specialization.doctors, function (doctor) {
+    return _c("div", {
+      key: doctor.id,
+      staticClass: "card mb-3 dist",
+      staticStyle: {
+        "max-width": "540px"
+      }
+    }, [_c("div", {
+      staticClass: "row"
+    }, [_c("div", {
+      staticClass: "col"
+    }, [_c("div", {
+      staticClass: "figure-"
+    }, [doctor.image ? _c("img", {
+      staticClass: "w-100",
+      attrs: {
+        src: "/storage/".concat(doctor.image),
+        alt: doctor.name
+      }
+    }) : _c("img", {
+      attrs: {
+        src: "https://static.vecteezy.com/system/resources/thumbnails/003/528/202/small/stethoscope-icon-medicine-medical-health-doctor-care-hospital-aid-isolated-symbol-for-web-and-mobile-app-free-free-vector.jpg"
+      }
+    })])]), _vm._v(" "), _c("div", {
+      staticClass: "col"
+    }, [_c("div", {
+      staticClass: "card-body"
+    }, [_c("h5", {
+      staticClass: "card-title"
+    }, [_vm._v(_vm._s(doctor.name))]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v(_vm._s(doctor.surname))]), _vm._v(" "), _c("p", {
+      staticClass: "card-text"
+    }, [_vm._v(_vm._s(doctor.average_vote))]), _vm._v(" "), _c("a", {
+      staticClass: "btn btn-outline-primary rounded-0",
+      attrs: {
+        href: "#"
+      }
+    }, [_vm._v("Visualizza Dottore")])])])])]);
+  }), 0) : _c("div", [_c("h3", {
+    staticClass: "text-center"
+  }, [_vm._v("Non ci sono dottori in questa specializzazione")])])]);
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -23682,6 +23817,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/SpecializationComponent.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/pages/SpecializationComponent.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SpecializationComponent_vue_vue_type_template_id_23fded8e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SpecializationComponent.vue?vue&type=template&id=23fded8e& */ "./resources/js/pages/SpecializationComponent.vue?vue&type=template&id=23fded8e&");
+/* harmony import */ var _SpecializationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SpecializationComponent.vue?vue&type=script&lang=js& */ "./resources/js/pages/SpecializationComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _SpecializationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _SpecializationComponent_vue_vue_type_template_id_23fded8e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SpecializationComponent_vue_vue_type_template_id_23fded8e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/SpecializationComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/SpecializationComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/pages/SpecializationComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SpecializationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./SpecializationComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/SpecializationComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SpecializationComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/SpecializationComponent.vue?vue&type=template&id=23fded8e&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/pages/SpecializationComponent.vue?vue&type=template&id=23fded8e& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_SpecializationComponent_vue_vue_type_template_id_23fded8e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../node_modules/vue-loader/lib??vue-loader-options!./SpecializationComponent.vue?vue&type=template&id=23fded8e& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/SpecializationComponent.vue?vue&type=template&id=23fded8e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_SpecializationComponent_vue_vue_type_template_id_23fded8e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_SpecializationComponent_vue_vue_type_template_id_23fded8e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/router.js":
 /*!********************************!*\
   !*** ./resources/js/router.js ***!
@@ -23697,9 +23901,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_HomeComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/HomeComponent */ "./resources/js/pages/HomeComponent.vue");
 /* harmony import */ var _pages_DoctorsComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/DoctorsComponent */ "./resources/js/pages/DoctorsComponent.vue");
 /* harmony import */ var _pages_CiaoComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/CiaoComponent */ "./resources/js/pages/CiaoComponent.vue");
+/* harmony import */ var _pages_SpecializationComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/SpecializationComponent */ "./resources/js/pages/SpecializationComponent.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -23717,6 +23923,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/ciao',
     name: 'ciao',
     component: _pages_CiaoComponent__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }, {
+    path: '/specializations/:id',
+    name: 'specialization',
+    component: _pages_SpecializationComponent__WEBPACK_IMPORTED_MODULE_5__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
@@ -23799,7 +24009,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\classe59\progetto-finale-bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Utente\boolean\esercizi-php\progetto-finale-bdoctors\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

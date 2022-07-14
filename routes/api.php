@@ -23,5 +23,6 @@ Route::get('/messages','Api\MessageController@index');
 
 Route::get('/doctors', 'Api\DoctorController@index');
 Route::get('/specializations', 'Api\SpecializationController@index');
+Route::get('/specializations/{id}', 'Api\SpecializationController@show');
 Route::get('/reviews', 'Api\ReviewController@index');
 

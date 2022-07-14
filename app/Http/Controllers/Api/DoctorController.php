@@ -17,15 +17,24 @@ class DoctorController extends Controller
     public function index(Request $request)
     {
     //    dd($request->query('specialization'));
-        $doctors = Doctor::with(['reviews'])->get();
-        if($request->query('specialization')){
-            $doctors = Doctor::join('doctor_specialization', 'doctors.id', '=', 'doctor_specialization.doctor_id')->where('doctor_specialization.specialization_id', $request->query('specialization'))->get();
+        //$doctors = Doctor::with(['reviews'])->get();
+        // if($request->query('specialization')){
+        //     $doctors = Doctor::join('doctor_specialization', 'doctors.id', '=', 'doctor_specialization.doctor_id')->where('doctor_specialization.specialization_id', $request->query('specialization'))->get();
 
-        }else {
-            $doctors = Doctor::with(['reviews','specializations'])->get();
-
+        // }else if($request->query('average')){
+        //     $doctors = Doctor::all()->where('average_vote',$request->query('average'));
+        // } else {
+        //     $doctors = Doctor::with(['reviews','specializations'])->get();
+        // }
+        if($request->query('average')){
+            $doctors = Doctor::all()->where('average_vote',$request->query('average'));
+        }else if($request->query('reviews')){
+            //$doctors = Doctor::withCount(['reviews'])->get();
+            $doctors = Doctor::withCount(['reviews'])->where(['reviews_count', $request->query('reviews')])->get();
         }
-
+        else{
+            $doctors = Doctor::with(['reviews','specializations'])->get();
+        }
         return response()->json($doctors);
     }
         
