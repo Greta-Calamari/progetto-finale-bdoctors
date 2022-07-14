@@ -18,14 +18,17 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::middleware('auth')
-       ->namespace('Admin')
-       ->name('admin.')
-       ->prefix('admin')
-       ->group(function(){
-              Route::get('/', 'HomeController@index')->name('home');
-              Route::resource('/doctors', 'DoctorController');              
+->namespace('Admin')
+->name('admin.')
+->prefix('admin')
+->group(function(){
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::resource('/doctors', 'DoctorController');              
+    Route::get('/payment/process', 'PaymentController@process')->name('payment.process');
+
 });
 
 Route::get("{any?}",function(){
     return view("guest.home");
 })->where("any",".*");
+
