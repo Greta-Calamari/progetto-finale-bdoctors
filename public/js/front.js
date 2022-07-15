@@ -2571,7 +2571,6 @@ var render = function render() {
     }],
     attrs: {
       type: "text",
-      minlength: "10",
       maxlength: "255",
       required: ""
     },

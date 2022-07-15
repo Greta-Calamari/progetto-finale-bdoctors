@@ -46,7 +46,7 @@
                 <label for="username">Inserisci il nome</label>
                     <input v-model="formMes.name" type="text" minlength="1" maxlength="100" required/>
                     <label for="content">Inserisci il contenuto</label>
-                    <input v-model="formMes.content" type="text" minlength="10" maxlength="255" required/>
+                    <input v-model="formMes.content" type="text"  maxlength="255" required/>
                     <input type="email" placeholder="Enter your email" required>
                     <!-- <label for="email">Inserisci la tua email</label>
                     <input v-model="formMes.email" type="text" /> -->
