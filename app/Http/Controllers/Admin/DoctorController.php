@@ -32,9 +32,10 @@ class DoctorController extends Controller
     public function index()
     {
         $doctors = Doctor::all();
+        $users = User::all();
         
 
-        return view('admin.doctors.index', compact('doctors'));
+        return view('admin.doctors.index', compact('doctors', 'users'));
     }
 
     /**
@@ -171,12 +172,13 @@ class DoctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor , User $user)
+    public function destroy(Doctor $doctor ,User $user)
     {
+        dd($user);
         
         $doctor->specializations()->sync([]);
         // $doctor->sponsors()->sync([]);
-        $user->forceDelete();
+        $user->delete();
         $doctor->delete();
         return redirect()->route('admin.doctors.index')->with("message", "doctor with id: {$doctor->name} successfully deleted !");
         

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @include('partials/popupdelete')
-{{-- @dd($sponsors) --}}
+{{-- @dd($user) --}}
 
 @section('content')
 <div class="container" id="home">
@@ -13,10 +13,10 @@
                 <a class="list-group-item list-group-item-action" id="list-statistics-list" data-toggle="list" href="#list-statistics" role="tab" aria-controls="statistics">Statistiche</a>
                 <a class="list-group-item list-group-item-action" id="list-sponsors-list" data-toggle="list" href="#list-sponsors" role="tab" aria-controls="sponsors">Sponsorizzazioni</a>
 
-                <form action="{{ route('admin.doctors.destroy', $doctor->id) }}" method="post">
+                <form action="{{ route('admin.doctors.destroy', $user->id ) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger" type="submit" onclick="doctors.openModal(event, {{ $doctor->id }})">Elimina profilo</button>    
+                    <button class="btn btn-danger" type="submit" onclick="doctors.openModal(event, $user->id )">Elimina profilo</button>    
                 </form>
 
             </div>
@@ -34,10 +34,7 @@
                             <a class="btn cs_btn" href="{{route('admin.doctors.show', $doctor->id)}}">Vedi profilo completo</a>
                             <a class="btn cs_btn" href="{{route('admin.doctors.edit', $doctor->id)}}">Modifica profilo</a>
                         </div>
-                        <div>
-                            <a class="btn cs_btn" href="{{route('admin.sponsors.index')}}">Aggiungi sponsor</a>
-                            
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
