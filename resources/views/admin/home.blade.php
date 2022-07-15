@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@include('partials/popupdelete')
 {{-- @dd($sponsors) --}}
 
 @section('content')
@@ -10,7 +11,14 @@
                 <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messaggi</a>
                 <a class="list-group-item list-group-item-action" id="list-reviews-list" data-toggle="list" href="#list-reviews" role="tab" aria-controls="reviews">Recensioni</a>
                 <a class="list-group-item list-group-item-action" id="list-statistics-list" data-toggle="list" href="#list-statistics" role="tab" aria-controls="statistics">Statistiche</a>
-                <a class="list-group-item list-group-item-action" id="list-sponsors-list" data-toggle="list" href="#list-sponsors" role="tab" aria-controls="sponsors">Sponsorizzazioni</a>   
+                <a class="list-group-item list-group-item-action" id="list-sponsors-list" data-toggle="list" href="#list-sponsors" role="tab" aria-controls="sponsors">Sponsorizzazioni</a>
+
+                <form action="{{ route('admin.doctors.destroy', $doctor->id) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit" onclick="doctors.openModal(event, {{ $doctor->id }})">Elimina profilo</button>    
+                </form>
+
             </div>
         </div>
         <div class="col-8">
@@ -47,6 +55,7 @@
                     </ul>
                 </div>
                 <div class="tab-pane fade" id="list-reviews" role="tabpanel" aria-labelledby="list-reviews-list">
+                    
                     <ul>
                         @foreach ($doctor->reviews as $review)
                         <li>
@@ -64,6 +73,9 @@
                         @endforeach
                     </ul>
                 </div>
+               
+
+                
                 <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">Statistiche</div>
                 <div class="tab-pane fade" id="list-sponsors" role="tabpanel" aria-labelledby="list-sponsors-list">
                     <div class="row">

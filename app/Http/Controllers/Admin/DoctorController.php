@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Doctor;
+use App\User;
 use App\Specialization;
 use App\Sponsor;
+
 
 
 class DoctorController extends Controller
@@ -169,9 +171,16 @@ class DoctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy(Doctor $doctor , User $user)
     {
+        
+        $doctor->specializations()->sync([]);
+        // $doctor->sponsors()->sync([]);
+        $user->forceDelete();
         $doctor->delete();
-        return redirect()->route('admin.doctors.index')->with("message", "doctor with id: {$doctor->id} successfully deleted !");
+        return redirect()->route('admin.doctors.index')->with("message", "doctor with id: {$doctor->name} successfully deleted !");
+        
+
+
     }
 }
