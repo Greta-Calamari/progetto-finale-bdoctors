@@ -46,7 +46,24 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="tab-pane fade" id="list-reviews" role="tabpanel" aria-labelledby="list-reviews-list">Reviews</div>
+                <div class="tab-pane fade" id="list-reviews" role="tabpanel" aria-labelledby="list-reviews-list">
+                    <ul>
+                        @foreach ($doctor->reviews as $review)
+                        <li>
+                            <div>
+                                <h5>{{$review->name}}</h5>
+                            
+                                <h6>{{$review->votes}}</h6>
+
+                                
+
+                            </div>  
+                            <p>{{$review->comment}}</p>
+                        </li>
+                            
+                        @endforeach
+                    </ul>
+                </div>
                 <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">Statistiche</div>
                 <div class="tab-pane fade" id="list-sponsors" role="tabpanel" aria-labelledby="list-sponsors-list">
                     <div class="row">
