@@ -28,7 +28,9 @@
                             <!-- <div v-for="review in doctor.reviews" :key="review.id">
                                 <p class="card-text">{{review.votes}}</p>
                             </div> -->
-                            <a href="#" class="btn btn-outline-primary rounded-0">Visualizza Dottore</a>
+                            
+                            <router-link class="btn btn-outline-primary rounded-0" :to="{name: 'doctor', params: {id: doctor.id} }" >Visualizza dottore</router-link>
+
                         </div>
                     </div>
                 </div>
@@ -46,14 +48,15 @@ export default {
     name: 'SpecializationComponent',
     data(){
         return{
-            // specialization: null,
+            specialization: null,
             inputTextReviews: '',
             filtered:[],
             
         }
     },
-    methods:{
-        getSpec(){
+    created()
+    {
+        
         console.log(this.$route.params)
         const id = this.$route.params.id;
         axios.get(`/api/specializations/${id}`).then((response) =>{
@@ -63,7 +66,7 @@ export default {
             console.log(error)
         })
 
-        }
+        
       
 
     },

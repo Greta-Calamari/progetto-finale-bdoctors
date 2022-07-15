@@ -2087,24 +2087,22 @@ __webpack_require__.r(__webpack_exports__);
   name: 'SpecializationComponent',
   data: function data() {
     return {
-      // specialization: null,
+      specialization: null,
       inputTextReviews: '',
       filtered: []
     };
   },
-  methods: {
-    getSpec: function getSpec() {
-      var _this = this;
+  created: function created() {
+    var _this = this;
 
-      console.log(this.$route.params);
-      var id = this.$route.params.id;
-      axios.get("/api/specializations/".concat(id)).then(function (response) {
-        _this.specialization = response.data;
-        console.log(_this.specialization);
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    }
+    console.log(this.$route.params);
+    var id = this.$route.params.id;
+    axios.get("/api/specializations/".concat(id)).then(function (response) {
+      _this.specialization = response.data;
+      console.log(_this.specialization);
+    })["catch"](function (error) {
+      console.log(error);
+    });
   }
 });
 
@@ -2758,12 +2756,17 @@ var render = function render() {
       staticClass: "card-text"
     }, [_vm._v(_vm._s(doctor.surname))]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v(_vm._s(doctor.average_vote))]), _vm._v(" "), _c("a", {
+    }, [_vm._v(_vm._s(doctor.average_vote))]), _vm._v(" "), _c("router-link", {
       staticClass: "btn btn-outline-primary rounded-0",
       attrs: {
-        href: "#"
+        to: {
+          name: "doctor",
+          params: {
+            id: doctor.id
+          }
+        }
       }
-    }, [_vm._v("Visualizza Dottore")])])])])]);
+    }, [_vm._v("Visualizza dottore")])], 1)])])]);
   }), 0) : _c("div", [_c("h3", {
     staticClass: "text-center"
   }, [_vm._v("Non ci sono dottori in questa specializzazione")])])]);
