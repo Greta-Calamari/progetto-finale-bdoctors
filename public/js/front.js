@@ -2090,15 +2090,17 @@ __webpack_require__.r(__webpack_exports__);
       inputTextReviews: ''
     };
   },
-  created: function created() {// console.log(this.$route.params)
-    // const id = this.$route.params.id;
-    // axios.get(`/api/specializations/${id}`).then((response) =>{
-    //     this.specialization = response.data;
-    //     console.log(this.specialization)
-    // }).catch((error)=>{
-    //     console.log(error)
-    // })
-  }
+  created: function created() {
+    axios.get;
+  } // console.log(this.$route.params)
+  // const id = this.$route.params.id;
+  // axios.get(`/api/specializations/${id}`).then((response) =>{
+  //     this.specialization = response.data;
+  //     console.log(this.specialization)
+  // }).catch((error)=>{
+  //     console.log(error)
+  // })
+
 });
 
 /***/ }),
