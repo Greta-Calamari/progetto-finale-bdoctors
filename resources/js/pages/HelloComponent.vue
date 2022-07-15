@@ -1,23 +1,23 @@
 <template>
-    <div>
-        <h1>prova Hello</h1>
+<div>
+    <div v-for="doctor in doctors" :key="doctor.id">
+        <h1>{{doctor.name}}</h1>
+
     </div>
+</div>
+
 </template>
 
 <script>
 export default {
-    name: 'ProvaComponent',
+    name: 'HelloComponent',
     data(){
         return{
             doctors:[],
 
         }
     },
-    // created(){
-    //     axios.get('/api/doctors').then((el)=>{
-    //         this.doctors= el.data;
-    //     })
-    // }
+
 }
 </script>
 <style lang="scss">

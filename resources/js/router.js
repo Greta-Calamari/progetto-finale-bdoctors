@@ -6,6 +6,8 @@ Vue.use(VueRouter);
 import HomeComponent from './pages/HomeComponent';
 import HelloComponent from './pages/HelloComponent';
 import CiaoComponent from './pages/CiaoComponent';
+import DoctorComponent from './pages/DoctorComponent';
+import NotFoundComponent from './pages/NotFoundComponent';
 
 
 const router = new VueRouter({
@@ -25,6 +27,17 @@ const router = new VueRouter({
             path: '/ciao',
             name:'ciao',
             component: CiaoComponent
+        },
+        {
+            path: '/doctors/:id',
+            name:'doctor',
+            component: DoctorComponent
+
+        },
+        {
+            path: '*',
+            name:'page-404',
+            component: NotFoundComponent
         },
 
 

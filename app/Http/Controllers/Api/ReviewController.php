@@ -8,6 +8,11 @@ use App\Review;
 
 class ReviewController extends Controller
 {
+    protected $validationReview = [
+        "name" => "required|string|max:50",
+        "comment" => "required|string|max:255",
+        "votes" => "required|string|max:1",
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +43,17 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate($this->validationReview);
+
+        $data = $request->all();
+        $newReview = new Review();
+        $newReview->name = $data['name'];
+        $newReview->comment = $data['comment'];
+        $newReview->votes = $data['votes'];
+        $newReview->doctor_id = $data['doctor_id'];
+
+        $newReview->save();
+        return response()->json($newReview);
     }
 
     /**

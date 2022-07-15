@@ -25,6 +25,7 @@ export default {
                     label:'Ciao',
                     routeName:'ciao'
                 },
+
             ]
 
         }
