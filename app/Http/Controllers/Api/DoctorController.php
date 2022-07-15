@@ -27,7 +27,25 @@ class DoctorController extends Controller
         //     $doctors = Doctor::with(['reviews','specializations'])->get();
         // }
         if($request->query('average')){
-            $doctors = Doctor::all()->where('average_vote',$request->query('average'));
+            $doctors = Doctor::join('doctor_specialization', 'doctors.id', '=', 'doctor_specialization.doctor_id')->where('doctor_specialization.specialization_id', $request->query('specialization'))->get();
+            $average = $request->query('average');
+            $doctors = $doctors->filter(function ($doctor) use ($average){
+                if($doctor->average_vote == $average){
+                    return true;
+                };
+            })->values()->all();
+                    
+
+
+                
+
+
+
+                
+
+
+            
+    ;
         }else if($request->query('reviews')){
             //$doctors = Doctor::withCount(['reviews'])->get();
             $doctors = Doctor::withCount(['reviews'])->where(['reviews_count', $request->query('reviews')])->get();

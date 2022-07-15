@@ -2087,22 +2087,17 @@ __webpack_require__.r(__webpack_exports__);
   name: 'SpecializationComponent',
   data: function data() {
     return {
-      specialization: null,
-      inputTextReviews: '',
-      filtered: []
+      inputTextReviews: ''
     };
   },
-  created: function created() {
-    var _this = this;
-
-    console.log(this.$route.params);
-    var id = this.$route.params.id;
-    axios.get("/api/specializations/".concat(id)).then(function (response) {
-      _this.specialization = response.data;
-      console.log(_this.specialization);
-    })["catch"](function (error) {
-      console.log(error);
-    });
+  created: function created() {// console.log(this.$route.params)
+    // const id = this.$route.params.id;
+    // axios.get(`/api/specializations/${id}`).then((response) =>{
+    //     this.specialization = response.data;
+    //     console.log(this.specialization)
+    // }).catch((error)=>{
+    //     console.log(error)
+    // })
   }
 });
 
@@ -2682,9 +2677,6 @@ var render = function render() {
       id: ""
     },
     on: {
-      click: function click($event) {
-        return _vm.filtraggio();
-      },
       change: function change($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
           return o.selected;

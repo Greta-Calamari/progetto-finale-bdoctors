@@ -1,6 +1,6 @@
 <template>
     <section>
-        <select name="" id="" v-model="inputTextReviews" @click="filtraggio()" >
+        <select name="" id="" v-model="inputTextReviews"  >
             <option value="">All</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -48,28 +48,29 @@ export default {
     name: 'SpecializationComponent',
     data(){
         return{
-            specialization: null,
+            
             inputTextReviews: '',
-            filtered:[],
+            
             
         }
     },
     created()
     {
+        axios.get
         
-        console.log(this.$route.params)
-        const id = this.$route.params.id;
-        axios.get(`/api/specializations/${id}`).then((response) =>{
-            this.specialization = response.data;
-            console.log(this.specialization)
-        }).catch((error)=>{
-            console.log(error)
-        })
+    },
+        // console.log(this.$route.params)
+        // const id = this.$route.params.id;
+        // axios.get(`/api/specializations/${id}`).then((response) =>{
+        //     this.specialization = response.data;
+        //     console.log(this.specialization)
+        // }).catch((error)=>{
+        //     console.log(error)
+        // })
 
         
       
 
-    },
     
 }
 </script>
