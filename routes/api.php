@@ -27,3 +27,6 @@ Route::get('/specializations', 'Api\SpecializationController@index');
 Route::post('/reviews', 'Api\ReviewController@store');
 Route::get('/messages','Api\MessageController@index');
 Route::post('/messages','Api\MessageController@store');
+Route::get('/specializations/{id}', 'Api\SpecializationController@show');
+Route::get('/reviews', 'Api\ReviewController@index');
+

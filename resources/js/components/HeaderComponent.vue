@@ -18,8 +18,8 @@ export default {
                     routeName:'home'
                 },
                 {
-                    label:'Hello',
-                    routeName:'hello'
+                    label:'Dottori',
+                    routeName:'doctors'
                 },
                 {
                     label:'Ciao',

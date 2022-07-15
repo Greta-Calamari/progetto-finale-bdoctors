@@ -47,7 +47,7 @@
 
         <!-- carosello -->
         <div id="app" class="w-carousel" >
-            <agile :options="myOptions" :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst>
+            <agile  :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst>
 
                 <div class="slide container-">
                         <div class="circle-"></div>
@@ -116,31 +116,15 @@
                         Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
                         </p>
                 </div>
-                    
-
-                    
-
-
-
-                    <!-- <div class="slide" v-for="(doctor,index) in doctors" :key="index" :class="`slide--${index}`">
-                            <img :src="`/storage/${doctor.image}`" class="w-100" :alt="doctor.title">
-                    </div> -->
                 <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
                 <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
             </agile>
+            <ul>
+              <li v-for="specialization in specializations" :key="specialization.id">
+                 <router-link :to="{name: 'specialization', params: {id: specialization.id} }" >{{specialization.id}}</router-link>
+              </li>
+            </ul>
         </div>
-
-
-        
-    
-
-        
-        
-
-        
-
-
-
     </div>
 </template>
 
@@ -152,33 +136,16 @@ export default {
     components: {
         agile: VueAgile 
     },
-    
-    
     data () {
-    return {
-        // myOptions: {
-        //     navButtons: false,
-            
-        //     responsive: [
-        //         {
-        //             breakpoint: 600,
-        //             settings: {
-        //                 dots: false
-        //             }
-        //         },
-                
-        //         {
-        //             breakpoint: 900,
-        //             settings: {
-        //                 navButtons: true,
-        //                 dots: true,
-        //                 infinite: false
-        //             }
-        //         }
-        //     ]
-        // }
+        return {
+            specializations: [],
+        }
+    },
+    created(){
+      axios.get('/api/specializations').then((response)=>{ 
+        this.specializations = response.data;
+      })
     }
-}
 }
 </script>
 <style lang="scss">

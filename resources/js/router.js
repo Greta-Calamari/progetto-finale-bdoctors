@@ -4,10 +4,11 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import HomeComponent from './pages/HomeComponent';
-import HelloComponent from './pages/HelloComponent';
+import DoctorsComponent from './pages/DoctorsComponent';
 import CiaoComponent from './pages/CiaoComponent';
 import DoctorComponent from './pages/DoctorComponent';
 import NotFoundComponent from './pages/NotFoundComponent';
+import SpecializationComponent from './pages/SpecializationComponent';
 
 
 const router = new VueRouter({
@@ -19,9 +20,9 @@ const router = new VueRouter({
             component: HomeComponent
         },
         {
-            path: '/hello',
-            name:'hello',
-            component: HelloComponent
+            path: '/doctors',
+            name:'doctors',
+            component: DoctorsComponent
         },
         {
             path: '/ciao',
@@ -37,7 +38,10 @@ const router = new VueRouter({
         {
             path: '*',
             name:'page-404',
-            component: NotFoundComponent
+            component: NotFoundComponent,
+            path: '/specializations/:id',
+            name:'specialization',
+            component: SpecializationComponent
         },
 
 
