@@ -16,12 +16,13 @@
                 </div>
                 <form @submit.prevent="addComment()">
                     <label for="name">Inserisci il nome</label>
-                    <input v-model="formData.name" type="text" />
+                    <input v-model="formData.name" type="text"  minlength="1" maxlength="100" required/>
                     <label for="comment">Inserisci il contenuto</label>
-                    <input v-model="formData.comment" type="text" />
+                    <input v-model="formData.comment" type="text" minlength="1" maxlength="255" required/>
                     <label for="votes" class="form-label">Votes</label>
-                    <input type="number" v-model="formData.votes"    name="votes" min="1" max="5">
-                    <button type="submit" v-on:click="upNota">Invia</button>
+                    <input type="number" v-model="formData.votes"    name="votes" min="1" max="5" required>
+                    <button type="submit" >Invia</button>
+                    <!-- va nel submit v-on:click="upNota" -->
                 </form>
             </div>
           <!-- mostra commenti  -->
@@ -43,12 +44,14 @@
             <h1>Invia messaggio al dottore </h1>
             <form @submit.prevent="sendMes()">
                 <label for="username">Inserisci il nome</label>
-                    <input v-model="formMes.name" type="text" />
+                    <input v-model="formMes.name" type="text" minlength="1" maxlength="100" required/>
                     <label for="content">Inserisci il contenuto</label>
-                    <input v-model="formMes.content" type="text" />
-                    <label for="email">Inserisci la tua email</label>
-                    <input v-model="formMes.email" type="text" />
-                    <button type="submit" v-on:click="errorMes">Invia</button>
+                    <input v-model="formMes.content" type="text" minlength="10" maxlength="255" required/>
+                    <input type="email" placeholder="Enter your email" required>
+                    <!-- <label for="email">Inserisci la tua email</label>
+                    <input v-model="formMes.email" type="text" /> -->
+                    <button type="submit" >Invia</button>
+                    <!-- va ne submit v-on:click="errorMes" -->
             </form>
 
         </div>

@@ -2441,7 +2441,10 @@ var render = function render() {
       expression: "formData.name"
     }],
     attrs: {
-      type: "text"
+      type: "text",
+      minlength: "1",
+      maxlength: "100",
+      required: ""
     },
     domProps: {
       value: _vm.formData.name
@@ -2465,7 +2468,10 @@ var render = function render() {
       expression: "formData.comment"
     }],
     attrs: {
-      type: "text"
+      type: "text",
+      minlength: "1",
+      maxlength: "255",
+      required: ""
     },
     domProps: {
       value: _vm.formData.comment
@@ -2493,7 +2499,8 @@ var render = function render() {
       type: "number",
       name: "votes",
       min: "1",
-      max: "5"
+      max: "5",
+      required: ""
     },
     domProps: {
       value: _vm.formData.votes
@@ -2508,9 +2515,6 @@ var render = function render() {
   }), _vm._v(" "), _c("button", {
     attrs: {
       type: "submit"
-    },
-    on: {
-      click: _vm.upNota
     }
   }, [_vm._v("Invia")])])]), _vm._v(" "), _vm.doctor.reviews.length > 0 ? _c("div", [_c("h3", [_vm._v("Commenti:")]), _vm._v(" "), _vm._l(_vm.doctor.reviews, function (mes) {
     return _c("div", {
@@ -2539,7 +2543,10 @@ var render = function render() {
       expression: "formMes.name"
     }],
     attrs: {
-      type: "text"
+      type: "text",
+      minlength: "1",
+      maxlength: "100",
+      required: ""
     },
     domProps: {
       value: _vm.formMes.name
@@ -2563,7 +2570,10 @@ var render = function render() {
       expression: "formMes.content"
     }],
     attrs: {
-      type: "text"
+      type: "text",
+      minlength: "10",
+      maxlength: "255",
+      required: ""
     },
     domProps: {
       value: _vm.formMes.content
@@ -2575,36 +2585,15 @@ var render = function render() {
         _vm.$set(_vm.formMes, "content", $event.target.value);
       }
     }
-  }), _vm._v(" "), _c("label", {
+  }), _vm._v(" "), _c("input", {
     attrs: {
-      "for": "email"
-    }
-  }, [_vm._v("Inserisci la tua email")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.formMes.email,
-      expression: "formMes.email"
-    }],
-    attrs: {
-      type: "text"
-    },
-    domProps: {
-      value: _vm.formMes.email
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-
-        _vm.$set(_vm.formMes, "email", $event.target.value);
-      }
+      type: "email",
+      placeholder: "Enter your email",
+      required: ""
     }
   }), _vm._v(" "), _c("button", {
     attrs: {
       type: "submit"
-    },
-    on: {
-      click: _vm.errorMes
     }
   }, [_vm._v("Invia")])])])]);
 };
