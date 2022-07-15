@@ -21,7 +21,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/messages','Api\MessageController@index');
 
-Route::get('/doctors', 'Api\DoctorController@index');
+Route::get("/doctors", [DoctorController::class, "index"]);
+//api singolo dottore per slug
+Route::get("/doctors/{slug}", [DoctorController::class, "show"]);
+// api per numero di recensioni
+Route::get('/filter', [DoctorController::class, 'filter'] );
+
+
 Route::get('/specializations', 'Api\SpecializationController@index');
 Route::get('/specializations/{id}', 'Api\SpecializationController@show');
 Route::get('/reviews', 'Api\ReviewController@index');
