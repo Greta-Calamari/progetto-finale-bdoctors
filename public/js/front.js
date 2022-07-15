@@ -2087,21 +2087,24 @@ __webpack_require__.r(__webpack_exports__);
   name: 'SpecializationComponent',
   data: function data() {
     return {
-      specialization: null,
-      inputTextReviews: ''
+      // specialization: null,
+      inputTextReviews: '',
+      filtered: []
     };
   },
-  created: function created() {
-    var _this = this;
+  methods: {
+    getSpec: function getSpec() {
+      var _this = this;
 
-    console.log(this.$route.params);
-    var id = this.$route.params.id;
-    axios.get("/api/specializations/".concat(id)).then(function (response) {
-      _this.specialization = response.data;
-      console.log(_this.specialization);
-    })["catch"](function (error) {
-      console.log(error);
-    });
+      console.log(this.$route.params);
+      var id = this.$route.params.id;
+      axios.get("/api/specializations/".concat(id)).then(function (response) {
+        _this.specialization = response.data;
+        console.log(_this.specialization);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -2503,7 +2506,6 @@ var render = function render() {
     }
   }, [_c("agile", {
     attrs: {
-      options: _vm.myOptions,
       "initial-slide": 3,
       autoplay: "",
       autoplaySpeed: 3000,
@@ -2682,6 +2684,9 @@ var render = function render() {
       id: ""
     },
     on: {
+      click: function click($event) {
+        return _vm.filtraggio();
+      },
       change: function change($event) {
         var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
           return o.selected;
@@ -24009,7 +24014,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Utente\boolean\esercizi-php\progetto-finale-bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\classe59\progetto-finale-bdoctors\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

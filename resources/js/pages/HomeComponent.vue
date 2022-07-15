@@ -47,7 +47,7 @@
 
         <!-- carosello -->
         <div id="app" class="w-carousel" >
-            <agile :options="myOptions" :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst>
+            <agile  :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst>
 
                 <div class="slide container-">
                         <div class="circle-"></div>

@@ -1,6 +1,6 @@
 <template>
     <section>
-        <select name="" id="" v-model="inputTextReviews" >
+        <select name="" id="" v-model="inputTextReviews" @click="filtraggio()" >
             <option value="">All</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -10,6 +10,7 @@
         </select>
 
         <button class="btn btn-primary">Cerca</button>
+      
         <div class="d-flex flex-wrap justify-content-center dist " v-if="specialization.doctors.length > 0">
             <div class="card mb-3 dist" style="max-width: 540px;" v-for="(doctor) in specialization.doctors" :key="doctor.id">
                 <div class="row ">
@@ -45,11 +46,14 @@ export default {
     name: 'SpecializationComponent',
     data(){
         return{
-            specialization: null,
+            // specialization: null,
             inputTextReviews: '',
+            filtered:[],
+            
         }
     },
-    created(){
+    methods:{
+        getSpec(){
         console.log(this.$route.params)
         const id = this.$route.params.id;
         axios.get(`/api/specializations/${id}`).then((response) =>{
@@ -58,7 +62,12 @@ export default {
         }).catch((error)=>{
             console.log(error)
         })
-    }
+
+        }
+      
+
+    },
+    
 }
 </script>
 
