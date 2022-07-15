@@ -13,10 +13,10 @@
                 <a class="list-group-item list-group-item-action" id="list-statistics-list" data-toggle="list" href="#list-statistics" role="tab" aria-controls="statistics">Statistiche</a>
                 <a class="list-group-item list-group-item-action" id="list-sponsors-list" data-toggle="list" href="#list-sponsors" role="tab" aria-controls="sponsors">Sponsorizzazioni</a>
 
-                <form action="{{ route('admin.doctors.destroy', $user->id ) }}" method="post">
+                <form action="{{ route('admin.doctors.destroy', $doctor->id ) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger" type="submit" onclick="doctors.openModal(event, $user->id )">Elimina profilo</button>    
+                    <button class="btn btn-danger" type="submit" onclick="doctors.openModal(event, $user->id, $doctor->id )">Elimina profilo</button>    
                 </form>
 
             </div>

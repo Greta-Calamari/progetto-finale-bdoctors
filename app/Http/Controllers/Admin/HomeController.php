@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index(){
         $currentUser = Auth::user();
 
-        $doctor = Doctor::where('user_id', $currentUser->id)->first();
+        $doctor = Doctor::where('user_id', $currentUser->id)->first();  
         $sponsors = Sponsor::all();
         $users = User::all();
 
@@ -23,4 +23,6 @@ class HomeController extends Controller
 
         return view('admin.home', compact('doctor', 'sponsors', 'users', 'user'));
     }
+
+    
 }
