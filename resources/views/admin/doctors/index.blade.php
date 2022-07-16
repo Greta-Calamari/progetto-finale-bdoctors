@@ -3,6 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-6">
+        
         <ul>
             DOTTORI
             @foreach ($doctors as $doctor)

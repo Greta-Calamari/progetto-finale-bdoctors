@@ -172,17 +172,15 @@ class DoctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor ,User $user)
+    public function destroy()
     {
-        dd($user);
-        
-        $doctor->specializations()->sync([]);
-        // $doctor->sponsors()->sync([]);
-        $user->delete();
-        $doctor->delete();
-        return redirect()->route('admin.doctors.index')->with("message", "doctor with id: {$doctor->name} successfully deleted !");
-        
-
-
+        // $doctor->specializations()->sync([]);
+        // $doctor->delete();
+        // return redirect()->route('admin.doctors.index')->with("message", "doctor with id: {$doctor->name} successfully deleted !");
     }
 }
+        
+        
+        
+
+
