@@ -1,13 +1,72 @@
 <template>
-    <section>
-        <div v-if="doctor">
+    <section class="container-fluid">
+        <div v-if="doctor" class="container-main row justify-content-center align-content-center">
+            <!-- doctor -->
+            <div class=" col-lg-3 col-md-3 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+                <img :src="doctor.photo" alt="img">
+                <!-- specializations  -->
+                <div class="specializations d-flex flex-column justify-content-center align-content-center">
+                    <ul>
+                        <h4>Le mie specializzazione</h4>
+                        <hr>
+                        <li v-for="specia in doctor.specializations" :key="specia">
+                            <a href="#">{{specia.name}}</a>
+                        </li>
+                </ul>
+                <hr>
+            </div>
+            </div>
+            <!-- info  -->
+            <div class=" info-doctor col-lg-9 col-md-9 col-sm-12 d-flex flex-column ">
+                <h1><i class="fa-solid fa-user-doctor"></i> {{doctor.name}} {{doctor.surname}}
+                <a href="#" class="logo"><img src="/images/logo.png" alt="logo"></a>
+                </h1>
+                <hr>
+                <h3><i class="fa-solid fa-stethoscope"></i>Servizio:</h3>
+                <h4>{{doctor.services}}</h4>
+                <hr>
+                <h3><i class="fa-solid fa-map-location"></i>Indirizzo:</h3>
+                <h4>{{doctor.address}}</h4>
+                <hr>
+                <h3><i class="fa-solid fa-phone"></i>Telefono:</h3>
+                <h4> {{doctor.cell_number}}</h4>
+            </div>
+            
+        </div>
+        
+        <!-- commenti  -->
+        <div class="comment-container row" v-if="doctor.reviews.length > 0">
+            <div  class="p-0 col-lg-9 col-md-9 col-sm-12">
+                <h3>Commenti:</h3>
+                <div class="comment-doctor" v-for="mes in doctor.reviews" :key="mes.id">
+
+                    <p>{{ mes.comment }}</p>
+                </div>
+            </div> 
+            <!-- aggiundi commento  -->
+            <div class="p-0 col-lg-3 col-md-3 col-sm-12">
+                <form @submit.prevent="addComment()">
+                    <label for="name">Inserisci il nome</label>
+                    <input v-model="formData.name" type="text"  minlength="1" maxlength="100" required/>
+                    <label for="comment">Inserisci il contenuto</label>
+                    <input v-model="formData.comment" type="text" minlength="1" maxlength="255" required/>
+                    <label for="votes" class="form-label">Votes</label>
+                    <input type="number" v-model="formData.votes"    name="votes" min="1" max="5" required>
+                    <button type="submit" >Invia</button>
+                </form> 
+            </div>
+        </div>
+            
+                
+            
+            
             <!-- dottore  -->
-            <h3>Nome dottore: {{doctor.name}}</h3>
+            <!-- <h3>Nome dottore: {{doctor.name}}</h3>
             <h3>Cognome:{{doctor.surname}}</h3>
-            <hr>
+            <hr> -->
             <!-- commenti  -->
             <!-- aggiungi commenti  -->
-            <div>
+            <!-- <div>
                 <div v-if="errors.length">
                     <b>Si sono verificati degli errori:</b>
                     <ul>
@@ -22,19 +81,19 @@
                     <label for="votes" class="form-label">Votes</label>
                     <input type="number" v-model="formData.votes"    name="votes" min="1" max="5" required>
                     <button type="submit" >Invia</button>
-                    <!-- va nel submit v-on:click="upNota" -->
-                </form>
-            </div>
+                     va nel submit v-on:click="upNota" 
+                </form> -->
+            
           <!-- mostra commenti  -->
-            <div v-if="doctor.reviews.length > 0">
+            <!-- <div v-if="doctor.reviews.length > 0">
                 <h3>Commenti:</h3>
                 <div v-for="mes in doctor.reviews" :key="mes.id">
                     <h5>{{ mes.comment }}</h5>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- invia messaggio al dottore  -->
-        <div>
+        <!-- <div>
             <div v-if="errorsMes.length">
                     <b>Si sono verificati degli errori:</b>
                     <ul>
@@ -48,13 +107,13 @@
                     <label for="content">Inserisci il contenuto</label>
                     <input v-model="formMes.content" type="text"  maxlength="255" required/>
                     <input type="email" placeholder="Enter your email" required>
-                    <!-- <label for="email">Inserisci la tua email</label>
-                    <input v-model="formMes.email" type="text" /> -->
+                    <label for="email">Inserisci la tua email</label>
+                    <input v-model="formMes.email" type="text" /> 
                     <button type="submit" >Invia</button>
-                    <!-- va ne submit v-on:click="errorMes" -->
+                    va ne submit v-on:click="errorMes" 
             </form>
 
-        </div>
+         </div>  -->
   </section>
 </template>
 <script>
@@ -178,5 +237,92 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '../../sass/variables';
+section{
+    background-color: $general-light-blue;
+    width: 100%;
+    min-height: 60vh;
+    // doctor 
+    .container-main{
+        width: 90%;
+        margin: 0 auto;
+        padding: 10px;
+        
+        div{
+            
+            img{
+            border-radius: 50px;
+            border: 2px solid $general-violet;
+            width: 200px;
+            background-size: contain;
+            } 
+            .logo{
+                img{
+                    border: 0 !important;
+                    width: 80px;
+                    border-radius: 50px;
+                }
+            }
+            // specializations
+            .specializations{
+                
+                h4{
+                }
+                hr{
+                   
+                    border: 1px solid $general-violet;
+                    width: 100%;
 
+                }
+                ul{
+                    li{
+                        padding: 2px;
+                        a{
+                            color: $general-violet;
+                            text-decoration: none;
+                            &:hover{
+                                color: $general-white;
+                            }
+                        }
+                    }
+                }
+                hr{
+                    width: 100%;
+                    margin-top: 0 !important;
+                    border: 1px solid $general-violet;
+                }
+            }
+        }
+        .info-doctor{
+            padding: 30px;
+            i{
+                
+                padding: 5px;
+            }
+        }
+        
+        
+    }
+    
+    // comment
+    .comment-container {
+        width: 100%;
+        padding-left: 5%;
+        div{
+            width: 100%;
+            .comment-doctor{
+            width: 80%;
+            min-height: 40px;
+            margin: 10px 0;
+
+            border: 2px solid $general-black;
+            }
+        }
+    }
+    hr{
+        background-color: $general-violet;
+        height: 1px;
+    }
+    
+}
 </style>
