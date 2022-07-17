@@ -70,7 +70,7 @@ export default {
         .info{
             margin-top: 30px;
             hr{
-                background-color: $general-light-blue;
+                background-color: $general-violet;
                 height: 2px;
                 width: 20%;
                 margin: 0 auto;
@@ -85,7 +85,7 @@ export default {
                         text-decoration: none;
                         color: $general-light-grey;
                         &:hover{
-                            color: $general-light-blue;
+                            color: $general-violet;
                         }
                     }
                 }
@@ -94,7 +94,7 @@ export default {
         .contacts{
             margin-top: 30px;
             hr{
-                background-color: $general-light-blue;
+                background-color: $general-violet;
                 height: 2px;
                 width: 20%;
                 margin: 0 auto;
@@ -108,7 +108,7 @@ export default {
                         text-decoration: none;
                         color: $general-light-grey;
                         &:hover{
-                            color: $general-light-blue;
+                            color: $general-violet;
                         }
                     }
                 }
@@ -119,7 +119,7 @@ export default {
             text-align: center;
             padding: 0;
             hr{
-                background-color: $general-light-blue;
+                background-color: $general-violet;
                 height: 2px;
                 width: 20%;
                 margin: 0 auto;
@@ -131,7 +131,7 @@ export default {
                     text-decoration: none;
                     color: $general-light-grey;
                     &:hover{
-                        color: $general-light-blue;
+                        color: $general-violet;
                     }
                 }
             }
@@ -148,7 +148,7 @@ export default {
             }
         }
         hr{
-            background-color: $general-light-blue;
+            background-color: $general-violet;
             width: 80%;
             height: 2px;
             margin: 0 auto;

@@ -35,23 +35,62 @@
         </div>
         
         <!-- commenti  -->
-        <div class="comment-container row" v-if="doctor.reviews.length > 0">
-            <div  class="p-0 col-lg-9 col-md-9 col-sm-12">
+        <div class="comment-container row " v-if="doctor.reviews.length > 0">
+            <div  class="p-0 col-lg-8 col-md-8 col-sm-12">
                 <h3>Commenti:</h3>
                 <div class="comment-doctor" v-for="mes in doctor.reviews" :key="mes.id">
-
                     <p>{{ mes.comment }}</p>
                 </div>
+                <!-- invia un messaggio  -->
+                <div>
+                    <h3>Invia un messaggio al dottore</h3>
+                    <form @submit.prevent="sendMes()">
+                        <!-- nome messaggio  -->
+                        <div>
+                            <label for="username">Inserisci il nome</label>
+                            <br>
+                            <input v-model="formMes.name" type="text" minlength="1" maxlength="100" required/>
+                        </div>
+                        <!-- contenuto messaggio -->
+                        <div>
+                            <label for="content">Inserisci il contenuto</label>
+                            <br>
+                            <input v-model="formMes.content" type="text"  maxlength="255" required/>
+                        </div>
+                        <!-- email messaggio  -->
+                        <div>
+                            <label for="email">Inserisci la tua email</label>
+                            <br>
+                            <input type="email" v-model="formMes.email" placeholder="Enter your email" required>
+                        </div>
+                        <button type="submit" >Invia</button>
+                    </form>
+                </div>
             </div> 
+
             <!-- aggiundi commento  -->
-            <div class="p-0 col-lg-3 col-md-3 col-sm-12">
+            <div class=" add-comment p-0 col-lg-4 col-md-4 col-sm-12">
                 <form @submit.prevent="addComment()">
-                    <label for="name">Inserisci il nome</label>
-                    <input v-model="formData.name" type="text"  minlength="1" maxlength="100" required/>
-                    <label for="comment">Inserisci il contenuto</label>
-                    <input v-model="formData.comment" type="text" minlength="1" maxlength="255" required/>
-                    <label for="votes" class="form-label">Votes</label>
-                    <input type="number" v-model="formData.votes"    name="votes" min="1" max="5" required>
+                    <h2>Lascia una recensione</h2>
+                    <!-- name  -->
+                    <div class="name-comment">
+                        <label for="name">Inserisci il tuo nome</label>
+                        <br>
+                        <input v-model="formData.name" type="text"  minlength="1" maxlength="100" placeholder="Inserisci il tuo nome" required/>
+                    </div>
+                    <!-- comment  -->
+                    <div class="text-comment">
+                        
+                        <label for="comment">Inserisci il tuo commento</label>
+                        <br>
+                        <textarea  name="content" id="contentEditor" cols="30" rows="10" minlength="1" maxlength="255" placeholder="Inserisci il tuo commento" required>
+                        </textarea>
+                    </div>
+                    <!-- votes  -->
+                    <div class="votes">
+                        <label for="votes" class="form-label">Inscerisci un voto da 1 a 5</label>
+                        <input type="number" v-model="formData.votes"    name="votes" min="1" max="5" placeholder="voto" required>
+                    </div>
                     <button type="submit" >Invia</button>
                 </form> 
             </div>
@@ -306,16 +345,48 @@ section{
     
     // comment
     .comment-container {
-        width: 100%;
-        padding-left: 5%;
+        
         div{
             width: 100%;
+            h3{
+                margin-left: 5%;
+            }
             .comment-doctor{
-            width: 80%;
+            width: 90%;
             min-height: 40px;
-            margin: 10px 0;
+            margin: 10px auto;
 
             border: 2px solid $general-black;
+            }
+        }
+        .add-comment{
+            margin-top: 40px !important;
+            width: 80%;
+            margin: 0 auto;
+            position: sticky;
+            top: 0;
+            height: 200px;
+            form{
+                .name-comment{
+                    input{
+                        margin-left: 10px;
+                        width: 90%;
+                    }
+                }
+                .text-comment{
+                    textarea{
+                        margin-left: 10px;
+                        width: 90%;
+                        
+                    }
+                }
+                .votes{
+                    margin-top: 5px;
+                    input{
+                        margin-left: 10px;
+                        width: 50px;
+                    }
+                }
             }
         }
     }

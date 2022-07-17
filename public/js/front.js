@@ -2446,14 +2446,104 @@ var render = function render() {
   }), _vm._v(" " + _vm._s(_vm.doctor.name) + " " + _vm._s(_vm.doctor.surname) + "\n              "), _vm._m(0)]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("h4", [_vm._v(_vm._s(_vm.doctor.services))]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("h4", [_vm._v(_vm._s(_vm.doctor.address))]), _vm._v(" "), _c("hr"), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("h4", [_vm._v(" " + _vm._s(_vm.doctor.cell_number))])])]) : _vm._e(), _vm._v(" "), _vm.doctor.reviews.length > 0 ? _c("div", {
     staticClass: "comment-container row"
   }, [_c("div", {
-    staticClass: "p-0 col-lg-9 col-md-9 col-sm-12"
+    staticClass: "p-0 col-lg-8 col-md-8 col-sm-12"
   }, [_c("h3", [_vm._v("Commenti:")]), _vm._v(" "), _vm._l(_vm.doctor.reviews, function (mes) {
     return _c("div", {
       key: mes.id,
       staticClass: "comment-doctor"
     }, [_c("p", [_vm._v(_vm._s(mes.comment))])]);
-  })], 2), _vm._v(" "), _c("div", {
-    staticClass: "p-0 col-lg-3 col-md-3 col-sm-12"
+  }), _vm._v(" "), _c("div", [_c("h3", [_vm._v("Invia un messaggio al dottore")]), _vm._v(" "), _c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.sendMes();
+      }
+    }
+  }, [_c("div", [_c("label", {
+    attrs: {
+      "for": "username"
+    }
+  }, [_vm._v("Inserisci il nome")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formMes.name,
+      expression: "formMes.name"
+    }],
+    attrs: {
+      type: "text",
+      minlength: "1",
+      maxlength: "100",
+      required: ""
+    },
+    domProps: {
+      value: _vm.formMes.name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.formMes, "name", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    attrs: {
+      "for": "content"
+    }
+  }, [_vm._v("Inserisci il contenuto")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formMes.content,
+      expression: "formMes.content"
+    }],
+    attrs: {
+      type: "text",
+      maxlength: "255",
+      required: ""
+    },
+    domProps: {
+      value: _vm.formMes.content
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.formMes, "content", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", [_c("label", {
+    attrs: {
+      "for": "email"
+    }
+  }, [_vm._v("Inserisci la tua email")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formMes.email,
+      expression: "formMes.email"
+    }],
+    attrs: {
+      type: "email",
+      placeholder: "Enter your email",
+      required: ""
+    },
+    domProps: {
+      value: _vm.formMes.email
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.formMes, "email", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("button", {
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Invia")])])])], 2), _vm._v(" "), _c("div", {
+    staticClass: "add-comment p-0 col-lg-4 col-md-4 col-sm-12"
   }, [_c("form", {
     on: {
       submit: function submit($event) {
@@ -2461,11 +2551,13 @@ var render = function render() {
         return _vm.addComment();
       }
     }
+  }, [_c("h2", [_vm._v("Lascia una recensione")]), _vm._v(" "), _c("div", {
+    staticClass: "name-comment"
   }, [_c("label", {
     attrs: {
       "for": "name"
     }
-  }, [_vm._v("Inserisci il nome")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Inserisci il tuo nome")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2476,6 +2568,7 @@ var render = function render() {
       type: "text",
       minlength: "1",
       maxlength: "100",
+      placeholder: "Inserisci il tuo nome",
       required: ""
     },
     domProps: {
@@ -2488,39 +2581,14 @@ var render = function render() {
         _vm.$set(_vm.formData, "name", $event.target.value);
       }
     }
-  }), _vm._v(" "), _c("label", {
-    attrs: {
-      "for": "comment"
-    }
-  }, [_vm._v("Inserisci il contenuto")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.formData.comment,
-      expression: "formData.comment"
-    }],
-    attrs: {
-      type: "text",
-      minlength: "1",
-      maxlength: "255",
-      required: ""
-    },
-    domProps: {
-      value: _vm.formData.comment
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-
-        _vm.$set(_vm.formData, "comment", $event.target.value);
-      }
-    }
-  }), _vm._v(" "), _c("label", {
+  })]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c("div", {
+    staticClass: "votes"
+  }, [_c("label", {
     staticClass: "form-label",
     attrs: {
       "for": "votes"
     }
-  }, [_vm._v("Votes")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Inscerisci un voto da 1 a 5")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2532,6 +2600,7 @@ var render = function render() {
       name: "votes",
       min: "1",
       max: "5",
+      placeholder: "voto",
       required: ""
     },
     domProps: {
@@ -2544,7 +2613,7 @@ var render = function render() {
         _vm.$set(_vm.formData, "votes", $event.target.value);
       }
     }
-  }), _vm._v(" "), _c("button", {
+  })]), _vm._v(" "), _c("button", {
     attrs: {
       type: "submit"
     }
@@ -2587,6 +2656,28 @@ var staticRenderFns = [function () {
   return _c("h3", [_c("i", {
     staticClass: "fa-solid fa-phone"
   }), _vm._v("Telefono:")]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "text-comment"
+  }, [_c("label", {
+    attrs: {
+      "for": "comment"
+    }
+  }, [_vm._v("Inserisci il tuo commento")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("textarea", {
+    attrs: {
+      name: "content",
+      id: "contentEditor",
+      cols: "30",
+      rows: "10",
+      minlength: "1",
+      maxlength: "255",
+      placeholder: "Inserisci il tuo commento",
+      required: ""
+    }
+  })]);
 }];
 render._withStripped = true;
 
@@ -2867,7 +2958,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container-footer {\n  width: 100%;\n  background-color: #202a25;\n  color: #A3A7A5;\n}\n.container-footer .container-small {\n  width: 90%;\n  margin: 0 auto;\n  text-align: center;\n}\n.container-footer .container-small .info {\n  margin-top: 30px;\n}\n.container-footer .container-small .info hr {\n  background-color: #86a5d9;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .info ul {\n  text-align: center;\n  padding: 0;\n  margin-top: 10px;\n}\n.container-footer .container-small .info ul li a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .info ul li a:hover {\n  color: #86a5d9;\n}\n.container-footer .container-small .contacts {\n  margin-top: 30px;\n}\n.container-footer .container-small .contacts hr {\n  background-color: #86a5d9;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .contacts ul {\n  text-align: center;\n  padding: 0;\n  margin-top: 10px;\n}\n.container-footer .container-small .contacts ul li a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .contacts ul li a:hover {\n  color: #86a5d9;\n}\n.container-footer .container-small .social {\n  margin-top: 30px;\n  text-align: center;\n  padding: 0;\n}\n.container-footer .container-small .social hr {\n  background-color: #86a5d9;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .social div {\n  margin-top: 10px;\n}\n.container-footer .container-small .social div a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .social div a:hover {\n  color: #86a5d9;\n}\n.container-footer .container-small .logo {\n  margin-top: 30px;\n  width: 100%;\n}\n.container-footer .container-small .logo div {\n  width: 30%;\n  height: 40%;\n}\n.container-footer .container-small .logo div img {\n  width: 100%;\n}\n.container-footer .container-small hr {\n  background-color: #86a5d9;\n  width: 80%;\n  height: 2px;\n  margin: 0 auto;\n}\n.container-footer .container-small .copyright {\n  width: 100%;\n}\n.container-footer .container-small .copyright p {\n  margin-top: 20px;\n}", ""]);
+exports.push([module.i, ".debug {\n  border: 1px solid red;\n}\n.container-footer {\n  width: 100%;\n  background-color: #202a25;\n  color: #A3A7A5;\n}\n.container-footer .container-small {\n  width: 90%;\n  margin: 0 auto;\n  text-align: center;\n}\n.container-footer .container-small .info {\n  margin-top: 30px;\n}\n.container-footer .container-small .info hr {\n  background-color: #5f4bb6;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .info ul {\n  text-align: center;\n  padding: 0;\n  margin-top: 10px;\n}\n.container-footer .container-small .info ul li a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .info ul li a:hover {\n  color: #5f4bb6;\n}\n.container-footer .container-small .contacts {\n  margin-top: 30px;\n}\n.container-footer .container-small .contacts hr {\n  background-color: #5f4bb6;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .contacts ul {\n  text-align: center;\n  padding: 0;\n  margin-top: 10px;\n}\n.container-footer .container-small .contacts ul li a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .contacts ul li a:hover {\n  color: #5f4bb6;\n}\n.container-footer .container-small .social {\n  margin-top: 30px;\n  text-align: center;\n  padding: 0;\n}\n.container-footer .container-small .social hr {\n  background-color: #5f4bb6;\n  height: 2px;\n  width: 20%;\n  margin: 0 auto;\n}\n.container-footer .container-small .social div {\n  margin-top: 10px;\n}\n.container-footer .container-small .social div a {\n  text-decoration: none;\n  color: #A3A7A5;\n}\n.container-footer .container-small .social div a:hover {\n  color: #5f4bb6;\n}\n.container-footer .container-small .logo {\n  margin-top: 30px;\n  width: 100%;\n}\n.container-footer .container-small .logo div {\n  width: 30%;\n  height: 40%;\n}\n.container-footer .container-small .logo div img {\n  width: 100%;\n}\n.container-footer .container-small hr {\n  background-color: #5f4bb6;\n  width: 80%;\n  height: 2px;\n  margin: 0 auto;\n}\n.container-footer .container-small .copyright {\n  width: 100%;\n}\n.container-footer .container-small .copyright p {\n  margin-top: 20px;\n}", ""]);
 
 // exports
 
@@ -2905,7 +2996,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "section {\n  background-color: #86a5d9;\n  width: 100%;\n  min-height: 60vh;\n}\nsection .container-main {\n  width: 90%;\n  margin: 0 auto;\n  padding: 10px;\n}\nsection .container-main div img {\n  border-radius: 50px;\n  border: 2px solid #5f4bb6;\n  width: 200px;\n  background-size: contain;\n}\nsection .container-main div .logo img {\n  border: 0 !important;\n  width: 80px;\n  border-radius: 50px;\n}\nsection .container-main div .specializations hr {\n  border: 1px solid #5f4bb6;\n  width: 100%;\n}\nsection .container-main div .specializations ul li {\n  padding: 2px;\n}\nsection .container-main div .specializations ul li a {\n  color: #5f4bb6;\n  text-decoration: none;\n}\nsection .container-main div .specializations ul li a:hover {\n  color: rgb(255, 255, 255);\n}\nsection .container-main div .specializations hr {\n  width: 100%;\n  margin-top: 0 !important;\n  border: 1px solid #5f4bb6;\n}\nsection .container-main .info-doctor {\n  padding: 30px;\n}\nsection .container-main .info-doctor i {\n  padding: 5px;\n}\nsection .comment-container {\n  width: 100%;\n  padding-left: 5%;\n}\nsection .comment-container div {\n  width: 100%;\n}\nsection .comment-container div .comment-doctor {\n  width: 80%;\n  min-height: 40px;\n  margin: 10px 0;\n  border: 2px solid #202a25;\n}\nsection hr {\n  background-color: #5f4bb6;\n  height: 1px;\n}", ""]);
+exports.push([module.i, ".debug {\n  border: 1px solid red;\n}\nsection {\n  background-color: #86a5d9;\n  width: 100%;\n  min-height: 60vh;\n}\nsection .container-main {\n  width: 90%;\n  margin: 0 auto;\n  padding: 10px;\n}\nsection .container-main div img {\n  border-radius: 50px;\n  border: 2px solid #5f4bb6;\n  width: 200px;\n  background-size: contain;\n}\nsection .container-main div .logo img {\n  border: 0 !important;\n  width: 80px;\n  border-radius: 50px;\n}\nsection .container-main div .specializations hr {\n  border: 1px solid #5f4bb6;\n  width: 100%;\n}\nsection .container-main div .specializations ul li {\n  padding: 2px;\n}\nsection .container-main div .specializations ul li a {\n  color: #5f4bb6;\n  text-decoration: none;\n}\nsection .container-main div .specializations ul li a:hover {\n  color: rgb(255, 255, 255);\n}\nsection .container-main div .specializations hr {\n  width: 100%;\n  margin-top: 0 !important;\n  border: 1px solid #5f4bb6;\n}\nsection .container-main .info-doctor {\n  padding: 30px;\n}\nsection .container-main .info-doctor i {\n  padding: 5px;\n}\nsection .comment-container div {\n  width: 100%;\n}\nsection .comment-container div h3 {\n  margin-left: 5%;\n}\nsection .comment-container div .comment-doctor {\n  width: 90%;\n  min-height: 40px;\n  margin: 10px auto;\n  border: 2px solid #202a25;\n}\nsection .comment-container .add-comment {\n  margin-top: 40px !important;\n  width: 80%;\n  margin: 0 auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  height: 200px;\n}\nsection .comment-container .add-comment form .name-comment input {\n  margin-left: 10px;\n  width: 90%;\n}\nsection .comment-container .add-comment form .text-comment textarea {\n  margin-left: 10px;\n  width: 90%;\n}\nsection .comment-container .add-comment form .votes {\n  margin-top: 5px;\n}\nsection .comment-container .add-comment form .votes input {\n  margin-left: 10px;\n  width: 50px;\n}\nsection hr {\n  background-color: #5f4bb6;\n  height: 1px;\n}", ""]);
 
 // exports
 
@@ -2924,7 +3015,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "h1 {\n  font-size: 50px;\n  font-family: \"Ibarra Real Nova\", serif;\n}\n.title {\n  padding: 50px;\n  color: rgb(255, 255, 255);\n}\n.bg-first {\n  background: linear-gradient(0deg, hsl(251deg, 42%, 50%) 40%, hsl(231deg, 51%, 60%) 100%);\n  background: -moz-linear-gradient(0deg, hsl(251deg, 42%, 50%) 40%, hsl(231deg, 51%, 60%) 100%);\n}\n.sub {\n  font-family: \"Ibarra Real Nova\", serif;\n}\n.container- {\n  width: 750px;\n  background: #fff;\n  border-radius: 10px;\n  padding: 30px;\n  border: 1px solid #86a5d9;\n}\n.circle- {\n  width: 200px;\n  height: 200px;\n  background-size: cover;\n  background-position: center;\n  border-radius: 50%;\n  float: left;\n  margin: 50px 30px 30px 0;\n  shape-outside: circle();\n  box-shadow: 0 2.5px 5px 0 rgba(0, 0, 0, 0.5);\n}\n.title-card {\n  margin-bottom: 10px;\n  font-weight: 400;\n  font-size: 48px;\n  color: rgb(14, 14, 14);\n}\n.sub-title-card {\n  color: rgb(108, 106, 106);\n  font-weight: 300;\n  line-height: 26px;\n}\n.agile__nav-button {\n  background: transparent;\n  border: none;\n  color: #fff;\n  cursor: pointer;\n  font-size: 24px;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  transition-duration: 0.3s;\n  width: 80px;\n}\n.agile__nav-button:hover {\n  background-color: rgba(0, 0, 0, 0.5);\n  opacity: 1;\n}\n.agile__nav-button--prev {\n  left: 0;\n}\n.agile__nav-button--next {\n  right: 0;\n}\n.agile__dots {\n  bottom: 10px;\n  left: 50%;\n  position: absolute;\n  transform: translateX(-50%);\n}\n.agile__dot {\n  margin: 0 10px;\n}\n.agile__dot button {\n  background-color: transparent;\n  border: 1px solid #86a5d9;\n  border-radius: 50%;\n  cursor: pointer;\n  display: block;\n  height: 10px;\n  font-size: 0;\n  line-height: 0;\n  margin: 0;\n  padding: 0;\n  transition-duration: 0.3s;\n  width: 10px;\n}\n.agile__dot--current button, .agile__dot:hover button {\n  background-color: #86a5d9;\n}\n.slide {\n  display: block;\n  height: 500px;\n  -o-object-fit: cover;\n  object-fit: cover;\n  width: 100%;\n}\n.w-carousel {\n  width: 80%;\n  margin: 0 auto;\n  position: relative;\n  bottom: 650px;\n  z-index: 10000;\n}\n* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\n.waviy {\n  position: relative;\n  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.2));\n  font-size: 60px;\n  font-family: \"Ibarra Real Nova\", serif;\n}\n.waviy span {\n  position: relative;\n  display: inline-block;\n  color: #fff;\n  text-transform: uppercase;\n  -webkit-animation: waviy 1s infinite;\n          animation: waviy 1s infinite;\n  -webkit-animation-delay: calc(0.1s * var(--i));\n          animation-delay: calc(0.1s * var(--i));\n}\n@-webkit-keyframes waviy {\n0%, 40%, 100% {\n    transform: translateY(0);\n}\n20% {\n    transform: translateY(-20px);\n}\n}\n@keyframes waviy {\n0%, 40%, 100% {\n    transform: translateY(0);\n}\n20% {\n    transform: translateY(-20px);\n}\n}\n@media screen and (max-width: 2631px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    bottom: 700px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 1900px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    bottom: 500px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 1600px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    bottom: 500px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 1300px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    bottom: 400px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 1100px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    top: -300px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 768px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    top: -200px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 375px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    top: -80px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 1200px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    bottom: 400px;\n    z-index: 10000;\n}\n.waviy {\n    position: relative;\n    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.2));\n    font-size: 40px;\n    font-family: \"Ibarra Real Nova\", serif;\n}\n}", ""]);
+exports.push([module.i, ".debug {\n  border: 1px solid red;\n}\nh1 {\n  font-size: 50px;\n  font-family: \"Ibarra Real Nova\", serif;\n}\n.title {\n  padding: 50px;\n  color: rgb(255, 255, 255);\n}\n.bg-first {\n  background: linear-gradient(0deg, hsl(251deg, 42%, 50%) 40%, hsl(231deg, 51%, 60%) 100%);\n  background: -moz-linear-gradient(0deg, hsl(251deg, 42%, 50%) 40%, hsl(231deg, 51%, 60%) 100%);\n}\n.sub {\n  font-family: \"Ibarra Real Nova\", serif;\n}\n.container- {\n  width: 750px;\n  background: #fff;\n  border-radius: 10px;\n  padding: 30px;\n  border: 1px solid #86a5d9;\n}\n.circle- {\n  width: 200px;\n  height: 200px;\n  background-size: cover;\n  background-position: center;\n  border-radius: 50%;\n  float: left;\n  margin: 50px 30px 30px 0;\n  shape-outside: circle();\n  box-shadow: 0 2.5px 5px 0 rgba(0, 0, 0, 0.5);\n}\n.title-card {\n  margin-bottom: 10px;\n  font-weight: 400;\n  font-size: 48px;\n  color: rgb(14, 14, 14);\n}\n.sub-title-card {\n  color: rgb(108, 106, 106);\n  font-weight: 300;\n  line-height: 26px;\n}\n.agile__nav-button {\n  background: transparent;\n  border: none;\n  color: #fff;\n  cursor: pointer;\n  font-size: 24px;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  transition-duration: 0.3s;\n  width: 80px;\n}\n.agile__nav-button:hover {\n  background-color: rgba(0, 0, 0, 0.5);\n  opacity: 1;\n}\n.agile__nav-button--prev {\n  left: 0;\n}\n.agile__nav-button--next {\n  right: 0;\n}\n.agile__dots {\n  bottom: 10px;\n  left: 50%;\n  position: absolute;\n  transform: translateX(-50%);\n}\n.agile__dot {\n  margin: 0 10px;\n}\n.agile__dot button {\n  background-color: transparent;\n  border: 1px solid #86a5d9;\n  border-radius: 50%;\n  cursor: pointer;\n  display: block;\n  height: 10px;\n  font-size: 0;\n  line-height: 0;\n  margin: 0;\n  padding: 0;\n  transition-duration: 0.3s;\n  width: 10px;\n}\n.agile__dot--current button, .agile__dot:hover button {\n  background-color: #86a5d9;\n}\n.slide {\n  display: block;\n  height: 500px;\n  -o-object-fit: cover;\n  object-fit: cover;\n  width: 100%;\n}\n.w-carousel {\n  width: 80%;\n  margin: 0 auto;\n  position: relative;\n  bottom: 650px;\n  z-index: 10000;\n}\n* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n}\n.waviy {\n  position: relative;\n  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.2));\n  font-size: 60px;\n  font-family: \"Ibarra Real Nova\", serif;\n}\n.waviy span {\n  position: relative;\n  display: inline-block;\n  color: #fff;\n  text-transform: uppercase;\n  -webkit-animation: waviy 1s infinite;\n          animation: waviy 1s infinite;\n  -webkit-animation-delay: calc(0.1s * var(--i));\n          animation-delay: calc(0.1s * var(--i));\n}\n@-webkit-keyframes waviy {\n0%, 40%, 100% {\n    transform: translateY(0);\n}\n20% {\n    transform: translateY(-20px);\n}\n}\n@keyframes waviy {\n0%, 40%, 100% {\n    transform: translateY(0);\n}\n20% {\n    transform: translateY(-20px);\n}\n}\n@media screen and (max-width: 2631px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    bottom: 700px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 1900px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    bottom: 500px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 1600px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    bottom: 500px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 1300px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    bottom: 400px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 1100px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    top: -300px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 768px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    top: -200px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 375px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    top: -80px;\n    z-index: 10000;\n}\n}\n@media screen and (max-width: 1200px) {\n.w-carousel {\n    width: 80%;\n    margin: 0 auto;\n    position: relative;\n    bottom: 400px;\n    z-index: 10000;\n}\n.waviy {\n    position: relative;\n    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.2));\n    font-size: 40px;\n    font-family: \"Ibarra Real Nova\", serif;\n}\n}", ""]);
 
 // exports
 
