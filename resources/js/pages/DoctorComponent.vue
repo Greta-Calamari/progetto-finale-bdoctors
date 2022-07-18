@@ -319,7 +319,7 @@ section{
                     li{
                         padding: 2px;
                         a{
-                            color: $general-violet;
+                            color: white;
                             text-decoration: none;
                             &:hover{
                                 color: $general-white;
