@@ -6,8 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
 use App\Doctor;
+use App\User;
 use App\Specialization;
+use App\Sponsor;
+
+
 
 class DoctorController extends Controller
 {
@@ -28,8 +33,10 @@ class DoctorController extends Controller
     public function index()
     {
         $doctors = Doctor::all();
+        $users = User::all();
+        
 
-        return view('admin.doctors.index', compact('doctors'));
+        return view('admin.doctors.index', compact('doctors', 'users'));
     }
 
     /**
@@ -40,7 +47,8 @@ class DoctorController extends Controller
     public function create()
     {
         $specializations = Specialization::all();
-        return view('admin.doctors.create', compact('specializations'));
+        $sponsors = Sponsor::all();
+        return view('admin.doctors.create', compact('specializations', 'sponsors'));
     }
 
     /**
@@ -82,6 +90,7 @@ class DoctorController extends Controller
         if(isset($data['specializations'])){
             $newDoctor->specializations()->sync($data['specializations']);
         }
+        
         return redirect()->route('admin.doctors.show', $newDoctor->id);
 
     }
@@ -123,12 +132,19 @@ class DoctorController extends Controller
      */
     public function update(Request $request, Doctor $doctor)
     {
-        $request->validate($this->validationRule);
         $data = $request->all();
-
-        $doctor->name = $data['name'];
-        $doctor->surname = $data['surname'];
-        $doctor->address = $data['address'];
+        if(isset($data['name'])){
+            $request->validate($this->validationRule);
+        }
+        if(isset($data['name'])){
+            $doctor->name = $data['name'];
+        }
+        if(isset($data['surname'])){
+            $doctor->surname = $data['surname'];
+        }
+        if(isset($data['address'])){
+            $doctor->address = $data['address'];
+        }
         //upload photo
         if(isset($data['photo'])){
             Storage::delete('uploads', $doctor->photo);
@@ -141,7 +157,9 @@ class DoctorController extends Controller
             $path_file = Storage::put('uploads', $data['curriculum_vitae']);
             $doctor->curriculum_vitae = $path_file;
         }
-        $doctor->cell_number = $data['cell_number'];
+        if(isset($data['cell_number'])){
+            $doctor->cell_number = $data['cell_number'];
+        }
 
         if(isset($data['services'])){
             $doctor->services = $data['services'];
@@ -155,6 +173,20 @@ class DoctorController extends Controller
         }else{
             $doctor->specializations()->sync([]);
         }
+        //sponsorizzazione 
+        $dateStart = date("Y-m-d H:i:s");
+        global $dateEnd;
+        if($data['sponsor'] == 1){
+           $dateEnd = date("Y-m-d H:i:s", strtotime('+24 hours'));
+        }else if($data['sponsor'] == 2){
+            $dateEnd = date("Y-m-d H:i:s", strtotime('+72 hours'));
+        }else{
+            $dateEnd = date("Y-m-d H:i:s", strtotime('+144 hours'));
+        }
+        //dd($dateStart, $dateEnd);
+        if(isset($data['sponsor'])){
+            $doctor->sponsors()->attach($data['sponsor'], ['date_start'=>$dateStart, 'date_end'=>$dateEnd]);        
+        }
         return redirect()->route('admin.doctors.show', $doctor->id);
     }
 
@@ -164,9 +196,15 @@ class DoctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy()
     {
-        $doctor->delete();
-        return redirect()->route('admin.doctors.index')->with("message", "doctor with id: {$doctor->id} successfully deleted !");
+        // $doctor->specializations()->sync([]);
+        // $doctor->delete();
+        // return redirect()->route('admin.doctors.index')->with("message", "doctor with id: {$doctor->name} successfully deleted !");
     }
 }
+        
+        
+        
+
+

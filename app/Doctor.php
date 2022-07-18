@@ -28,12 +28,12 @@ class Doctor extends Model
     }
 
     public function sponsors(){
-        return $this->belongsToMany('App\Sponsor');
+        return $this->belongsToMany('App\Sponsor')->withPivot('date_start', 'date_end');
     }
 
 
 
     public function reviews(){
-        return $this->hasMany('App\Review');
+        return $this->hasMany('App\Review')->orderBy('created_at', 'desc');
     }
 }
