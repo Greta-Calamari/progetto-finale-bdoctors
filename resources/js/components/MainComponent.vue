@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="margin">
          <router-view></router-view>
     </div>
 
@@ -17,5 +17,7 @@ export default {
 }
 </script>
 <style lang="scss">
-
+    .margin{
+        margin-top: 150px;
+    }
 </style>

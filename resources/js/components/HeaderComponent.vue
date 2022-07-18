@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>
+        <div class="header-container">
             <b-navbar toggleable="lg" type="dark">
                 <b-navbar-brand href="#">
                     <img
@@ -64,6 +64,13 @@ export default {
 </script>
 <style lang="scss">
 @import "../../sass/variables";
+.header-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+}
 .navbar {
     background: linear-gradient(
         360deg,
