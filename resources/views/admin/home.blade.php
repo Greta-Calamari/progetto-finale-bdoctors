@@ -3,6 +3,7 @@
 {{-- @dd($user) --}}
 
 @section('content')
+
 <div class="container" id="home">
     <div class="row">
         <div class="col-4">
@@ -78,7 +79,7 @@
                     <div class="row">
                         @foreach ($sponsors as $sponsor)
                         <div class="col-4">
-                            <button class="btn cs_btn">{{$sponsor->name}}</button>
+                            <button class="btn cs_btn">{{$sponsor->name}} - {{$sponsor->id}}</button>
                         </div>
                         @endforeach
                         

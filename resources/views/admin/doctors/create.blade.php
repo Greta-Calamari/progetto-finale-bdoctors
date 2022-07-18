@@ -69,6 +69,7 @@
                 <div class="alert alert-danger"> {{$message}} </div>
             @enderror
         </div>
+
         <button type="submit" class="btn cs_btn">Add</button>
     </form>
 </div>
