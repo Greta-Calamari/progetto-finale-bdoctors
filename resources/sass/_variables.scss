@@ -3,18 +3,16 @@ $general-black: #202a25;
 $general-violet: #5f4bb6;
 $general-light-blue: #86a5d9;
 
-
 // Typography
 $general-white: rgb(255, 255, 255);
-$general-light-grey:#A3A7A5;
-
+$general-light-grey: #a3a7a5;
 
 // $font-family-sans-serif: 'Nunito', sans-serif;
 
 // $font-family-Miltonian: 'Miltonian Tattoo';
 
-$font-family: 'Poppins', sans-serif;
-$font-family: 'Ibarra Real Nova', serif;
+$font-family: "Poppins", sans-serif;
+$font-family: "Ibarra Real Nova", serif;
 
 // Colors
 $blue: #3490dc;
@@ -28,4 +26,6 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
-
+ul li {
+    list-style-type: none;
+}

@@ -87,7 +87,4 @@ export default {
 .img {
     width: 150px;
 }
-
-
-
 </style>
