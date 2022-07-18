@@ -112,7 +112,6 @@ export default {
             console.log(this.inputRange)
             if(!this.inputAverage && !this.inputRange){
                 this.loading = true;
-                console.log('solo speciali')
                 axios.get(`/api/doctors?specialization=${this.inputSpecialization}`).then((response) =>{
                     console.log(response)
                     this.doctors = response.data
@@ -120,7 +119,6 @@ export default {
 
                 })
             }else{
-                console.log('piu dati')
                 this.loading = true;
                 axios.get(`/api/filter?specialization=${this.inputSpecialization}&average=${this.inputAverage}&rangeMin=${this.inputRange}`).then((response)=>{
                     console.log(response)

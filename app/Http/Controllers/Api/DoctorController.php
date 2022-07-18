@@ -14,10 +14,6 @@ class DoctorController extends Controller
     {
         $doctors = Doctor::with(["specializations", "reviews"])->paginate(10);
         return response()->json($doctors);
-        // return response()->json([
-        //     "results" => $doctors,
-        //     "success" => true,
-        // ]);
     }
 
 

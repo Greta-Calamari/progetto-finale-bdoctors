@@ -6,7 +6,6 @@ Vue.use(VueRouter);
 import HomeComponent from './pages/HomeComponent';
 import DoctorsComponent from './pages/DoctorsComponent';
 import CiaoComponent from './pages/CiaoComponent';
-import SpecializationComponent from './pages/SpecializationComponent';
 
 
 const router = new VueRouter({
@@ -27,13 +26,6 @@ const router = new VueRouter({
             name:'ciao',
             component: CiaoComponent
         },
-        {
-            path: '/specializations/:id',
-            name:'specialization',
-            component: SpecializationComponent
-        },
-
-
     ]
 });
 export default router;
