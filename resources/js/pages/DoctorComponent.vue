@@ -278,7 +278,9 @@ export default {
 <style lang="scss">
 @import '../../sass/variables';
 section{
-    background-color: $general-light-blue;
+     background: linear-gradient(0deg, hsla(251, 42%, 50%, 1) 40%, hsla(231, 51%, 60%, 1) 100%);
+
+    background: -moz-linear-gradient(0deg, hsla(251, 42%, 50%, 1) 40%, hsla(231, 51%, 60%, 1) 100%);
     width: 100%;
     min-height: 60vh;
     // doctor 
