@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSponsorDoctor extends Migration
+class CreateDoctorSponsorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSponsorDoctor extends Migration
      */
     public function up()
     {
-        Schema::create('sponsor_doctor', function (Blueprint $table) {
+        Schema::create('doctor_sponsor', function (Blueprint $table) {
             $table->id();
             $table->foreignId('doctor_id')->constrained()->onDelete('cascade');
             $table->foreignId('sponsor_id')->constrained()->onDelete('cascade');
@@ -30,6 +30,6 @@ class CreateSponsorDoctor extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sponsor_doctor');
+        Schema::dropIfExists('doctor_sponsor');
     }
 }

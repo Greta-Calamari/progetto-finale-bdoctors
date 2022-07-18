@@ -9,6 +9,6 @@ class Sponsor extends Model
     protected $guarded = [];
 
     public function doctors(){
-        return $this->belongsToMany('App\Doctor');
+        return $this->belongsToMany('App\Doctor')->withPivot('date_start', 'date_end');
     }
 }

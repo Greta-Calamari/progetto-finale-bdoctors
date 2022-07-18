@@ -132,8 +132,10 @@ class DoctorController extends Controller
      */
     public function update(Request $request, Doctor $doctor)
     {
-        $request->validate($this->validationRule);
         $data = $request->all();
+        if(isset($data['name'])){
+            $request->validate($this->validationRule);
+        }
         if(isset($data['name'])){
             $doctor->name = $data['name'];
         }
@@ -172,10 +174,18 @@ class DoctorController extends Controller
             $doctor->specializations()->sync([]);        
         }
         //sponsorizzazione 
-        $newDate = Carbon::now();
-
+        $dateStart = date("Y-m-d H:i:s");
+        global $dateEnd;
+        if($data['sponsor'] == 1){
+           $dateEnd = date("Y-m-d H:i:s", strtotime('+24 hours'));
+        }else if($data['sponsor'] == 2){
+            $dateEnd = date("Y-m-d H:i:s", strtotime('+72 hours'));
+        }else{
+            $dateEnd = date("Y-m-d H:i:s", strtotime('+144 hours'));
+        }
+        //dd($dateStart, $dateEnd);
         if(isset($data['sponsor'])){
-            $doctor->sponsors()->sync($data['sponsor'], ['date_start'=>$newDate], ['date_end'=>'22/10/22']);        
+            $doctor->sponsors()->attach($data['sponsor'], ['date_start'=>$dateStart, 'date_end'=>$dateEnd]);        
         }
         return redirect()->route('admin.doctors.show', $doctor->id);
     }

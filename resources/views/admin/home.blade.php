@@ -58,6 +58,7 @@
                         @foreach ($doctor->reviews as $review)
                         <li>
                             <div>
+                                <h4>{{$review->created_at}}</h4>
                                 <h5>{{$review->name}}</h5>
                             
                                 <h6>{{$review->votes}}</h6>
@@ -77,18 +78,23 @@
                 <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">Statistiche</div>
                 <div class="tab-pane fade" id="list-sponsors" role="tabpanel" aria-labelledby="list-sponsors-list">
                     <div class="row">
-                        <form action="{{route('admin.doctors.update', $doctor->id)}}" method="post">
-                            @csrf
-                            @method('PUT')
-                            @foreach($sponsors as $sponsor)
-                                <div class="form-check">
-                                    <input type="radio" class="form-check-input" name="sponsor" id="{{$sponsor->name}}" value="{{$sponsor->id}}">
-                                    <label class="form-check-label" for="{{$sponsor->name}}">{{$sponsor->name}}</label>
-                                </div>
-                            @endforeach
+                        @if (count($doctor->sponsors))
+                        @foreach($doctor->sponsors as $sponsor)
+                            <h3>{{$sponsor->name}} in corso</h3>
+                        @endforeach
+                        @else
+                            <form action="{{route('admin.doctors.update', $doctor->id)}}" method="post">
+                                @csrf
+                                @method('PUT')
+                                @foreach($sponsors as $sponsor)
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="sponsor" id="{{$sponsor->name}}" value="{{$sponsor->id}}">
+                                        <label class="form-check-label" for="{{$sponsor->name}}">{{$sponsor->name}}</label>
+                                    </div>
+                                @endforeach
                                 <button type="submit">Seleziona</button>
-                        </form>
-                        
+                            </form>
+                        @endif
                     </div>
 
                 </div>
