@@ -365,8 +365,7 @@ section{
             margin-top: 40px !important;
             width: 80%;
             margin: 0 auto;
-            position: sticky;
-            top: 0;
+            
             height: 200px;
             form{
                 .name-comment{

@@ -14,12 +14,17 @@
 
                 <b-collapse id="nav-collapse" is-nav>
                     <b-navbar-nav>
-                        <b-navbar-brand href="#">Chi Siamo</b-navbar-brand>
+                        <ul class="d-flex m-3">
+                            <li v-for="(item, index) in menu" :key="index">
+                                <router-link class="navbar-brand nav-link" :to="{name: item.routeName}">{{item.label}}</router-link>
+                            </li>
+                        </ul>
+                        <!-- <b-navbar-brand href="#">Chi Siamo</b-navbar-brand>
                         <b-navbar-brand href="#">Prestazioni</b-navbar-brand>
                         <b-navbar-brand href="#"
                             >Chiedi al Dottore</b-navbar-brand
                         >
-                        <b-navbar-brand href="#">Contatti</b-navbar-brand>
+                        <b-navbar-brand href="#">Contatti</b-navbar-brand> -->
                     </b-navbar-nav>
 
                     <!-- Right aligned nav items -->
@@ -58,7 +63,23 @@
 export default {
     name: "HeaderComponent",
     data() {
-        return {};
+        return {
+            menu:[
+                {
+                    label:'Home',
+                    routeName:'home'
+                },
+                {
+                    label:'Dottori',
+                    routeName:'doctors'
+                },
+                {
+                    label:'Chi Siamo',
+                    routeName:'ciao'
+                },
+
+            ]
+        };
     },
 };
 </script>
@@ -69,7 +90,7 @@ export default {
     left: 0;
     top: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 11000;
 }
 .navbar {
     background: linear-gradient(

@@ -18,6 +18,6 @@ export default {
 </script>
 <style lang="scss">
     .margin{
-        margin-top: 150px;
+        margin-top: 110px;
     }
 </style>
