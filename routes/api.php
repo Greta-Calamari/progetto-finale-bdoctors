@@ -19,14 +19,23 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-
-
-Route::get('/doctors', 'Api\DoctorController@index');
+// api per numero di recensioni e media voti
+Route::get('/filter', 'Api\DoctorController@filter' );
+//api show dottori
 Route::get('/doctors/{id}', 'Api\DoctorController@show');
+//api tutti i dottori per specializzazioni
+Route::get('/doctors', 'Api\DoctorController@getAllDoctors');
+//api per index specializzazioni
 Route::get('/specializations', 'Api\SpecializationController@index');
-Route::post('/reviews', 'Api\ReviewController@store');
-Route::get('/messages','Api\MessageController@index');
-Route::post('/messages','Api\MessageController@store');
-Route::get('/specializations/{id}', 'Api\SpecializationController@show');
+//api tutte le recensioni
 Route::get('/reviews', 'Api\ReviewController@index');
+//store recensioni
+Route::post('/reviews', 'Api\ReviewController@store');
+//index messaggi
+Route::get('/messages','Api\MessageController@index');
+//store per messaggi
+Route::post('/messages','Api\MessageController@store');
+
+
+
 

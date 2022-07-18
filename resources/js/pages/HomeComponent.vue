@@ -121,7 +121,7 @@
             </agile>
             <ul>
               <li v-for="specialization in specializations" :key="specialization.id">
-                 <router-link :to="{name: 'specialization', params: {id: specialization.id} }" >{{specialization.id}}</router-link>
+                 <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.id}}</router-link>
               </li>
             </ul>
         </div>
@@ -141,7 +141,7 @@ export default {
             specializations: [],
         }
     },
-    created(){
+    mounted(){
       axios.get('/api/specializations').then((response)=>{ 
         this.specializations = response.data;
       })
