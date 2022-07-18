@@ -5,7 +5,7 @@
                 <b-navbar-brand href="#">
                     <img
                         class="img"
-                        src="../../../public/img/logodottori.png"
+                        src="/images/logo.png"
                         alt=""
                     />
                 </b-navbar-brand>
