@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+
 Vue.use(VueRouter);
 
 import HomeComponent from './pages/HomeComponent';
@@ -12,35 +13,41 @@ import SpecializationComponent from './pages/SpecializationComponent';
 
 
 const router = new VueRouter({
-    mode:'history',
-    routes:[
+    mode: 'history',
+    routes: [
         {
             path: '/',
-            name:'home',
+            name: 'home',
             component: HomeComponent
         },
         {
             path: '/doctors',
-            name:'doctors',
+            name: 'doctors',
             component: DoctorsComponent
         },
         {
+            path: '/hello',
+
+            name: 'hello',
+            component: HelloComponent
+        },
+        {
             path: '/ciao',
-            name:'ciao',
+            name: 'ciao',
             component: CiaoComponent
         },
         {
             path: '/doctors/:id',
-            name:'doctor',
+            name: 'doctor',
             component: DoctorComponent
 
         },
         {
             path: '*',
-            name:'page-404',
+            name: 'page-404',
             component: NotFoundComponent,
             path: '/specializations/:id',
-            name:'specialization',
+            name: 'specialization',
             component: SpecializationComponent
         },
 
