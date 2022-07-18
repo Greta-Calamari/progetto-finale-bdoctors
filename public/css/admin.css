@@ -1,4 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+.debug {
+  border: 1px solid red;
+}
+
 ul li {
   list-style-type: none;
 }
