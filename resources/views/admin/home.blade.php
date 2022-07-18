@@ -1,7 +1,9 @@
 @extends('layouts.admin')
-{{-- @dd($sponsors) --}}
+@include('partials/popupdelete')
+{{-- @dd($user) --}}
 
 @section('content')
+
 <div class="container" id="home">
     <div class="row">
         <div class="col-4">
@@ -10,7 +12,14 @@
                 <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messaggi</a>
                 <a class="list-group-item list-group-item-action" id="list-reviews-list" data-toggle="list" href="#list-reviews" role="tab" aria-controls="reviews">Recensioni</a>
                 <a class="list-group-item list-group-item-action" id="list-statistics-list" data-toggle="list" href="#list-statistics" role="tab" aria-controls="statistics">Statistiche</a>
-                <a class="list-group-item list-group-item-action" id="list-sponsors-list" data-toggle="list" href="#list-sponsors" role="tab" aria-controls="sponsors">Sponsorizzazioni</a>   
+                <a class="list-group-item list-group-item-action" id="list-sponsors-list" data-toggle="list" href="#list-sponsors" role="tab" aria-controls="sponsors">Sponsorizzazioni</a>
+
+                <form action="{{ route('admin.users.destroy', $user->id ) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit" onclick="doctors.openModal(event, {{$user->id}} )">Elimina profilo</button>    
+                </form>
+
             </div>
         </div>
         <div class="col-8">
@@ -26,10 +35,7 @@
                             <a class="btn cs_btn" href="{{route('admin.doctors.show', $doctor->id)}}">Vedi profilo completo</a>
                             <a class="btn cs_btn" href="{{route('admin.doctors.edit', $doctor->id)}}">Modifica profilo</a>
                         </div>
-                        <div>
-                            <a class="btn cs_btn" href="{{route('admin.sponsors.index')}}">Aggiungi sponsor</a>
-                            
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
@@ -46,7 +52,28 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="tab-pane fade" id="list-reviews" role="tabpanel" aria-labelledby="list-reviews-list">Reviews</div>
+                <div class="tab-pane fade" id="list-reviews" role="tabpanel" aria-labelledby="list-reviews-list">
+                    
+                    <ul>
+                        @foreach ($doctor->reviews as $review)
+                        <li>
+                            <div>
+                                <h5>{{$review->name}}</h5>
+                            
+                                <h6>{{$review->votes}}</h6>
+
+                                
+
+                            </div>  
+                            <p>{{$review->comment}}</p>
+                        </li>
+                            
+                        @endforeach
+                    </ul>
+                </div>
+               
+
+                
                 <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">Statistiche</div>
                 <div class="tab-pane fade" id="list-sponsors" role="tabpanel" aria-labelledby="list-sponsors-list">
                     <div class="row">

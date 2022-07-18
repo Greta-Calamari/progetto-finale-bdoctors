@@ -69,6 +69,17 @@
                 <div class="alert alert-danger"> {{$message}} </div>
             @enderror
         </div>
+
+        <div class="mb-3">
+            <h6>Sponsorizzazione</h6>
+            @foreach($sponsors as $sponsor)
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="sponsors[]" id="{{$sponsor->name}}" {{in_array($sponsor->id,old('sponsors',[])) ? 'checked' : ''}} value="{{$sponsor->id}}">
+                    <label class="form-check-label" for="{{$sponsor->name}}">{{$sponsor->name}}</label>
+                </div>
+            @endforeach
+            
+        </div>
         <button type="submit" class="btn cs_btn">Add</button>
     </form>
 </div>
