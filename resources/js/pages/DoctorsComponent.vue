@@ -73,7 +73,9 @@
                                                         <!-- <div v-for="review in doctor.reviews" :key="review.id">
                                                             <p class="card-text">{{review.votes}}</p>
                                                         </div> -->
-                                            <a href="#" class="btn btn-outline-primary rounded-0">Visualizza Dottore</a>
+                                            <router-link  class="btn btn-outline-primary rounded-0" :to="{ name:'doctor', params:{id: doctor.id} }"> Visualizza Dottore  </router-link>
+
+                                            <!-- <a href="" class="btn btn-outline-primary rounded-0">Visualizza Dottore</a> -->
                                         </div>
                                     </div>
                                 </div>

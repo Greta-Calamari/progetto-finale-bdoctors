@@ -37270,6 +37270,32 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+window.doctors = {
+  currentForm: null,
+  itemid: null,
+  openModal: function openModal(e, id) {
+    e.preventDefault(); //console.log(id);
+
+    this.itemid = id; //console.log(e.currentTarget);
+
+    this.currentForm = e.currentTarget.parentNode; // console.log(this.currentForm);
+
+    $('#deleteModal-body').html("Sei sicuro di voler eliminare l'elemento con id: ".concat(this.itemid));
+    $('#deleteModal').modal('show');
+  },
+  previewImage: function previewImage() {
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(document.getElementById("image").files[0]);
+
+    oFReader.onload = function (oFREvent) {
+      document.getElementById("uploadPreview").src = oFREvent.target.result;
+    };
+  },
+  submitForm: function submitForm() {
+    this.currentForm.submit();
+  }
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37346,15 +37372,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! C:\classe59\progetto-finale-bdoctors\resources\js\admin.js */"./resources/js/admin.js");
 __webpack_require__(/*! C:\classe59\progetto-finale-bdoctors\resources\sass\admin.scss */"./resources/sass/admin.scss");
 module.exports = __webpack_require__(/*! C:\classe59\progetto-finale-bdoctors\resources\sass\front.scss */"./resources/sass/front.scss");
-=======
-__webpack_require__(/*! C:\MAMP\htdocs\lezioni-php\progetto-finale\progetto-finale-bdoctors\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\MAMP\htdocs\lezioni-php\progetto-finale\progetto-finale-bdoctors\resources\sass\admin.scss */"./resources/sass/admin.scss");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\lezioni-php\progetto-finale\progetto-finale-bdoctors\resources\sass\front.scss */"./resources/sass/front.scss");
->>>>>>> controller-dottori
 
 
 /***/ })
