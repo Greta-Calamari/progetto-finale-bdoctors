@@ -50,11 +50,17 @@
                 <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">Statistiche</div>
                 <div class="tab-pane fade" id="list-sponsors" role="tabpanel" aria-labelledby="list-sponsors-list">
                     <div class="row">
-                        @foreach ($sponsors as $sponsor)
-                        <div class="col-4">
-                            <button class="btn cs_btn">{{$sponsor->name}}</button>
-                        </div>
-                        @endforeach
+                        <form action="{{route('admin.doctors.update', $doctor->id)}}" method="post">
+                            @csrf
+                            @method('PUT')
+                            @foreach($sponsors as $sponsor)
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="sponsor" id="{{$sponsor->name}}" value="{{$sponsor->id}}">
+                                    <label class="form-check-label" for="{{$sponsor->name}}">{{$sponsor->name}}</label>
+                                </div>
+                            @endforeach
+                                <button type="submit">Seleziona</button>
+                        </form>
                         
                     </div>
 

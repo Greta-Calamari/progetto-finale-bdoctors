@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
 use App\Doctor;
 use App\Specialization;
 use App\Sponsor;
@@ -130,10 +131,15 @@ class DoctorController extends Controller
     {
         $request->validate($this->validationRule);
         $data = $request->all();
-
-        $doctor->name = $data['name'];
-        $doctor->surname = $data['surname'];
-        $doctor->address = $data['address'];
+        if(isset($data['name'])){
+            $doctor->name = $data['name'];
+        }
+        if(isset($data['surname'])){
+            $doctor->surname = $data['surname'];
+        }
+        if(isset($data['address'])){
+            $doctor->address = $data['address'];
+        }
         //upload photo
         if(isset($data['photo'])){
             Storage::delete('uploads', $doctor->photo);
@@ -146,7 +152,9 @@ class DoctorController extends Controller
             $path_file = Storage::put('uploads', $data['curriculum_vitae']);
             $doctor->curriculum_vitae = $path_file;
         }
-        $doctor->cell_number = $data['cell_number'];
+        if(isset($data['cell_number'])){
+            $doctor->cell_number = $data['cell_number'];
+        }
 
         if(isset($data['services'])){
             $doctor->services = $data['services'];
@@ -159,6 +167,12 @@ class DoctorController extends Controller
             $doctor->specializations()->sync($data['specializations']);        
         }else{
             $doctor->specializations()->sync([]);        
+        }
+        //sponsorizzazione 
+        $newDate = Carbon::now();
+
+        if(isset($data['sponsor'])){
+            $doctor->sponsors()->sync($data['sponsor'], ['date_start'=>$newDate], ['date_end'=>'22/10/22']);        
         }
         return redirect()->route('admin.doctors.show', $doctor->id);
     }
