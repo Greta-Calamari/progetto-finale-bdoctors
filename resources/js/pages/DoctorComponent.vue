@@ -83,7 +83,7 @@
                         
                         <label for="comment">Inserisci il tuo commento</label>
                         <br>
-                        <textarea  name="content" id="contentEditor" cols="30" rows="10" minlength="1" maxlength="255" placeholder="Inserisci il tuo commento" required>
+                        <textarea  name="content" id="contentEditor" cols="30" rows="10" minlength="1" maxlength="255" placeholder="Inserisci il tuo commento" v-model="formData.comment" required>
                         </textarea>
                     </div>
                     <!-- votes  -->

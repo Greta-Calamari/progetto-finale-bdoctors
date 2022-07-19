@@ -121,7 +121,7 @@
             </agile>
             <ul>
               <li v-for="specialization in specializations" :key="specialization.id">
-                 <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.id}}</router-link>
+                 <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
               </li>
             </ul>
         </div>
