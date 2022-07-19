@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="w-50 mx-auto">
-    <form method="POST" id="payment-form" action="{{route('admin.sponsors.process', $type->price)}}">
+    <form method="POST" id="payment-form" action="{{route('admin.sponsor.process', $sponsor->name)}}">
         @csrf
-        <h1 class="text-center text-2xl text-gray-800">Il tuo abbonamento <span class="uppercase block">{{$type->name}}</span></h1>
+        <h1 class="text-center text-2xl text-gray-800">Il tuo abbonamento <span class="uppercase block">{{$sponsor->name}}</span></h1>
         <section class="mt-6 mb-3">
             <label for="amount" class="flex justify-center space-x-2">
                 <span class="input-label text-gray-800 text-lg">Prezzo:</span>
-                <span class="text-lg text-gray-800">{{$type->price}} &euro; </span>
+                <span class="text-lg text-gray-800">{{$sponsor->price}} &euro; </span>
             </label>
 
             <div class="bt-drop-in-wrapper">

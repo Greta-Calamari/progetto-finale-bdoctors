@@ -83,7 +83,7 @@
                             @foreach($sponsors as $sponsor)
                             <li>
                                 <h3>{{$sponsor->name}}</h3>
-                                <a href="{{route('admin.sponsors.pay', $sponsor->name)}}">Vai al pagamento</a>
+                                <a href="{{route('admin.sponsor.pay', $sponsor->name)}}">Vai al pagamento</a>
                             </li>
                             @endforeach
                         </ul>

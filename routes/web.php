@@ -27,8 +27,8 @@ Route::middleware('auth')
               Route::resource('/sponsors', 'SponsorController');        
               Route::resource('/users', 'UserController');   
               //sponsors
-              Route::get('/checkout/{type}', 'SponsorController@token')->name('sponsors.pay'); 
-              Route::post('/checkout/{price}', 'SponsorController@process')->name('sponsors.process');
+              Route::get('/checkout/{type}', 'SponsorController@token')->name('sponsor.pay'); 
+              Route::post('/checkout/{price}', 'SponsorController@process')->name('sponsor.process');
   
 
 });
