@@ -78,11 +78,16 @@
                 <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">Statistiche</div>
                 <div class="tab-pane fade" id="list-sponsors" role="tabpanel" aria-labelledby="list-sponsors-list">
                     <div class="row">
-                        @if (count($doctor->sponsors))
-                        @foreach($doctor->sponsors as $sponsor)
-                            <h3>{{$sponsor->name}} in corso</h3>
-                        @endforeach
-                        @else
+                        {{-- @if (count($doctor->sponsors)) --}}
+                        <ul>
+                            @foreach($sponsors as $sponsor)
+                            <li>
+                                <h3>{{$sponsor->name}}</h3>
+                                <a href="{{route('admin.sponsors.pay', $sponsor->name)}}">Vai al pagamento</a>
+                            </li>
+                            @endforeach
+                        </ul>
+                        {{-- @else
                             <form action="{{route('admin.doctors.update', $doctor->id)}}" method="post">
                                 @csrf
                                 @method('PUT')
@@ -94,7 +99,7 @@
                                 @endforeach
                                 <button type="submit">Seleziona</button>
                             </form>
-                        @endif
+                        @endif --}}
                     </div>
 
                 </div>
