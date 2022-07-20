@@ -11,7 +11,6 @@ class ReviewController extends Controller
     protected $validationReview = [
         "name" => "required|string|max:50",
         "comment" => "required|string|max:255",
-        "votes" => "required|string|max:1",
     ];
     /**
      * Display a listing of the resource.

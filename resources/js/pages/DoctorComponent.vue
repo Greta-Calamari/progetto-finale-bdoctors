@@ -2,8 +2,10 @@
     <section class="container-fluid">
         <div v-if="doctor" class="container-main row justify-content-center align-content-center">
             <!-- doctor -->
-            <div class=" col-lg-3 col-md-3 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+            <div class=" col-lg-4 col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+                <div class="div-img">
                 <img :src="doctor.photo" alt="img">
+                </div>
                 <!-- specializations  -->
                 <div class="specializations d-flex flex-column justify-content-center align-content-center">
                     <ul>
@@ -17,9 +19,8 @@
             </div>
             </div>
             <!-- info  -->
-            <div class=" info-doctor col-lg-9 col-md-9 col-sm-12 d-flex flex-column ">
+            <div class=" info-doctor col-lg-8 col-md-7 col-sm-12 d-flex flex-column ">
                 <h1><i class="fa-solid fa-user-doctor"></i> {{doctor.name}} {{doctor.surname}}
-                <a href="#" class="logo"><img src="/images/logo.png" alt="logo"></a>
                 </h1>
                 <hr>
                 <h3><i class="fa-solid fa-stethoscope"></i>Servizio:</h3>
@@ -33,15 +34,75 @@
             </div>
             
         </div>
-        
+        <!-- servizi   e curriculum-->
+        <div class="container-servizi-curriculum   row">
+            <div class="col-lg-6 ">
+                <h3><i class="fa-solid fa-download"></i> Curriculum:</h3>
+                <a href="#">{{doctor.curriculum_vitae}}</a>
+            </div>
+            <div class="col-lg-6  ">
+                <h3><i class="fa-solid fa-star"></i> Media voti:</h3>
+                <h4> </h4>
+            </div>
+
+        </div>
         <!-- commenti  -->
-        <div class="comment-container row " v-if="doctor.reviews.length > 0">
-            <div  class="p-0 col-lg-8 col-md-8 col-sm-12">
+        <div class="comment-container row " v-if="doctor.reviews.length >= 0">
+            <!-- mostra commenti  -->
+            <div class="container-commenti ">
                 <h3>Commenti:</h3>
-                <div class="comment-doctor" v-for="mes in doctor.reviews" :key="mes.id">
-                    <p>{{ mes.comment }}</p>
+                <div class="container-commenti-info d-flex flex-column" v-for="mes in doctor.reviews" :key="mes.id">
+                    <div class="col-12 p-0 utente">
+                        <h5><i class="fa-solid fa-user"></i> {{mes.name}}</h5>
+                    </div>
+                    <div class="col-12 p-0 voto">
+                        <h6><i class="fa-solid fa-star"></i> {{mes.votes}}</h6>
+                    </div>
+                    <div class="col-12 p-0 data">
+                        <h6>{{getFormattedDate(mes.created_at)}}</h6>
+                    </div>
+                    <div class="col-12 p-0">
+                        <p>{{ mes.comment }}</p>
+                        <hr>
+                    </div>
                 </div>
-                <!-- invia un messaggio  -->
+            </div>
+            <!-- aggiundi commento  -->
+            <div class=" add-comment p-0 col-12">
+                <form @submit.prevent="addComment()">
+                    <h2>Lascia una recensione</h2>
+                    <!-- input name  -->
+                    <div class="name-comment">
+                        <label for="name">Inserisci il tuo nome</label>
+                        <br>
+                        <input v-model="formData.name" type="text"  minlength="1" maxlength="100" placeholder="Inserisci il tuo nome" required/>
+                    </div>
+                    <!-- input comment -->
+                    <div class="text-comment">
+                        
+                        <label for="comment">Inserisci il tuo commento</label>
+                        <br>
+                        <textarea  name="content" id="contentEditor" cols="30" rows="10" minlength="1" maxlength="255" placeholder="Inserisci il tuo commento" v-model="formData.comment" required>
+                        </textarea>
+                    </div>
+                    <!-- input votes  -->
+                    <div class="votes">
+                        <label for="votes" class="form-label">Inscerisci un voto da 1 a 5</label>
+                        <!-- <input type="number" v-model="formData.votes"    name="votes" min="1" max="5" placeholder="voto" required>   -->
+                        <!-- <star-rating type="number" name="votes" v-model="formData.votes" required></star-rating> -->
+                        <star-rating type="number" name="votes" v-model="formData.votes" required
+                            v-bind:increment="1"
+                            v-bind:max-rating="5"
+                            inactive-color="grey"
+                            active-color="gold"
+                            :show-rating="false"
+                            v-bind:star-size="20">
+                        </star-rating> 
+                    </div>
+                    <button type="submit" >Invia</button>
+                </form>
+            </div> 
+                    <!-- invia un messaggio  -->
                 <div>
                     <h3>Invia un messaggio al dottore</h3>
                     <form @submit.prevent="sendMes()">
@@ -66,97 +127,21 @@
                         <button type="submit" >Invia</button>
                     </form>
                 </div>
-            </div> 
-
-            <!-- aggiundi commento  -->
-            <div class=" add-comment p-0 col-lg-4 col-md-4 col-sm-12">
-                <form @submit.prevent="addComment()">
-                    <h2>Lascia una recensione</h2>
-                    <!-- name  -->
-                    <div class="name-comment">
-                        <label for="name">Inserisci il tuo nome</label>
-                        <br>
-                        <input v-model="formData.name" type="text"  minlength="1" maxlength="100" placeholder="Inserisci il tuo nome" required/>
-                    </div>
-                    <!-- comment  -->
-                    <div class="text-comment">
                         
-                        <label for="comment">Inserisci il tuo commento</label>
-                        <br>
-                        <textarea  name="content" id="contentEditor" cols="30" rows="10" minlength="1" maxlength="255" placeholder="Inserisci il tuo commento" v-model="formData.comment" required>
-                        </textarea>
-                    </div>
-                    <!-- votes  -->
-                    <div class="votes">
-                        <label for="votes" class="form-label">Inscerisci un voto da 1 a 5</label>
-                        <input type="number" v-model="formData.votes"    name="votes" min="1" max="5" placeholder="voto" required>
-                    </div>
-                    <button type="submit" >Invia</button>
-                </form> 
-            </div>
+                    
+            
         </div>
             
-                
-            
-            
-            <!-- dottore  -->
-            <!-- <h3>Nome dottore: {{doctor.name}}</h3>
-            <h3>Cognome:{{doctor.surname}}</h3>
-            <hr> -->
-            <!-- commenti  -->
-            <!-- aggiungi commenti  -->
-            <!-- <div>
-                <div v-if="errors.length">
-                    <b>Si sono verificati degli errori:</b>
-                    <ul>
-                        <li v-for="error in errors" :key="error">{{ error }}</li>
-                    </ul>
-                </div>
-                <form @submit.prevent="addComment()">
-                    <label for="name">Inserisci il nome</label>
-                    <input v-model="formData.name" type="text"  minlength="1" maxlength="100" required/>
-                    <label for="comment">Inserisci il contenuto</label>
-                    <input v-model="formData.comment" type="text" minlength="1" maxlength="255" required/>
-                    <label for="votes" class="form-label">Votes</label>
-                    <input type="number" v-model="formData.votes"    name="votes" min="1" max="5" required>
-                    <button type="submit" >Invia</button>
-                     va nel submit v-on:click="upNota" 
-                </form> -->
-            
-          <!-- mostra commenti  -->
-            <!-- <div v-if="doctor.reviews.length > 0">
-                <h3>Commenti:</h3>
-                <div v-for="mes in doctor.reviews" :key="mes.id">
-                    <h5>{{ mes.comment }}</h5>
-                </div>
-            </div>
-        </div> -->
-        <!-- invia messaggio al dottore  -->
-        <!-- <div>
-            <div v-if="errorsMes.length">
-                    <b>Si sono verificati degli errori:</b>
-                    <ul>
-                        <li v-for="errore in errorsMes" :key="errore">{{ errore }}</li>
-                    </ul>
-                </div>
-            <h1>Invia messaggio al dottore </h1>
-            <form @submit.prevent="sendMes()">
-                <label for="username">Inserisci il nome</label>
-                    <input v-model="formMes.name" type="text" minlength="1" maxlength="100" required/>
-                    <label for="content">Inserisci il contenuto</label>
-                    <input v-model="formMes.content" type="text"  maxlength="255" required/>
-                    <input type="email" placeholder="Enter your email" required>
-                    <label for="email">Inserisci la tua email</label>
-                    <input v-model="formMes.email" type="text" /> 
-                    <button type="submit" >Invia</button>
-                    va ne submit v-on:click="errorMes" 
-            </form>
-
-         </div>  -->
   </section>
 </template>
 <script>
+import StarRating from 'vue-star-rating';
+
+import moment from 'moment';
 export default {
+    components: {
+    StarRating
+    },
     name: 'DoctorComponent',
     data () {
         return {
@@ -173,12 +158,15 @@ export default {
                 name: "",
                 doctor_id: "",
             },
-            errors: [],
-            errorsMes: [],
+            
         }
     },
     methods: {
-
+        
+        getFormattedDate(date) {
+            return moment(date).format("DD-MM-YYYY")
+        },
+    
         addComment() {
             axios
             .post("/api/reviews", this.formData)
@@ -206,61 +194,10 @@ export default {
                  console.log(error);
             });
         },
-        upNota: function (event) {
-                if (this.formData.name && this.formData.comment && this.formData.votes) {
-                    this.errors = [];
-                }
-
-                this.errors = [];
-                if (!this.formData.name) {
-                    this.errors.push('Nome obbligatorio');
-                }
-                if (this.formData.name.length > 50) {
-                    this.errors.push('Nome troppo lungo');
-                }
-                if (!this.formData.comment) {
-                    this.errors.push('Commento obbligatorio');
-                }
-                // if (this.formData.comment.length > 255) {
-                //     this.errors.push('Commento troppo lungo');
-                // }
-                if (!this.formData.votes) {
-                    this.errors.push('Voto obbligatorio');
-                }
-            },
-            errorMes: function (event) {
-                if (this.formMes.name && this.formMes.content && this.formMes.email) {
-                    this.errorsMes = [];
-                }
-
-                this.errorsMes = [];
-                if (!this.formMes.name) {
-                    this.errorsMes.push('nome obbligatorio');
-                }
-                if (this.formMes.name.length > 50) {
-                    this.errorsMes.push('nome troppo lungo');
-                }
-
-
-                if (!this.formMes.content) {
-                    this.errorsMes.push('Messagio obbligatorio');
-                }
-                // if (this.formData.content.length > 255) {
-                //     this.errors.push('Messagio troppo lungo');
-                // }
-                if (!this.formMes.email) {
-                    this.errorsMes.push('Email obbligatoria');
-                }
-                // if (this.formMes.email.filter('@') === false ) {
-                //     this.errorsMes.push('@');
-                // }
-
-                console.log(this.errorsMes)
-            },
+        
     },
 
-     mounted () {
-        // console.log(this.$route.params)
+    mounted () {
         const id = this.$route.params.id
         axios.get(`/api/doctors/${id}`).then((res)=>{
             this.doctor = res.data;
@@ -268,21 +205,21 @@ export default {
             this.formMes.doctor_id = this.doctor.id
         }).catch((error) => {
         this.$router.push({ name: "page-404" });
-      });
-
-    }
+        });
+    },
+    computed: {
+        
+    },
 
 
 }
 </script>
 <style lang="scss">
-@import '../../sass/variables';
+@import '../../sass/variables'; 
 section{
     background: white;
     width: 100%;
-    min-height: 60vh;
-
-    margin-bottom: 112px;
+    height: 100%;
     // doctor 
     .container-main{
         width: 90%;
@@ -290,20 +227,19 @@ section{
         padding: 10px;
         
         div{
-            
-            img{
-            border-radius: 50px;
+            .div-img{
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
             border: 2px solid $general-violet;
-            width: 200px;
-            background-size: contain;
-            } 
-            .logo{
+            border-radius: 50px;
+            margin-bottom:20px;
                 img{
-                    border: 0 !important;
-                    width: 80px;
-                    border-radius: 50px;
-                }
+                width: 100%;
+                background-size: contain;
+                } 
             }
+            
             // specializations
             .specializations{
                 
@@ -319,10 +255,10 @@ section{
                     li{
                         padding: 2px;
                         a{
-                            color: white;
+                            color: $general-violet;
                             text-decoration: none;
                             &:hover{
-                                color: $general-white;
+                                color: $general-violet;
                             }
                         }
                     }
@@ -344,57 +280,35 @@ section{
         
         
     }
+    // servizi-curriculum 
+    .container-servizi-curriculum{
+        width: 80%;
+        margin: 0 auto;
+    }
     
     // comment
     .comment-container {
-        
-        div{
+        width: 90%;
+        margin: 0 auto;
+        .container-commenti {
             width: 100%;
-            h3{
-                margin-left: 5%;
-            }
-            .comment-doctor{
-            width: 90%;
-            min-height: 40px;
-            margin: 10px auto;
-
-            border: 2px solid $general-black;
-            }
-        }
-        .add-comment{
-            margin-top: 40px !important;
-            width: 80%;
-            margin: 0 auto;
+            margin-bottom: 30px ;
+            padding:0 ;
             
-            height: 200px;
-            form{
-                .name-comment{
-                    input{
-                        margin-left: 10px;
-                        width: 90%;
-                    }
-                }
-                .text-comment{
-                    textarea{
-                        margin-left: 10px;
-                        width: 90%;
-                        
-                    }
-                }
-                .votes{
-                    margin-top: 5px;
-                    input{
-                        margin-left: 10px;
-                        width: 50px;
-                    }
-                }
-            }
         }
+                
+        
     }
     hr{
         background-color: $general-violet;
         height: 1px;
     }
     
+    h5{
+        font-size: 1rem;
+    }
+    h6{
+        font-size: 0.8rem;
+    }
 }
 </style>
