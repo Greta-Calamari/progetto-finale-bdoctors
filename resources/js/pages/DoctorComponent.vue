@@ -11,12 +11,12 @@
                     <ul>
                         <h4>Le mie specializzazione</h4>
                         <hr>
-                        <li v-for="specia in doctor.specializations" :key="specia">
-                            <h5>{{specia.name}}</h5>
+                        <li v-for="specialization in doctor.specializations" :key="specialization.id">
+                            <router-link class="router-link" :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
                         </li>
-                </ul>
-                <hr>
-            </div>
+                    </ul>
+                    <hr>
+                </div>
             </div>
             <!-- info  -->
             <div class=" info-doctor col-lg-8 col-md-7 col-sm-12 d-flex flex-column ">
@@ -131,10 +131,12 @@
                             <br>
                             <input type="email" v-model="formMes.email" placeholder="Email" required>
                         </div>
-                        <button type="submit" >Invia</button>
+                        <button type="submit" @click="conferma = !conferma">Invia</button>
+                        <h1 v-if="conferma" >Il tuo messaggio è stato inviato! </h1>
                     </form>
                 </div>
-            </div>            
+            </div> 
+                       
                     
             
         </div>
@@ -167,6 +169,8 @@ export default {
             },
             comment: false,
             messaggio: false,
+            specializations: [],
+            conferma: false,
             
         }
     },
@@ -215,9 +219,12 @@ export default {
         }).catch((error) => {
         this.$router.push({ name: "page-404" });
         });
+        axios.get('/api/specializations').then((response)=>{ 
+        this.specializations = response.data;
+      })
     },
-    computed: {
-        
+    created(){
+        setTimeout(() => this.conferma = false, 2000)
     },
 
 
@@ -251,14 +258,9 @@ section{
             
             // specializations
             .specializations{
-                
-                h4{
-                }
                 hr{
-                   
                     border: 1px solid $general-violet;
                     width: 100%;
-
                 }
                 ul{
                     li{
@@ -267,7 +269,7 @@ section{
                             color: $general-violet;
                             text-decoration: none;
                             &:hover{
-                                color: $general-violet;
+                                color: $general-light-blue;
                             }
                         }
                     }
@@ -387,4 +389,5 @@ section{
         font-size: 0.8rem;
     }
 }
+
 </style>
