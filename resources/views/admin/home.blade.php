@@ -77,7 +77,18 @@
                 
                 <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">Statistiche</div>
                 <div class="tab-pane fade" id="list-sponsors" role="tabpanel" aria-labelledby="list-sponsors-list">
-                    <div class="row">
+                    <div>
+                        <h1>Sponsorizzazioni attive</h1>
+                        @if (count($doctor->sponsors))
+                        <ul>
+                            @foreach($doctor->sponsors as $sponsor)
+                            <li>
+                                <p>{{$sponsor->name}}</p>
+                                <p>Scadenza: {{$sponsor->pivot->date_end}}</p>
+                            </li>
+                            @endforeach
+                        </ul>
+                        @endif
                         {{-- @if (count($doctor->sponsors)) --}}
                         <ul>
                             @foreach($sponsors as $sponsor)

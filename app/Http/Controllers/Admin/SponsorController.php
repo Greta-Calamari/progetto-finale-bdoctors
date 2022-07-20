@@ -60,19 +60,22 @@ class SponsorController extends Controller
             //dd($sponsorization);
             if(count($doctor->sponsors) > 0){
                 //dd($doctor->sponsors->pivot);
-                $lastSp = $doctor->sponsors()->orderByDesc('pivot_date_end', 'asc')->first();
+                $lastSp = $doctor->sponsors()->orderByDesc('pivot_date_end')->first();
                 $dateStart = $lastSp->pivot->date_end;
+                //dd($dateStart);
             }else{
                 $dateStart = date("Y-m-d H:i:s");
             }
+            
             //global $dateEnd;
             if($sponsorization->id == 1){
-                $dateEnd = date("Y-m-d H:i:s", strtotime('+24 hours'));
+                $dateEnd = date('Y-m-d H:i:s', strtotime($dateStart. ' + 24 hours'));
             }else if($sponsorization->id == 2){
-                $dateEnd = date("Y-m-d H:i:s", strtotime('+72 hours'));
+                $dateEnd = date('Y-m-d H:i:s', strtotime($dateStart. ' + 72 hours'));
             }else{
-                $dateEnd = date("Y-m-d H:i:s", strtotime('+144 hours'));
+                $dateEnd = date('Y-m-d H:i:s', strtotime($dateStart. ' + 144 hours'));
             }
+            //dd($dateStart, $dateEnd);
             //dd($dateStart, $dateEnd);
             $sponsorization->doctors()->attach($user_id, ['date_start'=>$dateStart, 'date_end'=>$dateEnd]); 
             $risultato = ['result'=>true];
