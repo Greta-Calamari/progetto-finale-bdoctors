@@ -12,7 +12,7 @@
                         <h4>Le mie specializzazione</h4>
                         <hr>
                         <li v-for="specia in doctor.specializations" :key="specia">
-                            <a href="#">{{specia.name}}</a>
+                            <h5>{{specia.name}}</h5>
                         </li>
                 </ul>
                 <hr>
@@ -53,10 +53,15 @@
                 <h3>Commenti:</h3>
                 <div class="container-commenti-info d-flex flex-column" v-for="mes in doctor.reviews" :key="mes.id">
                     <div class="col-12 p-0 utente">
-                        <h5><i class="fa-solid fa-user"></i> {{mes.name}}</h5>
+                        <h4><i class="fa-solid fa-user"></i> {{mes.name}}</h4>
                     </div>
                     <div class="col-12 p-0 voto">
-                        <h6><i class="fa-solid fa-star"></i> {{mes.votes}}</h6>
+                        <star-rating v-model="mes.votes"
+                            inactive-color="#5f4bb6"
+                            :show-rating="false"
+                            :read-only="true"
+                            v-bind:star-size="15"
+                        ></star-rating>
                     </div>
                     <div class="col-12 p-0 data">
                         <h6>{{getFormattedDate(mes.created_at)}}</h6>
@@ -68,32 +73,31 @@
                 </div>
             </div>
             <!-- aggiundi commento  -->
-            <div class=" add-comment p-0 col-12">
+            <div  class=" add-comment p-0 col-12">
+                
                 <form @submit.prevent="addComment()">
                     <h2>Lascia una recensione</h2>
                     <!-- input name  -->
                     <div class="name-comment">
                         <label for="name">Inserisci il tuo nome</label>
                         <br>
-                        <input v-model="formData.name" type="text"  minlength="1" maxlength="100" placeholder="Inserisci il tuo nome" required/>
+                        <input v-model="formData.name" type="text"  minlength="1" maxlength="100" placeholder="Nome" required/>
                     </div>
                     <!-- input comment -->
                     <div class="text-comment">
                         
                         <label for="comment">Inserisci il tuo commento</label>
                         <br>
-                        <textarea  name="content" id="contentEditor" cols="30" rows="10" minlength="1" maxlength="255" placeholder="Inserisci il tuo commento" v-model="formData.comment" required>
+                        <textarea  name="content" id="contentEditor" cols="30" rows="10" minlength="1" maxlength="255" placeholder="Commento" v-model="formData.comment" required>
                         </textarea>
                     </div>
                     <!-- input votes  -->
-                    <div class="votes">
-                        <label for="votes" class="form-label">Inscerisci un voto da 1 a 5</label>
-                        <!-- <input type="number" v-model="formData.votes"    name="votes" min="1" max="5" placeholder="voto" required>   -->
-                        <!-- <star-rating type="number" name="votes" v-model="formData.votes" required></star-rating> -->
-                        <star-rating type="number" name="votes" v-model="formData.votes" required
+                    <div class="votes-comment">
+                        <label for="votes" class="form-label">Seleziona un voto da 1 a 5</label>
+                        <star-rating class="star" type="number" name="votes" v-model="formData.votes" required
                             v-bind:increment="1"
                             v-bind:max-rating="5"
-                            inactive-color="grey"
+                            inactive-color="#5f4bb6"
                             active-color="gold"
                             :show-rating="false"
                             v-bind:star-size="20">
@@ -101,33 +105,36 @@
                     </div>
                     <button type="submit" >Invia</button>
                 </form>
+                <hr>
             </div> 
-                    <!-- invia un messaggio  -->
-                <div>
+            <!-- invia un messaggio  -->
+            <div class="messaggio-container">
+                <button  @click="messaggio = !messaggio" >Scrivi un messaggio al dottore</button>
+                <div v-if="messaggio">
                     <h3>Invia un messaggio al dottore</h3>
                     <form @submit.prevent="sendMes()">
                         <!-- nome messaggio  -->
-                        <div>
+                        <div class="username-container">
                             <label for="username">Inserisci il nome</label>
                             <br>
-                            <input v-model="formMes.name" type="text" minlength="1" maxlength="100" required/>
+                            <input v-model="formMes.name" type="text" placeholder="Nome" minlength="1" maxlength="100" required/>
                         </div>
                         <!-- contenuto messaggio -->
-                        <div>
-                            <label for="content">Inserisci il contenuto</label>
+                        <div class="content-container">
+                            <label for="content">Inserisci il tuo messaggio</label>
                             <br>
-                            <input v-model="formMes.content" type="text"  maxlength="255" required/>
+                            <textarea v-model="formMes.content" type="text" placeholder="Messaggio" maxlength="255" required></textarea>
                         </div>
                         <!-- email messaggio  -->
-                        <div>
+                        <div class="email-container">
                             <label for="email">Inserisci la tua email</label>
                             <br>
-                            <input type="email" v-model="formMes.email" placeholder="Enter your email" required>
+                            <input type="email" v-model="formMes.email" placeholder="Email" required>
                         </div>
                         <button type="submit" >Invia</button>
                     </form>
                 </div>
-                        
+            </div>            
                     
             
         </div>
@@ -158,6 +165,8 @@ export default {
                 name: "",
                 doctor_id: "",
             },
+            comment: false,
+            messaggio: false,
             
         }
     },
@@ -214,7 +223,7 @@ export default {
 
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../sass/variables'; 
 section{
     background: white;
@@ -296,9 +305,76 @@ section{
             padding:0 ;
             
         }
-                
-        
+        .add-comment{
+            form{
+                .name-comment{
+                    input{
+                        width: 100%;
+                        border: 2px solid $general-violet;
+                    }
+                }
+                .text-comment{
+                    textarea{
+                        width: 100%;
+                        height: 100px;
+                        border: 2px solid $general-violet;
+                    }
+                }
+                .votes-comment{
+                    margin-top: 5px;
+                    .star{
+                    margin-bottom: 5px;
+                    }
+                }
+            }
+        }   
     }
+    .messaggio-container{
+        width: 100%;
+            margin-bottom: 20px ;
+        div{
+            width: 100%;
+            .username-container{
+                input{
+                    width: 100%;
+                    border: 2px solid $general-violet;
+                }
+            }
+            
+            .content-container{
+                textarea{
+                    width: 100%;
+                    border: 2px solid $general-violet;
+                }
+            }
+            .email-container{
+                input{
+                    width: 100%;
+                    border: 2px solid $general-violet;
+                }
+            }
+            button{
+                width: 80px;
+                margin-top: 20px;
+            }
+        }
+    }
+   
+    button{
+        
+        border: 1px solid $general-violet;
+        background-color: $general-violet;
+        color: white;
+        padding: 5px;
+        margin-top: 10px;
+        min-width: 60px;
+        border-radius: 5px;
+        &:hover{
+            background-color: $general-light-blue;
+            color: black;
+        }
+    }
+    
     hr{
         background-color: $general-violet;
         height: 1px;
