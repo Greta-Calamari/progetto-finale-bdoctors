@@ -147,8 +147,21 @@ export default {
 
         if(this.inputSpecialization === undefined){
             axios.get('/api/doctors').then((response) =>{
-                console.log(response.data.results)
-                this.doctors = response.data
+                //console.log(response.data.results)
+                console.log(response)
+                const responses = response.data
+                const sponsored  = [];
+                const nonSponsored = [];
+                responses.forEach(resp => {
+                    if(resp.active_sponsor.length!=0){
+                        sponsored.push(resp);
+                    } else {
+                        nonSponsored.push(resp);
+                    }
+                });
+                this.doctors = [...sponsored,...nonSponsored];
+                //this.doctors = Object.values(response.data) 
+                console.log(this.doctors)
                 this.inputSpecialization = ''
                 console.log(this.inputSpecialization)
                 this.loading = false;

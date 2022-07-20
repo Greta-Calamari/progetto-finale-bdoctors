@@ -31,9 +31,9 @@ class DoctorController extends Controller
     {
         $specializationId = $request->query('specialization');
         $doctors = Doctor::with(['specializations', 'reviews', 'sponsors', 'active_sponsor'])->get();
-        $doctors = $doctors->sortByDesc(function ($doctor, $key) {
-            return $doctor['active_sponsor'];
-        });
+        // $doctors = $doctors->sortByDesc(function ($doctor, $key) {
+        //     return $doctor['active_sponsor'];
+        // });
 
         if(!isset($specializationId)){
             return response()->json($doctors);
