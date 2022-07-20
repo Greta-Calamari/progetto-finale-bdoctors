@@ -19630,6 +19630,9 @@ form .col h3 {
   text-align: center;
   padding: 20px 0;
 }
+form .obbligatorio {
+  color: red;
+}
 
 body {
   font-family: "Ibarra Real Nova", serif;
