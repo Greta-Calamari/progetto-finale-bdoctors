@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@include('partials/popupdelete')
+@include('partials/popupDelete')
 {{-- @dd($user) --}}
 
 @section('content')
