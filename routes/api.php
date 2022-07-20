@@ -35,6 +35,8 @@ Route::post('/reviews', 'Api\ReviewController@store');
 Route::get('/messages','Api\MessageController@index');
 //store per messaggi
 Route::post('/messages','Api\MessageController@store');
+//dottori sponsorizzati
+Route::get('/doctors-sponsorized', 'Api\DoctorController@sponsorized');
 
 
 

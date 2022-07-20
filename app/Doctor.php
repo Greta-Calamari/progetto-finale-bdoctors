@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Carbon;
 class Doctor extends Model
 {
     protected $guarded = [];
@@ -35,5 +35,10 @@ class Doctor extends Model
 
     public function reviews(){
         return $this->hasMany('App\Review')->orderBy('created_at', 'desc');
+    }
+
+    public function active_sponsor(){
+        $currentDate = Carbon::now();
+        return $this->sponsors()->using('App\DoctorSponsor')->withPivot('date_start', 'date_end')->where('date_start','<=' , $currentDate)->where('date_end', '>=', $currentDate);
     }
 }
