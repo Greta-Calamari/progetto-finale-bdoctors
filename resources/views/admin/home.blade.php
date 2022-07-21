@@ -6,7 +6,7 @@
 
 <div class="container" id="home">
     <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4">
             <div class="list-group" id="list-tab" role="tablist">
                 <a class="list-group-item list-group-item-action active" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
                 <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messaggi</a>
@@ -22,18 +22,18 @@
 
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-md-12 col-lg-8">
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-sm-12 col-md-6 mb-3">
                             <img src="{{asset('storage/' . $doctor->photo)}}" alt="{{$doctor->name}}">
                         </div>
-                        <div class="col-6">
+                        <div class="col-sm-12 col-md-6">
                             <h3>{{$doctor->name}} {{$doctor->surname}}</h3>
                             <p>{{Auth::user()->email}}</p>
-                            <a class="btn cs_btn" href="{{route('admin.doctors.show', $doctor->id)}}">Vedi profilo completo</a>
-                            <a class="btn cs_btn" href="{{route('admin.doctors.edit', $doctor->id)}}">Modifica profilo</a>
+                            <a class="btn cs_btn mb-2" href="{{route('admin.doctors.show', $doctor->id)}}">Vedi profilo completo</a>
+                            <a class="btn cs_btn mb-2" href="{{route('admin.doctors.edit', $doctor->id)}}">Modifica profilo</a>
                         </div>
                        
                     </div>
