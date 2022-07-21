@@ -36,7 +36,7 @@
     <div id="app" class="w-carousel" >
         <agile  :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst>
 
-            <div class="slide container-">
+            <div class="slide container-" >
                     <div class="circle-"></div>
                     <p class=".title-card">Lorem ipsum dolor</p>
                     <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
@@ -45,7 +45,7 @@
                     </p>
             </div>
 
-            <div class="slide container-">
+            <!-- <div class="slide container-">
                     <div class="circle-"></div>
                     <p class=".title-card">Lorem ipsum dolor</p>
                     <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
@@ -102,7 +102,7 @@
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
                     Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
                     </p>
-            </div>
+            </div> -->
             <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
             <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
         </agile>
@@ -130,7 +130,8 @@
               
                 <div class="icon-spec">
                     <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >
-                        <img src="/images/stethoscope.png" alt="" class="img-w">
+                        <img :src="`/images/id${specialization.id}.png`" alt="" class="img-w">
+                        <span>{{specialization.name}}</span>
                     </router-link>
                      
                 </div>
@@ -205,7 +206,7 @@
 
 
   <!-- VALORI -->
-    <div>
+    <div class="mt-val">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path fill="#86a5d9" fill-opacity="1" d="M0,0L80,53.3C160,107,320,213,480,240C640,267,800,213,960,176C1120,139,1280,117,1360,106.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
       </svg>
@@ -452,7 +453,10 @@ export default {
     mounted(){
       axios.get('/api/specializations').then((response)=>{ 
         this.specializations = response.data;
-      })
+      });
+      axios.get('/api/doctors-sponsorized').then((response)=>{ 
+        this.doctors = response.data;
+      });
     }
 }
 </script>
@@ -501,7 +505,7 @@ body{
 }
 
 .spec{
-  margin-top: -200px;
+  margin-top: -500px;
 }
 .m-b{
   margin-left: 100px;
@@ -518,7 +522,7 @@ body{
 .divider{
   color: $general-white;
   background-color: $general-violet;
-  margin-top: 20%;
+  margin-top: 300px;
   height: 1000px;
 }
 
@@ -562,6 +566,9 @@ background: -moz-linear-gradient(180deg, hsla(218, 52%, 69%, 1) 46%, hsla(0, 0%,
 .p-val{
   font-size: 20px;
 }
+.mt-val{
+  margin-top:-200px ;
+}
 
 // CAROSELLO NEWS
 .h{
@@ -576,7 +583,7 @@ background: -moz-linear-gradient(180deg, hsla(218, 52%, 69%, 1) 46%, hsla(0, 0%,
 
 .img-card-2{
   
-  height: 200px;
+  height: 300px;
   width: 200px;
   object-fit: cover;
   
@@ -770,6 +777,9 @@ h1{
     bottom: 500px;
     z-index: 10000;
 }
+.spec{
+  margin-top: -400px;
+}
   
 }
 
@@ -794,6 +804,9 @@ h1{
     object-position:-30px 10px;
 
   }
+  .mt-val{
+  margin-top:-100px ;
+}
   
   
   
@@ -813,7 +826,12 @@ h1{
 .h-2{
   height: 300px;
 }
-  
+.spec{
+  margin-top: -300px;
+}
+.mt-val{
+  margin-top:-90px ;
+} 
   
 }
 
@@ -867,6 +885,9 @@ h1{
     position: relative;
     top: -300px;
     z-index: 10000;
+}
+.spec{
+  margin-top: -200px;
 }
   
 }
