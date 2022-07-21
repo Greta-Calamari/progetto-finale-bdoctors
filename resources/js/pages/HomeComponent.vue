@@ -36,73 +36,15 @@
     <div id="app" class="w-carousel" >
         <agile  :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst>
 
-            <div class="slide container-" >
-                    <div class="circle-"></div>
-                    <p class=".title-card">Lorem ipsum dolor</p>
-                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    </p>
+            <div class="slide container-" v-for="doctor in doctors" :key="doctor.sponsorized.id">
+                    <div class="circle-">{{doctor.image}}</div>
+                    <p class=".title-card">{{doctor.name}}</p>
+                    <p class=".title-card">{{doctor.surname}}</p>
+                    <p class="sub-title-card">{{doctor.specialization}}</p>
+
             </div>
 
-            <!-- <div class="slide container-">
-                    <div class="circle-"></div>
-                    <p class=".title-card">Lorem ipsum dolor</p>
-                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    </p>
-            </div>
-
-
-            <div class="slide container-">
-                    <div class="circle-"></div>
-                    <p class=".title-card">Lorem ipsum dolor</p>
-                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    </p>
-            </div>
-
-
-            <div class="slide container-">
-                    <div class="circle-"></div>
-                    <p class=".title-card">Lorem ipsum dolor</p>
-                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    </p>
-            </div>
-
-
-            <div class="slide container-">
-                    <div class="circle-"></div>
-                    <p class=".title-card">Lorem ipsum dolor</p>
-                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    </p>
-            </div>
-
-
-
-            <div class="slide container-">
-                    <img src="" alt="" class="circle-">
-                    <p class=".title-card">Lorem ipsum dolor</p>
-                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    </p>
-            </div>
-
-            <div class="slide container-">
-                    <div class="circle-"></div>
-                    <p class=".title-card">Lorem ipsum dolor</p>
-                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
-                    </p>
-            </div> -->
+            
             <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
             <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
         </agile>
@@ -111,11 +53,6 @@
 
 
 
-        <!-- <ul>
-          <li v-for="specialization in specializations" :key="specialization.id">
-              <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
-          </li>
-        </ul> -->
       
     <!-- QUADRATO SPECIALIZZAZIONI -->
     <div class="spec">
@@ -131,7 +68,7 @@
                 <div class="icon-spec">
                     <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >
                         <img :src="`/images/id${specialization.id}.png`" alt="" class="img-w">
-                        <span>{{specialization.name}}</span>
+                        <div>{{specialization.name}}</div>
                     </router-link>
                      
                 </div>
