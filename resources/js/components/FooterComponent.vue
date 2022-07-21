@@ -73,6 +73,10 @@ html {
     background-color: $general-light-blue;
 
 }
+.circle-up a{
+    text-decoration: none;
+    color: $general-violet;
+}
 .up-up{
    
    line-height: 50px;
