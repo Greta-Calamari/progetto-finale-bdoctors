@@ -853,6 +853,11 @@ h1{
   bottom:200px;
   width: 50%;
 }
+.divider{
+  
+  height: 700px;
+}
+
   
 }
 @media screen and (max-width: 1100px) {
@@ -1001,6 +1006,10 @@ h1{
 .h-2{
   height: 500px;
 }
+.divider{
+  
+  height: 600px;
+}
 
 
 }
@@ -1057,7 +1066,10 @@ h1{
   bottom:200px;
   width: 70%;
 }
+.divider{
   
+  height: 700px;
+}
  
 }
 
@@ -1126,6 +1138,10 @@ h1{
   position: relative;
   bottom:200px;
   width: 80%;
+}
+.divider{
+  
+  height: 800px;
 }
 
 }
