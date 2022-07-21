@@ -22,7 +22,7 @@
                 </div>
             </div>
 
-            <div class="col col-sm-12 col-md-6 col-lg-5">
+            <div class="col col-sm-12 col-sm-12 col-md-6 col-lg-5">
                 <h2>Modifica il tuo profilo</h2>
                 <div class="row">
                     <div class="col-6">
