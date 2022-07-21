@@ -33,21 +33,38 @@
           
 
     <!-- carosello -->
-    <div id="app" class="w-carousel" >
+    <!-- <div id="app" class="w-carousel" >
         <agile  :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst>
 
-            <div class="slide container-" v-for="doctor in doctors" :key="doctor.sponsorized.id">
-                    <div class="circle-">{{doctor.image}}</div>
+            <div class="slide container-" v-for="doctor in doctors" :key="doctor.id">
+              
+                    <div class="circle-">{{doctor.photo}}</div>
                     <p class=".title-card">{{doctor.name}}</p>
                     <p class=".title-card">{{doctor.surname}}</p>
                     <p class="sub-title-card">{{doctor.specialization}}</p>
+
+              
             </div>
 
             
             <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
             <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
         </agile>
-    </div>
+    </div> -->
+    <ul>
+      <li v-for="(doctor) in doctors" :key="doctor.id">
+        
+                    <p class=".title-card">{{doctor.name}}</p>
+                    <p class=".title-card">{{doctor.surname}}</p>
+                    <!-- <p class="sub-title-card">{{doctor.specialization}}</p> -->
+                    
+        
+
+      </li>
+      <li>ciao</li>
+    </ul>
+    
+    
   
 
 
@@ -396,7 +413,8 @@ export default {
         this.specializations = response.data;
       });
       axios.get('/api/doctors-sponsorized').then((response)=>{ 
-        this.doctors = response.data;
+        this.doctors = Object.values(response.data);
+        console.log(this.doctors);
       });
     }
 }
