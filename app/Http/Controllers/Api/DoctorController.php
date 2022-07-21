@@ -3,10 +3,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Doctor;
 use App\Http\Controllers\Controller;
+use App\Sponsor;
 use Carbon\Carbon;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class DoctorController extends Controller
 {
     //chiamata tutti i dottori
@@ -25,11 +26,14 @@ class DoctorController extends Controller
         return response()->json($doctor);
     }
 
-    //funzione provvisoria per ottenere i dottori nella HOME
+    //funzione per ottenere tutti i dottori
     public function getAllDoctors(Request $request)
     {
         $specializationId = $request->query('specialization');
-        $doctors = Doctor::with(["specializations", "reviews", "messages"])->get();
+        $doctors = Doctor::with(['specializations', 'reviews', 'sponsors', 'active_sponsor'])->get();
+        // $doctors = $doctors->sortByDesc(function ($doctor, $key) {
+        //     return $doctor['active_sponsor'];
+        // });
 
         if(!isset($specializationId)){
             return response()->json($doctors);
@@ -48,7 +52,10 @@ class DoctorController extends Controller
     
     //per media voti
     public function doctorByAvg($specializationId, $average){
-        $doctors = Doctor::with(["specializations", "reviews", "messages"])->get();
+        $doctors = Doctor::with(['specializations', 'reviews', 'sponsors', 'active_sponsor'])->get();
+        // $doctors = $doctors->sortByDesc(function ($doctor, $key) {
+        //     return $doctor['active_sponsor'];
+        // });
         //filtro per specializzazioni
         if(isset($specializationId)){
             $doctorsBySpecialization = $doctors->filter(function($doctor) use($specializationId){
@@ -75,7 +82,6 @@ class DoctorController extends Controller
             } else {
                 $averageVote = $sum/$reviewCounter;
             }
-
             if($averageVote >= intval($average) && $averageVote < intval($average) + 1){
                 return true;
             } else {
@@ -89,7 +95,10 @@ class DoctorController extends Controller
     //per numero di recensioni
     public function doctorByReviewsNumber($specializationId, $rangeMin)
     {
-        $doctors = Doctor::with(["specializations", "reviews", "messages"])->get();
+        $doctors = Doctor::with(['specializations', 'reviews', 'sponsors', 'active_sponsor'])->get();
+        // $doctors = $doctors->sortByDesc(function ($doctor, $key) {
+        //     return $doctor['active_sponsor'];
+        // });      
         //filtro per specializzazioni
         if(isset($specializationId)){
             $doctorsBySpecialization = $doctors->filter(function($doctor) use($specializationId){
@@ -134,11 +143,12 @@ class DoctorController extends Controller
         return response()->json($filtered);
     }
 
-    
-
     // filtro per media e numero di recensioni 
     public function doctorByAll($specializationId, $average, $rangeMin){
-        $doctors = Doctor::with(["specializations", "reviews", "messages"])->get();
+        $doctors = Doctor::with(['specializations', 'reviews', 'sponsors', 'active_sponsor'])->get();
+        // $doctors = $doctors->sortByDesc(function ($doctor, $key) {
+        //     return $doctor['active_sponsor'];
+        // });
         //filtro per specializzazioni
         if(isset($specializationId)){
             $doctorsBySpecialization = $doctors->filter(function($doctor) use($specializationId){
@@ -218,5 +228,21 @@ class DoctorController extends Controller
                 return $this->doctorByAll($specializationId = null, $average, $rMin);
             }
         }
+    }
+
+    //dottori sponsorizzati
+    public function sponsorized(){
+        //$todayDate = Carbon::now();
+        $doctors = Doctor::with(['sponsors', 'specializations', 'reviews', 'active_sponsor'])->get();
+        $doctors = $doctors->filter(function($doctor){
+            if(count($doctor['active_sponsor']) > 0){
+                return true;
+            }else{
+                return false;
+            }
+        });
+        return response()->json($doctors);
+        //chiamata
+        //axios.get('/api/doctors-sponsorized')
     }
 }
