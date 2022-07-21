@@ -1,5 +1,5 @@
 <template>
-    <div class="container-footer">
+    <div class="container-footer mt-5">
         <div class="container-small row">
             <!-- Informazioni  -->
             <div class="col-sm-6 col-lg-3 col-md-3 info">
@@ -46,6 +46,10 @@
                 <p>2022 &copy;Dottori.it, All Rights Reserved</p>
             </div>
         </div>
+        <div class="circle-up">
+            <a href="#"><i class="fa-solid fa-arrow-up up-up"></i></a>
+
+        </div>
 
     </div>
 </template>
@@ -57,6 +61,31 @@ export default {
 </script>
 <style lang="scss">
 @import '../../sass/variables';
+html {
+  scroll-behavior: smooth;
+}
+// CERCHIO CHE TI PORTA SU
+.circle-up{
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: $general-light-blue;
+
+}
+.circle-up a{
+    text-decoration: none;
+    color: $general-violet;
+}
+.up-up{
+   
+   line-height: 50px;
+   margin-left:19px ;
+
+}
+
+
+
 .container-footer{
 
     width: 100%;
