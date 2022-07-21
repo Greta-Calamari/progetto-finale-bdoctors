@@ -34,7 +34,7 @@
 
     <!-- carosello -->
     <!-- <div id="app" class="w-carousel" >
-        <agile  :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst>
+        <agile  :initial-slide="0" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst  >
 
             <div class="slide container-" v-for="doctor in doctors" :key="doctor.id">
               
@@ -51,18 +51,23 @@
             <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
         </agile>
     </div> -->
+
     <ul>
-      <li v-for="(doctor) in doctors" :key="doctor.id">
-        
-                    <p class=".title-card">{{doctor.name}}</p>
-                    <p class=".title-card">{{doctor.surname}}</p>
-                    <!-- <p class="sub-title-card">{{doctor.specialization}}</p> -->
-                    
-        
+      <li  v-for="doctor in doctors" :key="doctor.id">
+        <p>{{doctor.photo}}</p>
+        <p>{{doctor.name}}</p>
+
 
       </li>
-      <li>ciao</li>
     </ul>
+
+  
+
+
+    
+
+    
+   
     
     
   
@@ -406,6 +411,7 @@ export default {
     data () {
         return {
             specializations: [],
+            doctors:[],
         }
     },
     mounted(){
@@ -414,7 +420,7 @@ export default {
       });
       axios.get('/api/doctors-sponsorized').then((response)=>{ 
         this.doctors = Object.values(response.data);
-        console.log(this.doctors);
+        
       });
     }
 }
