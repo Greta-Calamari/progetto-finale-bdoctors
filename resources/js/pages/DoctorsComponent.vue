@@ -1,17 +1,21 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-3">
-                <div class="lds-roller" v-if="loadingSp">
+        <div class="filter py-4">
+            <div v-if="loadingSp" class="row justify-content-center py-3">
+                <div class="lds-roller" >
                     <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                 </div>
-                <div v-else class="filter mb-5">
-                    <!-- filtro per specializazioni -->
-                    <select name="" id="" v-model="inputSpecialization" class="form-control">
-                        <option value="">All</option>
-                        <option :value="specialization.id" v-for="specialization in specializations" :key="specialization.id">{{specialization.name}}</option>
-                    </select>
-                    <!-- filtro per mediavoto -->
+            </div>
+            <div class="row" v-else>
+                <div class="col-4">
+                    <h4>Specializzazione</h4>
+                        <select name="" id="" v-model="inputSpecialization" class="form-control">
+                            <option value="">All</option>
+                            <option :value="specialization.id" v-for="specialization in specializations" :key="specialization.id">{{specialization.name}}</option>
+                        </select>
+                </div>
+                <div class="col-4">
+                    <h4>Media voto</h4>
                     <div>
                         <input type="radio" id="val" name="fav_language" value="" v-model="inputAverage">
                         <label for="val">
@@ -37,8 +41,91 @@
                         <label for="val_5">
                             <span v-for="index in 5" :key="index"><i class="fa-solid fa-star"></i></span>
                         </label>
+
                     </div>
-                    <!-- filtro numero recensioni -->
+                </div>
+                <div class="col-4">
+                    <h4>Numero di recensioni</h4>
+                    <div>
+                        <input type="radio" id="0" name="fav_language" value="" v-model="inputRange">
+                        <label for="0">
+                            All
+                        </label><br>
+                        <input type="radio" id="5" name="fav_language" value="1" v-model="inputRange">
+                        <label for="5">
+                            Meno di 5 recensioni
+                        </label><br>
+                        <input type="radio" id="5" name="fav_language" value="5" v-model="inputRange">
+                        <label for="5">
+                            Tra 5 e 10 recensioni
+                        </label><br>
+                        <input type="radio" id="10" name="fav_language" value="10" v-model="inputRange">
+                        <label for="10">
+                            Più di 10 recensioni
+                        </label><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <div class="col-12 col-lg-3">
+                <div class="lds-roller" v-if="loadingSp">
+                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                </div>
+                <div v-else class="filter mb-5">
+                    <h1>Filtri</h1>
+                    <h3>Specializzazione</h3>
+                    <select name="" id="" v-model="inputSpecialization" class="form-control">
+                        <option value="">All</option>
+                        <option :value="specialization.id" v-for="specialization in specializations" :key="specialization.id">{{specialization.name}}</option>
+                    </select>
+                    <div>
+                        <h3>Media voto</h3>
+                        <input type="radio" id="val" name="fav_language" value="" v-model="inputAverage">
+                        <label for="val">
+                            All
+                        </label><br>
+                        <input type="radio" id="val_1" name="fav_language" value="1" v-model="inputAverage">
+                        <label for="val_1">
+                            <i class="fa-solid fa-star"></i>
+                        </label><br>
+                        <input type="radio" id="val_2" name="fav_language" value="2" v-model="inputAverage">
+                        <label for="val_2">
+                            <span v-for="index in 2" :key="index"><i class="fa-solid fa-star"></i></span>
+                        </label><br>
+                        <input type="radio" id="val_3" name="fav_language" value="3" v-model="inputAverage">
+                        <label for="val_3">
+                            <span v-for="index in 3" :key="index"><i class="fa-solid fa-star"></i></span>
+                        </label><br>
+                        <input type="radio" id="val_4" name="fav_language" value="4" v-model="inputAverage">
+                        <label for="val_4">
+                            <span v-for="index in 4" :key="index"><i class="fa-solid fa-star"></i></span>
+                        </label><br>
+                        <input type="radio" id="val_5" name="fav_language" value="5" v-model="inputAverage">
+                        <label for="val_5">
+                            <span v-for="index in 5" :key="index"><i class="fa-solid fa-star"></i></span>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <h3>Numero di recensioni</h3>
+                        <input type="radio" id="0" name="fav_language" value="" v-model="inputRange">
+                        <label for="0">
+                            All
+                        </label><br>
+                        <input type="radio" id="5" name="fav_language" value="1" v-model="inputRange">
+                        <label for="5">
+                            Meno di 5 recensioni
+                        </label><br>
+                        <input type="radio" id="5" name="fav_language" value="5" v-model="inputRange">
+                        <label for="5">
+                            Tra 5 e 10 recensioni
+                        </label><br>
+                        <input type="radio" id="10" name="fav_language" value="10" v-model="inputRange">
+                        <label for="10">
+                            Più di 10 recensioni
+                        </label><br>
+                    </div>
                     <select name="" id="" v-model="inputRange" class="form-control">
                         <option value="">All</option>
                         <option value="1">Meno di 5</option>
@@ -49,35 +136,40 @@
                     <button class="btn btn-primary" @click="search">Filtra</button>
                     <button class="btn btn-primary" @click="clearFilter">Elimina Filtri</button>
                 </div>
-            </div>
-            <div class="col-12 col-lg-9">
+            </div> -->
+            <div class="col-12">
                 <div class="lds-roller" v-if="loading">
                     <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                 </div>
                 <div v-else>
-                    <div class="row" v-if="doctors.length > 0">
-                        <div class="col-12 col-lg-6" v-for="(doctor) in doctors" :key="doctor.id">
+                    <div class="row cards" v-if="doctors.length > 0">
+                        <div class="col-12 col-lg-4" v-for="(doctor) in doctors" :key="doctor.id">
                             <div class="card">
                                 <div class="row">
-                                    <div class="col-6">
-                                        <div class="img-box">
-                                            <img :src="`/storage/${doctor.image}`" class="w-100" :alt="doctor.name"  v-if=" doctor.image">
-                                            <img src='https://static.vecteezy.com/system/resources/thumbnails/003/528/202/small/stethoscope-icon-medicine-medical-health-doctor-care-hospital-aid-isolated-symbol-for-web-and-mobile-app-free-free-vector.jpg' v-else>
-                                        </div>
+                                    <div class="col-5">
+                                        <router-link :to="{ name:'doctor', params:{id: doctor.id} }">
+                                            <div class="img-box">
+                                                <img :src="`/storage/${doctor.image}`" class="w-100" :alt="doctor.name"  v-if=" doctor.image">
+                                                <img src='https://static.vecteezy.com/system/resources/thumbnails/003/528/202/small/stethoscope-icon-medicine-medical-health-doctor-care-hospital-aid-isolated-symbol-for-web-and-mobile-app-free-free-vector.jpg' v-else>
+                                            </div>
+                                        </router-link>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-7">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{doctor.name}}</h5>
-                                            <p class="card-text">{{doctor.surname}}</p>
-                                            <p class="card-text">{{doctor.average_vote}}</p>
-                                                        <!-- <div v-for="review in doctor.reviews" :key="review.id">
-                                                            <p class="card-text">{{review.votes}}</p>
-                                                        </div> -->
-                                            <router-link  class="btn btn-outline-primary rounded-0" :to="{ name:'doctor', params:{id: doctor.id} }"> Visualizza Dottore  </router-link>
+                                            <h5 class="card-title">{{doctor.name}} {{doctor.surname}}</h5>
+                                            
+                                            <!-- <p class="card-text mb-0" v-for="spec in doctor.specializations" :key="spec.id">{{spec.name}}</p>  -->
+                                            <p class="card-text"><i class="fa-solid fa-map-location-dot"></i> {{doctor.address}}</p>
+                                            <p class="card-text"><i class="fa-solid fa-phone"></i> {{doctor.cell_number}}</p>
+                                                       
+                                            <!-- <router-link  class="btn btn-outline-primary rounded-0" :to="{ name:'doctor', params:{id: doctor.id} }">Visualizza</router-link> -->
 
                                             <!-- <a href="" class="btn btn-outline-primary rounded-0">Visualizza Dottore</a> -->
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-12">
+                                    <p class="card-text mb-0" v-for="spec in doctor.specializations" :key="spec.id">{{spec.name}}</p> 
                                 </div>
                             </div>
                         </div>
@@ -116,15 +208,33 @@ export default {
                 this.loading = true;
                 axios.get(`/api/doctors?specialization=${this.inputSpecialization}`).then((response) =>{
                     console.log(response)
-                    this.doctors = response.data
+                    const data = response.data
+                    const sponsored  = [];
+                    const nonSponsored = [];
+                    data.forEach(resp => {
+                        if(resp.active_sponsor.length!=0){
+                            sponsored.push(resp);
+                        } else {
+                            nonSponsored.push(resp);
+                        }
+                    });
+                    this.doctors = [...sponsored,...nonSponsored];
                     this.loading = false;
-
                 })
             }else{
                 this.loading = true;
                 axios.get(`/api/filter?specialization=${this.inputSpecialization}&average=${this.inputAverage}&rangeMin=${this.inputRange}`).then((response)=>{
-                    console.log(response)
-                    this.doctors = response.data
+                    const data = response.data
+                    const sponsored  = [];
+                    const nonSponsored = [];
+                    data.forEach(resp => {
+                        if(resp.active_sponsor.length!=0){
+                            sponsored.push(resp);
+                        } else {
+                            nonSponsored.push(resp);
+                        }
+                    });
+                    this.doctors = [...sponsored,...nonSponsored];
                     this.loading = false;
                 })
             }
@@ -134,10 +244,31 @@ export default {
             this.inputAverage = '';
             this.inputRange = '';
             axios.get('/api/doctors').then((response) =>{
-                console.log(response.data.results)
-                this.doctors = response.data
+                const data = response.data
+                const sponsored  = [];
+                const nonSponsored = [];
+                data.forEach(resp => {
+                    if(resp.active_sponsor.length!=0){
+                        sponsored.push(resp);
+                    } else {
+                        nonSponsored.push(resp);
+                    }
+                });
+                this.doctors = [...sponsored,...nonSponsored];
                 this.loading = false;
             })
+        },
+        averageVote(){
+            //let reviewCounter = 0
+            //console.log(arr)
+            arr.forEach(element => {
+                //reviewCounter++;
+                //console.log(element.votes)
+                let sum = 0;
+                sum += element.votes;
+                return Math.floor(sum/arr.length)
+                console.log(average);
+            });
         }
     },
     created(){
@@ -147,12 +278,10 @@ export default {
 
         if(this.inputSpecialization === undefined){
             axios.get('/api/doctors').then((response) =>{
-                //console.log(response.data.results)
-                console.log(response)
-                const responses = response.data
+                const data = response.data
                 const sponsored  = [];
                 const nonSponsored = [];
-                responses.forEach(resp => {
+                data.forEach(resp => {
                     if(resp.active_sponsor.length!=0){
                         sponsored.push(resp);
                     } else {
@@ -160,16 +289,22 @@ export default {
                     }
                 });
                 this.doctors = [...sponsored,...nonSponsored];
-                //this.doctors = Object.values(response.data) 
-                console.log(this.doctors)
                 this.inputSpecialization = ''
-                console.log(this.inputSpecialization)
                 this.loading = false;
             })
         }else{
             axios.get(`/api/doctors?specialization=${this.inputSpecialization}`).then((response) =>{
-                console.log(response)
-                this.doctors = response.data
+                const data = response.data
+                const sponsored  = [];
+                const nonSponsored = [];
+                data.forEach(resp => {
+                    if(resp.active_sponsor.length!=0){
+                        sponsored.push(resp);
+                    } else {
+                        nonSponsored.push(resp);
+                    }
+                });
+                this.doctors = [...sponsored,...nonSponsored];
                 console.log(this.inputSpecialization)
                 this.loading = false;
             })
@@ -180,16 +315,54 @@ export default {
 
         })
     },
-  }
+}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .filter, h3{
-    margin-top: 40px;
+    background-color: rgb(231 237 247);;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    padding: 1.5rem;
+    h4{
+        color: #5f4bb6;
+    }
+    .fa-star{
+        color: #5f4bb6;
+    }
+}
+.cards{
+    margin-top: 300px;
 }
 .card{
+    background-color: rgba(#86a5d9, 0.2);
     margin-bottom: 40px;
     margin-top: 90px;
+    height: 250px;
+    .img-box{
+    position: relative;
+    bottom:50px;
+    &:hover img{
+        -webkit-transform: scale3d(1.2, 1.2, 1);
+        transform: scale3d(1.2, 1.2, 1);
+    }
+    img{
+        width: 100%;
+        border: 1px solid #86a5d9;
+        -webkit-transition: all 0.5s linear;
+        transition: all 0.5s linear;
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+        border-radius: 50px;
+    }
+}
+    .card-body{
+        .card-text{
+            color: #5f4bb6;
+        }
+    }
 }
 .btn-outline-primary{
     border-color: #5f4bb6 !important;
@@ -198,22 +371,7 @@ export default {
 .btn-outline-primary:hover{
     background-color: #5f4bb6 !important;
 }
-.img-box{
-    position: relative;
-    bottom:50px;
-    &:hover img{
-        -webkit-transform: scale3d(1.2, 1.2, 1);
-        transform: scale3d(1.2, 1.2, 1);
-    }
-    img{
-        width: 160px;
-        border: 1px solid #86a5d9;
-        -webkit-transition: all 0.5s linear;
-        transition: all 0.5s linear;
-        -webkit-transform: scale3d(1, 1, 1);
-        transform: scale3d(1, 1, 1);
-    }
-}
+
 .lds-roller {
     display: inline-block;
     position: relative;

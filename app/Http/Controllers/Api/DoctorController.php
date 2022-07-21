@@ -53,9 +53,9 @@ class DoctorController extends Controller
     //per media voti
     public function doctorByAvg($specializationId, $average){
         $doctors = Doctor::with(['specializations', 'reviews', 'sponsors', 'active_sponsor'])->get();
-        $doctors = $doctors->sortByDesc(function ($doctor, $key) {
-            return $doctor['active_sponsor'];
-        });
+        // $doctors = $doctors->sortByDesc(function ($doctor, $key) {
+        //     return $doctor['active_sponsor'];
+        // });
         //filtro per specializzazioni
         if(isset($specializationId)){
             $doctorsBySpecialization = $doctors->filter(function($doctor) use($specializationId){
@@ -82,7 +82,6 @@ class DoctorController extends Controller
             } else {
                 $averageVote = $sum/$reviewCounter;
             }
-
             if($averageVote >= intval($average) && $averageVote < intval($average) + 1){
                 return true;
             } else {
@@ -97,9 +96,9 @@ class DoctorController extends Controller
     public function doctorByReviewsNumber($specializationId, $rangeMin)
     {
         $doctors = Doctor::with(['specializations', 'reviews', 'sponsors', 'active_sponsor'])->get();
-        $doctors = $doctors->sortByDesc(function ($doctor, $key) {
-            return $doctor['active_sponsor'];
-        });      
+        // $doctors = $doctors->sortByDesc(function ($doctor, $key) {
+        //     return $doctor['active_sponsor'];
+        // });      
         //filtro per specializzazioni
         if(isset($specializationId)){
             $doctorsBySpecialization = $doctors->filter(function($doctor) use($specializationId){
@@ -147,9 +146,9 @@ class DoctorController extends Controller
     // filtro per media e numero di recensioni 
     public function doctorByAll($specializationId, $average, $rangeMin){
         $doctors = Doctor::with(['specializations', 'reviews', 'sponsors', 'active_sponsor'])->get();
-        $doctors = $doctors->sortByDesc(function ($doctor, $key) {
-            return $doctor['active_sponsor'];
-        });
+        // $doctors = $doctors->sortByDesc(function ($doctor, $key) {
+        //     return $doctor['active_sponsor'];
+        // });
         //filtro per specializzazioni
         if(isset($specializationId)){
             $doctorsBySpecialization = $doctors->filter(function($doctor) use($specializationId){
