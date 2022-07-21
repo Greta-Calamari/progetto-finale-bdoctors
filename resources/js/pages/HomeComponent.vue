@@ -36,15 +36,73 @@
     <div id="app" class="w-carousel" >
         <agile  :initial-slide="3" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst>
 
-            <div class="slide container-" v-for="doctor in doctors" :key="doctor.sponsorized.id">
-                    <div class="circle-">{{doctor.image}}</div>
-                    <p class=".title-card">{{doctor.name}}</p>
-                    <p class=".title-card">{{doctor.surname}}</p>
-                    <p class="sub-title-card">{{doctor.specialization}}</p>
-
+            <div class="slide container-" >
+                    <div class="circle-"></div>
+                    <p class=".title-card">Lorem ipsum dolor</p>
+                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    </p>
             </div>
 
-            
+            <!-- <div class="slide container-">
+                    <div class="circle-"></div>
+                    <p class=".title-card">Lorem ipsum dolor</p>
+                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    </p>
+            </div>
+
+
+            <div class="slide container-">
+                    <div class="circle-"></div>
+                    <p class=".title-card">Lorem ipsum dolor</p>
+                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    </p>
+            </div>
+
+
+            <div class="slide container-">
+                    <div class="circle-"></div>
+                    <p class=".title-card">Lorem ipsum dolor</p>
+                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    </p>
+            </div>
+
+
+            <div class="slide container-">
+                    <div class="circle-"></div>
+                    <p class=".title-card">Lorem ipsum dolor</p>
+                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    </p>
+            </div>
+
+
+
+            <div class="slide container-">
+                    <img src="" alt="" class="circle-">
+                    <p class=".title-card">Lorem ipsum dolor</p>
+                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    </p>
+            </div>
+
+            <div class="slide container-">
+                    <div class="circle-"></div>
+                    <p class=".title-card">Lorem ipsum dolor</p>
+                    <p class="sub-title-card">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    Ratione iusto assumenda obcaecati porro nihil sint, consequuntur facilis, accusantium fugit, qui a ducimus reiciendis exercitationem enim maiores iure neque? Illo, commodi.
+                    </p>
+            </div> -->
             <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
             <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
         </agile>
@@ -53,6 +111,11 @@
 
 
 
+        <!-- <ul>
+          <li v-for="specialization in specializations" :key="specialization.id">
+              <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
+          </li>
+        </ul> -->
       
     <!-- QUADRATO SPECIALIZZAZIONI -->
     <div class="spec">
@@ -68,7 +131,7 @@
                 <div class="icon-spec">
                     <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >
                         <img :src="`/images/id${specialization.id}.png`" alt="" class="img-w">
-                        <div>{{specialization.name}}</div>
+                        <div class="spec-name">{{specialization.name}}</div>
                     </router-link>
                      
                 </div>
@@ -416,7 +479,7 @@ body{
 }
 .big-square{
   margin: 0 auto;
-  height: 1100px;
+  height: 1400px;
   width: 900px;
   background-color: $general-white;
   border: 1px solid white;
@@ -426,7 +489,7 @@ body{
 .border-in{
   border: 1px solid $general-light-blue;
   margin: 25px;
-  height: 1050px;
+  height: 1350px;
   width: 860px;
   
 
@@ -919,6 +982,34 @@ h1{
   max-width: 100%;
   margin-left: 400px;
 }
+// QUADRATO
+.big-square{
+  margin: 0 auto;
+  height: 3000px;
+  width: 300px;
+  background-color: $general-white;
+  border: 1px solid white;
+
+}
+
+.border-in{
+  border: 1px solid $general-light-blue;
+  margin: 25px;
+  height: 2950px;
+  width: 250px;
+  
+
+}
+.spec-name{
+  margin-right:130px ;
+  
+}
+.col-12-s{
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-left: 90px;
+
+}
 
 
 }
@@ -968,7 +1059,34 @@ h1{
   
   height: 600px;
 }
+// QUADRATO
+.big-square{
+  margin: 0 auto;
+  height: 3000px;
+  width: 300px;
+  background-color: $general-white;
+  border: 1px solid white;
 
+}
+
+.border-in{
+  border: 1px solid $general-light-blue;
+  margin: 25px;
+  height: 2950px;
+  width: 250px;
+  
+
+}
+.spec-name{
+  margin-right:130px ;
+  
+}
+.col-12-s{
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-left: 90px;
+
+}
 
 }
 @media screen and (max-width: 575px) {
@@ -1028,6 +1146,35 @@ h1{
   
   height: 700px;
 }
+
+// QUADRATO
+.big-square{
+  margin: 0 auto;
+  height: 3000px;
+  width: 300px;
+  background-color: $general-white;
+  border: 1px solid white;
+
+}
+
+.border-in{
+  border: 1px solid $general-light-blue;
+  margin: 25px;
+  height: 2950px;
+  width: 250px;
+  
+
+}
+.spec-name{
+  margin-right:130px ;
+  
+}
+.col-12-s{
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-left: 90px;
+
+}
  
 }
 
@@ -1057,9 +1204,9 @@ h1{
   width: 300px;
 }
 .col-12-s{
-  flex: 0 0 140%;
-  max-width: 140%;
-  margin-left: 120px;
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-left: 90px;
 
 }
 
@@ -1101,6 +1248,28 @@ h1{
   
   height: 800px;
 }
+.big-square{
+  margin: 0 auto;
+  height: 3000px;
+  width: 300px;
+  background-color: $general-white;
+  border: 1px solid white;
+
+}
+
+.border-in{
+  border: 1px solid $general-light-blue;
+  margin: 25px;
+  height: 2950px;
+  width: 250px;
+  
+
+}
+.spec-name{
+  margin-right:130px ;
+  
+}
+
 
 }
 
