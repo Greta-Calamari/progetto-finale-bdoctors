@@ -1,15 +1,14 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 // FontAwesome
 $fa-font-path: "../fonts/font-awesome" !default;
-
 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/regular";
@@ -19,6 +18,7 @@ $fa-font-path: "../fonts/font-awesome" !default;
 @import "./admin/home";
 @import "./admin/edit";
 
+@import "./admin/show";
 
 body {
     font-family: $font-family;
