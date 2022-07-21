@@ -125,17 +125,17 @@
           
           <h2 class=" text-center title-big">I nostri medici specializzati</h2>
 
-          <div class="row mt-3">
-            <div class="col-3 gy-3 title-big margin-col " v-for="specialization in specializations" :key="specialization.id">
-              <div class="round-spec">
-                <div>
+          <div class="row mt-3 row-spec">
+            <div class="col-12-s col-md-3 col-lg-3  gy-3 title-big margin-col " v-for="specialization in specializations" :key="specialization.id">
+              
+                <div class="icon-spec">
                     <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >
                         <img src="/images/stethoscope.png" alt="" class="img-w">
                     </router-link>
                      
                 </div>
 
-              </div>
+              
 
             </div>
 
@@ -148,18 +148,18 @@
     <!-- COME LAVORIAMO -->
       <div class="divider">
         <div class="d-flex justify-content-center">
-            <img src="/images/doctors.jpg" alt="" class="img-">
+            <img src="/images/doctors.jpg" alt="" class="img- ">
         </div>
         <div class="r-1">
 
           <h2 class="text-center">Come lavoriamo</h2>
 
           <div class="row justify-content-center mt-4 ">
-            <div class="col-3 col-sm-4 col-md-4 col-lg-2  mx-2">
+            <div class="col-12 col-lg-2 med-13 mx-2">
               I suoi reparti sono dotati di apparecchiature diagnostiche e terapeutiche all'avanguardia e gestiti da medici di prima categoria, Ph.D. e Dottori in Medicina, professori associati e professori informati sulle migliori pratiche disponibili delle scuole europee. Le partnership con cliniche specializzate e centri di ricerca in Europa rendono possibili le consultazioni di medici di specialità uniche.
 
             </div>
-            <div class="col-3  col-sm-4 col-md-4 col-lg-2">
+            <div class="col-12 med-13 col-lg-2">
               <p>
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -176,27 +176,27 @@
       </div>
 
 <!-- OBBIETTIVI -->
-      <div class="container">
+      <div class="container c-obb">
         <div class="row border-row">
-          <div class="col ">
-            <h3 class="text-center sub-tit ">UN</h3>
-            <h4 class="text-center ">Obiettivo e Missione</h4>
-            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
+          <div class="col-obb col-4">
+            <h3 class="text-center sub-tit q-1">UN</h3>
+            <h4 class="text-center q-2">Obiettivo e Missione</h4>
+            <p class="text-center q-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
             <button class="btn btn-outline-primary m-b">per saperne di piu</button>
 
           </div>
 
-          <div class="col">
-            <h3 class="text-center sub-tit ">LA</h3>
-            <h4 class="text-center ">Nostra Clinica</h4>
-            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
+          <div class="col-obb col-4">
+            <h3 class="text-center sub-tit q-1">LA</h3>
+            <h4 class="text-center q-2 ">Nostra Clinica</h4>
+            <p class="text-center q-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
             <button class="btn btn-outline-primary m-b">per saperne di piu</button>
 
           </div>
-          <div class="col ">
-            <h3 class="text-center sub-tit ">Lavora</h3>
-            <h4 class="text-center ">Con noi</h4>
-            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
+          <div class="col-obb col-4">
+            <h3 class="text-center sub-tit q-1">Lavora</h3>
+            <h4 class="text-center q-2">Con noi</h4>
+            <p class="text-center q-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
             <button class="btn btn-outline-primary m-b">per saperne di piu</button>
 
           </div>
@@ -213,14 +213,14 @@
         <h2 class="text-center tt">Viviamo e respiriamo in nostri lavori</h2>
         <div class="container mt-5">
           <div class="row">
-            <div class="col">
+            <div class="col col-q-val">
               <p class="p-val">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
             </div>
-            <div class="col p-val">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
+            <div class="col col-q-val ">
+              <p class="p-val">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
             </div>
-            <div class="col p-val">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
+            <div class="col col-q-val">
+              <p class="p-val">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
             </div>
 
           </div>
@@ -234,7 +234,7 @@
     <!-- CAROSELLO NOTIZIE -->
         
 
-        <carousel class="mx-4" :autoplay="true" :nav="false" autoplayTimeout="1000" autoplayHoverPause="true"  items='4'>
+        <carousel class="mx-4" :autoplay="true" :nav="false" autoplayTimeout="1000" autoplayHoverPause="true"  items='4' :responsive={0:{items:1,nav:false},700:{items:3,nav:true}}>
               <div class="card h" style="width: 18rem;">
                 <img src="/images/corona.jpg" alt="">
                   <div class="card-body">
@@ -244,7 +244,7 @@
                   </div>
               </div>
 
-              <div class="card h" style="width: 18rem;">
+              <div class="card h " style="width: 18rem;">
                     <img src="/images/depression.jpg" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Depressione</h5>
@@ -321,12 +321,12 @@
         <div>
           <h1 class="text-center">Leggi cosa dicono i nostri clienti</h1>
           
-            <div class="row justify-content-center">
-                  <div class="col-3">
-                    <div class="card mb-3" style="max-width: 540px;">
+            <div class="row justify-content-center h-r-c">
+                  <div class="col-3 col-cli">
+                    <div class="card mb-3 h-2 " style="max-width: 540px;">
                       <div class="row no-gutters justify-content-center">
                         <div class="col-md-4">
-                          <img src="https://www.pentagonoservice.com/wp-content/uploads/revslider/homepage4/person.png" alt="..." class="w-100">
+                          <img src="https://www.pentagonoservice.com/wp-content/uploads/revslider/homepage4/person.png" alt="..." class="w-100  img-card-2">
                         </div>
                         <div class="col-md-8">
                           <div class="card-body">
@@ -340,11 +340,11 @@
                       </div>
                     </div>
               </div>
-              <div class="col-3">
-                  <div class="card mb-3" style="max-width: 540px;">
+              <div class="col-3 col-cli">
+                  <div class="card mb-3 h-2" style="max-width: 540px;">
                     <div class="row no-gutters">
                       <div class="col-md-4">
-                        <img src="https://toppng.com/uploads/preview/person-png-11553989513mzkt4ocbrv.png" alt="..." class="w-100">
+                        <img src="https://toppng.com/uploads/preview/person-png-11553989513mzkt4ocbrv.png" alt="..." class="w-100  img-card-2">
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
@@ -359,27 +359,27 @@
             </div>
 
             <div class="row justify-content-center">
-                  <div class="col-3">
-                    <div class="card mb-3" style="max-width: 540px;">
+                  <div class="col-3 col-cli">
+                    <div class="card mb-3 h-2" style="max-width: 540px;">
                       <div class="row no-gutters justify-content-center">
                         <div class="col-md-4">
-                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSPPGOu1QnLQyWLJIHryqrJXJWf1YgcXjzqQ&usqp=CAU" alt="..." class="w-100">
+                          <img src="https://c0.wallpaperflare.com/preview/446/791/732/woman-wearing-grey-turtle-neck-sweater.jpg" alt="..." class="w-100  img-card-2">
                         </div>
                         <div class="col-md-8">
                           <div class="card-body">
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aliquam accusantium voluptatibus magni iure et magnam possimus fugiat quisquam, mollitia placeat culpa ipsam expedita adipisci.</p>
                             <h5 class="card-title">Celia Almeda</h5>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            
                           </div>
                         </div>
                       </div>
                     </div>
               </div>
-              <div class="col-3">
-                  <div class="card mb-3" style="max-width: 540px;">
+              <div class="col-3 col-cli">
+                  <div class="card mb-3 h-2" style="max-width: 540px;">
                     <div class="row no-gutters">
                       <div class="col-md-4">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc5depihtSH-gI6OVPPoosexQoulFDC34Ydg&usqp=CAU" alt="..." class="w-100">
+                        <img src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aHVtYW4lMjBmYWNlfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="..." class="w-100 img-card-2 img-c-22">
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
@@ -567,6 +567,19 @@ background: -moz-linear-gradient(180deg, hsla(218, 52%, 69%, 1) 46%, hsla(0, 0%,
 .h{
   height: 450px;
 
+}
+
+// CLIENTI
+.h-2{
+  height: 300px;
+}
+
+.img-card-2{
+  
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  
 }
 
 // parte prima
@@ -770,6 +783,39 @@ h1{
 }
   
 }
+@media screen and (max-width: 1600px) {
+  .med-13{
+    flex: 0 0 25%;
+    max-width: 25%;
+    
+  }
+  
+  .img-c-22{
+    object-position:-30px 10px;
+
+  }
+  
+  
+  
+}
+@media screen and (max-width: 1300px) {
+.med-13{
+  flex: 0 0 25%;
+  max-width: 25%;
+  
+}
+
+.col-cli{
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-left: 800px;
+}
+.h-2{
+  height: 300px;
+}
+  
+  
+}
 
 @media screen and (max-width: 1300px) {
   .w-carousel{
@@ -778,6 +824,34 @@ h1{
     position: relative;
     bottom: 400px;
     z-index: 10000;
+}
+  
+}
+@media screen and (max-width: 1199px) {
+  .col-obb{
+    flex: 0 0 30%;
+    max-width: 30%;
+    margin-left: 30px;
+    
+  }
+  .border-row{
+  height: 500px;
+}
+.m-b{
+  margin-left: 60px;
+}
+.col-cli{
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-left: 600px;
+}
+.h-2{
+  height: 300px;
+}
+.img-{
+  position: relative;
+  bottom:200px;
+  width: 50%;
 }
   
 }
@@ -799,8 +873,195 @@ h1{
     top: -200px;
     z-index: 10000;
 }
+.h{
+  height: 500px;
+  gap:0 10px;
+
+}
+.img-card-2{
+  
+  height: 400px;
+  object-fit: cover;
   
 }
+  
+}
+@media screen and (max-width: 999px) {
+  .med-13{
+    flex: 0 0 30%;
+    max-width: 30%;
+    
+  }
+
+.col-12-s{
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-left: 216px;
+
+}
+.img-w{
+  width: 20%;
+
+}
+.big-square{
+  margin: 0 auto;
+  height: 3100px;
+  width: 600px;
+  background-color: $general-white;
+  border: 1px solid white;
+ 
+  
+
+}
+.border-in{
+  border: 1px solid $general-light-blue;
+  margin: 25px;
+  height: 3050px;
+  width: 550px;
+}
+.spec{
+  margin-bottom: 300px;
+}
+  
+
+.col-obb{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+    
+.border-row{
+  height: 1400px;
+  width: 900px;
+  margin-left: -100px;
+}
+.m-b{
+  margin-left: 350px;
+}
+.c-obb{
+  height: 1450px;
+}
+.q-3 , .q-1 , .q-2{
+  width:300px;
+  margin-left: 275px;
+}
+
+.bg-val{
+  height: 800px;
+
+}
+
+.col-cli{
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-left: 400px;
+}
+
+
+}
+
+@media screen and (max-width: 767px) {
+  .med-13{
+    flex: 0 0 40%;
+    max-width: 40%;
+    
+  }
+  .spec{
+  
+  margin-top: 30px;
+
+}
+.border-row{
+  height: 1400px;
+  width: 700px;
+  margin-left: -100px;
+}
+.q-3 , .q-1 , .q-2{
+  margin-left: 170px;
+}
+.m-b{
+  margin-left: 250px;
+}
+
+.bg-val{
+  height: 800px;
+  
+
+}
+.col-q-val{
+  flex: 0 0 100%;
+  max-width: 100%;
+
+}
+.col-cli{
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-left: 200px;
+}
+.h-2{
+  height: 500px;
+}
+
+
+}
+@media screen and (max-width: 575px) {
+  .med-13{
+    flex: 0 0 50%;
+    max-width: 50%;
+    
+  }
+  .divider{
+  color: $general-white;
+  background-color: $general-violet;
+  margin-top: 20%;
+  height: 1300px;
+}
+.big-square{
+  margin: 0 auto;
+  height: 3100px;
+  width: 500px;
+  background-color: $general-white;
+  border: 1px solid white;
+ 
+  
+
+}
+.border-in{
+  border: 1px solid $general-light-blue;
+  margin: 25px;
+  height: 3050px;
+  width: 450px;
+}
+.col-12-s{
+  flex: 0 0 120%;
+  max-width: 120%;
+  margin-left: 180px;
+
+}
+ 
+.border-row{
+  width: 643px;
+}
+.h{
+  margin-left: 100px;
+
+}
+.col-cli{
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-left: 40px;
+}
+
+.img-{
+  position: relative;
+  bottom:200px;
+  width: 70%;
+}
+  
+ 
+}
+
+
 @media screen and (max-width: 375px) {
   .w-carousel{
     width: 80%;
@@ -809,7 +1070,64 @@ h1{
     top: -80px;
     z-index: 10000;
 }
+.big-square{
+  margin: 0 auto;
+  height: 2700px;
+  width: 400px;
+  background-color: $general-white;
+  border: 1px solid white;
+ 
   
+
+}
+.border-in{
+  border: 1px solid $general-light-blue;
+  margin: 25px;
+  height: 2650px;
+  width: 300px;
+}
+.col-12-s{
+  flex: 0 0 140%;
+  max-width: 140%;
+  margin-left: 120px;
+
+}
+
+.m-b{
+  margin-left:150px;
+}
+
+.q-3 , .q-1 , .q-2{
+  width:300px;
+  margin-left: 80px;
+}
+.border-row{
+ 
+  width: 443px;
+  margin-left: -100px;
+}
+.bg-val{
+  height: 1300px;
+
+}
+.h{
+  margin-left: -0px;
+
+}
+.col-cli{
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-left: 0px;
+}
+.h-2{
+  height: 600px;
+}
+.img-{
+  position: relative;
+  bottom:200px;
+  width: 80%;
+}
+
 }
 
 
@@ -831,5 +1149,9 @@ h1{
 
 }
 
-  
+
+
+
+
+
 </style>
