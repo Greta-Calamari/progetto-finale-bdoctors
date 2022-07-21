@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@include('partials/popupdelete')
+@include('partials/popupDelete')
 {{-- @dd($user) --}}
 
 @section('content')
@@ -92,7 +92,7 @@
                                         <label class="form-check-label" for="{{$sponsor->name}}">{{$sponsor->name}}</label>
                                     </div>
                                 @endforeach
-                                <button type="submit">Seleziona</button>
+                                <button class="btn btn-outline-primary" type="submit">Seleziona</button>
                             </form>
                         @endif
                     </div>
