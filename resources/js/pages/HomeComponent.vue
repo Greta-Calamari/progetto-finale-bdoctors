@@ -126,7 +126,7 @@
           <h2 class=" text-center title-big">I nostri medici specializzati</h2>
 
           <div class="row mt-3">
-            <div class="col mx-4 my-3 title-big margin-col " v-for="specialization in specializations" :key="specialization.id">
+            <div class="col-3 gy-3 title-big margin-col " v-for="specialization in specializations" :key="specialization.id">
               <div class="round-spec">
                 <div>
                     <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >
@@ -155,11 +155,11 @@
           <h2 class="text-center">Come lavoriamo</h2>
 
           <div class="row justify-content-center mt-4 ">
-            <div class="col-2 mx-3">
+            <div class="col-3 col-sm-4 col-md-4 col-lg-2  mx-2">
               I suoi reparti sono dotati di apparecchiature diagnostiche e terapeutiche all'avanguardia e gestiti da medici di prima categoria, Ph.D. e Dottori in Medicina, professori associati e professori informati sulle migliori pratiche disponibili delle scuole europee. Le partnership con cliniche specializzate e centri di ricerca in Europa rendono possibili le consultazioni di medici di specialità uniche.
 
             </div>
-            <div class="col-2">
+            <div class="col-3  col-sm-4 col-md-4 col-lg-2">
               <p>
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -206,8 +206,201 @@
 
   <!-- VALORI -->
     <div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#86a5d9" fill-opacity="1" d="M0,0L80,53.3C160,107,320,213,480,240C640,267,800,213,960,176C1120,139,1280,117,1360,106.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+      </svg>
+      <div class="bg-val">
+        <h2 class="text-center tt">Viviamo e respiriamo in nostri lavori</h2>
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col">
+              <p class="p-val">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
+            </div>
+            <div class="col p-val">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
+            </div>
+            <div class="col p-val">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
       
     </div>
+
+    <!-- CAROSELLO NOTIZIE -->
+        
+
+        <carousel class="mx-4" :autoplay="true" :nav="false" autoplayTimeout="1000" autoplayHoverPause="true"  items='4'>
+              <div class="card h" style="width: 18rem;">
+                <img src="/images/corona.jpg" alt="">
+                  <div class="card-body">
+                    <h5 class="card-title">Corona virus</h5>
+                    <p class="card-text">I ricercatori segnalano la rilevazione di mutazioni virali associate alla farmacoresistenza in pazienti trattati con REGEN-COV e sotrovimab</p>
+                    <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                  </div>
+              </div>
+
+              <div class="card h" style="width: 18rem;">
+                    <img src="/images/depression.jpg" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">Depressione</h5>
+                        <p class="card-text">Recensione: nessuna chiara evidenza che i livelli di serotonina siano responsabili della depressione</p>
+                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                      </div>
+              </div>
+
+              <div class="card h" style="width: 18rem;">
+                    <img src="https://thumbs.dreamstime.com/b/red-heart-shape-medical-stethoscope-light-background-top-view-health-care-medicare-cardiology-concept-blue-104679825.jpg" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">Cardiologia</h5>
+                        <p class="card-text">In che modo il sonno influisce sulla salute del cuore?</p>
+                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                      </div>
+              </div>
+
+              <div class="card h" style="width: 18rem;">
+                    <img src="https://www.ars.toscana.it/images/NBST/news/farmaci_ATBresistenza.png" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">Farmaci</h5>
+                        <p class="card-text">L'effetto degli antibiotici sul microbioma intestinale</p>
+                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                      </div>
+              </div>
+
+              <div class="card h" style="width: 18rem;">
+                    <img src="https://ilritrattodellasalute.tiscali.it/export/sites/salute/.galleries/22/immuno.png_982521881.png" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">Cancro</h5>
+                        <p class="card-text">Comprendere le sfide nella terapia del cancro utilizzando le cellule staminali mesenchimali (MSC)</p>
+                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                      </div>
+              </div>
+              <div class="card h" style="width: 18rem;">
+                    <img src="https://thumbs.dreamstime.com/b/asma-bronchiale-dell-icona-91371630.jpg" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">Asma</h5>
+                        <p class="card-text">Colmare le lacune nell'attuale cura dell'asma</p>
+                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                      </div>
+              </div>
+              <div class="card h" style="width: 18rem;">
+                    <img src="/images/depression.jpg" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">Depressione</h5>
+                        <p class="card-text">Recensione: nessuna chiara evidenza che i livelli di serotonina siano responsabili della depressione</p>
+                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                      </div>
+              </div>
+              <div class="card h" style="width: 18rem;">
+                    <img src="https://assets-global.website-files.com/5d0b99352ab90c616bf47b31/60f9964fd52077781e1c3978_integratori.png" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">Integratori</h5>
+                        <p class="card-text">Nutrienti utili per affrontare la stanchezza estiva</p>
+                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                      </div>
+              </div>
+              <div class="card h" style="width: 18rem;">
+                    <img src="https://i.pinimg.com/736x/40/d6/0c/40d60c091c85393c84232142d1f875d7.jpg" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">Sperimentazione</h5>
+                        <p class="card-text">Regolamentazione ed etica delle sperimentazioni cliniche</p>
+                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                      </div>
+              </div>
+              
+        </carousel>
+
+
+
+        <!-- COSA DICONO I NOSTRI CLIENTI -->
+
+        <div>
+          <h1 class="text-center">Leggi cosa dicono i nostri clienti</h1>
+          
+            <div class="row justify-content-center">
+                  <div class="col-3">
+                    <div class="card mb-3" style="max-width: 540px;">
+                      <div class="row no-gutters justify-content-center">
+                        <div class="col-md-4">
+                          <img src="https://www.pentagonoservice.com/wp-content/uploads/revslider/homepage4/person.png" alt="..." class="w-100">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <p class="card-text">
+                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aliquam accusantium voluptatibus magni iure et magnam possimus fugiat quisquam, mollitia placeat culpa ipsam expedita adipisci.
+                            </p>
+                            <h5 class="card-title">Frank Kinney</h5>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-3">
+                  <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img src="https://toppng.com/uploads/preview/person-png-11553989513mzkt4ocbrv.png" alt="..." class="w-100">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aliquam accusantium voluptatibus magni iure et magnam possimus fugiat quisquam, mollitia placeat culpa ipsam expedita adipisci.</p>
+                          <h5 class="card-title">Febe Nelson</h5>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-center">
+                  <div class="col-3">
+                    <div class="card mb-3" style="max-width: 540px;">
+                      <div class="row no-gutters justify-content-center">
+                        <div class="col-md-4">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSPPGOu1QnLQyWLJIHryqrJXJWf1YgcXjzqQ&usqp=CAU" alt="..." class="w-100">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aliquam accusantium voluptatibus magni iure et magnam possimus fugiat quisquam, mollitia placeat culpa ipsam expedita adipisci.</p>
+                            <h5 class="card-title">Celia Almeda</h5>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-3">
+                  <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc5depihtSH-gI6OVPPoosexQoulFDC34Ydg&usqp=CAU" alt="..." class="w-100">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aliquam accusantium voluptatibus magni iure et magnam possimus fugiat quisquam, mollitia placeat culpa ipsam expedita adipisci.</p>
+                          <h5 class="card-title">Jennie Roberts</h5>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+          
+
+
+
+      
+
+
 
 
 
@@ -243,10 +436,13 @@
 <script>
 
 import { VueAgile } from 'vue-agile'
+import carousel from 'vue-owl-carousel'
 export default {
     name: 'HomeComponent',
     components: {
-        agile: VueAgile 
+        agile: VueAgile,
+        carousel ,
+ 
     },
     data () {
         return {
@@ -279,7 +475,7 @@ body{
 }
 .big-square{
   margin: 0 auto;
-  height: 900px;
+  height: 1100px;
   width: 900px;
   background-color: $general-white;
   border: 1px solid white;
@@ -289,7 +485,7 @@ body{
 .border-in{
   border: 1px solid $general-light-blue;
   margin: 25px;
-  height: 850px;
+  height: 1050px;
   width: 860px;
   
 
@@ -309,6 +505,11 @@ body{
 }
 .m-b{
   margin-left: 100px;
+}
+
+.margin-col{
+  margin-left: 70px;
+  
 }
 // COME LAVORIAMO
 
@@ -342,6 +543,30 @@ body{
 .sub-tit{
   color: $general-violet;
   font-size: 50px;
+}
+
+// VALORI
+.bg-val{
+  background: hsla(218, 52%, 69%, 1);
+
+background: linear-gradient(180deg, hsla(218, 52%, 69%, 1) 46%, hsla(0, 0%, 100%, 1) 100%);
+
+background: -moz-linear-gradient(180deg, hsla(218, 52%, 69%, 1) 46%, hsla(0, 0%, 100%, 1) 100%);
+  height: 500px;
+}
+
+.tt{
+  color: $general-violet;
+  font-weight: 700;
+}
+.p-val{
+  font-size: 20px;
+}
+
+// CAROSELLO NEWS
+.h{
+  height: 450px;
+
 }
 
 // parte prima
