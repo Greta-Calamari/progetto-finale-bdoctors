@@ -15,13 +15,16 @@
                 <div class="mb-3 mt-3">
                     
                     <div class="container-photo">
-                        <img id="imgPreview" src="{{asset('storage/' . $doctor->photo)}}">
+                         <img id="imgPreview" width="100" src="https://via.placeholder.com/300x200"> 
+                        </div>
+                    </div>
+                    <div>
+                         <h2>{{$doctor->name}} {{$doctor->surname}} </h2>
                     </div>
                 </div>
-            </div>
 
             <div class="col col-sm-12 col-md-6 col-lg-5">
-                <h2>Modifica il tuo profilo</h2>
+                
                 <div class="row">
                     <div class="col-6">
                         <div class="mb-3">
@@ -43,7 +46,7 @@
             </div>
              <div class="card">
                 <div class="card-body">
-                     <iframe src="{{asset('storage/' . $doctor->curriculum_vitae)}}" width=”300” height=”800”></iframe>
+                     <iframe src="{{asset('storage/' . $doctor->curriculum_vitae)}}" width=”80” height=”200”></iframe>
                 </div>
             </div>
             <div class="card">
@@ -93,24 +96,34 @@
        
         
         <div class="note">
-             <div class="mb-3 mt-3">
-                     <ul>
-                        <h3>Review</h3>
-                        @foreach ($doctor->reviews as $review)
-                            <li>Nome: {{$review->name}}</li>
-                            <li>Commento: {{$review->comment}}</li>
-                            <li>Voto: {{$review->votes}}</li>
-                        @endforeach
-                    </ul>  
-                    <ul>
-                        <h3>Messages</h3>
-                        @foreach ($doctor->messages as $message)
-                            <li>Nome: {{$message->name}}</li>
-                            <li>Email: {{$message->email}}</li>
-                            <li>Content: {{$message->content}}</li>
-                        @endforeach 
-                    </ul>  
-                </div>
+            <div class="mb-3 mt-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <ul>
+                                    <h3>Review</h3>
+                                        @foreach ($doctor->reviews as $review)
+                                        <li>Nome: {{$review->name}}</li>
+                                        <li>Commento: {{$review->comment}}</li>
+                                        <li>Voto: {{$review->votes}}</li>
+                                    @endforeach
+                                </ul>
+                            </div>  
+                        </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <ul>
+                                <h3>Messages</h3>
+                                    @foreach ($doctor->messages as $message)
+                                        <li>Nome: {{$message->name}}</li>
+                                        <li>Email: {{$message->email}}</li>
+                                        <li>Content: {{$message->content}}</li>
+                                    @endforeach 
+                            </ul>  
+                        </div>
+                    </div>
+
+            </div>
         </div>
     </form>
 </div>

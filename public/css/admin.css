@@ -19630,13 +19630,8 @@ form .col h3 {
   padding: 20px 0;
 }
 
-.row {
-  margin-right: -191px;
-  margin-left: -41px;
-}
-
 .card-body {
-  margin-right: -187px;
+  width: 370px;
 }
 
 body {
