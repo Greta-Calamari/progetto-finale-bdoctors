@@ -31,21 +31,13 @@
                 <hr>
                 <h3><i class="fa-solid fa-phone"></i>Telefono:</h3>
                 <h4> {{doctor.cell_number}}</h4>
+                <!-- <h3><i class="fa-solid fa-download"></i> Curriculum:</h3>
+                <a href="#">{{doctor.curriculum_vitae}}</a> -->
+                
             </div>
             
         </div>
-        <!-- servizi   e curriculum-->
-        <div class="container-servizi-curriculum   row">
-            <div class="col-lg-6 ">
-                <h3><i class="fa-solid fa-download"></i> Curriculum:</h3>
-                <a href="#">{{doctor.curriculum_vitae}}</a>
-            </div>
-            <div class="col-lg-6  ">
-                <h3><i class="fa-solid fa-star"></i> Media voti:</h3>
-                <h4> </h4>
-            </div>
-
-        </div>
+        
         <!-- commenti  -->
         <div class="comment-container row " v-if="doctor.reviews.length >= 0">
             <!-- mostra commenti  -->
@@ -94,14 +86,19 @@
                     <!-- input votes  -->
                     <div class="votes-comment">
                         <label for="votes" class="form-label">Seleziona un voto da 1 a 5</label>
-                        <star-rating class="star" type="number" name="votes" v-model="formData.votes" required
+                        
+                        <star-rating class="star" type="number" name="votes" v-model="formData.votes" 
                             v-bind:increment="1"
                             v-bind:max-rating="5"
                             inactive-color="#5f4bb6"
                             active-color="gold"
                             :show-rating="false"
-                            v-bind:star-size="20">
+                            v-bind:star-size="20"
+                            >
                         </star-rating> 
+                        <input type="number" v-model="formData.votes"    name="votes" min="1" max="5" placeholder="voto" required>
+                        
+                        
                     </div>
                     <button type="submit" >Invia</button>
                 </form>
@@ -131,7 +128,7 @@
                             <br>
                             <input type="email" v-model="formMes.email" placeholder="Email" required>
                         </div>
-                        <button type="submit" @click="conferma = !conferma">Invia</button>
+                        <button type="submit" @click="showComment()">Invia</button>
                         <h1 v-if="conferma" >Il tuo messaggio è stato inviato! </h1>
                     </form>
                 </div>
@@ -207,6 +204,13 @@ export default {
                  console.log(error);
             });
         },
+        // function show div 
+        showComment() {
+            if(this.formMes.email.length > 0){
+                return this.conferma = !this.conferma;
+            }
+            
+        },
         
     },
 
@@ -224,8 +228,10 @@ export default {
       })
     },
     created(){
-        setTimeout(() => this.conferma = false, 2000)
-    },
+        
+    }
+    
+
 
 
 }
@@ -324,8 +330,16 @@ section{
                 }
                 .votes-comment{
                     margin-top: 5px;
+                    position: relative;
                     .star{
                     margin-bottom: 5px;
+                    }
+                    input{
+                        height: 1px;
+                        width: 1px;
+                        position: absolute;
+                        left: 10px;
+                        border: 0px solid;
                     }
                 }
             }
