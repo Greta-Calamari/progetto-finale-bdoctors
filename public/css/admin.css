@@ -19589,21 +19589,26 @@ readers do not read off random characters that represent icons */
 .container.modfica-profile {
   border: 1px solid #5f4bb6;
   border-radius: 15px;
+  box-shadow: 10px 12px 4px #86a5d9;
 }
 
 form {
   padding: 10px;
 }
 form .cs_btn {
-  background-color: #5f4bb6;
+  background-color: white;
   border-color: #5f4bb6;
-  color: white;
+  color: rgb(72, 39, 100);
   position: relative;
   left: 50%;
   transform: translateX(-50%);
 }
 form .cs_btn:focus {
   box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
+}
+form .cs_btn:hover {
+  color: white;
+  background-color: #5f4bb6;
 }
 form .col-lg-5 {
   border-left: 1px solid #5f4bb6;
@@ -19622,7 +19627,7 @@ form .col .container-photo #imgPreview {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 15px;
+  border-radius: 102px;
   box-shadow: 10px 12px 4px #86a5d9;
 }
 form .col h3 {
