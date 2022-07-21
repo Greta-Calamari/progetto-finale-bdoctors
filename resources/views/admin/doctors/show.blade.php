@@ -20,6 +20,7 @@
                     </div>
                     <div>
                          <h2>{{$doctor->name}} {{$doctor->surname}} </h2>
+                         <hr>
                     </div>
                 </div>
 
@@ -101,6 +102,7 @@
                             <div class="card-body">
                                 <ul>
                                     <h3>Review</h3>
+                                    <hr>
                                         @foreach ($doctor->reviews as $review)
                                         <li>Nome: {{$review->name}}</li>
                                         <li>Commento: {{$review->comment}}</li>
@@ -114,6 +116,7 @@
                         <div class="card-body">
                             <ul>
                                 <h3>Messages</h3>
+                                <hr>
                                     @foreach ($doctor->messages as $message)
                                         <li>Nome: {{$message->name}}</li>
                                         <li>Email: {{$message->email}}</li>

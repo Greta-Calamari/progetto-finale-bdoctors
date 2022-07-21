@@ -19635,8 +19635,17 @@ form .col h3 {
   padding: 20px 0;
 }
 
+h2 {
+  margin-top: 28%;
+}
+
 .card-body {
   width: 370px;
+}
+
+hr {
+  border-top: 3px solid rgb(182, 146, 205);
+  border-radius: 2px;
 }
 
 body {
