@@ -27,7 +27,7 @@
                 <div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 mb-3">
-                            <img src="{{asset('storage/' . $doctor->photo)}}" alt="{{$doctor->name}}">
+                            <img src="{{asset('storage/'.$doctor->photo)}}" alt="{{$doctor->name}}">
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <h3>{{$doctor->name}} {{$doctor->surname}}</h3>
