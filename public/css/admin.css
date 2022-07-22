@@ -19545,6 +19545,13 @@ readers do not read off random characters that represent icons */
   content: "\F63F";
 }
 
+#app {
+  background-color: aliceblue;
+}
+
+#home {
+  height: calc(100vh - 106px);
+}
 #home .list-group-item.active {
   background-color: #5f4bb6;
   border-color: #5f4bb6;
@@ -19586,105 +19593,124 @@ readers do not read off random characters that represent icons */
   text-align: center;
 }
 
-.container.modfica-profile {
+.container.modifica-profilo {
   border: 1px solid #5f4bb6;
   border-radius: 15px;
-<<<<<<< HEAD
   background-color: white;
-=======
-  box-shadow: 10px 12px 4px #86a5d9;
->>>>>>> origin/modifiche-pagina-show
 }
-
-form {
+.container.modifica-profilo form {
   padding: 10px;
 }
-form .cs_btn {
-<<<<<<< HEAD
+.container.modifica-profilo form .cs_btn {
   background-color: #5f4bb6;
   border-color: #5f4bb6;
   color: white;
-=======
-  background-color: white;
-  border-color: #5f4bb6;
-  color: rgb(72, 39, 100);
->>>>>>> origin/modifiche-pagina-show
   position: relative;
   left: 50%;
   transform: translateX(-50%);
 }
-form .cs_btn:focus {
+.container.modifica-profilo form .cs_btn:focus {
   box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
 }
-<<<<<<< HEAD
-=======
-form .cs_btn:hover {
-  color: white;
-  background-color: #5f4bb6;
-}
->>>>>>> origin/modifiche-pagina-show
-form .col-lg-5 {
+.container.modifica-profilo form .col-lg-5 {
   border-left: 1px solid #5f4bb6;
   border-right: 1px solid #5f4bb6;
   padding-bottom: 25px;
 }
-form .col {
+.container.modifica-profilo form .col {
   padding: 25px;
 }
-form .col .container-photo {
+.container.modifica-profilo form .col .container-photo {
   height: 350px;
   margin: 35px 0 25px 0px;
 }
-form .col .container-photo #imgPreview {
+.container.modifica-profilo form .col .container-photo #imgPreview {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-<<<<<<< HEAD
   border-radius: 15px;
-=======
-  border-radius: 102px;
->>>>>>> origin/modifiche-pagina-show
   box-shadow: 10px 12px 4px #86a5d9;
 }
-form .col h3 {
+.container.modifica-profilo form .col h3 {
   text-align: center;
   padding: 20px 0;
 }
-<<<<<<< HEAD
-form .obbligatorio {
+.container.modifica-profilo form .obbligatorio {
   color: red;
 }
 
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (max-width: 767px) {
-  form .col-lg-5 {
+  .modifica-profilo form .col-lg-5 {
     border-left: none;
   }
 }
 /* Large devices (desktops, 992px and up) */
 @media (max-width: 992px) {
-  form .col-lg-5 {
+  .modifica-profilo form .col-lg-5 {
     border-right: none;
   }
 }
 /* Extra large devices (large desktops, 1200px and up) */
-=======
-
-h2 {
+.container.modifica-profilo {
+  border: 1px solid #5f4bb6;
+  border-radius: 15px;
+  box-shadow: 10px 12px 4px #86a5d9;
+}
+.container.modifica-profilo form {
+  padding: 10px;
+}
+.container.modifica-profilo form .cs_btn {
+  background-color: white;
+  border-color: #5f4bb6;
+  color: rgb(72, 39, 100);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.container.modifica-profilo form .cs_btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
+}
+.container.modifica-profilo form .cs_btn:hover {
+  color: white;
+  background-color: #5f4bb6;
+}
+.container.modifica-profilo form .col-lg-5 {
+  border-left: 1px solid #5f4bb6;
+  border-right: 1px solid #5f4bb6;
+  padding-bottom: 25px;
+}
+.container.modifica-profilo form .col {
+  padding: 25px;
+}
+.container.modifica-profilo form .col .container-photo {
+  height: 350px;
+  margin: 35px 0 25px 0px;
+}
+.container.modifica-profilo form .col .container-photo #imgPreview {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 102px;
+  box-shadow: 10px 12px 4px #86a5d9;
+}
+.container.modifica-profilo form .col h3 {
+  text-align: center;
+  padding: 20px 0;
+}
+.container.modifica-profilo h2 {
   margin-top: 28%;
 }
-
-.card-body {
+.container.modifica-profilo .card-body {
   width: 370px;
 }
-
-hr {
+.container.modifica-profilo hr {
   border-top: 3px solid rgb(182, 146, 205);
   border-radius: 2px;
 }
 
->>>>>>> origin/modifiche-pagina-show
 body {
   font-family: "Ibarra Real Nova", serif;
 }
