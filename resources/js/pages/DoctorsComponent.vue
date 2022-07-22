@@ -65,6 +65,10 @@
                         </label><br>
                     </div>
                 </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" @click="search">Filtra</button>
+                    <button class="btn btn-primary" @click="clearFilter">Elimina Filtri</button>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -141,8 +145,8 @@
                 <div class="lds-roller" v-if="loading">
                     <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                 </div>
-                <div v-else>
-                    <div class="row cards" v-if="doctors.length > 0">
+                <div v-else class="cards">
+                    <div class="row" v-if="doctors.length > 0">
                         <div class="col-12 col-lg-4" v-for="(doctor) in doctors" :key="doctor.id">
                             <div class="card">
                                 <div class="row">
