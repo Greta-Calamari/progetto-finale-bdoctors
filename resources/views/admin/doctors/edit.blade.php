@@ -2,7 +2,7 @@
 
 @section('content')
     
-<div class="container modfica-profile">
+<div class="container modifica-profilo">
     
     <form action="{{route('admin.doctors.update', $doctor->id)}}" method="post" enctype="multipart/form-data">
         @csrf

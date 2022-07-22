@@ -2,7 +2,7 @@
 
 @section('content')
     
-<div class="container">
+<div class="container modifica-profilo">
     {{-- profilo create --}}
 
     <form action="{{route('admin.doctors.store')}}" method="post" enctype="multipart/form-data">
