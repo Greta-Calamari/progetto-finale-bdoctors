@@ -33,52 +33,45 @@
           
 
     <!-- carosello -->
-    <!-- <div id="app" class="w-carousel" >
-        <agile  :initial-slide="0" autoplay :autoplaySpeed="3000" pauseOnHover mobileFirst  >
+        
 
-            <div class="slide container-" v-for="doctor in doctors" :key="doctor.id">
-              
-                    <div class="circle-">{{doctor.photo}}</div>
-                    <p class=".title-card">{{doctor.name}}</p>
-                    <p class=".title-card">{{doctor.surname}}</p>
-                    <p class="sub-title-card">{{doctor.specialization}}</p>
+              <div class="container cont">
+                  <div class="card mb-3 card-dd">
+                    <div class="row no-gutters">
+                      <div  class="col-md-4 card-media">
+                            <img v-if="doctors[indexActive].photo" class=" img-card" :src="`/storage/${doctors[indexActive].photo}`" :alt="doctors[indexActive].name" />
+                            <img v-else class=" img-card" src="https://t4.ftcdn.net/jpg/02/29/53/11/360_F_229531197_jmFcViuzXaYOQdoOK1qyg7uIGdnuKhpt.jpg" :alt="doctors[indexActive].name" />
+                      </div>
+                      
+                        
+                      <div class="col-md-8 card-media">
+                        <div class="card-body ">
+                          <h5 class="card-title text-center mt-5 ">{{doctors[indexActive].name}}</h5>
+                          <h5 class="card-title text-center mt-2">{{doctors[indexActive].surname}}</h5>
+                          <p class="text-center p-car media-q">{{doctors[indexActive].address}}</p>
+                          <p  class="text-center p-car media-q">{{doctors[indexActive].cell_number}}</p>
+                          <p  class="media-q p-carr">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur perferendis officiis dolore nostrum atque! Asperiores, mollitia non? Voluptatum error explicabo quae velit atque praesentium ad eaque aliquid obcaecati tempora accusantium ipsum consequuntur beatae a debitis non aut, repellat nesciunt voluptas, quasi autem neque sapiente ex impedit? Iste ipsa dolorum ea.</p>
+                          <p  class="text-center media-q p-car">{{doctors[indexActive].services}}</p>
+                          <!-- <ul>
+                            <li v-for="specialization in doctor.specializations" :key="specialization.id">
+                              <router-link class="router-link" :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
+                          </li>
+                          </ul> -->
 
-              
-            </div>
-
-            
-            <template slot="prevButton"><i class="fas fa-chevron-left"></i></template>
-            <template slot="nextButton"><i class="fas fa-chevron-right"></i></template>
-        </agile>
-    </div> -->
-
-    <ul>
-      <li  v-for="doctor in doctors" :key="doctor.id">
-        <p>{{doctor.photo}}</p>
-        <p>{{doctor.name}}</p>
-
-
-      </li>
-    </ul>
-
-  
-
-
-    
-
-    
-   
-    
-    
-  
+                          
 
 
 
-        <!-- <ul>
-          <li v-for="specialization in specializations" :key="specialization.id">
-              <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
-          </li>
-        </ul> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="prev" @click="prevSlide"></div>
+                  <div class="next" @click="nextSlide"></div>
+
+              </div>
+
+                  
       
     <!-- QUADRATO SPECIALIZZAZIONI -->
     <div class="spec">
@@ -93,6 +86,7 @@
               
                 <div class="icon-spec">
                     <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >
+                      
                         <img :src="`/images/id${specialization.id}.png`" alt="" class="img-w">
                         <div class="spec-name">{{specialization.name}}</div>
                     </router-link>
@@ -412,6 +406,7 @@ export default {
         return {
             specializations: [],
             doctors:[],
+            indexActive:0,
         }
     },
     mounted(){
@@ -422,11 +417,110 @@ export default {
         this.doctors = Object.values(response.data);
         
       });
+    },
+    methods:{
+        nextSlide(){
+            if(this.indexActive === 4){
+                this.indexActive = 0
+            }else{
+                this.indexActive += 1
+            }
+
+        },
+        prevSlide(){
+            if(this.indexActive === 0){
+                this.indexActive = 4
+            }else{
+                this.indexActive -= 1
+            }
+
+        },
     }
 }
 </script>
 <style lang="scss">
 @import '../../sass/variables'; 
+
+// CAROSELLO
+.card-dd{
+  max-width: 1500px;
+  height:700px ;
+}
+.cont{
+    
+position: relative;
+bottom:800px;
+z-index: 1000;
+}
+.img-card{
+  height: 700px;
+  width: 400px;
+  object-fit: cover;
+}
+    
+.p-car{
+width:400px;
+margin:0 auto;
+
+}
+.p-carr{
+width:400px;
+margin:50px auto;
+font-style: italic;
+
+}
+
+
+.prev::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    display: block;
+    position: absolute;
+    bottom: 25%;
+    left: 55%;
+    transform: translate(-36%) rotate(230deg);
+}
+
+.next::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    display: block;
+    position: absolute;
+    bottom: 29%;
+    left: 57%;
+    transform: translate(-65%) rotate(45deg);
+}
+.prev, .next {
+    width: 20px;
+    height: 20px;
+    margin: 10px 0;
+    border-radius: 50%;
+    background: #ccc;
+    
+    transform: translate(-50%);
+    cursor: pointer;
+    z-index: 999;
+}
+
+.prev{
+  position: absolute;
+  left: 97%;
+  top: 33%
+}
+
+.next {
+    position: absolute;
+    right: 62%;
+    top: 33%;
+}
+
+// BOTTONE
 
 .btn-outline-primary{
   background-color: $general-light-blue !important;
@@ -470,7 +564,7 @@ body{
 }
 
 .spec{
-  margin-top: -500px;
+  margin-top: -700px;
 }
 .m-b{
   margin-left: 100px;
@@ -618,74 +712,6 @@ h1{
 }
 
 
-
-// parte seconda carosello e svg
-.agile__nav-button {
-    background: transparent;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 24px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  transition-duration: 0.3s;
-  width: 80px;
-}
-.agile__nav-button:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 1;
-}
-.agile__nav-button--prev {
-  left: 0;
-}
-.agile__nav-button--next {
-  right: 0;
-}
-.agile__dots {
-  bottom: 10px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-}
-.agile__dot {
-  margin: 0 10px;
-}
-.agile__dot button {
-  background-color: transparent;
-  border: 1px solid $general-light-blue;
-  border-radius: 50%;
-  cursor: pointer;
-  display: block;
-  height: 10px;
-  font-size: 0;
-  line-height: 0;
-  margin: 0;
-  padding: 0;
-  transition-duration: 0.3s;
-  width: 10px;
-}
-.agile__dot--current button, .agile__dot:hover button {
-  background-color: $general-light-blue;
-}
-
-.slide {
-  display: block;
-  height: 500px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-}
-
-.w-carousel{
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-    bottom: 650px;
-    z-index: 10000;
-}
-
-
 // ANIMAZIONI
 
 * {
@@ -735,48 +761,45 @@ h1{
 }
 
 @media screen and (max-width: 1900px) {
-  .w-carousel{
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-    bottom: 500px;
-    z-index: 10000;
-}
+
 .spec{
-  margin-top: -400px;
+  margin-top:-600px ;
+}
+.cont{
+  margin-top: 300px;
 }
   
 }
 
-@media screen and (max-width: 1600px) {
-  .w-carousel{
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-    bottom: 500px;
-    z-index: 10000;
-}
-  
-}
-@media screen and (max-width: 1600px) {
-  .med-13{
-    flex: 0 0 25%;
-    max-width: 25%;
-    
-  }
-  
-  .img-c-22{
-    object-position:-30px 10px;
 
-  }
-  .mt-val{
-  margin-top:-100px ;
+
+@media screen and (max-width: 1600px) {
+
+.cont{
+  margin-top: 300px;
+}
+.med-13{
+  flex: 0 0 25%;
+  max-width: 25%;
+  
+}
+
+.img-c-22{
+  object-position:-30px 10px;
+
+}
+.mt-val{
+margin-top:-100px ;
 }
   
   
   
 }
 @media screen and (max-width: 1300px) {
+
+.cont{
+  margin-top: 400px;
+}
 .med-13{
   flex: 0 0 25%;
   max-width: 25%;
@@ -792,7 +815,7 @@ h1{
   height: 300px;
 }
 .spec{
-  margin-top: -300px;
+  margin-top:-600px ;
 }
 .mt-val{
   margin-top:-90px ;
@@ -800,16 +823,7 @@ h1{
   
 }
 
-@media screen and (max-width: 1300px) {
-  .w-carousel{
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-    bottom: 400px;
-    z-index: 10000;
-}
-  
-}
+
 @media screen and (max-width: 1199px) {
   .col-obb{
     flex: 0 0 30%;
@@ -840,30 +854,20 @@ h1{
   
   height: 700px;
 }
+.spec{
+  margin-top:-600px ;
+}
 
   
 }
 @media screen and (max-width: 1100px) {
-  .w-carousel{
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-    top: -300px;
-    z-index: 10000;
-}
+
 .spec{
-  margin-top: -200px;
+  margin-top:-600px ;
 }
-  
 }
 @media screen and (max-width: 768px) {
-  .w-carousel{
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-    top: -200px;
-    z-index: 10000;
-}
+ 
 .h{
   height: 500px;
   gap:0 10px;
@@ -875,14 +879,46 @@ h1{
   object-fit: cover;
   
 }
+
   
 }
 @media screen and (max-width: 999px) {
-  .med-13{
-    flex: 0 0 30%;
-    max-width: 30%;
-    
-  }
+.media-q{
+  width: 180px;
+}
+.img-card{
+  height: 800px;
+ 
+}
+.card-dd{
+  max-width: 1500px;
+  height:800px ;
+}
+.prev{
+  position: absolute;
+  left: 97%;
+  top: 33%
+}
+.next {
+    right: 40%;
+}
+.img-card{
+  height: 700px;
+  width: 400px;
+  object-fit: cover;
+}
+.cont{
+margin-top: 500px;
+}
+.card-media{
+  flex: 50%;
+  max-width: 50%;
+}
+.med-13{
+  flex: 0 0 30%;
+  max-width: 30%;
+  
+}
 
 .col-12-s{
   flex: 0 0 100%;
@@ -975,11 +1011,45 @@ h1{
   margin-left: 90px;
 
 }
+.spec{
+  margin-top:-600px ;
+}
 
 
 }
 
 @media screen and (max-width: 767px) {
+
+.media-q{
+  width: 180px;
+}
+
+.card-dd{
+  max-width: 1500px;
+  height:1500px ;
+}
+.prev{
+  position: absolute;
+  left: 97%;
+  top: 33%
+}
+.next {
+    right: 94%;
+}
+.img-card{
+  height: 700px;
+  width: 100%;
+  object-fit: cover;
+}
+.cont{
+margin-top: 500px;
+}
+.card-media{
+  flex: 100%;
+  max-width: 100%;
+}
+
+
   .med-13{
     flex: 0 0 40%;
     max-width: 40%;
@@ -1052,19 +1122,26 @@ h1{
   margin-left: 90px;
 
 }
+.spec{
+  margin-top:-600px ;
+}
 
 }
 @media screen and (max-width: 575px) {
-  .med-13{
-    flex: 0 0 50%;
-    max-width: 50%;
-    
-  }
-  .divider{
-  color: $general-white;
-  background-color: $general-violet;
-  margin-top: 20%;
-  height: 1300px;
+
+.cont{
+margin-top: 600px;
+}
+.med-13{
+flex: 0 0 50%;
+max-width: 50%;
+
+}
+.divider{
+color: $general-white;
+background-color: $general-violet;
+margin-top: 20%;
+height: 1300px;
 }
 .big-square{
   margin: 0 auto;
@@ -1140,17 +1217,16 @@ h1{
   margin-left: 90px;
 
 }
+.spec{
+  margin-top:-500px ;
+}
  
 }
 
 
 @media screen and (max-width: 375px) {
-  .w-carousel{
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-    top: -80px;
-    z-index: 10000;
+.cont{
+margin-top: 700px;
 }
 .big-square{
   margin: 0 auto;
@@ -1161,6 +1237,9 @@ h1{
  
   
 
+}
+.spec{
+  margin-top:-600px ;
 }
 .border-in{
   border: 1px solid $general-light-blue;
