@@ -47,10 +47,8 @@
             </div>
         </div>
         <div class="circle-up">
-            <a href="#"><i class="fa-solid fa-arrow-up up-up"></i></a>
-
+            <a href="#"><i class="fa-regular fa-circle-up"></i></a>
         </div>
-
     </div>
 </template>
 <script>
@@ -66,24 +64,32 @@ html {
 }
 // CERCHIO CHE TI PORTA SU
 .circle-up{
-
+    margin-left: 10px;
     width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: $general-light-blue;
-
+    height: 50px; 
+    animation: up 2s infinite;
+    position: absolute;
+    left: 10px;
 }
 .circle-up a{
     text-decoration: none;
-    color: $general-violet;
+    
 }
-.up-up{
-   
-   line-height: 50px;
-   margin-left:19px ;
-
+.fa-circle-up{
+   font-size: 2.5rem;
+    color: $general-light-blue;
 }
-
+@keyframes up {
+    
+  
+        0% { position: fixed;
+            left: 10px;
+            bottom: 10%; }
+      
+        100% { position: fixed;
+            left: 10px;
+            bottom: 12%; }
+}
 
 
 .container-footer{
