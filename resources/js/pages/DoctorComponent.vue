@@ -66,7 +66,15 @@
             </div>
             <!-- info del dottore name/services/address/phone/curriculum  -->
             <div @click="logo = false" class=" info-doctor col-lg-8 col-md-7 col-sm-12 d-flex flex-column ">
-                <h1><i class="fa-solid fa-user-doctor"></i> {{doctor.name}} {{doctor.surname}}</h1>
+                <h1><i class="fa-solid fa-user-doctor"></i> {{doctor.name}} {{doctor.surname}}
+                    <star-rating v-model="average"
+                        inactive-color="#5f4bb6"
+                        :read-only="true" 
+                        :increment="0.01"
+                        :show-rating="false"
+                        v-bind:star-size="20"
+                    ></star-rating>
+                </h1>
                 <hr>
                 <h3><i class="fa-solid fa-stethoscope"></i>Servizio:</h3>
                 <h4>{{doctor.services}}</h4>
@@ -154,21 +162,6 @@
                 </form>
                 <hr>
             </div> 
-            <!-- average  -->
-            <div class="average-comment">
-                <h3>Media voti: {{getAverage()}}</h3>
-                
-                <star-rating v-model="average"
-                    inactive-color="#5f4bb6"
-                    :rating="3.8"
-                    :read-only="true" 
-                    :increment="0.01"
-                    v-bind:star-size="15"
-                ></star-rating>
-            </div>
-            
-            
-            
         </div>
     </section>
 </template>
