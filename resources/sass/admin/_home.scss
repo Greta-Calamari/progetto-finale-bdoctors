@@ -1,5 +1,11 @@
 #app {
     background-color: aliceblue;
+    .bg-violet {
+        background-color: $general-violet;
+        .nav-item a {
+            color: white;
+        }
+    }
 }
 
 #home {

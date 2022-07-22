@@ -14,7 +14,7 @@
             &:focus {
                 box-shadow: 0 0 0 0.2rem rgba($general-violet, 0.5);
             }
-        }     
+        }
         .col-lg-5 {
             border-left: 1px solid $general-violet;
             border-right: 1px solid $general-violet;
@@ -41,18 +41,14 @@
         .obbligatorio {
             color: red;
         }
-                       
     }
 }
 
-
-
-@media (max-width: 576px) {  
-    
+@media (max-width: 576px) {
 }
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (max-width: 767px) {
-    .modifica-profilo{
+    .modifica-profilo {
         form .col-lg-5 {
             border-left: none;
         }
@@ -60,7 +56,7 @@
 }
 /* Large devices (desktops, 992px and up) */
 @media (max-width: 992px) {
-    .modifica-profilo{
+    .modifica-profilo {
         form .col-lg-5 {
             border-right: none;
         }
@@ -68,5 +64,4 @@
 }
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
 }
