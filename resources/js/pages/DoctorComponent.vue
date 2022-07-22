@@ -3,7 +3,7 @@
         <div  v-if="doctor" class="container-main row justify-content-center align-content-center">
             <!-- logo  per inviare messaggio-->
             <div @click="logo = !logo" class="fix-logo">
-                <img src="/images/logonobg.png" alt="">
+                <i class="fa-solid fa-message"></i>
             </div>
             <!-- container per l'animazione  -->
             <div  class="animation-border"></div>
@@ -11,6 +11,7 @@
             <div v-if="logo" class="ghost-fix-container d-flex flex-column">
                 <div class="messaggio-container">
                     <div>
+                        <i @click="logo = false" class="fa-solid fa-circle-xmark close-chat float-right"></i>
                         <h3>Invia un messaggio al dottore</h3>
                         <!-- form per inviare il messaggio  -->
                         <form @submit.prevent="sendMes()">
@@ -33,20 +34,20 @@
                                 <input type="email" v-model="formMes.email" placeholder="Email" required>
                             </div>
                             <button type="submit" @click="showComment()">Invia</button>
-                            <h1 v-if="conferma" >Il tuo messaggio è stato inviato! </h1>
+                            <h4 class="invio-messaggio" v-if="conferma" >Il tuo messaggio è stato inviato! </h4>
                         </form>
                     </div>
                 </div> 
             </div>
             <!-- curriculum container  -->
             <div v-if="seen" class="curriculum d-flex justify-content-center align-items-center">
-                <embed type="text/html" :src="`/storage/${doctor.curriculum_vitae}`"  width="800px" height="900px">
+                <embed class="mt-5" type="text/html" :src="`/storage/${doctor.curriculum_vitae}`"  width="800px" height="900px">
                 <div v-on:click="seen = !seen" class="close">
                     <h3>Chiudi <i class="fa-solid fa-xmark"></i></h3>
                 </div>
             </div>
             <!-- foto del dottore e specializzazione -->
-            <div @click="logo = false" class=" col-lg-4 col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center">
+            <div @click="logo = false" class="dottore-img col-lg-4 col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center">
                 <!-- foto del dottore -->
                 <div class="div-img">
                     <img :src="`/storage/${doctor.photo}`" alt="img">
@@ -78,7 +79,11 @@
                 <!-- icona che apre il div del curriculum  -->
                 <hr>
                 <div class="curriculum-container">
-                    <h4 v-on:click="seen = !seen"><i  class="fa-regular fa-file-pdf"></i> Curriculum </h4>
+                    <div  v-if="doctor.curriculum_vitae == null">
+                    </div>
+                    <div class="i-curriculum" v-else>
+                        <h4  v-on:click="seen = !seen"><i  class="fa-regular fa-file-pdf"></i> Curriculum </h4>
+                    </div>
                 </div>
             </div>
             <!-- button che apre il form invia un messaggio  -->
@@ -149,6 +154,21 @@
                 </form>
                 <hr>
             </div> 
+            <!-- average  -->
+            <div class="average-comment">
+                <h3>Media voti: {{getAverage()}}</h3>
+                
+                <star-rating v-model="average"
+                    inactive-color="#5f4bb6"
+                    :rating="3.8"
+                    :read-only="true" 
+                    :increment="0.01"
+                    v-bind:star-size="15"
+                ></star-rating>
+            </div>
+            
+            
+            
         </div>
     </section>
 </template>
@@ -186,9 +206,18 @@ export default {
         }
     },
     methods: {
+
         
         getFormattedDate(date) {
             return moment(date).format("DD-MM-YYYY")
+        },
+        // average 
+        getAverage() {
+            let sum = 0;
+            for (let i = 0; i < this.doctor.reviews.length; i++) {
+                sum += this.doctor.reviews[i].votes;
+            }
+            return sum / this.doctor.reviews.length;
         },
     
         addComment() {
@@ -226,6 +255,12 @@ export default {
         },
         
     },
+    computed: {
+        // average 
+        average() {
+            return this.getAverage();
+        },
+    },
 
     mounted () {
         const id = this.$route.params.id
@@ -245,7 +280,7 @@ export default {
 <style lang="scss" scoped>
 @import '../../sass/variables'; 
 section{
-    background: white;
+    background: #D9E3F3;
     width: 100%;
     height: 100%;
     .container-main{
@@ -262,13 +297,11 @@ section{
             z-index: 11;
             cursor: pointer;
             padding: 3px;
-            &:hover{
-                transform: scale(0.7);
-            }
-            img{
-                width: 100%;
-                height: 100%;
-                transform: scale(0.8);   
+            
+            i{
+                transform: translate(40%, 40%);
+                font-size: 2rem;   
+                color: $general-violet;
             }
         }
         .animation-border{
@@ -290,9 +323,9 @@ section{
             right: 80px;
             bottom: 10%; 
             z-index: 10000;
-            background-color: white;
             padding: 10px;
             background-color: $general-light-blue;
+            border-radius: 10px;
             a button{
                 
                 min-width: 150px;
@@ -300,6 +333,11 @@ section{
                 padding: 2px;
             }
             .messaggio-container{
+                .close-chat{
+                    color: $general-violet;
+                    font-size: 2rem;
+                    cursor: pointer;
+                }
                 input{
                     border: 0px solid;
                 }
@@ -318,7 +356,7 @@ section{
             background-color: rgba(255, 255, 255, 0.888);
             .close{
                 position: absolute;
-                top: 100px;
+                top: 20vh;
                 right: 30px;
                 z-index: 1000;
                 font-size: 2rem;
@@ -328,7 +366,9 @@ section{
                     color: $general-light-blue;
                 } 
             }
-            div{
+            
+        }
+        .dottore-img{
                 .div-img{
                     width: 300px;
                     height: 300px;
@@ -338,7 +378,6 @@ section{
                     margin-bottom:20px;
                     img{
                     width: 100%;
-                    background-size: contain;
                     } 
                 }
             }
@@ -365,7 +404,6 @@ section{
                     border: 1px solid $general-violet;
                 }
             }
-        }
         .info-doctor{
             padding: 30px;
             i{
@@ -373,11 +411,16 @@ section{
             }
             .curriculum-container{
                 cursor: pointer;
+                width: 180px;
                 h4{
+                    cursor: pointer;
                     color: $general-light-blue;
                     &:hover{
                         color: $general-violet;
                     }
+                }
+                .i-curriculum{
+                    
                 }
             }
         }
@@ -390,6 +433,7 @@ section{
             padding: 5px;
             border-radius: 5px;
             font-size: 1rem;
+            width: 250px;
             &:hover{
                 background-color: $general-violet !important;
             }
@@ -462,6 +506,9 @@ section{
                     width: 100%;
                     border: 2px solid $general-violet;
                 }
+                .invio-messaggio{
+                    font-size: 1rem;
+                }
             }
             button{
                 width: 80px;
@@ -484,7 +531,17 @@ section{
             color: black;
         }
     }
-    
+    // input form 
+    input, select, textarea{
+    color: $general-violet;
+    }
+
+    textarea:focus, input:focus {
+    color: $general-violet;
+    }
+    ::placeholder {     
+    color: #D9E3F3;
+    }
     hr{
         background-color: $general-violet;
         height: 1px;
@@ -508,6 +565,7 @@ section{
             bottom: 10%; transform: rotate(360deg) }
       
     
+
 
 }
 </style>
