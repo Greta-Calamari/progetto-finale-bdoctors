@@ -9,6 +9,8 @@ import HomeComponent from './pages/HomeComponent';
 import DoctorsComponent from './pages/DoctorsComponent';
 import DoctorComponent from './pages/DoctorComponent';
 import NotFoundComponent from './pages/NotFoundComponent';
+import ChiSiamoComponent from './pages/ChiSiamoComponent';
+
 
 const router = new VueRouter({
     mode: 'history',
@@ -32,6 +34,11 @@ const router = new VueRouter({
             path: '*',
             name: 'page-404',
             component: NotFoundComponent,
+        },
+        {
+            path: '/chisiamo',
+            name: 'chisiamo',
+            component: ChiSiamoComponent,
         },
     ]
 });
