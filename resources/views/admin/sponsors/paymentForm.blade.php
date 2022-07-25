@@ -1,24 +1,27 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="w-50 mx-auto">
+<div id="paymentForm" class="container">
+    <h1 class="text-center">Checkout</h1>
+    <ul class="dati ps-0">
+        <li><span class="label"><i class="fa-solid fa-user"></i>Nome</span>{{$doctor->name}} {{$doctor->surname}}</li>
+        <li><span class="label"><i class="fa-solid fa-map-location"></i>Indirizzo</span>{{$doctor->address}}</li>
+        <li><span class="label"><i class="fa-solid fa-phone"></i>Numero di Telefono</span>{{$doctor->cell_number}}</li>
+        <li><span class="label"><i class="fa-solid fa-tag"></i>Tipo di sponsorizzazione</span>{{$sponsor->name}}</li>
+        <li><span class="label"><i class="fa-solid fa-clock"></i>Duarata sponsorizzazione</span>{{$sponsor->duration_in_hours}} ore</li>
+        <li><span class="label"><i class="fa-solid fa-cart-shopping"></i>Totale</span>{{$sponsor->price}} &euro;</li>
+    </ul>
     <form method="POST" id="payment-form" action="{{route('admin.sponsor.process', $sponsor->name)}}">
         @csrf
-        <h1 class="text-center text-2xl text-gray-800">Il tuo abbonamento <span class="uppercase block">{{$sponsor->name}}</span></h1>
-        <section class="mt-6 mb-3">
-            <label for="amount" class="flex justify-center space-x-2">
-                <span class="input-label text-gray-800 text-lg">Prezzo:</span>
-                <span class="text-lg text-gray-800">{{$sponsor->price}} &euro; </span>
-            </label>
-
+        <section class="my-5">
             <div class="bt-drop-in-wrapper">
                 <div id="bt-dropin"></div>
             </div>
         </section>
 
         <input id="nonce" name="payment_method_nonce" type="hidden" />
-        <div class="flex justify-center">
-            <button class="disabled:opacity-75 button border-2 px-1 py-2 rounded-lg hover:bg-black hover:text-white hover:border-white" type="submit"><span>Paga Ora</span></button>
+        <div class="d-flex justify-content-center">
+            <button class="btn cs_btn" type="submit"><span>Paga Ora</span></button>
         </div>
 
     </form>
@@ -41,8 +44,8 @@
         }
         form.addEventListener('submit', function (event) {
             event.preventDefault();
-            let button = document.querySelector('button');
-            button.disabled=true;
+            let button = document.querySelector('.btn');
+            button.disabled = true;
             instance.requestPaymentMethod(function (err, payload) {
                 if (err) {
                     console.log('Request Payment Method Error', err);
