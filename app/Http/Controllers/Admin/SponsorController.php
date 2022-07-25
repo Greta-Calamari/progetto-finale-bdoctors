@@ -36,7 +36,8 @@ class SponsorController extends Controller
         //trovo il dottore
         $currentUser = Auth::user();
         $user_id = $currentUser->id;
-        $doctor = Doctor::where('id', $user_id)->first();
+        $doctor = Doctor::where('user_id', $user_id)->first();
+
         //qui inizializzo braintree
         $gateway = new \Braintree\Gateway([
             'environment' => getenv('BRAINTREE_ENV'),
@@ -77,7 +78,7 @@ class SponsorController extends Controller
             }
             //dd($dateStart, $dateEnd);
             //dd($dateStart, $dateEnd);
-            $sponsorization->doctors()->attach($user_id, ['date_start'=>$dateStart, 'date_end'=>$dateEnd]); 
+            $sponsorization->doctors()->attach($doctor->id, ['date_start'=>$dateStart, 'date_end'=>$dateEnd]); 
             $risultato = ['result'=>true];
             return view('admin.sponsors.resultPayment', compact('risultato'));       
         }else{
