@@ -50,7 +50,9 @@
             <div @click="logo = false" class="dottore-img col-lg-4 col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center">
                 <!-- foto del dottore -->
                 <div class="div-img">
-                    <img :src="`/storage/${doctor.photo}`" alt="img">
+                    <!-- <img :src="`/storage/${doctor.photo}`" alt="img"> -->
+                    <img v-if="doctor.photo" :src="`/storage/${doctor.photo}`" :alt="doctor.name" />
+                    <img v-else src="https://t4.ftcdn.net/jpg/02/29/53/11/360_F_229531197_jmFcViuzXaYOQdoOK1qyg7uIGdnuKhpt.jpg" :alt="doctor.name" />
                 </div>
                 <!-- specializations  -->
                 <div class="specializations d-flex flex-column justify-content-center align-content-center">

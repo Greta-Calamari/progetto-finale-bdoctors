@@ -67,9 +67,7 @@ html {
     margin-left: 10px;
     width: 50px;
     height: 50px; 
-    animation: up 2s infinite;
-    position: absolute;
-    left: 10px;
+    margin-left: 10px;
 }
 .circle-up a{
     text-decoration: none;
@@ -79,17 +77,7 @@ html {
    font-size: 2.5rem;
     color: $general-light-blue;
 }
-@keyframes up {
-    
-  
-        0% { position: fixed;
-            left: 10px;
-            bottom: 10%; }
-      
-        100% { position: fixed;
-            left: 10px;
-            bottom: 12%; }
-}
+
 
 
 .container-footer{

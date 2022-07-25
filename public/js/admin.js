@@ -37285,10 +37285,10 @@ window.doctors = {
   },
   previewImage: function previewImage() {
     var oFReader = new FileReader();
-    oFReader.readAsDataURL(document.getElementById("image").files[0]);
+    oFReader.readAsDataURL(document.getElementById("photo").files[0]);
 
     oFReader.onload = function (oFREvent) {
-      document.getElementById("uploadPreview").src = oFREvent.target.result;
+      document.getElementById("imgPreview").src = oFREvent.target.result;
     };
   },
   submitForm: function submitForm() {

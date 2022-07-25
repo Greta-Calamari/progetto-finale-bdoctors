@@ -12,51 +12,66 @@
 
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .code {
-                border-right: 2px solid;
-                font-size: 26px;
-                padding: 0 15px 0 15px;
-                text-align: center;
-            }
-
-            .message {
-                font-size: 18px;
-                text-align: center;
-            }
+        .container {
+            height: 90vh;
+            background-image: url("https://www.asrt.org/images/default-source/404-page/404-x-ray.jpg");
+            background-size: 40% cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        .loupe {
+            position: absolute;
+            background-color: black;
+            background-image: url("https://www.asrt.org/images/default-source/404-page/404-alt-x-ray.jpg");
+            background-size: 40% cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center center;
+            width: 120px;
+            height: 120px;
+            border-radius: 0px;
+            border: 5px solid #808080;
+            cursor: none;
+            top: 25%;
+            left: 40%;
+        }
+        .error{
+            color: #053777;
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            
+        }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <a href="{{ url('/') }}">Home</a>
+        <div class="main-404 container">
+            <div class="error">
+                @yield('code')
+                @yield('message')
+            </div>
+            <div class="loupe">
+            </div>
+
+        </div> 
+        {{-- <div class="flex-center position-ref full-height">
             <div class="code">
                 @yield('code')
             </div>
 
             <div class="message" style="padding: 10px;">
                 @yield('message')
-            </div>
+            </div> --}}
         </div>
+        {{-- <script>
+            var loupe;
+            loupe = document.querySelector('.loupe');
+            document.addEventListener('mousemove', function(ev) {
+            loupe.style.top = (ev.clientY - 65) + 'px';
+            return loupe.style.left = (ev.clientX - 65) + 'px';
+            });
+        </script> --}}
     </body>
 </html>
