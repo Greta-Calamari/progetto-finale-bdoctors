@@ -39,7 +39,7 @@
                   <div class="card mb-3 card-dd">
                     <div class="row no-gutters">
                       <div  class="col-md-4 card-media">
-                            <img v-if="doctors[indexActive].photo" class=" img-card" :src="`/storage/${doctors[indexActive].photo}`" :alt="doctors[indexActive].name" />
+                            <img v-if="doctors[indexActive].photo" class=" img-card" :src="`/storage/${doctors[indexActive].photo}`" :alt="doctors[indexActive].name"/>
                             <img v-else class=" img-card" src="https://t4.ftcdn.net/jpg/02/29/53/11/360_F_229531197_jmFcViuzXaYOQdoOK1qyg7uIGdnuKhpt.jpg" :alt="doctors[indexActive].name" />
                       </div>
                       
@@ -65,8 +65,13 @@
                       </div>
                     </div>
                   </div>
-                  <div class="prev" @click="prevSlide"></div>
-                  <div class="next" @click="nextSlide"></div>
+                  <div class="prev" @click="prevSlide">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </div>
+                  <div class="next" @click="nextSlide">
+                    <i class="fa-solid fa-angle-right"></i>
+
+                  </div>
 
               </div>
 
@@ -157,7 +162,7 @@
             <h3 class="text-center sub-tit q-1">LAVORO</h3>
             <h4 class="text-center q-2">Lavora Con noi</h4>
             <p class="text-center q-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn my-btn m-b">per saperne di piu</button>
+            <button class="btn my-btn mb-2 m-b">per saperne di piu</button>
 
           </div>
         </div>
@@ -194,9 +199,9 @@
     <!-- CAROSELLO NOTIZIE -->
         
 
-        <carousel  :autoplay="true" :nav="false" autoplayTimeout="1000" autoplayHoverPause="true"  items='4' :responsive={0:{items:1,nav:false},700:{items:3,nav:true}}>
-              <div class="card h mt-5" style="width: 18rem;">
-                <img src="/images/corona.jpg" alt="">
+        <carousel  :autoplay="true" :nav="false"  autoplayHoverPause="true"  items='4' autoWidth='true' >
+              <div class="card h">
+                <img src="/images/corona.jpg" alt="" class="img-car-2" >
                   <div class="card-body">
                     <h5 class="card-title">Corona virus</h5>
                     <p class="card-text">I ricercatori segnalano la rilevazione di mutazioni virali associate alla farmacoresistenza in pazienti trattati con REGEN-COV e sotrovimab</p>
@@ -204,8 +209,8 @@
                   </div>
               </div>
 
-              <div class="card h " style="width: 18rem;">
-                    <img src="/images/depression.jpg" alt="">
+              <div class="card h " >
+                    <img src="/images/depression.jpg" alt="" class="img-car-2">
                       <div class="card-body">
                         <h5 class="card-title">Depressione</h5>
                         <p class="card-text">Recensione: nessuna chiara evidenza che i livelli di serotonina siano responsabili della depressione</p>
@@ -213,8 +218,8 @@
                       </div>
               </div>
 
-              <div class="card h" style="width: 18rem;">
-                    <img src="https://thumbs.dreamstime.com/b/red-heart-shape-medical-stethoscope-light-background-top-view-health-care-medicare-cardiology-concept-blue-104679825.jpg" alt="">
+              <div class="card h" >
+                    <img src="https://thumbs.dreamstime.com/b/red-heart-shape-medical-stethoscope-light-background-top-view-health-care-medicare-cardiology-concept-blue-104679825.jpg" alt="" class="img-car-2">
                       <div class="card-body">
                         <h5 class="card-title">Cardiologia</h5>
                         <p class="card-text">In che modo il sonno influisce sulla salute del cuore?</p>
@@ -222,8 +227,8 @@
                       </div>
               </div>
 
-              <div class="card h" style="width: 18rem;">
-                    <img src="https://www.ars.toscana.it/images/NBST/news/farmaci_ATBresistenza.png" alt="">
+              <div class="card h" >
+                    <img src="https://www.ars.toscana.it/images/NBST/news/farmaci_ATBresistenza.png" alt="" class="img-car-2">
                       <div class="card-body">
                         <h5 class="card-title">Farmaci</h5>
                         <p class="card-text">L'effetto degli antibiotici sul microbioma intestinale</p>
@@ -231,40 +236,40 @@
                       </div>
               </div>
 
-              <div class="card h" style="width: 18rem;">
-                    <img src="https://ilritrattodellasalute.tiscali.it/export/sites/salute/.galleries/22/immuno.png_982521881.png" alt="">
+              <div class="card h" >
+                    <img src="https://ilritrattodellasalute.tiscali.it/export/sites/salute/.galleries/22/immuno.png_982521881.png" alt="" class="img-car-2">
                       <div class="card-body">
                         <h5 class="card-title">Cancro</h5>
                         <p class="card-text">Comprendere le sfide nella terapia del cancro utilizzando le cellule staminali mesenchimali (MSC)</p>
                         <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
                       </div>
               </div>
-              <div class="card h" style="width: 18rem;">
-                    <img src="https://thumbs.dreamstime.com/b/asma-bronchiale-dell-icona-91371630.jpg" alt="">
+              <div class="card h" >
+                    <img class="img-car-2" src="https://thumbs.dreamstime.com/b/asma-bronchiale-dell-icona-91371630.jpg" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Asma</h5>
                         <p class="card-text">Colmare le lacune nell'attuale cura dell'asma</p>
                         <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
                       </div>
               </div>
-              <div class="card h" style="width: 18rem;">
-                    <img src="/images/depression.jpg" alt="">
+              <div class="card h" >
+                    <img class="img-car-2" src="/images/depression.jpg" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Depressione</h5>
                         <p class="card-text">Recensione: nessuna chiara evidenza che i livelli di serotonina siano responsabili della depressione</p>
                         <a href="https://www.news-medical.net/" class="btn my-btn">PER SAPERNE DI PIU'</a>
                       </div>
               </div>
-              <div class="card h" style="width: 18rem;">
-                    <img src="https://assets-global.website-files.com/5d0b99352ab90c616bf47b31/60f9964fd52077781e1c3978_integratori.png" alt="">
+              <div  class="card h" >
+                    <img class="img-car-2" src="https://assets-global.website-files.com/5d0b99352ab90c616bf47b31/60f9964fd52077781e1c3978_integratori.png" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Integratori</h5>
                         <p class="card-text">Nutrienti utili per affrontare la stanchezza estiva</p>
                         <a href="https://www.news-medical.net/" class="btn my-btn">PER SAPERNE DI PIU'</a>
                       </div>
               </div>
-              <div class="card h" style="width: 18rem;">
-                    <img src="https://i.pinimg.com/736x/40/d6/0c/40d60c091c85393c84232142d1f875d7.jpg" alt="">
+              <div class="card h ">
+                    <img class="img-car-2" src="https://i.pinimg.com/736x/40/d6/0c/40d60c091c85393c84232142d1f875d7.jpg" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Sperimentazione</h5>
                         <p class="card-text">Regolamentazione ed etica delle sperimentazioni cliniche</p>
@@ -442,11 +447,18 @@ export default {
 </script>
 <style lang="scss">
 @import '../../sass/variables'; 
+.col-obb{
+  background-color: #5f4bb652;
+}
 
+.img-car-2{
+height: 200px;
+}
 // CAROSELLO
 .card-dd{
   max-width: 1500px;
   height:500px ;
+  background-color:$general-light-blue ;
 }
 .cont{
     
@@ -471,45 +483,31 @@ margin:50px auto;
 font-style: italic;
 
 }
+.fa-chevron-left::before {
+    content: "\F053";
+    font-size: 40px;
+}
+.fa-angle-right::before {
+    content: "\F105";
+    font-size: 40px;
 
-
-.prev::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    display: block;
-    position: absolute;
-    bottom: 25%;
-    left: 55%;
-    transform: translate(-36%) rotate(230deg);
 }
 
-.next::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    
-    display: block;
-    position: absolute;
-    bottom: 29%;
-    left: 57%;
-    transform: translate(-65%) rotate(45deg);
-}
 .prev, .next {
     width: 20px;
     height: 20px;
     margin: 10px 0;
     border-radius: 50%;
-    background: #ccc;
-    
     transform: translate(-50%);
     cursor: pointer;
     z-index: 999;
+    
+    
 }
 
 .prev{
   position: absolute;
-  right: 62%;
+  right: 60%;
   top: 33%
 }
 
@@ -606,7 +604,6 @@ margin-left: 50px;
 .border-row{
   position: relative;
   bottom: 60px;
-  background-color: #5f4bb652;
   height: 400px;
   margin-top: 100px;
 }
@@ -640,7 +637,8 @@ background: -moz-linear-gradient(180deg, hsla(218, 52%, 69%, 1) 46%, hsla(0, 0%,
 
 // CAROSELLO NEWS
 .h{
-  height: 450px;
+  height:500px;
+  width:365px;
   margin-top: 30px;
 }
 
@@ -833,16 +831,15 @@ margin-top:-100px ;
 }
 
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1200px) {
   .col-obb{
     flex: 0 0 30%;
     max-width: 30%;
     margin-left: 30px;
     
+    
   }
-  .border-row{
-  height: 500px;
-}
+  
 .m-b{
   margin-left: 60px;
 }
@@ -861,7 +858,7 @@ margin-top:-100px ;
 }
 .divider{
   
-  height: 700px;
+  height: 1000px;
 }
 .spec{
   margin-top:-600px ;
@@ -894,10 +891,22 @@ margin-top:-100px ;
   object-fit: cover;
   
 }
+.border-row {
+    height: 1400px;
+    width: 757px;
+
+    margin-left: -69px;
+}
 
   
 }
-@media screen and (max-width: 999px) {
+
+@media screen and (max-width: 995px) {
+  .border-row {
+    
+    width: 750px;
+    margin-left: -54px;
+}
 .media-q{
   width: 180px;
 }
@@ -912,7 +921,7 @@ margin-top:-100px ;
   top: 33%
 }
 .next {
-    left: 97%;
+    left: 95%;
 }
 .img-card{
   height: 498px;
@@ -956,21 +965,17 @@ margin-top: 500px;
   }
   
     
-.border-row{
-  height: 1400px;
-  width: 788px;
-  margin-left: -100px;
-}
+
 .m-b{
-  margin-left: 350px;
+  margin-left: 310px;
+}
+.q-3 , .q-1 , .q-2{
+  width:300px;
+  margin-left: 236px;
 }
 .c-obb{
 
   height: 1450px;
-}
-.q-3 , .q-1 , .q-2{
-  width:300px;
-  margin-left: 275px;
 }
 
 .bg-val{
@@ -1019,7 +1024,7 @@ margin-top: 500px;
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 
 .media-q{
   width: 180px;
@@ -1049,26 +1054,27 @@ margin-top: 500px;
 }
 
 
-  .med-13{
-    flex: 0 0 40%;
-    max-width: 40%;
-    
-  }
-  .spec{
-  
-  margin-top: 30px;
+.med-13{
+flex: 0 0 40%;
+max-width: 40%;
+
+}
+.spec{
+
+margin-top: 30px;
 
 }
 .border-row{
   height: 1400px;
   width: 600px;
-  margin-left: -100px;
-}
-.q-3 , .q-1 , .q-2{
-  margin-left: 170px;
+  margin-left: -60px;
 }
 .m-b{
-  margin-left: 250px;
+  margin-left: 228px;
+}
+.q-3 , .q-1 , .q-2{
+  width:300px;
+  margin-left: 149px;
 }
 
 .bg-val{
@@ -1089,10 +1095,7 @@ margin-top: 500px;
 .h-2{
   height: 500px;
 }
-.divider{
-  
-  height: 600px;
-}
+
 // QUADRATO
 .big-square{
   margin: 0 auto;
@@ -1167,7 +1170,7 @@ height: 1300px;
 }
  
 .border-row{
-  width: 643px;
+  width: 572px;
 }
 .h{
   margin-left: 100px;
@@ -1208,8 +1211,13 @@ height: 1300px;
 .spec{
   margin-top:-500px ;
 }
-.border-row {
-    width: 604px;
+
+.m-b{
+  margin-left: 233px;
+}
+.q-3 , .q-1 , .q-2{
+  width:300px;
+  margin-left: 149px;
 }
  
 }
@@ -1318,6 +1326,8 @@ margin-top: 700px;
 }
 
 }
+
+
 
 
 
