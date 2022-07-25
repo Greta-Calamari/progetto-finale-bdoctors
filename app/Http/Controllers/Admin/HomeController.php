@@ -11,15 +11,19 @@ use App\Sponsor;
 
 class HomeController extends Controller
 {
+    
     public function index(){
         $currentUser = Auth::user();
-
+        
         $doctor = Doctor::where('user_id', $currentUser->id)->first();  
         $sponsors = Sponsor::all();
         $users = User::all();
-
+        
         $user = User::where('id', $currentUser->id)->first();
         
+        
+        
+        // @dd($doctor);
 
         return view('admin.home', compact('doctor', 'sponsors', 'users', 'user'));
     }
