@@ -1,10 +1,17 @@
 #app {
+    min-height: 100vh;
     background-color: aliceblue;
+    .bg-violet {
+        background-color: $general-violet;
+        .nav-item a {
+            color: $general-violet;
+        }
+    }
 }
 
 #home {
     // background-color:
-    height: calc(100vh - 106px);
+    height: calc(100vh - 142px);
     .list-group-item.active {
         background-color: $general-violet;
         border-color: $general-violet;

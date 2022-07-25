@@ -17,7 +17,7 @@
                 <form action="{{ route('admin.users.destroy', $user->id ) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger" type="submit" onclick="doctors.openModal(event, {{$user->id}} )">Elimina profilo</button>    
+                    <button class="btn btn-danger my-3" type="submit" onclick="doctors.openModal(event, {{$user->id}} )">Elimina profilo</button>    
                 </form>
 
             </div>
@@ -81,9 +81,10 @@
                         <h1>Sponsorizzazioni attive</h1>
                         @if (count($doctor->sponsors))
                         <ul>
-                            @foreach($doctor->sponsors as $sponsor)
+                            @foreach($doctor->active_sponsor as $sponsor)
                             <li>
                                 <p>{{$sponsor->name}}</p>
+                                <p>Inizio: {{$sponsor->pivot->date_start}}</p>
                                 <p>Scadenza: {{$sponsor->pivot->date_end}}</p>
                             </li>
                             @endforeach
