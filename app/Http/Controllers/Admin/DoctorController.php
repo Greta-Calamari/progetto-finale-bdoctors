@@ -174,20 +174,20 @@ class DoctorController extends Controller
             $doctor->specializations()->sync([]);
         }
         //sponsorizzazione 
-        $dateStart = date("Y-m-d H:i:s");
-        global $dateEnd;
+        // $dateStart = date("Y-m-d H:i:s");
+        // global $dateEnd;
         
         //dd($dateStart, $dateEnd);
-        if(isset($data['sponsor'])){
-            if($data['sponsor'] == 1){
-                $dateEnd = date("Y-m-d H:i:s", strtotime('+24 hours'));
-             }else if($data['sponsor'] == 2){
-                 $dateEnd = date("Y-m-d H:i:s", strtotime('+72 hours'));
-             }else{
-                 $dateEnd = date("Y-m-d H:i:s", strtotime('+144 hours'));
-             }
-            $doctor->sponsors()->attach($data['sponsor'], ['date_start'=>$dateStart, 'date_end'=>$dateEnd]);        
-        }
+        // if(isset($data['sponsor'])){
+        //     if($data['sponsor'] == 1){
+        //         $dateEnd = date("Y-m-d H:i:s", strtotime('+24 hours'));
+        //      }else if($data['sponsor'] == 2){
+        //          $dateEnd = date("Y-m-d H:i:s", strtotime('+72 hours'));
+        //      }else{
+        //          $dateEnd = date("Y-m-d H:i:s", strtotime('+144 hours'));
+        //      }
+        //     $doctor->sponsors()->attach($data['sponsor'], ['date_start'=>$dateStart, 'date_end'=>$dateEnd]);        
+        // }
         return redirect()->route('admin.doctors.show', $doctor->id);
     }
 

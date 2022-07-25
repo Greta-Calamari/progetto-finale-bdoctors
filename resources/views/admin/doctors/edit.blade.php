@@ -14,7 +14,7 @@
                     <div class="container-photo">
                         <img id="imgPreview" src="{{asset('storage/' . $doctor->photo)}}">
                     </div>
-                    <input type="file" id="photo" name="photo">
+                    <input type="file" id="photo" name="photo" onchange="doctors.previewImage()">
                     @error('photo')
                         <div class="alert alert-danger"> {{$message}} </div>
                     @enderror
