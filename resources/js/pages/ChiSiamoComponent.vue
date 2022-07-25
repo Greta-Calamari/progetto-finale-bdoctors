@@ -1,18 +1,19 @@
 <template>
 <div>
+    
     <!-- parte prima -->
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-margin">
                 <div class="box">
-                    <h1 class="title-about">La piattaforma per la tua salute</h1>
-                    <p class="sub-title-about">La piattaforma per la tuaLorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus omnis odio voluptatem earum assumenda quasi, tempore commodi corporis voluptate mollitia obcaecati ad, doloremque unde nemo dolorum distinctio ipsam excepturi veritatis debitis, fuga quaerat reiciendis molestias eveniet. Laborum quis at, nobis tenetur unde libero ea eum reprehenderit, eligendi voluptate perspiciatis.</p>
-                    <button class="btn my-btn text-center">Scrivi ai nostri dottori</button>
+                    <h1 data-aos="fade-left" data-aos-duration="2000">La piattaforma per la tua salute</h1>
+                    <p data-aos="fade-left" data-aos-duration="2000">La piattaforma per la tuaLorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus omnis odio voluptatem earum assumenda quasi, tempore commodi corporis voluptate mollitia obcaecati ad, doloremque unde nemo dolorum distinctio ipsam excepturi veritatis debitis, fuga quaerat reiciendis molestias eveniet. Laborum quis at, nobis tenetur unde libero ea eum reprehenderit, eligendi voluptate perspiciatis.</p>
+                    <button data-aos="fade-left" data-aos-duration="2000" class="btn my-btn text-center">Scrivi ai nostri dottori</button>
 
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-5">
-                <img src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/950b5550646851d18b39c668/min.png" alt="" class="img-jumbo" >
+                <img data-aos="fade-left" data-aos-duration="2000" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/950b5550646851d18b39c668/min.png" alt="" class="img-jumbo" >
             </div>
 
 
@@ -29,9 +30,9 @@
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-7 ">
                 <div class="box box-2">
-                    <h2 class="title-about">La cura da casa</h2>
-                    <p class="sub-title-about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus omnis odio voluptatem earum assumenda quasi, tempore commodi corporis voluptate mollitia obcaecati ad, doloremque unde nemo dolorum distinctio ipsam excepturi veritatis debitis, fuga quaerat reiciendis molestias eveniet. Laborum quis at, nobis tenetur unde libero ea eum reprehenderit, eligendi voluptate perspiciatis.</p>
-                    <button class="btn my-btn text-center">Accedi</button>
+                    <h2 data-aos="fade-up" data-aos-duration="2000">La cura da casa</h2>
+                    <p data-aos="fade-up" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus omnis odio voluptatem earum assumenda quasi, tempore commodi corporis voluptate mollitia obcaecati ad, doloremque unde nemo dolorum distinctio ipsam excepturi veritatis debitis, fuga quaerat reiciendis molestias eveniet. Laborum quis at, nobis tenetur unde libero ea eum reprehenderit, eligendi voluptate perspiciatis.</p>
+                    <button data-aos="fade-up" data-aos-duration="2000" class="btn my-btn text-center">Accedi</button>
 
                 </div>
             </div>
@@ -52,13 +53,13 @@
             
             <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-margin">
                 <div class="box">
-                    <h2 class="title-about">I nostri laboratori</h2>
-                    <p class="sub-title-about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus omnis odio voluptatem earum assumenda quasi, tempore commodi corporis voluptate mollitia obcaecati ad, doloremque unde nemo dolorum distinctio ipsam excepturi veritatis debitis, fuga quaerat reiciendis molestias eveniet. Laborum quis at, nobis tenetur unde libero ea eum reprehenderit, eligendi voluptate perspiciatis.</p>
+                    <h2 data-aos="fade-right" data-aos-duration="2000">I nostri laboratori</h2>
+                    <p data-aos="fade-right" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus omnis odio voluptatem earum assumenda quasi, tempore commodi corporis voluptate mollitia obcaecati ad, doloremque unde nemo dolorum distinctio ipsam excepturi veritatis debitis, fuga quaerat reiciendis molestias eveniet. Laborum quis at, nobis tenetur unde libero ea eum reprehenderit, eligendi voluptate perspiciatis.</p>
                     <span class="icon-lab mr-4">
-                        <i class="fa-solid fa-flask"></i>
+                        <i class="fa-solid fa-flask" data-aos="zoom-in-up" data-aos-duration="2000"></i>
                     </span>
                     <span class="icon-lab">
-                        <i class="fa-solid fa-syringe"></i>
+                        <i class="fa-solid fa-syringe" data-aos="zoom-in-up" data-aos-duration="2000"></i>
                     </span>
 
 
@@ -80,13 +81,13 @@
         <div class="row">
             
             <div class="col-12 col-sm-12 col-md-12 col-lg-5">
-                <img src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/edf9d2086d325a33a2bd6329/tgrf.jpg" alt="" class="img-jumbo" >
+                <img data-aos="fade-left" data-aos-duration="2000" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/edf9d2086d325a33a2bd6329/tgrf.jpg" alt="" class="img-jumbo" >
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-7 ">
                 <div class="box box-2">
-                    <h2 class="title-about">Prevenzione Coronavirus</h2>
-                    <p class="sub-title-about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus omnis odio voluptatem earum assumenda quasi, tempore commodi corporis voluptate mollitia obcaecati ad, doloremque unde nemo dolorum distinctio ipsam excepturi veritatis debitis, fuga quaerat reiciendis molestias eveniet. Laborum quis at, nobis tenetur unde libero ea eum reprehenderit, eligendi voluptate perspiciatis.</p>
-                    <button class="btn my-btn text-center">Accedi</button>
+                    <h2 data-aos="fade-left" data-aos-duration="2000" >Prevenzione Coronavirus</h2>
+                    <p data-aos="fade-left" data-aos-duration="2000" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus omnis odio voluptatem earum assumenda quasi, tempore commodi corporis voluptate mollitia obcaecati ad, doloremque unde nemo dolorum distinctio ipsam excepturi veritatis debitis, fuga quaerat reiciendis molestias eveniet. Laborum quis at, nobis tenetur unde libero ea eum reprehenderit, eligendi voluptate perspiciatis.</p>
+                    <button data-aos="fade-left" data-aos-duration="2000" class="btn my-btn text-center">Accedi</button>
 
                 </div>
             </div>
@@ -108,22 +109,22 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-margin">
                 <div class="box box-3">
                     
-                    <h2 class="title-about">Contattaci al servizio clienti</h2>
-                    <p class="sub-title-about">
-                        <i class="fa-solid fa-phone"></i>
+                    <h2 data-aos="fade-up" data-aos-duration="2000">Contattaci al servizio clienti</h2>
+                    <p data-aos="fade-up" data-aos-duration="2000">
+                        <i class="fa-solid fa-phone" data-aos="fade-up" data-aos-duration="2000"></i>
                         001-234-5678
                         001-987-7654
                     </p>
-                    <div>
-                        <i class="fa-solid fa-location-dot"></i>
+                    <div data-aos="fade-up" data-aos-duration="2000">
+                        <i class="fa-solid fa-location-dot" data-aos="fade-up" data-aos-duration="2000"></i>
                         121 Rock Sreet, 21 Avenue, New York, NY 92103-9000
                     </div>
-                    <div class="mt-3">
-                        <i class="fa-solid fa-clock"></i>
-                        Mon – Fri …… 11 am – 8 pm, Sat, Sun  …… 6 am – 8 pm
+                    <div class="mt-3" data-aos="fade-up" data-aos-duration="2000">
+                        <i class="fa-solid fa-clock" data-aos="fade-up" data-aos-duration="2000"></i>
+                        Mon - Fri …… 11 am - 8 pm, Sat, Sun  …… 6 am - 8 pm
                     </div>
 
-                    <button class="btn my-btn text-center mt-3">Chiama ora</button>
+                    <button data-aos="fade-up" data-aos-duration="2000" class="btn my-btn text-center mt-3">Chiama ora</button>
 
                     
 
@@ -157,15 +158,7 @@ export default {
 <style lang="scss">
 @import '../../sass/variables'; 
 // GENERALE
-.title-about{
-    animation-name: moveInleft;
-    animation-duration: 3s;
-}
-.sub-title-about{
-    animation-name: moveInRight;
-    animation-duration: 3s;
 
-}
 
 // PARTE PRIMA
 .img-jumbo{
@@ -245,40 +238,7 @@ export default {
 }
 
 
-// ANIMAZIONI
 
-@keyframes moveInleft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100px);
-    }
-
-    80% {
-        transform: translateX(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-@keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(100px);
-    }
-
-    80% {
-        transform: translateX(-10px);
-    }
-    
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-
-}
-    
    
 
 </style>

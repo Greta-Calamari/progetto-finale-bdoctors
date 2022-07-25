@@ -37285,10 +37285,10 @@ window.doctors = {
   },
   previewImage: function previewImage() {
     var oFReader = new FileReader();
-    oFReader.readAsDataURL(document.getElementById("image").files[0]);
+    oFReader.readAsDataURL(document.getElementById("photo").files[0]);
 
     oFReader.onload = function (oFREvent) {
-      document.getElementById("uploadPreview").src = oFREvent.target.result;
+      document.getElementById("imgPreview").src = oFREvent.target.result;
     };
   },
   submitForm: function submitForm() {
@@ -37372,9 +37372,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/dumitrubudau/Desktop/progetto-finale-bdoctors/resources/js/admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! /Users/dumitrubudau/Desktop/progetto-finale-bdoctors/resources/sass/admin.scss */"./resources/sass/admin.scss");
-module.exports = __webpack_require__(/*! /Users/dumitrubudau/Desktop/progetto-finale-bdoctors/resources/sass/front.scss */"./resources/sass/front.scss");
+__webpack_require__(/*! C:\classe59\progetto-finale-bdoctors\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\classe59\progetto-finale-bdoctors\resources\sass\admin.scss */"./resources/sass/admin.scss");
+module.exports = __webpack_require__(/*! C:\classe59\progetto-finale-bdoctors\resources\sass\front.scss */"./resources/sass/front.scss");
 
 
 /***/ })

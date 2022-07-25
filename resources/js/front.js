@@ -10,6 +10,9 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 import App from './views/App';
 import VueAgile from 'vue-agile'

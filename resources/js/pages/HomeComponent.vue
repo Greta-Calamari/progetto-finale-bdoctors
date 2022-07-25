@@ -50,8 +50,7 @@
                           <h5 class="card-title text-center mt-2">{{doctors[indexActive].surname}}</h5>
                           <p class="text-center p-car media-q">{{doctors[indexActive].address}}</p>
                           <p  class="text-center p-car media-q">{{doctors[indexActive].cell_number}}</p>
-                          <p  class="media-q p-carr">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur perferendis officiis dolore nostrum atque! Asperiores, mollitia non? Voluptatum error explicabo quae velit atque praesentium ad eaque aliquid obcaecati tempora accusantium ipsum consequuntur beatae a debitis non aut, repellat nesciunt voluptas, quasi autem neque sapiente ex impedit? Iste ipsa dolorum ea.</p>
-                          <p  class="text-center media-q p-car">{{doctors[indexActive].services}}</p>
+                          <p  class="text-center media-q p-car mt-5">{{doctors[indexActive].services}}</p>
                           <!-- <ul>
                             <li v-for="specialization in doctor.specializations" :key="specialization.id">
                               <router-link class="router-link" :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
@@ -82,13 +81,13 @@
           <h2 class=" text-center title-big">I nostri medici specializzati</h2>
 
           <div class="row mt-3 row-spec">
-            <div class="col-12-s col-md-3 col-lg-3  gy-3 title-big margin-col " v-for="specialization in specializations" :key="specialization.id">
+            <div class="col-12-s col-md-3 col-lg-3 gy-3 title-big margin-col " v-for="specialization in specializations" :key="specialization.id">
               
                 <div class="icon-spec">
                     <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >
                       
-                        <img :src="`/images/id${specialization.id}.png`" alt="" class="img-w">
-                        <div class="spec-name">{{specialization.name}}</div>
+                        <img :src="`/images/id${specialization.id}.png`" alt="" class="img-w ">
+                        <div class="spec-name text-center">{{specialization.name}}</div>
                     </router-link>
                      
                 </div>
@@ -106,56 +105,59 @@
     <!-- COME LAVORIAMO -->
       <div class="divider">
         <div class="d-flex justify-content-center">
-            <img src="/images/doctors.jpg" alt="" class="img- ">
+            <img src="/images/doctors.jpg" alt="" class="img-">
         </div>
         <div class="r-1">
 
           <h2 class="text-center">Come lavoriamo</h2>
+          <div class="container">
+              <div class="row justify-content-center mt-4  ">
+                <div class="col-12 col-lg-5 med-13">
+                  I suoi reparti sono dotati di apparecchiature diagnostiche e terapeutiche all'avanguardia e gestiti da medici di prima categoria, Ph.D. e Dottori in Medicina, professori associati e professori informati sulle migliori pratiche disponibili delle scuole europee. Le partnership con cliniche specializzate e centri di ricerca in Europa rendono possibili le consultazioni di medici di specialità uniche.
 
-          <div class="row justify-content-center mt-4 ">
-            <div class="col-12 col-lg-2 med-13 mx-2">
-              I suoi reparti sono dotati di apparecchiature diagnostiche e terapeutiche all'avanguardia e gestiti da medici di prima categoria, Ph.D. e Dottori in Medicina, professori associati e professori informati sulle migliori pratiche disponibili delle scuole europee. Le partnership con cliniche specializzate e centri di ricerca in Europa rendono possibili le consultazioni di medici di specialità uniche.
+                </div>
+                <div class="col-12 med-13 col-lg-5">
+                  <p>
+                    I suoi reparti sono dotati di apparecchiature diagnostiche e terapeutiche all'avanguardia e gestiti da medici di prima categoria, Ph.D. e Dottori in Medicina, professori associati e professori informati sulle migliori pratiche disponibili delle scuole europee. Le partnership con cliniche specializzate e centri di ricerca in Europa rendono possibili le consultazioni di medici di specialità uniche.
 
-            </div>
-            <div class="col-12 med-13 col-lg-2">
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                   
+                  </p>
+                  
+                </div>
 
-                <button class="btn  btn-outline-primary mt-3">Contattaci</button>
-              </p>
-              
-            </div>
 
+              </div>
 
           </div>
+
         </div>
         
 
       </div>
 
 <!-- OBBIETTIVI -->
-      <div class="container c-obb">
+      <div class="container c-obb ">
         <div class="row border-row">
           <div class="col-obb col-4">
-            <h3 class="text-center sub-tit q-1">UN</h3>
+            <h3 class="text-center sub-tit q-1">IL</h3>
             <h4 class="text-center q-2">Obiettivo e Missione</h4>
             <p class="text-center q-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn btn-outline-primary m-b">per saperne di piu</button>
+            <button class="btn my-btn m-b">per saperne di piu</button>
 
           </div>
 
           <div class="col-obb col-4">
-            <h3 class="text-center sub-tit q-1">LA</h3>
-            <h4 class="text-center q-2 ">Nostra Clinica</h4>
+            <h3 class="text-center sub-tit q-1">NOSTRO</h3>
+            <h4 class="text-center q-2 ">La Nostra Clinica</h4>
             <p class="text-center q-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn btn-outline-primary m-b">per saperne di piu</button>
+            <button class="btn my-btn m-b">per saperne di piu</button>
 
           </div>
           <div class="col-obb col-4">
-            <h3 class="text-center sub-tit q-1">Lavora</h3>
-            <h4 class="text-center q-2">Con noi</h4>
+            <h3 class="text-center sub-tit q-1">LAVORO</h3>
+            <h4 class="text-center q-2">Lavora Con noi</h4>
             <p class="text-center q-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn btn-outline-primary m-b">per saperne di piu</button>
+            <button class="btn my-btn m-b">per saperne di piu</button>
 
           </div>
         </div>
@@ -192,13 +194,13 @@
     <!-- CAROSELLO NOTIZIE -->
         
 
-        <carousel class="mx-4" :autoplay="true" :nav="false" autoplayTimeout="1000" autoplayHoverPause="true"  items='4' :responsive={0:{items:1,nav:false},700:{items:3,nav:true}}>
-              <div class="card h" style="width: 18rem;">
+        <carousel  :autoplay="true" :nav="false" autoplayTimeout="1000" autoplayHoverPause="true"  items='4' :responsive={0:{items:1,nav:false},700:{items:3,nav:true}}>
+              <div class="card h mt-5" style="width: 18rem;">
                 <img src="/images/corona.jpg" alt="">
                   <div class="card-body">
                     <h5 class="card-title">Corona virus</h5>
                     <p class="card-text">I ricercatori segnalano la rilevazione di mutazioni virali associate alla farmacoresistenza in pazienti trattati con REGEN-COV e sotrovimab</p>
-                    <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                    <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
                   </div>
               </div>
 
@@ -207,7 +209,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Depressione</h5>
                         <p class="card-text">Recensione: nessuna chiara evidenza che i livelli di serotonina siano responsabili della depressione</p>
-                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
                       </div>
               </div>
 
@@ -216,7 +218,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Cardiologia</h5>
                         <p class="card-text">In che modo il sonno influisce sulla salute del cuore?</p>
-                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
                       </div>
               </div>
 
@@ -225,7 +227,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Farmaci</h5>
                         <p class="card-text">L'effetto degli antibiotici sul microbioma intestinale</p>
-                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
                       </div>
               </div>
 
@@ -234,7 +236,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Cancro</h5>
                         <p class="card-text">Comprendere le sfide nella terapia del cancro utilizzando le cellule staminali mesenchimali (MSC)</p>
-                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
                       </div>
               </div>
               <div class="card h" style="width: 18rem;">
@@ -242,7 +244,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Asma</h5>
                         <p class="card-text">Colmare le lacune nell'attuale cura dell'asma</p>
-                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
                       </div>
               </div>
               <div class="card h" style="width: 18rem;">
@@ -250,7 +252,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Depressione</h5>
                         <p class="card-text">Recensione: nessuna chiara evidenza che i livelli di serotonina siano responsabili della depressione</p>
-                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn">PER SAPERNE DI PIU'</a>
                       </div>
               </div>
               <div class="card h" style="width: 18rem;">
@@ -258,7 +260,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Integratori</h5>
                         <p class="card-text">Nutrienti utili per affrontare la stanchezza estiva</p>
-                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn">PER SAPERNE DI PIU'</a>
                       </div>
               </div>
               <div class="card h" style="width: 18rem;">
@@ -266,7 +268,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Sperimentazione</h5>
                         <p class="card-text">Regolamentazione ed etica delle sperimentazioni cliniche</p>
-                        <a href="https://www.news-medical.net/" class="btn btn-primary">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn">PER SAPERNE DI PIU'</a>
                       </div>
               </div>
               
@@ -276,7 +278,7 @@
 
         <!-- COSA DICONO I NOSTRI CLIENTI -->
 
-        <div>
+        <!-- <div>
           <h1 class="text-center">Leggi cosa dicono i nostri clienti</h1>
           
             <div class="row justify-content-center h-r-c">
@@ -350,7 +352,7 @@
                   </div>
               </div>
             </div>
-        </div>
+        </div> -->
 
           
 
@@ -444,7 +446,7 @@ export default {
 // CAROSELLO
 .card-dd{
   max-width: 1500px;
-  height:700px ;
+  height:500px ;
 }
 .cont{
     
@@ -453,7 +455,7 @@ bottom:800px;
 z-index: 1000;
 }
 .img-card{
-  height: 700px;
+  height: 498px;
   width: 400px;
   object-fit: cover;
 }
@@ -475,8 +477,6 @@ font-style: italic;
     content: '';
     width: 10px;
     height: 10px;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
     display: block;
     position: absolute;
     bottom: 25%;
@@ -488,8 +488,7 @@ font-style: italic;
     content: '';
     width: 10px;
     height: 10px;
-    border-top: 1px solid black;
-    border-right: 1px solid black;
+    
     display: block;
     position: absolute;
     bottom: 29%;
@@ -510,26 +509,31 @@ font-style: italic;
 
 .prev{
   position: absolute;
-  left: 97%;
+  right: 62%;
   top: 33%
 }
 
 .next {
     position: absolute;
-    right: 62%;
+    left: 97%;
     top: 33%;
+}
+// carosello 2
+.owl-theme .owl-nav [class*='owl-'] {
+   
+    display: none;
 }
 
 // BOTTONE
 
-.btn-outline-primary{
-  background-color: $general-light-blue !important;
-  color:$general-white !important ;
+.my-btn{
+  background-color: $general-light-blue;
+  color:$general-white;
 }
  
- .btn-outline-primary:hover{
-  border: $general-light-blue !important;
-  background-color: $general-light-blue !important;
+ .my-btn:hover{
+  border: $general-light-blue;
+  background-color: $general-light-blue ;
  
  }
 // QUADRATO SPEC
@@ -560,7 +564,11 @@ body{
 
 
 .img-w{
-  width: 50%;
+width: 50%;
+margin-left: 50px;
+
+
+
 }
 
 .spec{
@@ -598,8 +606,9 @@ body{
 .border-row{
   position: relative;
   bottom: 60px;
-  background-color: white;
+  background-color: #5f4bb652;
   height: 400px;
+  margin-top: 100px;
 }
 
 
@@ -632,7 +641,7 @@ background: -moz-linear-gradient(180deg, hsla(218, 52%, 69%, 1) 46%, hsla(0, 0%,
 // CAROSELLO NEWS
 .h{
   height: 450px;
-
+  margin-top: 30px;
 }
 
 // CLIENTI
@@ -860,6 +869,12 @@ margin-top:-100px ;
 
   
 }
+@media screen and (max-width: 1200px) {
+
+.img-{
+  width: 100%;
+}
+}
 @media screen and (max-width: 1100px) {
 
 .spec{
@@ -886,24 +901,21 @@ margin-top:-100px ;
 .media-q{
   width: 180px;
 }
-.img-card{
-  height: 800px;
- 
-}
+
 .card-dd{
   max-width: 1500px;
-  height:800px ;
+ height: 500px;
 }
 .prev{
   position: absolute;
-  left: 97%;
+  right:40%;
   top: 33%
 }
 .next {
-    right: 40%;
+    left: 97%;
 }
 .img-card{
-  height: 700px;
+  height: 498px;
   width: 400px;
   object-fit: cover;
 }
@@ -928,24 +940,11 @@ margin-top: 500px;
 }
 .img-w{
   width: 20%;
+  margin-left: 8px;
 
 }
-.big-square{
-  margin: 0 auto;
-  height: 3100px;
-  width: 600px;
-  background-color: $general-white;
-  border: 1px solid white;
- 
-  
 
-}
-.border-in{
-  border: 1px solid $general-light-blue;
-  margin: 25px;
-  height: 3050px;
-  width: 550px;
-}
+
 .spec{
   margin-bottom: 300px;
 }
@@ -959,13 +958,14 @@ margin-top: 500px;
     
 .border-row{
   height: 1400px;
-  width: 900px;
+  width: 788px;
   margin-left: -100px;
 }
 .m-b{
   margin-left: 350px;
 }
 .c-obb{
+
   height: 1450px;
 }
 .q-3 , .q-1 , .q-2{
@@ -986,7 +986,7 @@ margin-top: 500px;
 // QUADRATO
 .big-square{
   margin: 0 auto;
-  height: 3000px;
+  height: 2600px;
   width: 300px;
   background-color: $general-white;
   border: 1px solid white;
@@ -996,13 +996,14 @@ margin-top: 500px;
 .border-in{
   border: 1px solid $general-light-blue;
   margin: 25px;
-  height: 2950px;
+  height: 2500px;
   width: 250px;
   
 
 }
 .spec-name{
-  margin-right:130px ;
+  position: relative;
+  right: 88px;
   
 }
 .col-12-s{
@@ -1026,20 +1027,18 @@ margin-top: 500px;
 
 .card-dd{
   max-width: 1500px;
-  height:1500px ;
+ height: 500px;
 }
 .prev{
   position: absolute;
-  left: 97%;
+  left: 3%;
   top: 33%
 }
 .next {
     right: 94%;
 }
 .img-card{
-  height: 700px;
-  width: 100%;
-  object-fit: cover;
+  display: none;
 }
 .cont{
 margin-top: 500px;
@@ -1062,7 +1061,7 @@ margin-top: 500px;
 }
 .border-row{
   height: 1400px;
-  width: 700px;
+  width: 600px;
   margin-left: -100px;
 }
 .q-3 , .q-1 , .q-2{
@@ -1113,7 +1112,7 @@ margin-top: 500px;
 
 }
 .spec-name{
-  margin-right:130px ;
+ position: relative;
   
 }
 .col-12-s{
@@ -1127,7 +1126,7 @@ margin-top: 500px;
 }
 
 }
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 576px) {
 
 .cont{
 margin-top: 600px;
@@ -1145,19 +1144,20 @@ height: 1300px;
 }
 .big-square{
   margin: 0 auto;
-  height: 3100px;
-  width: 500px;
+  height: 2600px;
+  width: 300px;
   background-color: $general-white;
   border: 1px solid white;
- 
-  
 
 }
+
 .border-in{
   border: 1px solid $general-light-blue;
   margin: 25px;
-  height: 3050px;
-  width: 450px;
+  height: 2500px;
+  width: 250px;
+  
+
 }
 .col-12-s{
   flex: 0 0 120%;
@@ -1190,25 +1190,13 @@ height: 1300px;
 }
 
 // QUADRATO
-.big-square{
-  margin: 0 auto;
-  height: 3000px;
-  width: 300px;
-  background-color: $general-white;
-  border: 1px solid white;
 
-}
-
-.border-in{
-  border: 1px solid $general-light-blue;
-  margin: 25px;
-  height: 2950px;
-  width: 250px;
+.spec-name{
+ 
+  position: relative;
+  right: 88px;
   
 
-}
-.spec-name{
-  margin-right:130px ;
   
 }
 .col-12-s{
@@ -1220,6 +1208,9 @@ height: 1300px;
 .spec{
   margin-top:-500px ;
 }
+.border-row {
+    width: 604px;
+}
  
 }
 
@@ -1228,16 +1219,7 @@ height: 1300px;
 .cont{
 margin-top: 700px;
 }
-.big-square{
-  margin: 0 auto;
-  height: 2700px;
-  width: 400px;
-  background-color: $general-white;
-  border: 1px solid white;
- 
-  
 
-}
 .spec{
   margin-top:-600px ;
 }
@@ -1294,7 +1276,7 @@ margin-top: 700px;
 }
 .big-square{
   margin: 0 auto;
-  height: 3000px;
+  height: 2600px;
   width: 300px;
   background-color: $general-white;
   border: 1px solid white;
@@ -1304,13 +1286,14 @@ margin-top: 700px;
 .border-in{
   border: 1px solid $general-light-blue;
   margin: 25px;
-  height: 2950px;
+  height: 2500px;
   width: 250px;
   
 
 }
 .spec-name{
-  margin-right:130px ;
+   position: relative;
+  right: 88px;
   
 }
 

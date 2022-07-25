@@ -19601,11 +19601,7 @@ readers do not read off random characters that represent icons */
 .container.modifica-profilo form {
   padding: 10px;
 }
-<<<<<<< HEAD
-form .cs_btn {
-=======
 .container.modifica-profilo form .cs_btn {
->>>>>>> cf9921848bef52c243a4e89e353210bb087779e3
   background-color: #5f4bb6;
   border-color: #5f4bb6;
   color: white;
@@ -19616,11 +19612,7 @@ form .cs_btn {
 .container.modifica-profilo form .cs_btn:focus {
   box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
 }
-<<<<<<< HEAD
-form .col-lg-5 {
-=======
 .container.modifica-profilo form .col-lg-5 {
->>>>>>> cf9921848bef52c243a4e89e353210bb087779e3
   border-left: 1px solid #5f4bb6;
   border-right: 1px solid #5f4bb6;
   padding-bottom: 25px;
@@ -19644,11 +19636,7 @@ form .col-lg-5 {
   text-align: center;
   padding: 20px 0;
 }
-<<<<<<< HEAD
-form .obbligatorio {
-=======
 .container.modifica-profilo form .obbligatorio {
->>>>>>> cf9921848bef52c243a4e89e353210bb087779e3
   color: red;
 }
 
@@ -19665,27 +19653,15 @@ form .obbligatorio {
   }
 }
 /* Extra large devices (large desktops, 1200px and up) */
-<<<<<<< HEAD
-.container.modfica-profile {
-=======
 .container.modifica-profilo {
->>>>>>> cf9921848bef52c243a4e89e353210bb087779e3
   border: 1px solid #5f4bb6;
   border-radius: 15px;
   box-shadow: 10px 12px 4px #86a5d9;
 }
-<<<<<<< HEAD
-
-form {
-  padding: 10px;
-}
-form .cs_btn {
-=======
 .container.modifica-profilo form {
   padding: 10px;
 }
 .container.modifica-profilo form .cs_btn {
->>>>>>> cf9921848bef52c243a4e89e353210bb087779e3
   background-color: white;
   border-color: #5f4bb6;
   color: rgb(72, 39, 100);
@@ -19693,16 +19669,6 @@ form .cs_btn {
   left: 50%;
   transform: translateX(-50%);
 }
-<<<<<<< HEAD
-form .cs_btn:focus {
-  box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
-}
-form .cs_btn:hover {
-  color: white;
-  background-color: #5f4bb6;
-}
-form .col-lg-5 {
-=======
 .container.modifica-profilo form .cs_btn:focus {
   box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
 }
@@ -19711,21 +19677,10 @@ form .col-lg-5 {
   background-color: #5f4bb6;
 }
 .container.modifica-profilo form .col-lg-5 {
->>>>>>> cf9921848bef52c243a4e89e353210bb087779e3
   border-left: 1px solid #5f4bb6;
   border-right: 1px solid #5f4bb6;
   padding-bottom: 25px;
 }
-<<<<<<< HEAD
-form .col {
-  padding: 25px;
-}
-form .col .container-photo {
-  height: 350px;
-  margin: 35px 0 25px 0px;
-}
-form .col .container-photo #imgPreview {
-=======
 .container.modifica-profilo form .col {
   padding: 25px;
 }
@@ -19734,7 +19689,6 @@ form .col .container-photo #imgPreview {
   margin: 35px 0 25px 0px;
 }
 .container.modifica-profilo form .col .container-photo #imgPreview {
->>>>>>> cf9921848bef52c243a4e89e353210bb087779e3
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -19742,20 +19696,11 @@ form .col .container-photo #imgPreview {
   border-radius: 102px;
   box-shadow: 10px 12px 4px #86a5d9;
 }
-<<<<<<< HEAD
-form .col h3 {
-  text-align: center;
-  padding: 20px 0;
-}
-
-h2 {
-=======
 .container.modifica-profilo form .col h3 {
   text-align: center;
   padding: 20px 0;
 }
 .container.modifica-profilo h2 {
->>>>>>> cf9921848bef52c243a4e89e353210bb087779e3
   margin-top: 28%;
 }
 .container.modifica-profilo .card-body {
