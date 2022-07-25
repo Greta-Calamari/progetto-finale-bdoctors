@@ -269,7 +269,7 @@
                       </div>
               </div>
               <div class="card h ">
-                    <img class="img-car-2" src="https://i.pinimg.com/736x/40/d6/0c/40d60c091c85393c84232142d1f875d7.jpg" alt="">
+                    <img class="img-car-2" src="https://www.ilcambiamento.it/data/articoli/orig/96/10/9624-10393.jpg" alt="">
                       <div class="card-body">
                         <h5 class="card-title">Sperimentazione</h5>
                         <p class="card-text">Regolamentazione ed etica delle sperimentazioni cliniche</p>
@@ -457,7 +457,7 @@ height: 200px;
 // CAROSELLO
 .card-dd{
   max-width: 1500px;
-  height:500px ;
+  height:550px ;
   background-color:$general-light-blue ;
 }
 .cont{
@@ -467,7 +467,7 @@ bottom:800px;
 z-index: 1000;
 }
 .img-card{
-  height: 498px;
+  height: 548px;
   width: 400px;
   object-fit: cover;
 }
@@ -879,6 +879,23 @@ margin-top:-100px ;
 }
 }
 @media screen and (max-width: 768px) {
+.big-square{
+  margin: 0 auto;
+  height: 1400px;
+  width: 900px;
+  background-color: $general-white;
+  border: 1px solid white;
+
+}
+
+.border-in{
+  border: 1px solid $general-light-blue;
+  margin: 25px;
+  height: 1350px;
+  width: 860px;
+  
+
+}
  
 .h{
   height: 500px;
@@ -991,7 +1008,7 @@ margin-top: 500px;
 // QUADRATO
 .big-square{
   margin: 0 auto;
-  height: 2600px;
+  height: 2550px;
   width: 300px;
   background-color: $general-white;
   border: 1px solid white;
@@ -1097,23 +1114,7 @@ margin-top: 30px;
 }
 
 // QUADRATO
-.big-square{
-  margin: 0 auto;
-  height: 3000px;
-  width: 300px;
-  background-color: $general-white;
-  border: 1px solid white;
 
-}
-
-.border-in{
-  border: 1px solid $general-light-blue;
-  margin: 25px;
-  height: 2950px;
-  width: 250px;
-  
-
-}
 .spec-name{
  position: relative;
   
