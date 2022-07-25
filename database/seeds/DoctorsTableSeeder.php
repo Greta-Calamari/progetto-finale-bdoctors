@@ -18,9 +18,10 @@ class DoctorsTableSeeder extends Seeder
             $newDoctor = new Doctor();
             $newDoctor->name = $doctor['name'];
             $newDoctor->surname = $doctor['surname'];
+            $newDoctor->slug = Doctor::generateSlug($doctor['name'], $doctor['surname']);
             $newDoctor->address = $doctor['address'];
-            $newDoctor->photo = $doctor['photo'];
-            $newDoctor->curriculum_vitae = $doctor['curriculum_vitae'];
+            //$newDoctor->photo = $doctor['photo'];
+            //$newDoctor->curriculum_vitae = $doctor['curriculum_vitae'];
             $newDoctor->cell_number = $doctor['cell_number'];
             $newDoctor->services = $doctor['services'];
             $newDoctor->user_id = $doctor['user_id'];

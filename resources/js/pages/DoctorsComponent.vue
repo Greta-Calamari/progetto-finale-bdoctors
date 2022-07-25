@@ -151,7 +151,7 @@
                             <div class="card">
                                 <div class="row">
                                     <div class="col-5">
-                                        <router-link :to="{ name:'doctor', params:{id: doctor.id} }">
+                                        <router-link :to="{ name:'doctor', params:{id: doctor.slug} }">
                                             <div class="img-box">
                                                 <img :src="`/storage/${doctor.image}`" class="w-100" :alt="doctor.name"  v-if=" doctor.image">
                                                 <img src='https://static.vecteezy.com/system/resources/thumbnails/003/528/202/small/stethoscope-icon-medicine-medical-health-doctor-care-hospital-aid-isolated-symbol-for-web-and-mobile-app-free-free-vector.jpg' v-else>

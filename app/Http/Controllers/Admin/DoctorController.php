@@ -65,6 +65,8 @@ class DoctorController extends Controller
         $newDoctor = new Doctor();
         $newDoctor->name = $data['name'];
         $newDoctor->surname = $data['surname'];
+        $newDoctor->slug = Doctor::generateSlug($data['name'], $data['surname']);
+        $newDoctor->cell_number = $data['cell_number'];
         $newDoctor->address = $data['address'];
         //upload photo
         if(isset($data['photo'])){
@@ -76,7 +78,6 @@ class DoctorController extends Controller
             $path_file = Storage::put('uploads', $data['curriculum_vitae']);
             $newDoctor->curriculum_vitae = $path_file;
         }
-        $newDoctor->cell_number = $data['cell_number'];
         if(isset($data['services'])){
             $newDoctor->services = $data['services'];
         }
@@ -105,7 +106,7 @@ class DoctorController extends Controller
     {
         $currentUser = Auth::user();
         if($currentUser->id != $doctor->user_id) {
-            abort(404);
+            abort(401);
         }
 
         return view('admin.doctors.show', compact('doctor'));
@@ -119,6 +120,10 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
+        $currentUser = Auth::user();
+        if($currentUser->id != $doctor->user_id) {
+            abort(401);
+        }
         $specializations = Specialization::all();
         return view('admin.doctors.edit', compact('doctor'), compact('specializations'));
     }
@@ -133,18 +138,12 @@ class DoctorController extends Controller
     public function update(Request $request, Doctor $doctor)
     {
         $data = $request->all();
-        if(isset($data['name'])){
-            $request->validate($this->validationRule);
-        }
-        if(isset($data['name'])){
-            $doctor->name = $data['name'];
-        }
-        if(isset($data['surname'])){
-            $doctor->surname = $data['surname'];
-        }
-        if(isset($data['address'])){
-            $doctor->address = $data['address'];
-        }
+        $request->validate($this->validationRule);
+        $doctor->name = $data['name'];
+        $doctor->surname = $data['surname'];
+        $doctor->slug = Doctor::generateSlug($data['name'], $data['surname']);
+        $doctor->address = $data['address'];
+        $doctor->cell_number = $data['cell_number'];
         //upload photo
         if(isset($data['photo'])){
             Storage::delete('uploads', $doctor->photo);
@@ -157,14 +156,9 @@ class DoctorController extends Controller
             $path_file = Storage::put('uploads', $data['curriculum_vitae']);
             $doctor->curriculum_vitae = $path_file;
         }
-        if(isset($data['cell_number'])){
-            $doctor->cell_number = $data['cell_number'];
-        }
-
         if(isset($data['services'])){
             $doctor->services = $data['services'];
         }
-
         $doctor->save();
 
         //specializations
@@ -173,21 +167,6 @@ class DoctorController extends Controller
         }else{
             $doctor->specializations()->sync([]);
         }
-        //sponsorizzazione 
-        // $dateStart = date("Y-m-d H:i:s");
-        // global $dateEnd;
-        
-        //dd($dateStart, $dateEnd);
-        // if(isset($data['sponsor'])){
-        //     if($data['sponsor'] == 1){
-        //         $dateEnd = date("Y-m-d H:i:s", strtotime('+24 hours'));
-        //      }else if($data['sponsor'] == 2){
-        //          $dateEnd = date("Y-m-d H:i:s", strtotime('+72 hours'));
-        //      }else{
-        //          $dateEnd = date("Y-m-d H:i:s", strtotime('+144 hours'));
-        //      }
-        //     $doctor->sponsors()->attach($data['sponsor'], ['date_start'=>$dateStart, 'date_end'=>$dateEnd]);        
-        // }
         return redirect()->route('admin.doctors.show', $doctor->id);
     }
 

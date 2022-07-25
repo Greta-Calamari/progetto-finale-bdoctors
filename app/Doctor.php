@@ -4,15 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use illuminate\Support\Str;
 class Doctor extends Model
 {
     protected $guarded = [];
 
-    
+    public static function generateSlug($name, $surname){
+        $newName = $name.' '.$surname;
+        $slug = Str::of($newName)->slug('-');
+        $count = 1;
+        while(Doctor::where('slug', $slug)->first()){
+            $slug = Str::of($newName)->slug('-')."-{$count}";
+            $count++;
+        }
+        return $slug;
+    }
 
-    // public function rates() {
-    //     return $this->hasMany(Rate::class);
-    // }
     public function user()
     {
         return $this->belongsTo('App\User');

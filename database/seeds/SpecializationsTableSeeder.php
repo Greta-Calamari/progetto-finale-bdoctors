@@ -16,6 +16,7 @@ class SpecializationsTableSeeder extends Seeder
         foreach ($specializations as $specialization) {
             $newSpecialization = new Specialization();
             $newSpecialization->name = $specialization;
+            $newSpecialization->slug = Specialization::generateSlug($newSpecialization->name);
             $newSpecialization->save();
         }
     }
