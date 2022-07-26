@@ -29,10 +29,11 @@ Route::middleware('auth')
               //sponsors
               Route::get('/checkout/{type}', 'SponsorController@token')->name('sponsor.pay'); 
               Route::post('/checkout/{price}', 'SponsorController@process')->name('sponsor.process');
-  
+            
+
 
 });
-
+// home route 
 Route::get("{any?}",function(){
     return view("guest.home");
 })->where("any",".*");

@@ -36,7 +36,7 @@
         
 
               <div class="container cont">
-                  <div class="card mb-3 card-dd">
+                  <div class="card mb-3 card-dd"> 
                     <div class="row no-gutters">
                       <div  class="col-md-4 card-media">
                             <img v-if="doctors[indexActive].photo" class=" img-card" :src="`/storage/${doctors[indexActive].photo}`" :alt="doctors[indexActive].name" />
