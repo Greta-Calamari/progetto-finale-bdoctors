@@ -19593,6 +19593,71 @@ readers do not read off random characters that represent icons */
   text-align: center;
 }
 
+#login {
+  height: calc(100vh - 106px);
+}
+#login .login-container {
+  transform: translateY(50%);
+}
+#login .login-container .card .card-header {
+  background-color: #5f4bb6;
+  color: white;
+}
+#login .login-container .card .card-header h4 {
+  color: white;
+}
+#login .login-container .card-body .form-group .form-control {
+  background-color: #86a5d9;
+  border-color: #5f4bb6;
+}
+#login .login-container .card-body .form-group .form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
+}
+#login .login-container .card-body .form-group button {
+  background-color: #5f4bb6;
+  border-color: #5f4bb6;
+  color: white;
+}
+#login .login-container .card-body .form-group button:hover {
+  box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
+}
+#login .login-container .card-body .form-group a {
+  color: #5f4bb6;
+}
+#login .login-container .card-body .form-group a:hover {
+  text-decoration: none;
+  color: rgb(139, 98, 254);
+}
+
+#register {
+  height: calc(100vh - 106px);
+}
+#register .register-container {
+  transform: translateY(40%);
+}
+#register .register-container .card .card-header {
+  background-color: #5f4bb6;
+  color: white;
+}
+#register .register-container .card .card-header h4 {
+  color: white;
+}
+#register .register-container .card-body .form-group .form-control {
+  background-color: #F0F8FF;
+  border-color: #5f4bb6;
+}
+#register .register-container .card-body .form-group .form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
+}
+#register .register-container .card-body .form-group button {
+  background-color: #5f4bb6;
+  border-color: #5f4bb6;
+  color: white;
+}
+#register .register-container .card-body .form-group button:hover {
+  box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
+}
+
 .container.modifica-profilo {
   border: 1px solid #5f4bb6;
   border-radius: 15px;
