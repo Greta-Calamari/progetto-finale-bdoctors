@@ -5,9 +5,13 @@
 
     <div class="container show">
             <div class="row">
-                <div class="col-6 ">
-                            <img  width="100" src="{{asset('storage/' . $doctor->photo)}}" alt="{{$doctor->name}}">
-                        <hr>
+                <div class="col-6  ">
+                    <div class="row">
+                        
+                        <img  width="100" src="{{asset('storage/' . $doctor->photo)}}" alt="{{$doctor->name}}">
+                        
+                        <button><a href="{{route('admin.doctors.edit', $doctor->id)}}" class="btn cs_btn text-center">Modifica Profilo</a></button>
+                    </div>
                 </div>
                 
                 {{-- info  --}}

@@ -1,12 +1,12 @@
 .show{
     border: 1px solid $general-violet;
     border-radius: 15px;
-    height: calc(100vh - 106px);
     box-shadow: 10px 12px 4px $general-light-blue;
     img{
-        width: 100%;
-        height: 200px;
+        width: 50%;
+        height: 400px;
         object-fit: cover;
+        margin:  auto;
     }
 }
 
