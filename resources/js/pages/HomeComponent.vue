@@ -69,7 +69,7 @@
                     <i class="fa-solid fa-chevron-left"></i>
                   </div>
                   <div class="next" @click="nextSlide">
-                    <i class="fa-solid fa-angle-right"></i>
+                    <i class="fa-solid fa-chevron-right"></i>
 
                   </div>
 
@@ -89,7 +89,7 @@
             <div class="col-12-s col-md-3 col-lg-3 gy-3 title-big margin-col " v-for="specialization in specializations" :key="specialization.id">
               
                 <div class="icon-spec">
-                    <router-link :to="{name: 'doctors', params: {id: specialization.id} }" >
+                    <router-link class="router-link" :to="{name: 'doctors', params: {id: specialization.id} }" >
                       
                         <img :src="`/images/id${specialization.id}.png`" alt="" class="img-w ">
                         <div class="spec-name text-center">{{specialization.name}}</div>
@@ -462,15 +462,27 @@ export default {
 .col-obb{
   background-color: #5f4bb652;
 }
+.router-link{
+  text-decoration: none;
+} 
 
 .img-car-2{
 height: 200px;
+}
+.spec-name {
+  text-decoration: none;
+  color: $general-light-blue;
+}
+.spec-name:hover{
+  text-decoration: none;
+  color: $general-violet;
+  
 }
 // CAROSELLO
 .card-dd{
   max-width: 1500px;
   height:550px ;
-  background-color:$general-light-blue ;
+  background-color:#bdcee7;
 }
 .cont{
     
@@ -486,7 +498,7 @@ z-index: 1000;
     
 .p-car{
 width:400px;
-margin:0 auto;
+margin:76px auto;
 
 }
 .p-carr{
@@ -499,8 +511,8 @@ font-style: italic;
     content: "\F053";
     font-size: 40px;
 }
-.fa-angle-right::before {
-    content: "\F105";
+.fa-chevron-right::before {
+    content: "\F054";
     font-size: 40px;
 
 }
@@ -520,13 +532,13 @@ font-style: italic;
 .prev{
   position: absolute;
   right: 60%;
-  top: 33%
+  top: 45%
 }
 
 .next {
     position: absolute;
     left: 97%;
-    top: 33%;
+    top: 45%;
 }
 // carosello 2
 .owl-theme .owl-nav [class*='owl-'] {
@@ -553,7 +565,7 @@ body{
 .big-square{
   margin: 0 auto;
   height: 1400px;
-  width: 900px;
+  width: 906px;
   background-color: $general-white;
   border: 1px solid white;
 
@@ -768,16 +780,14 @@ h1{
 
 
 // MEDIA QUERY
-@media screen and (max-width: 2631px) {
-  .w-carousel{
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-    bottom: 700px;
-    z-index: 10000;
-}
+// @media screen and (max-width: 2000px) {
+// .card-dd{
+//   margin-top: 100px;
+// }
+
   
-}
+  
+// }
 
 @media screen and (max-width: 1900px) {
 
@@ -787,6 +797,7 @@ h1{
 .cont{
   margin-top: 300px;
 }
+
   
 }
 
@@ -942,7 +953,7 @@ margin-top:-100px ;
 
 .card-dd{
   max-width: 1500px;
- height: 500px;
+ height: 600px;
 }
 .prev{
   position: absolute;
@@ -953,7 +964,7 @@ margin-top:-100px ;
     left: 95%;
 }
 .img-card{
-  height: 498px;
+  height: 598px;
   width: 400px;
   object-fit: cover;
 }
@@ -1052,7 +1063,16 @@ margin-top: 500px;
 
 
 }
-
+@media screen and (max-width: 999px) {
+.prev {
+    
+    right: 37% !important;
+    
+}
+.next { 
+    left: 95% !important;
+}
+}
 @media screen and (max-width: 768px) {
 
 .media-q{
@@ -1061,15 +1081,15 @@ margin-top: 500px;
 
 .card-dd{
   max-width: 1500px;
- height: 500px;
+ height: 600px;
 }
 .prev{
   position: absolute;
-  left: 3%;
+  left: 6%;
   top: 33%
 }
 .next {
-    right: 94%;
+    left: 94% !important;
 }
 .img-card{
   display: none;
@@ -1323,19 +1343,20 @@ margin-top: 700px;
 
 
 @media screen and (max-width: 1200px) {
-  .w-carousel{
-    width: 80%;
-    margin: 0 auto;
-    position: relative;
-    bottom: 400px;
-    z-index: 10000;
-
-}
+  
 .waviy {
   position: relative;
   -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
   font-size: 40px;
   font-family: 'Ibarra Real Nova', serif;
+}
+.prev {
+    position: absolute;
+    right: 53%;
+    top: 45%;
+}
+.next {
+    left: 96%;
 }
 
 }
