@@ -45,7 +45,7 @@
                       
                         
                       <div class="col-md-8 card-media">
-                        <div class="card-body ">
+                        <div class="card-body my-card">
                           <h5 class="card-title text-center mt-5 ">{{doctors[indexActive].name}}</h5>
                           <h5 class="card-title text-center mt-2">{{doctors[indexActive].surname}}</h5>
                           <p class="text-center p-car media-q">{{doctors[indexActive].address}}</p>
@@ -459,6 +459,21 @@ export default {
 </script>
 <style lang="scss">
 @import '../../sass/variables'; 
+
+// MODIFICHE ULTIME
+// .my-card{
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform:translate(-50%, -50%); 
+// }
+
+.row-spec{
+  margin-right: 33px;
+  margin-left: -48px;
+}
+
+
 .col-obb{
   background-color: #5f4bb652;
 }
@@ -902,6 +917,14 @@ margin-top:-100px ;
 }
 }
 @media screen and (max-width: 768px) {
+  .spec-name {
+    position: relative;
+    right: 125px !important;
+}
+  .img-w {
+    width: 20%;
+    margin-left: -43px !important;
+}
 .big-square{
   margin: 0 auto;
   height: 1400px;
@@ -1066,6 +1089,10 @@ margin-top: 500px;
 
 }
 @media screen and (max-width: 999px) {
+  .row-spec{
+  margin-right: 0px;
+  margin-left: 0px;
+}
 .prev {
     
     right: 37% !important;
@@ -1073,6 +1100,10 @@ margin-top: 500px;
 }
 .next { 
     left: 95% !important;
+}
+.img-w {
+    width: 20%;
+    margin-left: -3px;
 }
 }
 @media screen and (max-width: 768px) {
@@ -1153,11 +1184,10 @@ margin-top: 30px;
  position: relative;
   
 }
-.col-12-s{
-  flex: 0 0 100%;
-  max-width: 100%;
-  margin-left: 90px;
-
+.col-12-s {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-left: 128px;
 }
 .spec{
   margin-top:-600px ;
@@ -1234,11 +1264,15 @@ height: 1300px;
 .spec-name{
  
   position: relative;
-  right: 88px;
+  right: 88px !important;
+}
+.img-w {
+    width: 20%;
+    margin-left: -3px !important;
+}
   
 
   
-}
 .col-12-s{
   flex: 0 0 100%;
   max-width: 100%;
@@ -1338,10 +1372,13 @@ margin-top: 700px;
 }
 .spec-name{
    position: relative;
-  right: 88px;
+   right: 88px !important;
   
 }
-
+.img-w {
+    width: 20%;
+    margin-left: -3px !important;
+}
 
 }
 
