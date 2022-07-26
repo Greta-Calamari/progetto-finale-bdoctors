@@ -1128,7 +1128,7 @@ margin-top: 500px;
   display: none;
 }
 .cont{
-margin-top: 500px;
+margin-top: 572px;
 }
 .card-media{
   flex: 100%;
