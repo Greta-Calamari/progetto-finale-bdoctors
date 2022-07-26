@@ -1002,8 +1002,10 @@ margin-top: 500px;
 .col-obb{
     flex: 0 0 100%;
     max-width: 100%;
+    margin-left: 4px;
+
   }
-  
+
     
 
 .m-b{
@@ -1205,7 +1207,7 @@ height: 1300px;
 }
  
 .border-row{
-  width: 571px !important;
+  width: 596px !important;
 }
 .h{
   margin-left: 100px;
