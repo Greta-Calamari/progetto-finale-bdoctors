@@ -83,7 +83,7 @@
                             <div class="card">
                                 <div class="row">
                                     <div class="col-5">
-                                        <router-link :to="{ name:'doctor', params:{id: doctor.id} }">
+                                        <router-link :to="{ name:'doctor', params:{slug: doctor.slug} }">
                                             <div class="img-box">
                                                 <img :src="`/storage/${doctor.photo}`" class="w-100" :alt="doctor.name"  v-if=" doctor.photo">
                                                 <img src='https://t4.ftcdn.net/jpg/02/29/53/11/360_F_229531197_jmFcViuzXaYOQdoOK1qyg7uIGdnuKhpt.jpg' v-else>
@@ -97,7 +97,7 @@
                                             <p class="card-text" v-else>Nessuna recensione</p>
                                             <p class="card-text"><i class="fa-solid fa-map-location-dot"></i> {{doctor.address}}</p>
                                             <p class="card-text"><i class="fa-solid fa-phone"></i> {{doctor.cell_number}}</p>
-                                            <router-link :to="{ name:'doctor', params:{id: doctor.id} }">
+                                            <router-link :to="{ name:'doctor', params:{slug: doctor.slug} }">
                                                 <div class="btn cs-btn">Visualizza Profilo</div>
                                             </router-link>
                                         </div>
