@@ -17,6 +17,7 @@ class CreateDoctorsTable extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('surname', 50);
+            $table->string('slug', 150)->unique();
             $table->string('address');
             $table->string('photo')->nullable();
             $table->string('curriculum_vitae')->nullable();

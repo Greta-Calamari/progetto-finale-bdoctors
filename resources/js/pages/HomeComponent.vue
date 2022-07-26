@@ -66,6 +66,35 @@
                       </div>
                     </div>
                   </div>
+                  <div  class="card mb-3 card-dd">
+                    <div class="row no-gutters">
+                      <div  class="col-md-4 card-media">
+                            <img class=" img-card" src="https://t4.ftcdn.net/jpg/02/29/53/11/360_F_229531197_jmFcViuzXaYOQdoOK1qyg7uIGdnuKhpt.jpg" alt="prova" />
+                      </div>
+                      
+                        
+                      <div class="col-md-8 card-media">
+                        <div class="card-body ">
+                          <h5 class="card-title text-center mt-5 ">prova</h5>
+                          <h5 class="card-title text-center mt-2">prova</h5>
+                          <p class="text-center p-car media-q">prova</p>
+                          <p  class="text-center p-car media-q">prova</p>
+                          <p  class="media-q p-carr">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur perferendis officiis dolore nostrum atque! Asperiores, mollitia non? Voluptatum error explicabo quae velit atque praesentium ad eaque aliquid obcaecati tempora accusantium ipsum consequuntur beatae a debitis non aut, repellat nesciunt voluptas, quasi autem neque sapiente ex impedit? Iste ipsa dolorum ea.</p>
+                          <p  class="text-center media-q p-car">prova</p>
+                          <!-- <ul>
+                            <li v-for="specialization in doctor.specializations" :key="specialization.id">
+                              <router-link class="router-link" :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
+                          </li>
+                          </ul> -->
+
+                          
+
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="prev" @click="prevSlide"></div>
                   <div class="next" @click="nextSlide"></div>
 

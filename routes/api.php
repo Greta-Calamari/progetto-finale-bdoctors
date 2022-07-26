@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 // api per numero di recensioni e media voti
 Route::get('/filter', 'Api\DoctorController@filter' );
 //api show dottori
-Route::get('/doctors/{id}', 'Api\DoctorController@show');
+Route::get('/doctors/{slug}', 'Api\DoctorController@show');
 //api tutti i dottori per specializzazioni
 Route::get('/doctors', 'Api\DoctorController@getAllDoctors');
 //api per index specializzazioni

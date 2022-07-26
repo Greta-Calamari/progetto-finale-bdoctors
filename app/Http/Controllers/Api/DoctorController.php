@@ -17,9 +17,9 @@ class DoctorController extends Controller
         return response()->json($doctors);
     }
     //chiamata singolo dottore
-    public function show($id)
+    public function show($slug)
     {
-        $doctor = Doctor::where("id", $id)->with(["reviews", "messages", "specializations"])->first();
+        $doctor = Doctor::where("slug", $slug)->with(["reviews", "messages", "specializations"])->first();
         if(empty($doctor)){
             return response()->json(['error'=>'doctor not found'], 404);
         }

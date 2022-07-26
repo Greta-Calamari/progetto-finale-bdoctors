@@ -13,7 +13,7 @@ class MessagesTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for($i = 0; $i < 20; $i++){
+        for($i = 0; $i < 150; $i++){
             $newMessage = new Message();
             $newMessage->doctor_id = $faker->numberBetween(1, 10);
             $newMessage->content = $faker->text();

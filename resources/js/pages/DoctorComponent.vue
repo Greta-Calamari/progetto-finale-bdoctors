@@ -258,8 +258,8 @@ export default {
     },
 
     mounted () {
-        const id = this.$route.params.id
-        axios.get(`/api/doctors/${id}`).then((res)=>{
+        const slug = this.$route.params.slug
+        axios.get(`/api/doctors/${slug}`).then((res)=>{
             this.doctor = res.data;
             this.formData.doctor_id = this.doctor.id
             this.formMes.doctor_id = this.doctor.id

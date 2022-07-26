@@ -13,7 +13,7 @@ class ReviewsTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for($i=0; $i<20; $i++){
+        for($i=0; $i<150; $i++){
         
             $newReview = new Review();
             $newReview->name= $faker->name($gender = null);
