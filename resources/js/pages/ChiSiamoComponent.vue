@@ -2,9 +2,12 @@
 <div>
     
     <!-- parte prima -->
+    <div class="mt-5">
+        <h1 class="text-center cc" data-aos="fade-up" data-aos-duration="2000">Chi siamo</h1>
+    </div>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-margin">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-margin">
                 <div class="box">
                     <h1 data-aos="fade-left" data-aos-duration="2000">La piattaforma per la tua salute</h1>
                     <p data-aos="fade-left" data-aos-duration="2000">La piattaforma per la tuaLorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus omnis odio voluptatem earum assumenda quasi, tempore commodi corporis voluptate mollitia obcaecati ad, doloremque unde nemo dolorum distinctio ipsam excepturi veritatis debitis, fuga quaerat reiciendis molestias eveniet. Laborum quis at, nobis tenetur unde libero ea eum reprehenderit, eligendi voluptate perspiciatis.</p>
@@ -12,8 +15,8 @@
 
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-5">
-                <img data-aos="fade-left" data-aos-duration="2000" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/950b5550646851d18b39c668/min.png" alt="" class="img-jumbo" >
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+                <img data-aos="fade-left" data-aos-duration="2000" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/950b5550646851d18b39c668/min.png" alt="" class="img-jumbo img-100-">
             </div>
 
 
@@ -26,7 +29,7 @@
         <div class="row">
             
             <div class="col-12 col-sm-12 col-md-12 col-lg-5">
-                <img src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/3ed7980862915a9cafc07038/aaaa.jpg" alt="" class="img-jumbo" >
+                <img data-aos="fade-up" data-aos-duration="2000" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/3ed7980862915a9cafc07038/aaaa.jpg" alt="" class="img-jumbo" >
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-7 ">
                 <div class="box box-2">
@@ -51,7 +54,7 @@
 <div class="container mt-5">
         <div class="row">
             
-            <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-margin">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-margin">
                 <div class="box">
                     <h2 data-aos="fade-right" data-aos-duration="2000">I nostri laboratori</h2>
                     <p data-aos="fade-right" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus omnis odio voluptatem earum assumenda quasi, tempore commodi corporis voluptate mollitia obcaecati ad, doloremque unde nemo dolorum distinctio ipsam excepturi veritatis debitis, fuga quaerat reiciendis molestias eveniet. Laborum quis at, nobis tenetur unde libero ea eum reprehenderit, eligendi voluptate perspiciatis.</p>
@@ -65,8 +68,8 @@
 
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-5">
-                <img src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/748f0e022639519486ee4dfb/min.png" alt="" class="img-jumbo" >
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+                <img data-aos="fade-up" data-aos-duration="2000" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/748f0e022639519486ee4dfb/min.png" alt="" class="img-jumbo img-j" >
             </div>
 
 
@@ -81,7 +84,7 @@
         <div class="row">
             
             <div class="col-12 col-sm-12 col-md-12 col-lg-5">
-                <img data-aos="fade-left" data-aos-duration="2000" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/edf9d2086d325a33a2bd6329/tgrf.jpg" alt="" class="img-jumbo" >
+                <img data-aos="fade-left" data-aos-duration="2000" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/edf9d2086d325a33a2bd6329/tgrf.jpg" alt="" class="img-jumbo " >
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-7 ">
                 <div class="box box-2">
@@ -103,10 +106,10 @@
     <div class="container col-margin">
         <div class="row">
             
-            <div class="col-12 col-sm-12 col-md-12 col-lg-2">
-                <img src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/914beaaa33d05d1ea1875eb3/ww-min.jpg" alt="" class="img-jumbo">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+                <img data-aos="fade-up" data-aos-duration="2000" src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/914beaaa33d05d1ea1875eb3/ww-min.jpg" alt="" class="img-jumbo img-j">
             </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-margin">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-margin">
                 <div class="box box-3">
                     
                     <h2 data-aos="fade-up" data-aos-duration="2000">Contattaci al servizio clienti</h2>
@@ -164,6 +167,17 @@ export default {
 .img-jumbo{
     overflow-x: hidden;
 }
+.img-100-{
+    width: 100%;
+    margin-top:180px ;
+}
+.img-j{
+    width: 100%;
+    margin-top:180px ;
+
+}
+
+    
 
 .col-margin{
     margin-top: 200px;
@@ -199,8 +213,10 @@ export default {
 }
 // PARTE QUARTA
 
-
-
+.cc{
+    color: $general-violet;
+    
+}
 
 
 
