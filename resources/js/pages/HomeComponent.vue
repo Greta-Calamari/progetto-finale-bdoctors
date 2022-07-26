@@ -467,7 +467,9 @@ export default {
 //   left: 50%;
 //   transform:translate(-50%, -50%); 
 // }
-
+.margin{
+  overflow: hidden;
+}
 .row-spec{
   margin-right: 33px;
   margin-left: -48px;

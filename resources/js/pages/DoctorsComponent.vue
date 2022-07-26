@@ -113,7 +113,7 @@
                         </div>
                     </div>
                     <div v-else>
-                        <h3 class="text-center">I filtri inseriti non hanno prodotto risultati</h3>
+                        <h3 class="text-center text_res">I filtri inseriti non hanno prodotto risultati</h3>
                     </div> 
                 </div>
         </div>
@@ -258,6 +258,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container{
+    min-height: 100vh;
+}
 .cs-btn{
     color: #5f4bb6;
     font-weight: bold;
@@ -313,6 +316,9 @@ export default {
 }
 .cards{
     padding-top: 50px;
+    .text_res{
+        padding-top:50px;
+    }
     &.resp{
         padding-top: 415px;
         -webkit-animation: padding-anim 0.5s linear both;
