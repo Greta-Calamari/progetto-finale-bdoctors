@@ -31,7 +31,7 @@
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <h3>{{$doctor->name}} {{$doctor->surname}}</h3>
-                            <p>{{Auth::user()->email}}</p>
+                            <p>{{Auth::user()->email}}</p>                            
                             <a class="btn cs_btn mb-2" href="{{route('admin.doctors.show', $doctor->id)}}">Vedi profilo completo</a>
                             <a class="btn cs_btn mb-2" href="{{route('admin.doctors.edit', $doctor->id)}}">Modifica profilo</a>
                         </div>
