@@ -19718,62 +19718,17 @@ readers do not read off random characters that represent icons */
   }
 }
 /* Extra large devices (large desktops, 1200px and up) */
-.container.modifica-profilo {
+.show {
   border: 1px solid #5f4bb6;
   border-radius: 15px;
+  height: calc(100vh - 106px);
   box-shadow: 10px 12px 4px #86a5d9;
 }
-.container.modifica-profilo form {
-  padding: 10px;
-}
-.container.modifica-profilo form .cs_btn {
-  background-color: white;
-  border-color: #5f4bb6;
-  color: rgb(72, 39, 100);
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.container.modifica-profilo form .cs_btn:focus {
-  box-shadow: 0 0 0 0.2rem rgba(95, 75, 182, 0.5);
-}
-.container.modifica-profilo form .cs_btn:hover {
-  color: white;
-  background-color: #5f4bb6;
-}
-.container.modifica-profilo form .col-lg-5 {
-  border-left: 1px solid #5f4bb6;
-  border-right: 1px solid #5f4bb6;
-  padding-bottom: 25px;
-}
-.container.modifica-profilo form .col {
-  padding: 25px;
-}
-.container.modifica-profilo form .col .container-photo {
-  height: 350px;
-  margin: 35px 0 25px 0px;
-}
-.container.modifica-profilo form .col .container-photo #imgPreview {
+.show img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 102px;
-  box-shadow: 10px 12px 4px #86a5d9;
-}
-.container.modifica-profilo form .col h3 {
-  text-align: center;
-  padding: 20px 0;
-}
-.container.modifica-profilo h2 {
-  margin-top: 28%;
-}
-.container.modifica-profilo .card-body {
-  width: 370px;
-}
-.container.modifica-profilo hr {
-  border-top: 3px solid rgb(182, 146, 205);
-  border-radius: 2px;
 }
 
 body {
