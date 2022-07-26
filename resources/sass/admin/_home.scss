@@ -47,3 +47,84 @@
         }
     }
 }
+
+// login 
+#login{
+    height: calc(100vh - 106px);
+    .login-container{
+        transform: translateY(50%);
+        .card{
+            .card-header{
+                background-color: $general-violet;
+                color: white;
+                h4{
+                    color: white;
+                }
+            }
+        }
+        .card-body{
+            .form-group{
+                .form-control{
+                    background-color: $general-light-blue;
+                    border-color: $general-violet;
+                    &:focus{
+                        box-shadow: 0 0 0 0.2rem rgba($general-violet, 0.5);
+                    }
+                }
+                button{
+                    background-color: $general-violet;
+                    border-color: $general-violet;
+                    color: white;
+                    &:hover{
+                        box-shadow: 0 0 0 0.2rem rgba($general-violet, 0.5);
+                    }
+                }
+                a{
+                    color: $general-violet;
+                    &:hover{
+                        text-decoration: none;
+                        color: rgb(139, 98, 254);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// register 
+#register{
+    height: calc(100vh - 106px);
+    .register-container{
+        transform: translateY(40%);
+        .card{
+            .card-header{
+                background-color: $general-violet;
+                color: white;
+                h4{
+                    color: white;
+                }
+            }
+
+        }
+        .card-body{
+            .form-group{
+                .form-control{
+                    background-color: #F0F8FF;
+                    border-color: $general-violet;
+                    &:focus{
+                        box-shadow: 0 0 0 0.2rem rgba($general-violet, 0.5);
+                    }
+                }
+                button{
+                    background-color: $general-violet;
+                    border-color: $general-violet;
+                    color: white;
+                    &:hover{
+                        box-shadow: 0 0 0 0.2rem rgba($general-violet, 0.5);
+                    }
+                }
+            }
+        }
+    }
+}

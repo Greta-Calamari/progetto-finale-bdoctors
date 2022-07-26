@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div id="register" class="container">
+    <div class="row  justify-content-center">
+        <div class="register-container col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header text-center">{{ __('Registrati') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
