@@ -176,6 +176,7 @@ export default {
                     this.loading = false;
                 })
             }
+            this.responsiveUp = false;
         },
         clearFilter(){
             this.inputSpecialization = '';
@@ -194,6 +195,7 @@ export default {
                 });
                 this.doctors = [...sponsored,...nonSponsored];
                 this.loading = false;
+                this.responsiveUp = false;
             })
         },
         getAverage(doctor) {
