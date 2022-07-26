@@ -1,60 +1,73 @@
-.container.modifica-profilo {
+
+.show-container{
     border: 1px solid $general-violet;
     border-radius: 15px;
     box-shadow: 10px 12px 4px $general-light-blue;
-    form {
+    position: relative;
+    background-color: #F0F8FF;
+    overflow: hidden;
+    margin-top:20px;
+    h2{
+        margin: 0 !important;
+    }
+    .container-all{
+        height: 100%;
+        .left{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    hr{
+        background-color: $general-violet;
+        overflow: hidden;
+    }
+    .bg{
+        
+        height: 100%;
+    }
+    
+    img{
+        width: 50%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .specializzazioni{
         padding: 10px;
-        .cs_btn {
-            background-color: white;
-            border-color: $general-violet;
-            color: rgb(72, 39, 100);
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-            &:focus {
-                box-shadow: 0 0 0 0.2rem rgba($general-violet, 0.5);
-            }
-            &:hover {
-                color: white;
-                background-color: $general-violet;
-            }
+        border-radius: 10px;
+        
+    }
+    
+    .info-container{
+        border-left: 1px solid $general-violet;
+        li{
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            
         }
-        .col-lg-5 {
-            border-left: 1px solid $general-violet;
-            border-right: 1px solid $general-violet;
-            padding-bottom: 25px;
-        }
-        .col {
-            padding: 25px;
-            .container-photo {
-                height: 350px;
-                margin: 35px 0 25px 0px;
-                #imgPreview {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    border-radius: 102px;
-                    box-shadow: 10px 12px 4px $general-light-blue;
-                }
-            }
-            h3 {
-                text-align: center;
-                padding: 20px 0;
-            }
-        }
-    }
-    h2 {
-        margin-top: 28%;
-    }
-    .card-body {
-        width: 370px;
-        //box-shadow: 10px 12px 4px $general-light-blue;
-    }
-    hr {
-        border-top: 3px solid rgb(182 146 205);
-        border-radius: 2px;
-    }
-}
+        h4{
+            a{
+                text-decoration: none;
+                color: $general-violet;
 
-// body {
-// }
+            }
+        }
+        button{
+            
+            height: 40px;
+            background-color: $general-violet;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            a{
+                color: white;
+                text-decoration: none;
+            }
+    
+        }
+        
+        
+    }
+    
+}
