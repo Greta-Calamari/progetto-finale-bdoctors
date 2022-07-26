@@ -93,8 +93,9 @@
                                     <div class="col-7">
                                         <div class="card-body">
                                             <h5 class="card-title">{{doctor.name}} {{doctor.surname}}</h5>
+                                            <p class="card-text" v-if="doctor.reviews.length > 0"><i class="fa-solid fa-star" v-for="(index) in getAverage(doctor)" :key="index"></i></p>
+                                            <p class="card-text" v-else>Nessuna recensione</p>
                                             <p class="card-text"><i class="fa-solid fa-map-location-dot"></i> {{doctor.address}}</p>
-                                            <p class="card-text"><i class="fa-solid fa-phone"></i> {{doctor.cell_number}}</p>
                                             <p class="card-text"><i class="fa-solid fa-phone"></i> {{doctor.cell_number}}</p>
                                             <router-link :to="{ name:'doctor', params:{id: doctor.id} }">
                                                 <div class="btn cs-btn">Visualizza Profilo</div>
@@ -195,17 +196,12 @@ export default {
                 this.loading = false;
             })
         },
-        averageVote(){
-            //let reviewCounter = 0
-            //console.log(arr)
-            arr.forEach(element => {
-                //reviewCounter++;
-                //console.log(element.votes)
-                let sum = 0;
-                sum += element.votes;
-                return Math.floor(sum/arr.length)
-                console.log(average);
-            });
+        getAverage(doctor) {
+            let sum = 0;
+            for (let i = 0; i < doctor.reviews.length; i++) {
+                sum += doctor.reviews[i].votes;
+            }
+            return Math.floor(sum / doctor.reviews.length);
         },
         responsive(){
             this.responsiveUp = !this.responsiveUp
