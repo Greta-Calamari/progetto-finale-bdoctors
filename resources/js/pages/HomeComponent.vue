@@ -424,6 +424,7 @@ export default {
         this.doctors = Object.values(response.data);
         
       });
+      this.autoScroll()
     },
     methods:{
         nextSlide(){
@@ -442,6 +443,17 @@ export default {
             }
 
         },
+         autoScroll(){
+            
+            this.intervalId = setInterval(()=>{
+                this.nextSlide()
+            },3000)
+
+        },
+        stopAutoscroll(){
+            clearInterval(this.intervalId)
+            this.intervalId = null
+        }
     }
 }
 </script>
