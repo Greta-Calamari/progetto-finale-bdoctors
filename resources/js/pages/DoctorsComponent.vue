@@ -1,16 +1,11 @@
 <template>
     <div class="container">
         <div class="filter" :class="responsiveUp ? 'scale-up-ver-top' : '' " >
-            <!-- <div v-if="loadingSp" class="row justify-content-center">
-                <div class="lds-roller" v-if="loadingSp" >
-                    <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-                </div>
-            </div> -->
             <div class="row">
                 <div class="col-12">
-                    <h2 @click="responsive()" class="text-center">Filtri
+                    <h4 @click="responsive()" class="text-center title">Inserisci filtri
                         <i :class="responsiveUp ? 'rotate' : 'rotate-back'" class="fa-solid fa-angle-down"></i>
-                    </h2>
+                    </h4>
                 </div>
                 <div class="col-12 col-md-4" v-if="!loadingSp" >
                     <h4>Specializzazione</h4>
@@ -84,14 +79,14 @@
             </div>
                 <div v-else class="cards" :class="responsiveUp ? 'resp' : ''">
                     <div class="row" v-if="doctors.length > 0">
-                        <div class="col-12 col-lg-4 my-5" v-for="(doctor) in doctors" :key="doctor.id">
+                        <div class="col-12 col-lg-6 col-xl-4 my-5" v-for="(doctor) in doctors" :key="doctor.id">
                             <div class="card">
                                 <div class="row">
                                     <div class="col-5">
                                         <router-link :to="{ name:'doctor', params:{id: doctor.id} }">
                                             <div class="img-box">
                                                 <img :src="`/storage/${doctor.photo}`" class="w-100" :alt="doctor.name"  v-if=" doctor.photo">
-                                                <img src='https://static.vecteezy.com/system/resources/thumbnails/003/528/202/small/stethoscope-icon-medicine-medical-health-doctor-care-hospital-aid-isolated-symbol-for-web-and-mobile-app-free-free-vector.jpg' v-else>
+                                                <img src='https://t4.ftcdn.net/jpg/02/29/53/11/360_F_229531197_jmFcViuzXaYOQdoOK1qyg7uIGdnuKhpt.jpg' v-else>
                                             </div>
                                         </router-link>
                                     </div>
@@ -100,13 +95,16 @@
                                             <h5 class="card-title">{{doctor.name}} {{doctor.surname}}</h5>
                                             <p class="card-text"><i class="fa-solid fa-map-location-dot"></i> {{doctor.address}}</p>
                                             <p class="card-text"><i class="fa-solid fa-phone"></i> {{doctor.cell_number}}</p>
-                                            
+                                            <p class="card-text"><i class="fa-solid fa-phone"></i> {{doctor.cell_number}}</p>
+                                            <router-link :to="{ name:'doctor', params:{id: doctor.id} }">
+                                                <div class="btn cs-btn">Visualizza Profilo</div>
+                                            </router-link>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="specs">
                                             <h6>Specializzazioni</h6>
-                                            <p class="mb-0" v-for="spec in doctor.specializations" :key="spec.id">{{spec.name}}</p> 
+                                            <p class="mb-0" v-for="spec in doctor.specializations" :key="spec.id"><i class="fa-solid fa-stethoscope"></i>{{spec.name}}</p> 
                                         </div>
                                     </div>
                                 </div>
@@ -262,6 +260,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.cs-btn{
+    color: #5f4bb6;
+    font-weight: bold;
+    border-color: #5f4bb6;
+    &:hover{
+        background-color: #5f4bb6;
+        color: #fff;
+    }
+    &:focus{
+        box-shadow: 0 0 0 0.2rem rgb(#5f4bb6, 0.5);
+    }
+}
 .filter{
     background-color: rgb(231 237 247);
     position: fixed;
@@ -275,28 +285,16 @@ export default {
     h4, h2, .fa-star{
         color: #5f4bb6;
     }
-    h2{
-        cursor: pointer;
-        padding: 1rem 0;
-    }
     h4{
         margin-top: 0.5rem;
+    }
+    .title{
+        cursor: pointer;
+        padding: 1rem 0;
     }
     .buttons{
         padding: 1rem 0;
         text-align: center;
-        .cs-btn{
-            color: #5f4bb6;
-            font-weight: bold;
-            border-color: #5f4bb6;
-            &:hover{
-                background-color: #5f4bb6;
-                color: #fff;
-            }
-            &:focus{
-                box-shadow: 0 0 0 0.2rem rgb(#5f4bb6, 0.5);
-            }
-        }
     }
     .rotate {
         -webkit-animation: rotate-90-cw 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -349,9 +347,12 @@ export default {
             }
         }
         .specs{
-            padding: 1.25rem;
+            padding: 1.9rem 1.25rem;
             h6{
                 color: #5f4bb6;
+            }
+            .fa-solid{
+                margin-right: 0.5rem
             }
         }
     }
@@ -491,7 +492,7 @@ export default {
 }
 //media
 
-@media screen and (max-width: 576px){
+@media screen and (max-width: 767px){
     .filter{
         height: 75px;
         overflow: hidden;
