@@ -1,90 +1,44 @@
 @extends('layouts.admin')
 
 
-@section('content')
+@section('content') 
 
-    <div class="container show">
-            <div class="row">
-                <div class="col-6  ">
-                    <div class="row">
-                        
+    <div class="container show-container ">
+            <div class="row justify-content-center align-items-center container-all">
+                <div class="left  col-lg-6 col-md-6 col-sm-12 ">
+                    <div class="bg d-flex flex-column justify-content-center align-items-center ">
                         <img  width="100" src="{{asset('storage/' . $doctor->photo)}}" alt="{{$doctor->name}}">
                         
-                        <button><a href="{{route('admin.doctors.edit', $doctor->id)}}" class="btn cs_btn text-center">Modifica Profilo</a></button>
+                        {{-- Specializzazioni  --}}
+                        <div class="specializzazioni text-center">
+                            <hr>
+                            <h4>Specializzazioni:</h4>
+                            @foreach ($doctor->specializations as $specialization)
+                                {{$specialization->name}}
+                            @endforeach
+                        </div>
+                        
                     </div>
                 </div>
-                
                 {{-- info  --}}
-                <div class="col-6">
+                <div class="col-lg-6 col-md-6 col-sm-12 info-container">
                     {{-- info doctors  --}}
-                    <ul>
-                        <li>Nome: {{$doctor->name}} {{$doctor->surname}}</li>
+                    <ul class="">
+                        <li><h2><i class="fa-solid fa-user"> </i> {{$doctor->name}} {{$doctor->surname}}</h2></li>
                         <hr>
-                        <li>Indirizzo: {{$doctor->address}}</li>
+                        <li><h2><i class="fa-solid fa-map-location"></i>  {{$doctor->address}}</h2> </li>
                         <hr>
-                        <li>Telefono: {{$doctor->cell_number}}</li>
+                        <li><h2><i class="fa-solid fa-phone"></i> {{$doctor->cell_number}}</h2> </li>
                         <hr>
-                        <li>Servizzo: {{$doctor->services}}</li>
+                        <li><h2><i class="fa-solid fa-notes-medical"></i> {{$doctor->services}} </h2></li>
                         <hr>
-                        <h3>Specializzazioni: </h3>
-                        @foreach ($doctor->specializations as $specialization)
-                            <li>{{$specialization->name}}</li>
-                        @endforeach
+                        <li><h4><a href="/storage/{{$doctor->curriculum_vitae}}" download="newfilename">Download curriculum</a></h4></li>
+                        
+                        <li><button><a href="{{route('admin.doctors.edit', $doctor->id)}}" class="btn cs_btn text-center">Modifica Profilo</a></button></li>
 
                     </ul>
-                    
-                    {{-- <div class="row">
-                        <div class="col-6">
-                            <div class="mb-3">
-                                    <div class="card-body">
-                <div class="card">
-                    <div class="card-body">
-                        {{$doctor->name}} {{$doctor->surname}} 
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        {{$doctor->address}} 
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        {{$doctor->cell_number}}
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <iframe src="{{asset('storage/' . $doctor->curriculum_vitae)}}" width=”80” height=”200”></iframe>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                    {{$doctor->services}}
-                    </div>
-                </div>
-            
-                        <ul>
-                            @foreach ($doctor->specializations as $specialization)
-                                <li>{{$specialization->name}}</li>
-                            @endforeach
-                        </ul>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            
-                        </div>
-                    </div> --}}
-
-                </div>
-                
-                
-                
+                      
             </div>
-
-        
-            
-            
-        
     </div>
 
 

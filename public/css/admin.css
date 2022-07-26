@@ -19547,6 +19547,7 @@ readers do not read off random characters that represent icons */
 
 #app {
   background-color: aliceblue;
+  min-height: 100vh;
 }
 
 #home {
@@ -19718,17 +19719,65 @@ readers do not read off random characters that represent icons */
   }
 }
 /* Extra large devices (large desktops, 1200px and up) */
-.show {
+.show-container {
   border: 1px solid #5f4bb6;
   border-radius: 15px;
   box-shadow: 10px 12px 4px #86a5d9;
+  position: relative;
+  background-color: #F0F8FF;
+  overflow: hidden;
+  margin-top: 20px;
 }
-.show img {
+.show-container h2 {
+  margin: 0 !important;
+}
+.show-container .container-all {
+  height: 100%;
+}
+.show-container .container-all .left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.show-container hr {
+  background-color: #5f4bb6;
+  overflow: hidden;
+}
+.show-container .bg {
+  height: 100%;
+}
+.show-container img {
   width: 50%;
-  height: 400px;
   -o-object-fit: cover;
      object-fit: cover;
-  margin: auto;
+  border-radius: 10px;
+}
+.show-container .specializzazioni {
+  padding: 10px;
+  border-radius: 10px;
+}
+.show-container .info-container {
+  border-left: 1px solid #5f4bb6;
+}
+.show-container .info-container li {
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+}
+.show-container .info-container h4 a {
+  text-decoration: none;
+  color: #5f4bb6;
+}
+.show-container .info-container button {
+  height: 40px;
+  background-color: #5f4bb6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.show-container .info-container button a {
+  color: white;
+  text-decoration: none;
 }
 
 body {
