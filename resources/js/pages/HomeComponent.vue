@@ -3,8 +3,8 @@
     <div class="bg-first">
         <!-- titolo nella home -->
             
-        <div class="title text-center">
-            <h1>Il sito dove potrai trovare il tuo professionista di fiducia</h1>
+        <div class="title text-center" data-aos="fade-up" data-aos-duration="2000">
+            <h1 data-aos="fade-up" data-aos-duration="2000">Il sito dove potrai trovare il tuo professionista di fiducia</h1>
             <div class="waviy">
                 <span style="--i:1">D</span>
                 <span style="--i:2">O</span>
@@ -18,8 +18,8 @@
                 <span style="--i:10">T</span>
 
             </div>
-            <h3 class="mt-5 sub"> Provalo</h3>
-            <h3 class="sub">Prenota online il tuo prossimo medico</h3>
+            <h3 data-aos="fade-up" data-aos-duration="2000" class="mt-5 sub"> Provalo</h3>
+            <h3 data-aos="fade-up" data-aos-duration="2000" class="sub">Prenota online il tuo prossimo medico</h3>
         </div>
 
 
@@ -35,10 +35,10 @@
     <!-- carosello -->
         
 
-              <div class="container cont">
+              <div class="container cont" data-aos="fade-up" data-aos-duration="2000">
                   <div class="card mb-3 card-dd">
                     <div class="row no-gutters">
-                      <div  class="col-md-4 card-media">
+                      <div  class="col-md-4 card-media" >
                             <img v-if="doctors[indexActive].photo" class=" img-card" :src="`/storage/${doctors[indexActive].photo}`" :alt="doctors[indexActive].name"/>
                             <img v-else class=" img-card" src="https://t4.ftcdn.net/jpg/02/29/53/11/360_F_229531197_jmFcViuzXaYOQdoOK1qyg7uIGdnuKhpt.jpg" :alt="doctors[indexActive].name" />
                       </div>
@@ -78,7 +78,7 @@
                   
       
     <!-- QUADRATO SPECIALIZZAZIONI -->
-    <div class="spec">
+    <div class="spec" data-aos="fade-right" data-aos-duration="2000">
 
       <div class="big-square">
         <div class="border-in">
@@ -86,7 +86,7 @@
           <h2 class=" text-center title-big">I nostri medici specializzati</h2>
 
           <div class="row mt-3 row-spec">
-            <div class="col-12-s col-md-3 col-lg-3 gy-3 title-big margin-col " v-for="specialization in specializations" :key="specialization.id">
+            <div  data-aos="flip-up" data-aos-duration="2000" class="col-12-s col-md-3 col-lg-3 gy-3 title-big margin-col " v-for="specialization in specializations" :key="specialization.id">
               
                 <div class="icon-spec">
                     <router-link class="router-link" :to="{name: 'doctors', params: {id: specialization.id} }" >
@@ -110,18 +110,18 @@
     <!-- COME LAVORIAMO -->
       <div class="divider">
         <div class="d-flex justify-content-center">
-            <img src="/images/doctors.jpg" alt="" class="img-">
+            <img src="/images/doctors.jpg" alt="" class="img-"  data-aos="zoom-in"  data-aos-duration="2000">
         </div>
         <div class="r-1">
 
-          <h2 class="text-center">Come lavoriamo</h2>
-          <div class="container">
+          <h2 class="text-center" data-aos="fade-up" data-aos-duration="2000">Come lavoriamo</h2>
+          <div class="container" >
               <div class="row justify-content-center mt-4  ">
-                <div class="col-12 col-lg-5 med-13">
+                <div class="col-12 col-lg-5 med-13" data-aos="fade-right" data-aos-duration="2000">
                   I suoi reparti sono dotati di apparecchiature diagnostiche e terapeutiche all'avanguardia e gestiti da medici di prima categoria, Ph.D. e Dottori in Medicina, professori associati e professori informati sulle migliori pratiche disponibili delle scuole europee. Le partnership con cliniche specializzate e centri di ricerca in Europa rendono possibili le consultazioni di medici di specialità uniche.
 
                 </div>
-                <div class="col-12 med-13 col-lg-5">
+                <div class="col-12 med-13 col-lg-5" data-aos="fade-left" data-aos-duration="2000">
                   <p>
                     I suoi reparti sono dotati di apparecchiature diagnostiche e terapeutiche all'avanguardia e gestiti da medici di prima categoria, Ph.D. e Dottori in Medicina, professori associati e professori informati sulle migliori pratiche disponibili delle scuole europee. Le partnership con cliniche specializzate e centri di ricerca in Europa rendono possibili le consultazioni di medici di specialità uniche.
 
@@ -144,25 +144,25 @@
       <div class="container c-obb ">
         <div class="row border-row">
           <div class="col-obb col-4">
-            <h3 class="text-center sub-tit q-1">IL</h3>
-            <h4 class="text-center q-2">Obiettivo e Missione</h4>
-            <p class="text-center q-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn my-btn m-b">per saperne di piu</button>
+            <h3 class="text-center sub-tit q-1" data-aos="fade-right" data-aos-duration="2000">IL</h3>
+            <h4 class="text-center q-2" data-aos="fade-right" data-aos-duration="2000">Obiettivo e Missione</h4>
+            <p class="text-center q-3" data-aos="fade-right" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
+            <button class="btn my-btn m-b" data-aos="fade-right" data-aos-duration="2000">per saperne di piu</button>
 
           </div>
 
-          <div class="col-obb col-4">
-            <h3 class="text-center sub-tit q-1">NOSTRO</h3>
-            <h4 class="text-center q-2 ">La Nostra Clinica</h4>
-            <p class="text-center q-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn my-btn m-b">per saperne di piu</button>
+          <div class="col-obb col-4" >
+            <h3 class="text-center sub-tit q-1" data-aos="fade-up" data-aos-duration="2000">NOSTRO</h3>
+            <h4 class="text-center q-2 " data-aos="fade-up" data-aos-duration="2000">La Nostra Clinica</h4>
+            <p class="text-center q-3" data-aos="fade-up" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
+            <button class="btn my-btn m-b" data-aos="fade-up" data-aos-duration="2000">per saperne di piu</button>
 
           </div>
           <div class="col-obb col-4">
-            <h3 class="text-center sub-tit q-1">LAVORO</h3>
-            <h4 class="text-center q-2">Lavora Con noi</h4>
-            <p class="text-center q-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn my-btn mb-2 m-b">per saperne di piu</button>
+            <h3 class="text-center sub-tit q-1" data-aos="fade-left" data-aos-duration="2000">LAVORO</h3>
+            <h4 class="text-center q-2" data-aos="fade-left" data-aos-duration="2000">Lavora Con noi</h4>
+            <p class="text-center q-3" data-aos="fade-left" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
+            <button class="btn my-btn mb-2 m-b" data-aos="fade-left" data-aos-duration="2000">per saperne di piu</button>
 
           </div>
         </div>
@@ -175,16 +175,16 @@
         <path fill="#86a5d9" fill-opacity="1" d="M0,0L80,53.3C160,107,320,213,480,240C640,267,800,213,960,176C1120,139,1280,117,1360,106.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
       </svg>
       <div class="bg-val">
-        <h2 class="text-center tt">Viviamo e respiriamo in nostri lavori</h2>
+        <h2 class="text-center tt" data-aos="zoom-out-up"  data-aos-duration="2000" >Viviamo e respiriamo in nostri lavori</h2>
         <div class="container mt-5">
           <div class="row">
             <div class="col col-q-val">
+              <p class="p-val" data-aos="zoom-out-up"  data-aos-duration="2000">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
+            </div>
+            <div class="col col-q-val " data-aos="zoom-out-up"  data-aos-duration="2000">
               <p class="p-val">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
             </div>
-            <div class="col col-q-val ">
-              <p class="p-val">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
-            </div>
-            <div class="col col-q-val">
+            <div class="col col-q-val" data-aos="zoom-out-up"  data-aos-duration="2000">
               <p class="p-val">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam ipsum possimus tempore eum minus ab earum sint, quaerat sunt accusantium! Voluptatem deleniti necessitatibus, accusamus dolores magnam maiores? Maxime suscipit hic reiciendis nam quae porro iure, nemo, ullam ad mollitia esse quasi vitae nulla blanditiis dignissimos ut commodi eos corporis officia.</p>
             </div>
 
@@ -199,8 +199,8 @@
     <!-- CAROSELLO NOTIZIE -->
         
 
-        <carousel  :autoplay="true" :nav="false"  autoplayHoverPause="true"  items='4' autoWidth='true' >
-              <div class="card h">
+        <carousel  :autoplay="true" :nav="false"  autoplayHoverPause="true"  items='4' autoWidth='true' data-aos="zoom-out-right" data-aos-duration="2000">
+              <div class="card h" >
                 <img src="/images/corona.jpg" alt="" class="img-car-2" >
                   <div class="card-body">
                     <h5 class="card-title">Corona virus</h5>
@@ -1119,7 +1119,7 @@ margin-top: 30px;
   margin-left: -60px;
 }
 .m-b{
-  margin-left: 228px;
+  margin-left: 220px;
 }
 .q-3 , .q-1 , .q-2{
   width:300px;
@@ -1163,7 +1163,9 @@ margin-top: 30px;
 
 }
 @media screen and (max-width: 576px) {
-
+.col-obb{
+  margin-left:-21 !important;
+}
 .cont{
 margin-top: 600px;
 }
@@ -1203,7 +1205,7 @@ height: 1300px;
 }
  
 .border-row{
-  width: 572px;
+  width: 571px !important;
 }
 .h{
   margin-left: 100px;
@@ -1246,7 +1248,7 @@ height: 1300px;
 }
 
 .m-b{
-  margin-left: 233px;
+  margin-left: 225px;
 }
 .q-3 , .q-1 , .q-2{
   width:300px;
