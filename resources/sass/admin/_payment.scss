@@ -1,0 +1,116 @@
+#paymentForm{
+    min-height: calc(100vh - 106px);
+    h1{
+        color: $general-violet;
+    }
+    .dati{
+        padding: 0;
+        li{
+            padding: 1rem 0;
+            border-bottom: 1px solid $general-violet;
+            .label{
+                color: $general-light-blue;
+                text-transform: uppercase;
+                margin-right: 0.5rem;
+                .fa-solid{
+                    margin-right: 0.5rem;
+                }
+            }
+        }  
+    }
+    .cs_btn{
+        color: #fff;
+        background-color: $general-violet;
+        text-transform: uppercase;
+        border: 1px solid $general-violet;
+        &:not(:disabled):hover{
+            color: $general-violet;
+            background-color: rgba($general-violet, 0.4);
+        }
+        &:disabled{
+            background-color: rgba($general-violet, 0.1);
+            &:hover{
+                background-color: rgba($general-violet, 0.1);
+                color: #fff;
+            }
+        }
+    }
+    .braintree-heading{
+        color: $general-violet;
+        text-transform: uppercase;
+    }
+    .braintree-loader__container, .braintree-show-card .braintree-card, .braintree-option:first-child, .braintree-large-button{
+        background-color: rgba($general-violet, 0.2);
+    }
+}
+
+#paymentResult{
+    height: calc(100vh - 106px);
+    position: relative;
+    .box{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    h1{
+        color: $general-violet;
+        text-align: center;
+    }
+    h4{
+        margin: 2rem 0;
+        text-align: center;
+    }
+    .box-info{
+        width: 80%;
+        margin: auto;
+        border: 3px solid $general-violet;
+        border-radius: 10px;
+        font-weight: bold;
+        margin-bottom: 150px;
+        p{
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0.6rem;
+            &.border{
+                border-bottom: 3px solid $general-violet;
+            }
+            .label{
+                text-transform: uppercase;
+                text-align: start;
+            }
+            .result{
+                color: $general-violet;
+                text-align: end;
+            }
+        }
+    }
+    .cs_link{
+        color: $general-light-blue;
+        text-decoration: none;
+        font-size: 1rem;
+        &:hover{
+            color: $general-violet;
+        }
+        .fa-house{
+            margin-right: 0.5rem;
+        }
+        .fa-user{
+            margin-left: 0.5rem;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        .box{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+    }
+    @media screen and (min-width: 768px) {
+        .box{
+            width: 600px;
+        }
+    }
+}

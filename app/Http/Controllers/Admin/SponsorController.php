@@ -18,6 +18,9 @@ class SponsorController extends Controller
 
     public function token($sponsor){
         //qui inizializzo braintree
+        $currentUser = Auth::user();
+        $user_id = $currentUser->id;
+        $doctor = Doctor::where('user_id', $user_id)->first();
         $gateway = new \Braintree\Gateway([
             'environment' => getenv('BRAINTREE_ENV'),
             'merchantId' => getenv('BRAINTREE_MERCHANT_ID'),
@@ -27,7 +30,7 @@ class SponsorController extends Controller
         //genero il token e lo passo alla rotta
         $token = $gateway->ClientToken()->generate();
         $sponsor = Sponsor::where('name', $sponsor)->first();
-        return view('admin.sponsors.paymentForm', ['token' => $token, 'sponsor' => $sponsor]);
+        return view('admin.sponsors.paymentForm', ['token' => $token, 'sponsor' => $sponsor, 'doctor'=> $doctor]);
     }
 
     public function process(Request $request, $sponsor){
@@ -80,7 +83,7 @@ class SponsorController extends Controller
             //dd($dateStart, $dateEnd);
             $sponsorization->doctors()->attach($doctor->id, ['date_start'=>$dateStart, 'date_end'=>$dateEnd]); 
             $risultato = ['result'=>true];
-            return view('admin.sponsors.resultPayment', compact('risultato'));       
+            return view('admin.sponsors.resultPayment', compact('risultato', 'sponsorization', 'dateStart', 'dateEnd'));      
         }else{
             $risultato = ['result'=>false];
             return view('admin.sponsors.resultPayment', compact('risultato'));
