@@ -52,7 +52,7 @@ export default {
                 },
                 {
                     label:'Chi Siamo',
-                    routeName:'ciao'
+                    routeName:'chisiamo'
                 },
 
             ]
