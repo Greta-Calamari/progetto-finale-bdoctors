@@ -37272,15 +37272,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.doctors = {
   currentForm: null,
-  itemid: null,
-  openModal: function openModal(e, id) {
+  // itemid: null,
+  openModal: function openModal(e) {
     e.preventDefault(); //console.log(id);
+    // this.itemid = id;
+    //console.log(e.currentTarget);
 
-    this.itemid = id; //console.log(e.currentTarget);
+    this.currentForm = e.currentTarget.parentNode; // console.log(this.currentForm); 
 
-    this.currentForm = e.currentTarget.parentNode; // console.log(this.currentForm);
-
-    $('#deleteModal-body').html("Sei sicuro di voler eliminare l'elemento con id: ".concat(this.itemid));
+    $('#deleteModal-body').html("<h4>Sei sicuro di voler eliminare questo profilo?</h4>");
     $('#deleteModal').modal('show');
   },
   previewImage: function previewImage() {

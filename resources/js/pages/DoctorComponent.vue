@@ -372,7 +372,7 @@ section{
                     border-radius: 50px;
                     margin-bottom:20px;
                     img{
-                    width: 100%;
+                    object-fit: cover;
                     } 
                 }
             }

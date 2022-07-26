@@ -46,7 +46,7 @@
         </style>
     </head>
     <body>
-        <a href="{{ url('/') }}">Home</a>
+        
         <div class="main-404 container">
             <div class="error">
                 @yield('code')
@@ -65,13 +65,13 @@
                 @yield('message')
             </div> --}}
         </div>
-        {{-- <script>
+        <script>
             var loupe;
             loupe = document.querySelector('.loupe');
             document.addEventListener('mousemove', function(ev) {
             loupe.style.top = (ev.clientY - 65) + 'px';
             return loupe.style.left = (ev.clientX - 65) + 'px';
             });
-        </script> --}}
+        </script>
     </body>
 </html>
