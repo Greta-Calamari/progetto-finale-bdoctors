@@ -37,6 +37,8 @@ Route::get('/messages','Api\MessageController@index');
 Route::post('/messages','Api\MessageController@store');
 //dottori sponsorizzati
 Route::get('/doctors-sponsorized', 'Api\DoctorController@sponsorized');
+//statistiche
+Route::get('/messages', 'Api\StatisticsController@statMessages');
 
 
 

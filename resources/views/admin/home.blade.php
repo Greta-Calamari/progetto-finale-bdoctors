@@ -75,7 +75,11 @@
                
 
                 
-                <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">Statistiche</div>
+                <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">
+                    <h1>Work in progress</h1>
+                    {{-- <h1 id="id" class="d-none">{{$doctor->id}}</h1>
+                    <canvas id="myChart" width="400" height="400"></canvas> --}}
+                </div>
                 <div class="tab-pane fade" id="list-sponsors" role="tabpanel" aria-labelledby="list-sponsors-list">
                     <div>
                         <h1>Sponsorizzazioni attive</h1>
@@ -119,6 +123,12 @@
     </div>
 
 </div>
+
+{{-- <script src="path/to/chartjs/dist/chart.js"></script> --}}
+<script>
+    
+</script>
+
 @endsection
 {{-- 
 <div class="card-body">

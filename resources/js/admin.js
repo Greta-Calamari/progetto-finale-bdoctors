@@ -1,4 +1,5 @@
 require('./bootstrap');
+// import './mychart.js';
 
 window.doctors = {
     currentForm: null,
@@ -25,6 +26,6 @@ window.doctors = {
         this.currentForm.submit();
         
     }
-
+    
 }
 
