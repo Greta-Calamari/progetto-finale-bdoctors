@@ -19,7 +19,7 @@
 
             </div>
             <h3 data-aos="fade-up" data-aos-duration="2000" class="mt-5 sub"> Provalo</h3>
-            <h3 data-aos="fade-up" data-aos-duration="2000" class="sub">Prenota online il tuo prossimo medico</h3>
+            <h3 data-aos="fade-up" data-aos-duration="2000" class="sub">Prenota online il tuo prossimo medico a Milano</h3>
         </div>
 
 
@@ -150,7 +150,7 @@
             <!-- <h3 class="text-center sub-tit q-1" data-aos="fade-right" data-aos-duration="2000">IL</h3> -->
             <h4 class="text-center" data-aos="fade-right" data-aos-duration="2000">Obiettivo e Missione</h4>
             <p class="text-center" data-aos="fade-right" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn my-btn mar-b" data-aos="fade-right" data-aos-duration="2000">per saperne di piu</button>
+            <button class="btn my-btn mar-b" data-aos="fade-right" data-aos-duration="2000">Per saperne di piu</button>
 
           </div>
 
@@ -158,14 +158,14 @@
             <!-- <h3 class="text-center sub-tit q-1" data-aos="fade-up" data-aos-duration="2000">NOSTRO</h3> -->
             <h4 class="text-center" data-aos="fade-up" data-aos-duration="2000">La Nostra Clinica</h4>
             <p class="text-center" data-aos="fade-up" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn my-btn mar-b" data-aos="fade-up" data-aos-duration="2000">per saperne di piu</button>
+            <button class="btn my-btn mar-b" data-aos="fade-up" data-aos-duration="2000">Per saperne di piu</button>
 
           </div>
           <div class="col-12 col-lg-4">
             <!-- <h3 class="text-center sub-tit q-1" data-aos="fade-left" data-aos-duration="2000">LAVORO</h3> -->
             <h4 class="text-center" data-aos="fade-left" data-aos-duration="2000">Lavora Con noi</h4>
             <p class="text-center" data-aos="fade-left" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn my-btn mb-2 mar-b" data-aos="fade-left" data-aos-duration="2000">per saperne di piu</button>
+            <button class="btn my-btn mb-2 mar-b" data-aos="fade-left" data-aos-duration="2000">Per saperne di piu</button>
 
           </div>
         </div>
@@ -208,7 +208,7 @@
                   <div class="card-body">
                     <h5 class="card-title">Corona virus</h5>
                     <p class="card-text">I ricercatori segnalano la rilevazione di mutazioni virali associate alla farmacoresistenza in pazienti trattati con REGEN-COV e sotrovimab</p>
-                    <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
+                    <a href="https://www.news-medical.net/" class="btn my-btn" target="_blank">Per saperne di più</a>
                   </div>
               </div>
 
@@ -217,7 +217,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Depressione</h5>
                         <p class="card-text">Recensione: nessuna chiara evidenza che i livelli di serotonina siano responsabili della depressione</p>
-                        <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn" target="_blank">Per saperne di più</a>
                       </div>
               </div>
 
@@ -226,7 +226,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Cardiologia</h5>
                         <p class="card-text">In che modo il sonno influisce sulla salute del cuore?</p>
-                        <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn" target="_blank">Per saperne di più</a>
                       </div>
               </div>
 
@@ -235,7 +235,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Farmaci</h5>
                         <p class="card-text">L'effetto degli antibiotici sul microbioma intestinale</p>
-                        <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn" target="_blank">Per saperne di più</a>
                       </div>
               </div>
 
@@ -244,7 +244,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Cancro</h5>
                         <p class="card-text">Comprendere le sfide nella terapia del cancro utilizzando le cellule staminali mesenchimali (MSC)</p>
-                        <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn" target="_blank">Per saperne di più</a>
                       </div>
               </div>
               <div class="card h" >
@@ -252,7 +252,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Asma</h5>
                         <p class="card-text">Colmare le lacune nell'attuale cura dell'asma</p>
-                        <a href="https://www.news-medical.net/" class="btn my-btn">Per saperne di più</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn" target="_blank">Per saperne di più</a>
                       </div>
               </div>
               <div class="card h" >
@@ -260,7 +260,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Depressione</h5>
                         <p class="card-text">Recensione: nessuna chiara evidenza che i livelli di serotonina siano responsabili della depressione</p>
-                        <a href="https://www.news-medical.net/" class="btn my-btn">PER SAPERNE DI PIU'</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn" target="_blank">Per saperne di più</a>
                       </div>
               </div>
               <div  class="card h" >
@@ -268,7 +268,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Integratori</h5>
                         <p class="card-text">Nutrienti utili per affrontare la stanchezza estiva</p>
-                        <a href="https://www.news-medical.net/" class="btn my-btn">PER SAPERNE DI PIU'</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn" target="_blank">Per saperne di più</a>
                       </div>
               </div>
               <div class="card h ">
@@ -276,7 +276,7 @@
                       <div class="card-body">
                         <h5 class="card-title">Sperimentazione</h5>
                         <p class="card-text">Regolamentazione ed etica delle sperimentazioni cliniche</p>
-                        <a href="https://www.news-medical.net/" class="btn my-btn">PER SAPERNE DI PIU'</a>
+                        <a href="https://www.news-medical.net/" class="btn my-btn" target="_blank">Per saperne di più</a>
                       </div>
               </div>
               
@@ -536,11 +536,11 @@ z-index: 1000;
   right: 15px;
 }
     
-.p-car{
-//width:400px;
-//margin:76px auto;
+// .p-car{
+// //width:400px;
+// //margin:76px auto;
 
-}
+// }
 .p-carr{
 //width:400px;
 //margin:50px auto;

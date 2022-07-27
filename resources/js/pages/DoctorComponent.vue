@@ -416,9 +416,9 @@ section{
                         color: $general-violet;
                     }
                 }
-                .i-curriculum{
+                // .i-curriculum{
                     
-                }
+                // }
             }
         }
         .button-messaggio-div{

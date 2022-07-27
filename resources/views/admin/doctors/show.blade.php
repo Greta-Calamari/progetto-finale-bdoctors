@@ -7,14 +7,18 @@
             <div class="row justify-content-center align-items-center container-all">
                 <div class="left  col-lg-6 col-md-6 col-sm-12 ">
                     <div class="bg d-flex flex-column justify-content-center align-items-center ">
+                        @if ($doctor->photo)
                         <img src="{{asset('storage/' . $doctor->photo)}}" alt="{{$doctor->name}}">
+                        @else
+                        <img src="http://mascitelliandpartners.com/map/wp-content/uploads/2015/03/placeholder_user.png" alt="{{$doctor->name}}">
+                        @endif
                         
                         {{-- Specializzazioni  --}}
                         <div class="specializzazioni text-center">
                             <hr>
                             <h3><i class="fa-solid fa-stethoscope"></i> Specializzazioni</h3>
                             @foreach ($doctor->specializations as $specialization)
-                                {{$specialization->name}}
+                                <span class="specs">{{$specialization->name}}</span>
                             @endforeach
                         </div>
                         

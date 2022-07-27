@@ -23,14 +23,18 @@
                 <div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 mb-3">
-                            <img src="{{asset('storage/'.$doctor->photo)}}" alt="{{$doctor->name}}">
+                            @if ($doctor->photo)
+                            <img src="{{asset('storage/' . $doctor->photo)}}" alt="{{$doctor->name}}">
+                            @else
+                            <img src="http://mascitelliandpartners.com/map/wp-content/uploads/2015/03/placeholder_user.png" alt="{{$doctor->name}}">
+                            @endif
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12 col-md-6 text-right">
                             <h3>{{$doctor->name}} {{$doctor->surname}}</h3>
                             <p>{{Auth::user()->email}}</p>                            
                             <a class="btn cs_btn mb-2" href="{{route('admin.doctors.show', $doctor->id)}}">Vedi profilo completo</a>
                             <a class="btn cs_btn mb-2" href="{{route('admin.doctors.edit', $doctor->id)}}">Modifica profilo</a>
-                            <form action="{{ route('admin.users.destroy', $user->id ) }}" method="post">
+                            <form action="{{ route('admin.users.destroy', $user->id ) }}" method="post" text-right>
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn cs_btn" type="submit" onclick="doctors.openModal(event, {{$user->id}} )">Elimina profilo</button>    
@@ -47,7 +51,7 @@
                                 <h5>{{$message->name}}</h5>
                                 <h6>{{$message->email}}</h6>
                             </div>  
-                            <p>{{$message->content}}</p>
+                            <p class="pt-3">{{$message->content}}</p>
                         </li>
                             
                         @endforeach
@@ -67,7 +71,7 @@
                                 @endfor</h6>
 
                             </div>  
-                            <p>{{$review->comment}}</p>
+                            <p class="pt-3">{{$review->comment}}</p>
                         </li>
                             
                         @endforeach
@@ -76,32 +80,48 @@
                
 
                 
-                <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">Statistiche</div>
+                <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">
+                    <h3>Work in progress</h3>
+                </div>
                 <div class="tab-pane fade" id="list-sponsors" role="tabpanel" aria-labelledby="list-sponsors-list">
                     
                     <div class="row row_sponsor">
                         @foreach($sponsors as $sponsor)
-                        <div class="col-6 col-sm-4 col-md-2 col-lg-3 card text-center col_sponsor my-4">
-                            <a href="{{route('admin.sponsor.pay', $sponsor->name)}}">
-                                <h3 class="">{{$sponsor->name}}</h3>
-                                <p>prezzo: {{$sponsor->price}}€</p>
-                                <p>durata {{$sponsor->duration_in_hours}} ore</p>
-                            </a>
-                            <div class="overflow"></div>
+                        <div class="col-6 col-md-4 text-center">
+                            <div class="my_card">
+                                <a href="{{route('admin.sponsor.pay', $sponsor->name)}}">
+                                    <h3 class="">{{$sponsor->name}}</h3>
+                                    <p><i class="fa-solid fa-tag"></i>  {{$sponsor->price}}€</p>
+                                    <p><i class="fa-solid fa-clock"></i> {{$sponsor->duration_in_hours}} ore</p>
+                                </a>
+                            </div>
                         </div>
                         
                         @endforeach
                     </div>
                     
 
-                    <h1>Sponsorizzazioni attive</h1>
-                    @if (count($doctor->sponsors))
+                    @if (count($doctor->active_sponsor) > 0)
+                    <h3 class="text-center tit">Sponsorizzazioni attualmente in corso</h3>
                     <ul>
                         @foreach($doctor->active_sponsor as $sponsor)
+                        <li class="card card_2 my-3">
+                            <h5>{{$sponsor->name}}</h5>
+                            <p><i class="fa-solid fa-calendar"></i> Data di inizio: {{date('d-m-Y', strtotime($sponsor->pivot->date_start))}}</p>
+                            <p><i class="fa-solid fa-calendar"></i> Data di fine: {{date('d-m-Y', strtotime($sponsor->pivot->date_end))}}</p>
+                        </li>
+                        @endforeach
+                    </ul>
+                    @endif
+
+                    @if (count($doctor->sponsors) > 0)
+                    <h3 class="text-center tit">Tutte le sponsorizzazioni</h3>
+                    <ul>
+                        @foreach($doctor->sponsors as $sponsor)
                         <li class="card my-3">
-                            <p>{{$sponsor->name}}</p>
-                            <p>Inizio: {{date('d-m-Y', strtotime($sponsor->pivot->date_start))}}</p>
-                            <p>Scadenza: {{date('d-m-Y', strtotime($sponsor->pivot->date_end))}}</p>
+                            <h5>{{$sponsor->name}}</h5>
+                            <p><i class="fa-solid fa-calendar"></i> Data di inizio: {{date('d-m-Y', strtotime($sponsor->pivot->date_start))}}</p>
+                            <p><i class="fa-solid fa-calendar"></i> Data di fine: {{date('d-m-Y', strtotime($sponsor->pivot->date_end))}}</p>
                         </li>
                         @endforeach
                     </ul>

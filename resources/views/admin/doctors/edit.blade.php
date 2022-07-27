@@ -1,16 +1,17 @@
 @extends('layouts.admin')
 
 @section('content')
+<h2 class="text-center mb-5 title-ed-cr">Modifica il tuo profilo</h2>
     
 <div class="container modifica-profilo">
-    
     <form action="{{route('admin.doctors.update', $doctor->id)}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row">
-            <div class="col col-md-6 col-lg-3 ">
+
+            <div class="col col-12 col-lg-4 border-col">
                 <div class="mb-3 mt-3">
-                    <label for="photo" class="form-label d-block">Insert photo</label>
+                    <label for="photo" class="form-label d-block">Inserisci Foto</label>
                     <div class="container-photo">
                         @if ($doctor->photo)
                         <img id="imgPreview" src="{{asset('storage/' . $doctor->photo)}}">
@@ -24,10 +25,13 @@
                     @enderror
                     <h3> {{$doctor->name}} {{$doctor->surname}}</h3>
                 </div>
+                <div class="note d-none d-lg-block">
+                    <span class="obbligatorio">*</span><span>Campo obbligatorio</span>
+                </div>
             </div>
 
-            <div class="col col-sm-12 col-sm-12 col-md-6 col-lg-5">
-                <h2>Modifica il tuo profilo</h2>
+            <div class="col col-12 col-lg-4 border-col">
+                
                 <div class="row">
                     <div class="col-6">
                         <div class="mb-3">
@@ -65,7 +69,7 @@
                 </div>
                 
                 <div class="mb-3">
-                    <label for="curriculum_vitae" class="form-label d-block">Insert Curriculum Vitae</label>
+                    <label for="curriculum_vitae" class="form-label d-block">Inserisci Curriculum</label>
                     <input type="file" id="curriculum_vitae" name="curriculum_vitae">
                     @error('curriculum_vitae')
                         <div class="alert alert-danger"> {{$message}} </div>
@@ -78,12 +82,12 @@
                         <div class="alert alert-danger"> {{$message}} </div>
                     @enderror
                 </div>
-
+                <button type="submit" class="btn cs_btn text-center d-none d-lg-block">Modifica</button>
             </div>
             
-            <div class="col col-sm-12 col-md-12 col-lg-4">
+            <div class="col col-12  col-lg-4">
                 <div class="mb-3 mt-3">
-                    <h6>Specializzazioni<span class="obbligatorio">*</span></h6>
+                    <h6 class="form-label">Specializzazioni<span class="obbligatorio">*</span></h6>
                     @foreach($specializations as $specialization)
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input @error('category_id') is-invalid @enderror" name="specializations[]" id="{{$specialization->name}}" {{$doctor->specializations->contains($specialization->id) ? 'checked' : ''}} value="{{$specialization->id}}">
@@ -95,10 +99,13 @@
                     @enderror
                 </div>
             </div>
+            
         </div>
-        <button type="submit" class="btn cs_btn text-center">Modifica</button>
-        <div class="note">
-            <span class="obbligatorio">*</span><span>Campo obbligatorio</span>
+        <div class="col-12 d-block d-lg-none mb-5">
+            <button type="submit" class="btn cs_btn text-center">Modifica</button>
+            <div class="note">
+                <span class="obbligatorio">*</span><span>Campo obbligatorio</span>
+            </div>
         </div>
     </form>
 </div>

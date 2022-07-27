@@ -1,9 +1,18 @@
+.title-ed-cr{
+    color: $general-violet;
+    text-transform: uppercase;
+}
 .container.modifica-profilo {
     border: 1px solid $general-violet;
     border-radius: 15px;
     background-color: white;
+    
     form {
-        padding: 10px;
+        //padding: 10px;
+        .form-label{
+            color: $general-violet;
+            font-size: 1.2rem;
+        }
         .cs_btn {
             background-color: $general-violet;
             border-color: $general-violet;
@@ -15,9 +24,8 @@
                 box-shadow: 0 0 0 0.2rem rgba($general-violet, 0.5);
             }
         }     
-        .col-lg-5 {
-            border-left: 1px solid $general-violet;
-            border-right: 1px solid $general-violet;
+        .border-col {
+            border-right: 2px solid $general-violet;
             padding-bottom: 25px;
         }
         .col {
@@ -29,6 +37,7 @@
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                    object-position: top;
                     border-radius: 15px;
                     box-shadow: 10px 12px 4px $general-light-blue;
                 }
@@ -39,34 +48,47 @@
             }
         }
         .obbligatorio {
-            color: red;
+            color: $general-violet;
+        }
+        .note{
+            position: absolute;
+            bottom: 0;
         }
                        
     }
-}
-
-
-
-@media (max-width: 576px) {  
     
-}
-/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-@media (max-width: 767px) {
-    .modifica-profilo{
-        form .col-lg-5 {
-            border-left: none;
+    // @media s (max-width: 576px) {  
+        
+    // }
+    // /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+    @media screen and (max-width: 768px) {
+        form .border-col{
+            border: none;
+        }
+        // .modifica-profilo{
+        //     form .border-col {
+        //         border-left: none;
+        //     }
+        // }
+        
+    }
+    /* Large devices (desktops, 992px and up) */
+    @media screen and (max-width: 992px) {
+        // .modifica-profilo{
+        //     form .border-col {
+        //         border-right: none;
+        //     }
+        // }
+        form .col .container-photo{
+            height: 500px;
         }
     }
+    /* Extra large devices (large desktops, 1200px and up) */
+    // @media (min-width: 1200px) {
+    
+    // }
 }
-/* Large devices (desktops, 992px and up) */
-@media (max-width: 992px) {
-    .modifica-profilo{
-        form .col-lg-5 {
-            border-right: none;
-        }
-    }
-}
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
 
-}
+// @media screen {
+    
+// }
