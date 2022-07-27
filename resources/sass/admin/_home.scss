@@ -1,11 +1,20 @@
 #app {
+    min-height: 100vh;
     background-color: aliceblue;
-    min-height: calc(100vh);
+    .bg-violet {
+        // background-color: $general-violet;
+        background: linear-gradient(360deg, hsl(251deg, 42%, 50%) 0%, hsl(231deg, 51%, 60%) 0%);
+        background: -webkit-linear-gradient(360deg, hsl(251deg, 42%, 50%) 0%, hsl(231deg, 51%, 60%) 0%);
+    
+        .nav-item a {
+            color: $general-violet;
+        }
+    }
 }
 
 #home {
     // background-color:
-    height: calc(100vh - 106px);
+    min-height: calc(100vh - 142px);
     .list-group-item.active {
         background-color: $general-violet;
         border-color: $general-violet;
@@ -23,8 +32,54 @@
             background-color: $general-violet;
             border-color: $general-violet;
             color: white;
+            margin-right: 30%;
+            min-width: 60%;
             &:focus {
                 box-shadow: 0 0 0 0.2rem rgba($general-violet, 0.5);
+            }
+        }
+        .row_sponsor {
+            gap:50px;
+            margin-bottom: 50px;
+            justify-content: space-around;
+        }
+        .col_sponsor {
+            padding: 5px;
+            // border: 2px solid $general-violet;
+            position: relative;
+            &:hover {
+                border: opacity(1);
+            }
+            &:hover a {
+                text-decoration: none;
+                color: $general-violet;
+                transition: linear 0.6s;
+                z-index: 2;
+            }
+            &:hover .overflow {
+                opacity: 1;
+                transition: 0.7s;
+                border-radius: 0.25rem;
+            }
+            .overflow {
+                position: absolute;
+                top: -1;
+                left: -1;
+                right: -1;
+                bottom: -1;
+                border: 2px solid $general-violet;
+                opacity: 0;
+            }
+        }
+       
+        .active_sponsor {
+            display: flex;
+            gap: 30px;
+            background: $general-light-blue;
+            justify-content: space-between;
+            border-radius: 15px;
+            p {
+                margin-bottom: 0;
             }
         }
         ul {
@@ -32,7 +87,8 @@
             padding-left: 0;
             li {
                 padding: 0.5rem;
-                background-color: rgba($general-light-blue, 0.3);
+                padding: 20px;
+                border-color: $general-violet;
 
                 div {
                     border-bottom: 1px solid $general-violet;
@@ -40,8 +96,8 @@
                         color: $general-violet;
                         text-align: center;
                     }
-                    h6 {
-                        text-align: center;
+                    h6.text-end {
+                        text-align: end;
                     }
                 }
             }
