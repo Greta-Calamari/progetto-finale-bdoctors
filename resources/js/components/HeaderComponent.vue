@@ -14,7 +14,7 @@
 
                 <b-collapse id="nav-collapse" is-nav>
                     <b-navbar-nav>
-                        <ul class="d-flex m-3">
+                        <ul class="d-flex m-3 media">
                             <li v-for="(item, index) in menu" :key="index">
                                 <router-link class="navbar-brand nav-link" :to="{name: item.routeName}">{{item.label}}</router-link>
                             </li>
@@ -91,5 +91,14 @@ export default {
 
 .img {
     width: 150px;
+}
+@media screen and (max-width:992px){
+    .media{
+        justify-content: center;
+        
+    }
+    .nav-link{
+        text-align: center;
+    }
 }
 </style>
