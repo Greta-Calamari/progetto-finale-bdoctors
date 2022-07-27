@@ -12,7 +12,8 @@
                 <div class="mb-3 mt-3">
                     <label for="photo" class="form-label d-block">Insert photo</label>
                     <div class="container-photo">
-                        <img id="imgPreview" width="100" src="https://via.placeholder.com/300x200" alt=""></div>
+                        <img id="imgPreview" width="100" src="http://mascitelliandpartners.com/map/wp-content/uploads/2015/03/placeholder_user.png" alt="">
+                    </div>
                     <input type="file" id="photo" name="photo" onchange="doctors.previewImage()">
                     @error('photo')
                         <div class="alert alert-danger"> {{$message}} </div>

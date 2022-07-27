@@ -7,7 +7,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-margin">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5">
                 <div class="box">
                     <h1 data-aos="fade-left" data-aos-duration="2000">La piattaforma per la tua salute</h1>
                     <p data-aos="fade-left" data-aos-duration="2000">La piattaforma per la tuaLorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium repellendus omnis odio voluptatem earum assumenda quasi, tempore commodi corporis voluptate mollitia obcaecati ad, doloremque unde nemo dolorum distinctio ipsam excepturi veritatis debitis, fuga quaerat reiciendis molestias eveniet. Laborum quis at, nobis tenetur unde libero ea eum reprehenderit, eligendi voluptate perspiciatis.</p>
@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-12 col-lg-7">
-                <img data-aos="fade-left" data-aos-duration="2000" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/950b5550646851d18b39c668/min.png" alt="" class="img-jumbo img-100-">
+                <img data-aos="fade-left" data-aos-duration="2000" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/950b5550646851d18b39c668/min.png" alt="" class="img-jumbo img-100- m-0">
             </div>
 
 
@@ -215,6 +215,7 @@ export default {
 
 .cc{
     color: $general-violet;
+    margin-bottom: 30px;
     
 }
 

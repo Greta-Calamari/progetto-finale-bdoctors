@@ -86,7 +86,7 @@
                                         <router-link :to="{ name:'doctor', params:{slug: doctor.slug} }">
                                             <div class="img-box">
                                                 <img :src="`/storage/${doctor.photo}`" class="w-100" :alt="doctor.name"  v-if=" doctor.photo">
-                                                <img src='https://t4.ftcdn.net/jpg/02/29/53/11/360_F_229531197_jmFcViuzXaYOQdoOK1qyg7uIGdnuKhpt.jpg' v-else>
+                                                <img src="http://mascitelliandpartners.com/map/wp-content/uploads/2015/03/placeholder_user.png" v-else>
                                             </div>
                                         </router-link>
                                     </div>
