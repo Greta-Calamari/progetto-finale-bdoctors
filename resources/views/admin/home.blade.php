@@ -59,12 +59,12 @@
                         @foreach ($doctor->reviews as $review)
                         <li class="card my-3">
                             <div>
-                                <h4>{{$review->created_at}}</h4>
+                                <h6 class="text-end">{{date('d-m-Y', strtotime($review->created_at))}}</h6>
                                 <h5>{{$review->name}}</h5>
                             
-                                <h6>{{$review->votes}}</h6>
-
-                                
+                                <h6 class="text-center">@for ($i = 0; $i < $review->votes; $i++)
+                                    <span class="fa fa-star" style="color: orange"></span>
+                                @endfor</h6>
 
                             </div>  
                             <p>{{$review->comment}}</p>
@@ -104,24 +104,6 @@
                         @endforeach
                     </ul>
                     @endif
-
-
-                        {{-- @if (count($doctor->sponsors)) --}}
-                       
-                        {{-- @else
-                            <form action="{{route('admin.doctors.update', $doctor->id)}}" method="post">
-                                @csrf
-                                @method('PUT')
-                                @foreach($sponsors as $sponsor)
-                                    <div class="form-check">
-                                        <input type="radio" class="form-check-input" name="sponsor" id="{{$sponsor->name}}" value="{{$sponsor->id}}">
-                                        <label class="form-check-label" for="{{$sponsor->name}}">{{$sponsor->name}}</label>
-                                    </div>
-                                @endforeach
-                                <button class="btn btn-outline-primary" type="submit">Seleziona</button>
-                            </form>
-                        @endif --}}
-                    
 
                 </div>
             </div>
