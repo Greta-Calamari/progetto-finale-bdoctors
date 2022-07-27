@@ -41,7 +41,7 @@
                 <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
                     <ul>
                         @foreach ($doctor->messages as $message)
-                        <li>
+                        <li class="card my-3">
                             <div>
                                 <h5>{{$message->name}}</h5>
                                 <h6>{{$message->email}}</h6>
@@ -56,7 +56,7 @@
                     
                     <ul>
                         @foreach ($doctor->reviews as $review)
-                        <li>
+                        <li class="card my-3">
                             <div>
                                 <h4>{{$review->created_at}}</h4>
                                 <h5>{{$review->name}}</h5>
@@ -77,28 +77,36 @@
                 
                 <div class="tab-pane fade" id="list-statistics" role="tabpanel" aria-labelledby="list-statistics-list">Statistiche</div>
                 <div class="tab-pane fade" id="list-sponsors" role="tabpanel" aria-labelledby="list-sponsors-list">
-                    <div>
-                        <h1>Sponsorizzazioni attive</h1>
-                        @if (count($doctor->sponsors))
-                        <ul>
-                            @foreach($doctor->active_sponsor as $sponsor)
-                            <li>
-                                <p>{{$sponsor->name}}</p>
-                                <p>Inizio: {{$sponsor->pivot->date_start}}</p>
-                                <p>Scadenza: {{$sponsor->pivot->date_end}}</p>
-                            </li>
-                            @endforeach
-                        </ul>
-                        @endif
+                    
+                    <div class="row row_sponsor">
+                        @foreach($sponsors as $sponsor)
+                        <div class="col-3 card text-center col_sponsor">
+                            <a href="{{route('admin.sponsor.pay', $sponsor->name)}}">
+                                <h3 class="">{{$sponsor->name}}</h3>
+                                <p>prezzo: {{$sponsor->price}}€</p>
+                                <p>durata {{$sponsor->duration_in_hours}} ore</p>
+                            </a>
+                        </div>
+                        @endforeach
+                    </div>
+                    
+
+                    <h1>Sponsorizzazioni attive</h1>
+                    @if (count($doctor->sponsors))
+                    <ul>
+                        @foreach($doctor->active_sponsor as $sponsor)
+                        <li class="active_sponsor">
+                            <p>{{$sponsor->name}}</p>
+                            <p>Inizio: {{$sponsor->pivot->date_start}}</p>
+                            <p>Scadenza: {{$sponsor->pivot->date_end}}</p>
+                        </li>
+                        @endforeach
+                    </ul>
+                    @endif
+
+
                         {{-- @if (count($doctor->sponsors)) --}}
-                        <ul>
-                            @foreach($sponsors as $sponsor)
-                            <li>
-                                <h3>{{$sponsor->name}}</h3>
-                                <a href="{{route('admin.sponsor.pay', $sponsor->name)}}">Vai al pagamento</a>
-                            </li>
-                            @endforeach
-                        </ul>
+                       
                         {{-- @else
                             <form action="{{route('admin.doctors.update', $doctor->id)}}" method="post">
                                 @csrf
@@ -112,7 +120,7 @@
                                 <button class="btn btn-outline-primary" type="submit">Seleziona</button>
                             </form>
                         @endif --}}
-                    </div>
+                    
 
                 </div>
             </div>
