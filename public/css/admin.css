@@ -19780,6 +19780,123 @@ readers do not read off random characters that represent icons */
   text-decoration: none;
 }
 
+#paymentForm {
+  min-height: calc(100vh - 106px);
+}
+#paymentForm h1 {
+  color: #5f4bb6;
+}
+#paymentForm .dati {
+  padding: 0;
+}
+#paymentForm .dati li {
+  padding: 1rem 0;
+  border-bottom: 1px solid #5f4bb6;
+}
+#paymentForm .dati li .label {
+  color: #86a5d9;
+  text-transform: uppercase;
+  margin-right: 0.5rem;
+}
+#paymentForm .dati li .label .fa-solid {
+  margin-right: 0.5rem;
+}
+#paymentForm .cs_btn {
+  color: #fff;
+  background-color: #5f4bb6;
+  text-transform: uppercase;
+  border: 1px solid #5f4bb6;
+}
+#paymentForm .cs_btn:not(:disabled):hover {
+  color: #5f4bb6;
+  background-color: rgba(95, 75, 182, 0.4);
+}
+#paymentForm .cs_btn:disabled {
+  background-color: rgba(95, 75, 182, 0.1);
+}
+#paymentForm .cs_btn:disabled:hover {
+  background-color: rgba(95, 75, 182, 0.1);
+  color: #fff;
+}
+#paymentForm .braintree-heading {
+  color: #5f4bb6;
+  text-transform: uppercase;
+}
+#paymentForm .braintree-loader__container, #paymentForm .braintree-show-card .braintree-card, #paymentForm .braintree-option:first-child, #paymentForm .braintree-large-button {
+  background-color: rgba(95, 75, 182, 0.2);
+}
+
+#paymentResult {
+  height: calc(100vh - 106px);
+  position: relative;
+}
+#paymentResult .box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#paymentResult h1 {
+  color: #5f4bb6;
+  text-align: center;
+}
+#paymentResult h4 {
+  margin: 2rem 0;
+  text-align: center;
+}
+#paymentResult .box-info {
+  width: 80%;
+  margin: auto;
+  border: 3px solid #5f4bb6;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 150px;
+}
+#paymentResult .box-info p {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0.6rem;
+}
+#paymentResult .box-info p.border {
+  border-bottom: 3px solid #5f4bb6;
+}
+#paymentResult .box-info p .label {
+  text-transform: uppercase;
+  text-align: start;
+}
+#paymentResult .box-info p .result {
+  color: #5f4bb6;
+  text-align: end;
+}
+#paymentResult .cs_link {
+  color: #86a5d9;
+  text-decoration: none;
+  font-size: 1rem;
+}
+#paymentResult .cs_link:hover {
+  color: #5f4bb6;
+}
+#paymentResult .cs_link .fa-house {
+  margin-right: 0.5rem;
+}
+#paymentResult .cs_link .fa-user {
+  margin-left: 0.5rem;
+}
+@media screen and (max-width: 767px) {
+  #paymentResult .box {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+}
+@media screen and (min-width: 768px) {
+  #paymentResult .box {
+    width: 600px;
+  }
+}
+
 body {
   font-family: "Ibarra Real Nova", serif;
 }

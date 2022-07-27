@@ -6,10 +6,10 @@
                 <h3>Informazioni</h3>
                 <hr>
                 <ul>
-                    <li><a href="#">Chi siamo</a></li>
-                    <li><a href="#">Privacy e cookies</a></li>
-                    <li><a href="#">Dottori</a></li>
-                    <li><a href="#">Prestazioni</a></li>
+                    <li><router-link :to="{ name:'chisiamo'}">Chi siamo</router-link></li>
+                    <li><router-link :to="{ name:'doctors'}">Dottori</router-link></li>
+                    <li><router-link :to="{ name:'privacy'}">Privacy e cookies</router-link></li>
+                    <li><router-link :to="{ name:'prestazioni'}">Specializzazioni</router-link></li>
 
                 </ul>
 

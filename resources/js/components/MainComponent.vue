@@ -19,5 +19,6 @@ export default {
 <style lang="scss">
     .margin{
         margin-top: 110px;
+        min-height: 40vh;
     }
 </style>
