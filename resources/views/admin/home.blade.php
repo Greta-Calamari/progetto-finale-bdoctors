@@ -81,13 +81,15 @@
                     
                     <div class="row row_sponsor">
                         @foreach($sponsors as $sponsor)
-                        <div class="col-3 card text-center col_sponsor">
+                        <div class="col-6 col-sm-4 col-md-2 col-lg-3 card text-center col_sponsor my-4">
                             <a href="{{route('admin.sponsor.pay', $sponsor->name)}}">
                                 <h3 class="">{{$sponsor->name}}</h3>
                                 <p>prezzo: {{$sponsor->price}}€</p>
                                 <p>durata {{$sponsor->duration_in_hours}} ore</p>
                             </a>
+                            <div class="overflow"></div>
                         </div>
+                        
                         @endforeach
                     </div>
                     
@@ -96,10 +98,10 @@
                     @if (count($doctor->sponsors))
                     <ul>
                         @foreach($doctor->active_sponsor as $sponsor)
-                        <li class="active_sponsor">
+                        <li class="card my-3">
                             <p>{{$sponsor->name}}</p>
-                            <p>Inizio: {{$sponsor->pivot->date_start}}</p>
-                            <p>Scadenza: {{$sponsor->pivot->date_end}}</p>
+                            <p>Inizio: {{date('d-m-Y', strtotime($sponsor->pivot->date_start))}}</p>
+                            <p>Scadenza: {{date('d-m-Y', strtotime($sponsor->pivot->date_end))}}</p>
                         </li>
                         @endforeach
                     </ul>
