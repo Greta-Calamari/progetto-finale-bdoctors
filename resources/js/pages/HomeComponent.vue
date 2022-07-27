@@ -36,42 +36,44 @@
         
 
               <div class="container cont" data-aos="fade-up" data-aos-duration="2000">
-                  <div class="card mb-3 card-dd">
-                    <div class="row no-gutters">
-                      <div  class="col-md-4 card-media" >
-                            <img v-if="doctors[indexActive].photo" class=" img-card" :src="`/storage/${doctors[indexActive].photo}`" :alt="doctors[indexActive].name"/>
-                            <img v-else class=" img-card" src="https://t4.ftcdn.net/jpg/02/29/53/11/360_F_229531197_jmFcViuzXaYOQdoOK1qyg7uIGdnuKhpt.jpg" :alt="doctors[indexActive].name" />
+                  <div class="row mb-3 card-dd" @mouseover="stopAutoscroll" @mouseout="autoScroll">
+                      <div  class="col-md-5 d-none d-lg-block" >
+                            <img v-if="doctors[indexActive].photo" class="img-card" :src="`/storage/${doctors[indexActive].photo}`" :alt="doctors[indexActive].name"/>
+                            <img v-else class=" img-card" src="http://mascitelliandpartners.com/map/wp-content/uploads/2015/03/placeholder_user.png" :alt="doctors[indexActive].name" />
                       </div>
                       
                         
-                      <div class="col-md-8 card-media">
-                        <div class="card-body my-card">
-                          <h5 class="card-title text-center mt-5 ">{{doctors[indexActive].name}}</h5>
-                          <h5 class="card-title text-center mt-2">{{doctors[indexActive].surname}}</h5>
-                          <p class="text-center p-car media-q">{{doctors[indexActive].address}}</p>
-                          <p  class="text-center p-car media-q">{{doctors[indexActive].cell_number}}</p>
-                          <p  class="text-center media-q p-car mt-5">{{doctors[indexActive].services}}</p>
-                          <!-- <ul>
-                            <li v-for="specialization in doctor.specializations" :key="specialization.id">
-                              <router-link class="router-link" :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
-                          </li>
-                          </ul> -->
+                      <div class="col-12 col-lg-7">
+                        <div class="card-body my-card text-center">
+                          <h3 class="card-title text-center mt-5 "><i class="fa-solid fa-stethoscope"></i>{{doctors[indexActive].name}} {{doctors[indexActive].surname}}</h3>
+                          <!-- <h5 class="card-title text-center mt-2">{{doctors[indexActive].surname}}</h5> -->
+                          <p class="text-center p-car media-q"><i class="fa-solid fa-map-location"></i> {{doctors[indexActive].address}}</p>
+                          <p  class="text-center p-car media-q"><i class="fa-solid fa-phone"></i> {{doctors[indexActive].cell_number}}</p>
+                          <!-- <p v-if="doctors[indexActive].sevices" class="text-center media-q p-car mt-5">{{doctors[indexActive].services}}</p> -->
+                          <ul v-if="doctors[indexActive].specializations.length > 0" class="text-center">
+                            <li class="special" v-for="specialization in doctors[indexActive].specializations" :key="specialization.id">
+                              <router-link class="special" :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
+                            </li>
+                          </ul>
+                          <router-link class="router-link" :to="{name: 'doctor', params: {slug: doctors[indexActive].slug} }" >
+                            <div class="btn cs_btn">Visualizza dottore</div>
+                          </router-link>
 
                           
 
 
 
                         </div>
-                      </div>
+                        <div class="prev" @click="prevSlide">
+                          <i class="fa-solid fa-chevron-left"></i>
+                        </div>
+                        <div class="next" @click="nextSlide">
+                          <i class="fa-solid fa-chevron-right"></i>
+
+                        </div>
                     </div>
                   </div>
-                  <div class="prev" @click="prevSlide">
-                    <i class="fa-solid fa-chevron-left"></i>
-                  </div>
-                  <div class="next" @click="nextSlide">
-                    <i class="fa-solid fa-chevron-right"></i>
-
-                  </div>
+                  
 
               </div>
 
@@ -141,28 +143,29 @@
       </div>
 
 <!-- OBBIETTIVI -->
-      <div class="container c-obb ">
-        <div class="row border-row">
-          <div class="col-obb col-4">
-            <h3 class="text-center sub-tit q-1" data-aos="fade-right" data-aos-duration="2000">IL</h3>
-            <h4 class="text-center q-2" data-aos="fade-right" data-aos-duration="2000">Obiettivo e Missione</h4>
-            <p class="text-center q-3" data-aos="fade-right" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn my-btn m-b" data-aos="fade-right" data-aos-duration="2000">per saperne di piu</button>
+      <div class="container c-obb text-center bg-col">
+        <h3 class="text-uppercase sub-tit" data-aos="fade-up" data-aos-duration="2000">Il nostro lavoro</h3>
+        <div class="row">
+          <div class="col-12 col-lg-4">
+            <!-- <h3 class="text-center sub-tit q-1" data-aos="fade-right" data-aos-duration="2000">IL</h3> -->
+            <h4 class="text-center" data-aos="fade-right" data-aos-duration="2000">Obiettivo e Missione</h4>
+            <p class="text-center" data-aos="fade-right" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
+            <button class="btn my-btn mar-b" data-aos="fade-right" data-aos-duration="2000">per saperne di piu</button>
 
           </div>
 
-          <div class="col-obb col-4" >
-            <h3 class="text-center sub-tit q-1" data-aos="fade-up" data-aos-duration="2000">NOSTRO</h3>
-            <h4 class="text-center q-2 " data-aos="fade-up" data-aos-duration="2000">La Nostra Clinica</h4>
-            <p class="text-center q-3" data-aos="fade-up" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn my-btn m-b" data-aos="fade-up" data-aos-duration="2000">per saperne di piu</button>
+          <div class="col-12 col-lg-4" >
+            <!-- <h3 class="text-center sub-tit q-1" data-aos="fade-up" data-aos-duration="2000">NOSTRO</h3> -->
+            <h4 class="text-center" data-aos="fade-up" data-aos-duration="2000">La Nostra Clinica</h4>
+            <p class="text-center" data-aos="fade-up" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
+            <button class="btn my-btn mar-b" data-aos="fade-up" data-aos-duration="2000">per saperne di piu</button>
 
           </div>
-          <div class="col-obb col-4">
-            <h3 class="text-center sub-tit q-1" data-aos="fade-left" data-aos-duration="2000">LAVORO</h3>
-            <h4 class="text-center q-2" data-aos="fade-left" data-aos-duration="2000">Lavora Con noi</h4>
-            <p class="text-center q-3" data-aos="fade-left" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
-            <button class="btn my-btn mb-2 m-b" data-aos="fade-left" data-aos-duration="2000">per saperne di piu</button>
+          <div class="col-12 col-lg-4">
+            <!-- <h3 class="text-center sub-tit q-1" data-aos="fade-left" data-aos-duration="2000">LAVORO</h3> -->
+            <h4 class="text-center" data-aos="fade-left" data-aos-duration="2000">Lavora Con noi</h4>
+            <p class="text-center" data-aos="fade-left" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere doloremque assumenda distinctio repellat, quisquam iusto expedita reiciendis praesentium porro fuga ad beatae possimus quaerat et quod facilis id accusamus molestiae. Earum commodi veniam voluptates minus perferendis? Saepe dignissimos dolore at impedit dolores. Cumque numquam natus illum eius voluptatem officiis?</p>
+            <button class="btn my-btn mb-2 mar-b" data-aos="fade-left" data-aos-duration="2000">per saperne di piu</button>
 
           </div>
         </div>
@@ -428,7 +431,7 @@ export default {
     },
     methods:{
         nextSlide(){
-            if(this.indexActive === 4){
+            if(this.indexActive === this.doctors.length -1){
                 this.indexActive = 0
             }else{
                 this.indexActive += 1
@@ -437,14 +440,13 @@ export default {
         },
         prevSlide(){
             if(this.indexActive === 0){
-                this.indexActive = 4
+                this.indexActive = this.doctors.length -1
             }else{
                 this.indexActive -= 1
             }
 
         },
          autoScroll(){
-            
             this.intervalId = setInterval(()=>{
                 this.nextSlide()
             },3000)
@@ -461,12 +463,12 @@ export default {
 @import '../../sass/variables'; 
 
 // MODIFICHE ULTIME
-// .my-card{
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform:translate(-50%, -50%); 
-// }
+.my-card{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%, -50%); 
+}
 .margin{
   overflow: hidden;
 }
@@ -474,7 +476,15 @@ export default {
   margin-right: 33px;
   margin-left: -48px;
 }
-
+.cs_btn{
+  border: 3px solid #6e9ce0;
+  color:#6e9ce0;
+  font-weight: bold;
+  &:hover{
+    background-color: #6e9ce0;
+    color: black
+  }
+}
 
 .col-obb{
   background-color: #5f4bb652;
@@ -497,9 +507,20 @@ height: 200px;
 }
 // CAROSELLO
 .card-dd{
-  max-width: 1500px;
+  //max-width: 1500px;
+  
   height:550px ;
   background-color:#bdcee7;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.special{
+  color: $general-light-blue;
+  font-weight: bold;
+  &:hover{
+    text-decoration: none;
+    color: $general-violet;
+  }
 }
 .cont{
     
@@ -508,54 +529,54 @@ bottom:800px;
 z-index: 1000;
 }
 .img-card{
-  height: 548px;
-  width: 400px;
+  height: 550px;
+  width: 100%;
   object-fit: cover;
+  position: relative;
+  right: 15px;
 }
     
 .p-car{
-width:400px;
-margin:76px auto;
+//width:400px;
+//margin:76px auto;
 
 }
 .p-carr{
-width:400px;
-margin:50px auto;
+//width:400px;
+//margin:50px auto;
 font-style: italic;
 
 }
-.fa-chevron-left::before {
-    content: "\F053";
-    font-size: 40px;
-}
-.fa-chevron-right::before {
-    content: "\F054";
-    font-size: 40px;
-
-}
+// .fa-chevron-left{
+//     font-size: 40px;
+// }
+// .fa-chevron-right{
+//     font-size: 40px;
+// }
 
 .prev, .next {
-    width: 20px;
-    height: 20px;
-    margin: 10px 0;
-    border-radius: 50%;
-    transform: translate(-50%);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
     z-index: 999;
-    
-    
+    background-color: #98b6e4;
+    padding: 3rem 1rem;
+    font-size: 55px;
+    &:hover{
+      background-color: #6e9ce0;
+    }
 }
 
 .prev{
-  position: absolute;
-  right: 60%;
-  top: 45%
+    /* right: 0; */
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
 }
 
 .next {
-    position: absolute;
-    left: 97%;
-    top: 45%;
+    right: 0;
 }
 // carosello 2
 .owl-theme .owl-nav [class*='owl-'] {
@@ -654,7 +675,13 @@ margin-left: 50px;
   color: $general-violet;
   font-size: 50px;
 }
+.mar-b{
+  margin-bottom: 25px;
+}
 
+// .bg-col{
+//   background-color: $general-violet;
+// }
 // VALORI
 .bg-val{
   background: hsla(218, 52%, 69%, 1);
@@ -972,27 +999,27 @@ margin-top:-100px ;
     width: 750px;
     margin-left: -54px;
 }
-.media-q{
-  width: 180px;
-}
+// .media-q{
+//   width: 180px;
+// }
 
-.card-dd{
-  max-width: 1500px;
- height: 600px;
-}
-.prev{
-  position: absolute;
-  right:40%;
-  top: 33%
-}
-.next {
-    left: 95%;
-}
-.img-card{
-  height: 598px;
-  width: 400px;
-  object-fit: cover;
-}
+// .card-dd{
+//   max-width: 1500px;
+//  height: 600px;
+// }
+// .prev{
+//   position: absolute;
+//   right:40%;
+//   top: 33%
+// }
+// .next {
+//     left: 95%;
+// }
+// .img-card{
+//   height: 598px;
+//   width: 400px;
+//   object-fit: cover;
+// }
 .cont{
 margin-top: 500px;
 }
@@ -1040,10 +1067,10 @@ margin-top: 500px;
   width:300px;
   margin-left: 236px;
 }
-.c-obb{
+// .c-obb{
 
-  height: 1450px;
-}
+//   height: 1450px;
+// }
 
 .bg-val{
   height: 800px;
@@ -1095,14 +1122,14 @@ margin-top: 500px;
   margin-right: 0px;
   margin-left: 0px;
 }
-.prev {
+// .prev {
     
-    right: 37% !important;
+//     right: 37% !important;
     
-}
-.next { 
-    left: 95% !important;
-}
+// }
+// .next { 
+//     left: 95% !important;
+// }
 .img-w {
     width: 20%;
     margin-left: -3px;
@@ -1110,22 +1137,22 @@ margin-top: 500px;
 }
 @media screen and (max-width: 768px) {
 
-.media-q{
-  width: 180px;
-}
+// .media-q{
+//   width: 180px;
+// }
 
-.card-dd{
-  max-width: 1500px;
- height: 600px;
-}
-.prev{
-  position: absolute;
-  left: 6%;
-  top: 33%
-}
-.next {
-    left: 94% !important;
-}
+// .card-dd{
+//   max-width: 1500px;
+//  height: 600px;
+// }
+// .prev{
+//   position: absolute;
+//   left: 6%;
+//   top: 33%
+// }
+// .next {
+//     left: 94% !important;
+// }
 .img-card{
   display: none;
 }
@@ -1393,17 +1420,21 @@ margin-top: 700px;
   font-size: 40px;
   font-family: 'Ibarra Real Nova', serif;
 }
-.prev {
-    position: absolute;
-    right: 53%;
-    top: 45%;
-}
-.next {
-    left: 96%;
-}
+// .prev {
+//     position: absolute;
+//     right: 53%;
+//     top: 45%;
+// }
+// .next {
+//     left: 96%;
+// }
 
 }
-
+@media screen and (min-width: 992px) {
+  .prev{
+    left: -30px;
+  }
+}
 
 
 

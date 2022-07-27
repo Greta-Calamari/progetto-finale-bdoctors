@@ -1,4 +1,3 @@
-
 .show-container{
     border: 1px solid $general-violet;
     border-radius: 15px;
@@ -28,7 +27,7 @@
     }
     
     img{
-        width: 50%;
+        width: 80%;
         object-fit: cover;
         border-radius: 10px;
     }
@@ -39,12 +38,14 @@
     }
     
     .info-container{
-        border-left: 1px solid $general-violet;
+        border-left: 2px solid $general-violet;
         li{
-            padding: 10px;
-            border-radius: 10px;
+            padding: 30px;
             width: 100%;
-            
+            border-bottom: 2px solid $general-violet;
+            &:last-of-type{
+                border: none;
+            }
         }
         h4{
             a{
@@ -68,6 +69,11 @@
         }
         
         
+    }
+    @media screen and (max-width:768px){
+        .info-container{
+            border: none;
+        }
     }
     
 }
