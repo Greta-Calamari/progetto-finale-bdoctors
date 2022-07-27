@@ -14,11 +14,7 @@
                 <a class="list-group-item list-group-item-action" id="list-statistics-list" data-toggle="list" href="#list-statistics" role="tab" aria-controls="statistics">Statistiche</a>
                 <a class="list-group-item list-group-item-action" id="list-sponsors-list" data-toggle="list" href="#list-sponsors" role="tab" aria-controls="sponsors">Sponsorizzazioni</a>
 
-                <form action="{{ route('admin.users.destroy', $user->id ) }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger my-3" type="submit" onclick="doctors.openModal(event, {{$user->id}} )">Elimina profilo</button>    
-                </form>
+                
 
             </div>
         </div>
@@ -31,9 +27,14 @@
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <h3>{{$doctor->name}} {{$doctor->surname}}</h3>
-                            <p>{{Auth::user()->email}}</p>
+                            <p>{{Auth::user()->email}}</p>                            
                             <a class="btn cs_btn mb-2" href="{{route('admin.doctors.show', $doctor->id)}}">Vedi profilo completo</a>
                             <a class="btn cs_btn mb-2" href="{{route('admin.doctors.edit', $doctor->id)}}">Modifica profilo</a>
+                            <form action="{{ route('admin.users.destroy', $user->id ) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn cs_btn" type="submit" onclick="doctors.openModal(event, {{$user->id}} )">Elimina profilo</button>    
+                            </form>
                         </div>
                        
                     </div>

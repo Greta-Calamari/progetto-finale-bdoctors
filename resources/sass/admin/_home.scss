@@ -32,6 +32,8 @@
             background-color: $general-violet;
             border-color: $general-violet;
             color: white;
+            margin-right: 30%;
+            min-width: 60%;
             &:focus {
                 box-shadow: 0 0 0 0.2rem rgba($general-violet, 0.5);
             }
