@@ -9,7 +9,7 @@
             <div  class="animation-border"></div>
             <!-- container con il form per inviare un messaggio  -->
             <div v-if="logo" class="ghost-fix-container d-flex flex-column">
-                <div class="messaggio-container">
+                <div class="messaggio-container" >
                     <div>
                         <i @click="logo = false" class="fa-solid fa-circle-xmark close-chat float-right"></i>
                         <h3>Invia un messaggio al dottore</h3>
@@ -51,16 +51,16 @@
                 <!-- foto del dottore -->
                 <div class="div-img">
                     <!-- <img :src="`/storage/${doctor.photo}`" alt="img"> -->
-                    <img v-if="doctor.photo" :src="`/storage/${doctor.photo}`" :alt="doctor.name" />
-                    <img v-else src="https://t4.ftcdn.net/jpg/02/29/53/11/360_F_229531197_jmFcViuzXaYOQdoOK1qyg7uIGdnuKhpt.jpg" :alt="doctor.name" />
+                    <img data-aos="fade-up" data-aos-duration="2000" v-if="doctor.photo" :src="`/storage/${doctor.photo}`" :alt="doctor.name" />
+                    <img data-aos="fade-up" data-aos-duration="2000" v-else src="https://t4.ftcdn.net/jpg/02/29/53/11/360_F_229531197_jmFcViuzXaYOQdoOK1qyg7uIGdnuKhpt.jpg" :alt="doctor.name" />
                 </div>
                 <!-- specializations  -->
-                <div class="specializations d-flex flex-column justify-content-center align-content-center">
+                <div class="specializations d-flex flex-column justify-content-center align-content-center" data-aos="fade-up" data-aos-duration="2000">
                     <ul>
-                        <h4>Le mie specializzazione</h4>
+                        <h4>Le mie specializzazioni</h4>
                         <hr>
                         <li v-for="specialization in doctor.specializations" :key="specialization.id">
-                            <router-link class="router-link" :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
+                            <router-link data-aos="fade-up" data-aos-duration="2000" class="router-link" :to="{name: 'doctors', params: {id: specialization.id} }" >{{specialization.name}}</router-link>
                         </li>
                     </ul>
                     <hr>
@@ -68,8 +68,8 @@
             </div>
             <!-- info del dottore name/services/address/phone/curriculum  -->
             <div @click="logo = false" class=" info-doctor col-lg-8 col-md-7 col-sm-12 d-flex flex-column ">
-                <h1><i class="fa-solid fa-user-doctor"></i> {{doctor.name}} {{doctor.surname}}
-                    <star-rating v-model="average"
+                <h1 data-aos="fade-up" data-aos-duration="2000"><i class="fa-solid fa-user-doctor"></i> {{doctor.name}} {{doctor.surname}}
+                    <star-rating data-aos="fade-up" data-aos-duration="2000" v-model="average"
                         inactive-color="#5f4bb6"
                         :read-only="true" 
                         :increment="0.01"
@@ -77,28 +77,28 @@
                         v-bind:star-size="20"
                     ></star-rating>
                 </h1>
-                <hr>
-                <h3><i class="fa-solid fa-stethoscope"></i>Servizio:</h3>
-                <h4>{{doctor.services}}</h4>
-                <hr>
-                <h3><i class="fa-solid fa-map-location"></i>Indirizzo:</h3>
-                <h4>{{doctor.address}}</h4>
-                <hr>
-                <h3><i class="fa-solid fa-phone"></i>Telefono:</h3>
-                <h4> {{doctor.cell_number}}</h4>
+                <hr data-aos="fade-up" data-aos-duration="2000">
+                <h3 data-aos="fade-up" data-aos-duration="2000"><i class="fa-solid fa-stethoscope"></i>Servizio:</h3>
+                <h4 data-aos="fade-up" data-aos-duration="2000">{{doctor.services}}</h4>
+                <hr data-aos="fade-up" data-aos-duration="2000">
+                <h3 data-aos="fade-up" data-aos-duration="2000"><i class="fa-solid fa-map-location"></i>Indirizzo:</h3>
+                <h4 data-aos="fade-up" data-aos-duration="2000"> {{doctor.address}}</h4>
+                <hr data-aos="fade-up" data-aos-duration="2000">
+                <h3 data-aos="fade-up" data-aos-duration="2000"><i class="fa-solid fa-phone"></i>Telefono:</h3>
+                <h4 data-aos="fade-up" data-aos-duration="2000"> {{doctor.cell_number}}</h4>
                 <!-- icona che apre il div del curriculum  -->
-                <hr>
-                <div class="curriculum-container">
+                <hr data-aos="fade-up" data-aos-duration="2000">
+                <div data-aos="fade-up" data-aos-duration="2000" class="curriculum-container">
                     <div  v-if="doctor.curriculum_vitae == null">
                     </div>
-                    <div class="i-curriculum" v-else>
+                    <div data-aos="fade-up" data-aos-duration="2000" class="i-curriculum" v-else>
                         <h4  v-on:click="seen = !seen"><i  class="fa-regular fa-file-pdf"></i> Curriculum </h4>
                     </div>
                 </div>
             </div>
             <!-- button che apre il form invia un messaggio  -->
             <div class=" col-lg-4 col-md-5 col-sm-12 d-flex "></div>
-            <div  class="button-messaggio-div col-lg-8 col-md-7 col-sm-12 d-flex">
+            <div data-aos="fade-up" data-aos-duration="2000"  class="button-messaggio-div col-lg-8 col-md-7 col-sm-12 d-flex">
                 <button class="button-messaggio"  @click="logo = true" > Scrivi un messaggio al dottore</button>
             </div>
         </div>
@@ -106,13 +106,13 @@
         <!--container dei commenti  -->
         <div @click="logo = false" class="comment-container row " v-if="doctor.reviews.length >= 0">
             <!-- commenti del dottore  -->
-            <div class="container-commenti ">
+            <div data-aos="fade-right" data-aos-duration="2000"  class="container-commenti ">
                 <h3>Commenti:</h3>
                 <div class="container-commenti-info d-flex flex-column" v-for="mes in doctor.reviews" :key="mes.id">
-                    <div class="col-12 p-0 utente">
+                    <div  data-aos="fade-right" data-aos-duration="2000" class="col-12 p-0 utente">
                         <h4><i class="fa-solid fa-user"></i> {{mes.name}}</h4>
                     </div>
-                    <div class="col-12 p-0 voto">
+                    <div  data-aos="fade-right" data-aos-duration="2000"  class="col-12 p-0 voto">
                         <star-rating v-model="mes.votes"
                             inactive-color="#5f4bb6"
                             :show-rating="false"
@@ -120,17 +120,17 @@
                             v-bind:star-size="15"
                         ></star-rating>
                     </div>
-                    <div class="col-12 p-0 data">
+                    <div data-aos="fade-right" data-aos-duration="2000" class="col-12 p-0 data">
                         <h6>{{getFormattedDate(mes.created_at)}}</h6>
                     </div>
-                    <div class="col-12 p-0">
+                    <div data-aos="fade-right" data-aos-duration="2000" class="col-12 p-0">
                         <p>{{ mes.comment }}</p>
                         <hr>
                     </div>
                 </div>
             </div>
             <!-- form per aggiungere un commento  -->
-            <div  class=" add-comment p-0 col-12">
+            <div  data-aos="fade-right" data-aos-duration="2000" class=" add-comment p-0 col-12">
                 <form @submit.prevent="addComment()">
                     <h2>Lascia una recensione</h2>
                     <!-- input name  commento-->

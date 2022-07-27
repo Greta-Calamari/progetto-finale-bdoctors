@@ -78,11 +78,11 @@
                 </div>
             </div>
                 <div v-else class="cards" :class="responsiveUp ? 'resp' : ''">
-                    <div class="row" v-if="doctors.length > 0">
-                        <div class="col-12 col-lg-6 col-xl-4 my-5" v-for="(doctor) in doctors" :key="doctor.id">
+                    <div class="row" v-if="doctors.length > 0" >
+                        <div class="col-12 col-lg-6 col-xl-4 my-5" v-for="(doctor) in doctors" :key="doctor.id" data-aos="flip-up" data-aos-duration="2000">
                             <div class="card">
                                 <div class="row">
-                                    <div class="col-5">
+                                    <div class="col-5"  data-aos="flip-up" data-aos-duration="2000">
                                         <router-link :to="{ name:'doctor', params:{slug: doctor.slug} }">
                                             <div class="img-box">
                                                 <img :src="`/storage/${doctor.photo}`" class="w-100" :alt="doctor.name"  v-if=" doctor.photo">
@@ -90,8 +90,8 @@
                                             </div>
                                         </router-link>
                                     </div>
-                                    <div class="col-7">
-                                        <div class="card-body">
+                                    <div class="col-7"  data-aos="flip-up" data-aos-duration="2000">
+                                        <div class="card-body " >
                                             <h5 class="card-title">{{doctor.name}} {{doctor.surname}}</h5>
                                             <p class="card-text" v-if="doctor.reviews.length > 0"><i class="fa-solid fa-star" v-for="(index) in getAverage(doctor)" :key="index"></i></p>
                                             <p class="card-text" v-else>Nessuna recensione</p>
