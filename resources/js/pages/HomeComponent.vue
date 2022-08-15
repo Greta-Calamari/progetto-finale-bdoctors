@@ -45,7 +45,7 @@
                         
                       <div class="col-12 col-lg-7">
                         <div class="card-body my-card text-center">
-                          <h3 class="card-title text-center mt-5 "><i class="fa-solid fa-stethoscope"></i>{{doctors[indexActive].name}} {{doctors[indexActive].surname}}</h3>
+                          <h3 class="card-title text-center mt-5 "><i class="fa-solid fa-stethoscope"></i> {{doctors[indexActive].name}} {{doctors[indexActive].surname}}</h3>
                           <!-- <h5 class="card-title text-center mt-2">{{doctors[indexActive].surname}}</h5> -->
                           <p class="text-center p-car media-q"><i class="fa-solid fa-map-location"></i> {{doctors[indexActive].address}}</p>
                           <p  class="text-center p-car media-q"><i class="fa-solid fa-phone"></i> {{doctors[indexActive].cell_number}}</p>

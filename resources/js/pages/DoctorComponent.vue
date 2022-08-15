@@ -17,24 +17,24 @@
                         <form @submit.prevent="sendMes()">
                             <!-- nome utente per il form  messaggio  -->
                             <div class="username-container">
-                                <label for="username"> Inserisci il tuo nome</label>
+                                <label for="username"> Inserisci il tuo nome&#42;</label>
                                 <br>
                                 <input v-model="formMes.name" type="text" placeholder="Nome" minlength="1" maxlength="100" required/>
                             </div>
                             <!-- contenuto per il form messaggio -->
                             <div class="content-container">
-                                <label for="content"> Inserisci il tuo messaggio</label>
+                                <label for="content"> Inserisci il tuo messaggio&#42;</label>
                                 <br>
                                 <textarea v-model="formMes.content" type="text" placeholder="Messaggio" maxlength="255" required></textarea>
                             </div>
                             <!-- email per il form messaggio  -->
                             <div class="email-container">
-                                <label for="email"> Inserisci la tua email</label>
+                                <label for="email"> Inserisci la tua email&#42;</label>
                                 <br>
                                 <input type="email" v-model="formMes.email" placeholder="Email" required>
                             </div>
                             <button type="submit" @click="showComment()">Invia</button>
-                            <h4 class="invio-messaggio" v-if="conferma" >Il tuo messaggio è stato inviato! </h4>
+                            <h4 class="invio-messaggio text-center mt-3" v-if="conferma" >Il tuo messaggio è stato inviato! </h4>
                         </form>
                     </div>
                 </div> 
@@ -70,7 +70,8 @@
             <div @click="logo = false" class=" info-doctor col-lg-8 col-md-7 col-sm-12 d-flex flex-column ">
                 <h1 data-aos="fade-up" data-aos-duration="2000"><i class="fa-solid fa-user-doctor"></i> {{doctor.name}} {{doctor.surname}}
                     <star-rating data-aos="fade-up" data-aos-duration="2000" v-model="average"
-                        inactive-color="#5f4bb6"
+                        inactive-color="#c2b5fb"
+                        active-color="#5f4bb6"
                         :read-only="true" 
                         :increment="0.01"
                         :show-rating="false"
@@ -78,7 +79,7 @@
                     ></star-rating>
                 </h1>
                 <hr data-aos="fade-up" data-aos-duration="2000">
-                <h3 data-aos="fade-up" data-aos-duration="2000"><i class="fa-solid fa-stethoscope"></i>Servizio:</h3>
+                <h3 data-aos="fade-up" data-aos-duration="2000"><i class="fa-solid fa-stethoscope"></i>Prestazioni:</h3>
                 <h4 data-aos="fade-up" data-aos-duration="2000">{{doctor.services}}</h4>
                 <hr data-aos="fade-up" data-aos-duration="2000">
                 <h3 data-aos="fade-up" data-aos-duration="2000"><i class="fa-solid fa-map-location"></i>Indirizzo:</h3>
@@ -114,7 +115,8 @@
                     </div>
                     <div  data-aos="fade-right" data-aos-duration="2000"  class="col-12 p-0 voto">
                         <star-rating v-model="mes.votes"
-                            inactive-color="#5f4bb6"
+                            inactive-color="#c2b5fb"
+                            active-color="#5f4bb6"
                             :show-rating="false"
                             :read-only="true"
                             v-bind:star-size="15"
@@ -135,26 +137,26 @@
                     <h2>Lascia una recensione</h2>
                     <!-- input name  commento-->
                     <div class="name-comment">
-                        <label for="name">Inserisci il tuo nome</label>
+                        <label for="name">Inserisci il tuo nome&#42;</label>
                         <br>
                         <input v-model="formData.name" type="text"  minlength="1" maxlength="100" placeholder="Nome" required/>
                     </div>
                     <!-- input comment commento-->
                     <div class="text-comment">
                         
-                        <label for="comment">Inserisci il tuo commento</label>
+                        <label for="comment">Inserisci il tuo commento&#42;</label>
                         <br>
                         <textarea  name="content" id="contentEditor" cols="30" rows="10" minlength="1" maxlength="255" placeholder="Commento" v-model="formData.comment" required>
                         </textarea>
                     </div>
                     <!-- input votes  commento-->
                     <div class="votes-comment">
-                        <label for="votes" class="form-label">Seleziona un voto da 1 a 5</label>
+                        <label for="votes" class="form-label">Seleziona un voto da 1 a 5&#42;</label>
                         <star-rating class="star" type="number" name="votes" v-model="formData.votes" 
                             v-bind:increment="1"
                             v-bind:max-rating="5"
-                            inactive-color="#5f4bb6"
-                            active-color="gold"
+                            inactive-color="#c2b5fb"
+                            active-color="#5f4bb6"
                             :show-rating="false"
                             v-bind:star-size="20">
                         </star-rating> 
@@ -212,7 +214,7 @@ export default {
             for (let i = 0; i < this.doctor.reviews.length; i++) {
                 sum += this.doctor.reviews[i].votes;
             }
-            return sum / this.doctor.reviews.length;
+            return Math.floor(sum / this.doctor.reviews.length);
         },
     
         addComment() {
@@ -237,17 +239,21 @@ export default {
                 this.formMes.content = "",
                 this.formMes.email = "",
                 this.doctor.messages.push(response.data);
+                this.conferma = !this.conferma;
+                setTimeout(()=>{
+                    this.conferma = !this.conferma;
+                },3000)
                 })
                 .catch((error) => {
                  console.log(error);
             });
         },
         // function show div confirm send messages
-        showComment() {
-            if(this.formMes.email.length > 0){
-                return this.conferma = !this.conferma;
-            } 
-        },
+        // showComment() {
+        //     if(this.formMes.email.length > 0){
+        //         return this.conferma = !this.conferma;
+        //     } 
+        // },
         
     },
     computed: {
@@ -318,8 +324,8 @@ section{
             right: 80px;
             bottom: 10%; 
             z-index: 10000;
-            padding: 10px;
-            background-color: $general-light-blue;
+            padding: 15px;
+            background-color: #b8d0f9;
             border-radius: 10px;
             a button{
                 
@@ -454,6 +460,8 @@ section{
                     input{
                         width: 100%;
                         border: 2px solid $general-violet;
+                        border-radius: 10px;
+                        padding:5px;
                     }
                 }
                 .text-comment{
@@ -461,6 +469,8 @@ section{
                         width: 100%;
                         height: 100px;
                         border: 2px solid $general-violet;
+                        border-radius: 10px;
+                        padding:5px;
                     }
                 }
                 .votes-comment{
@@ -482,26 +492,29 @@ section{
     }
     .messaggio-container{
         width: 100%;
-            margin-bottom: 20px ;
+        margin-bottom: 20px ;
         div{
             width: 100%;
             .username-container{
                 input{
                     width: 100%;
-                    border: 2px solid $general-violet;
+                        border-radius: 10px;
+                        padding: 5px;
                 }
             }
             
             .content-container{
                 textarea{
                     width: 100%;
-                    border: 2px solid $general-violet;
+                        border-radius: 10px;
+                        padding: 5px;
                 }
             }
             .email-container{
                 input{
                     width: 100%;
-                    border: 2px solid $general-violet;
+                        border-radius: 10px;
+                        padding: 5px;
                 }
                 .invio-messaggio{
                     font-size: 1rem;
